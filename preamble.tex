@@ -1,0 +1,81 @@
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{amssymb}
+% \setlength\intextsep{11pt}
+\usepackage{braket}
+\numberwithin{equation}{section}
+\usepackage{bm}
+\usepackage{yfonts}
+\usepackage{lipsum}
+\usepackage{microtype}
+\usepackage{appendix}
+\usepackage{soul}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{bbm}
+\usepackage{titlesec}
+\usepackage{subfiles}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\usepackage[justification=centering]{caption}
+
+% \usepackage[sectionbib]{chapterbib}
+
+\usepackage{verbatim}
+\usepackage{latexsym}
+\usepackage{setspace}
+
+\input{uhead.sty}
+\input{icthesis.sty}
+\input{boxit.sty}
+\input{blocked.sty}
+
+\pagestyle{uheadings}
+
+
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\titleformat{\section}
+  {\normalfont\fontsize{15}{16}\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont \fontsize{13}{14}\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\fontsize{12}{13}\selectfont}{\thesubsubsection}{1em}{}
+
+\newcommand{\normallinespacing}{\renewcommand{\baselinestretch}{1.5} \normalsize}
+\newcommand{\mediumlinespacing}{\renewcommand{\baselinestretch}{1.2} \normalsize}
+\newcommand{\narrowlinespacing}{\renewcommand{\baselinestretch}{1.0} \normalsize}
+
+%Define that shaded box you like
+\usepackage[noframe]{showframe}
+\usepackage{framed}
+\renewenvironment{shaded}{%
+    % \everypar={{\setbox0=\lastbox}\everypar{}}
+  \def\FrameCommand{\fboxsep=\FrameSep \colorbox{shadecolor}}%
+  \MakeFramed{\advance\hsize-\width \FrameRestore\FrameRestore}}%
+ {\endMakeFramed}
+\definecolor{shadecolor}{gray}{0.9}
+
+
+% math commands:
+\newcommand*{\vertbar}{\rule[-1ex]{0.5pt}{2.5ex}}
+\newcommand*{\horzbar}{\rule[.5ex]{2.5ex}{0.5pt}}
+\newcommand{\dline}[1]{\underline{\underline{#1}}}
+
+\newcommand{\tr}{\ensuremath{\textup{Tr}}}
+\newcommand{\1}{\ensuremath{\mathbbm{1}}}
+% \renewcommand{\bf}[1]{\ensuremath{\textbf{#1}}}
+\newcommand{\re}{\ensuremath{\textup{Re}}}
+\newcommand{\im}{\ensuremath{\textup{Im}}}
+\newcommand{\ts}{\textsuperscript}
+\renewcommand{\r}{\ensuremath{\textbf{r}}}
+\newcommand{\jon} {J_{\textup{on}}}
+\newcommand{\joff} {J_{\textup{off}}}
+
