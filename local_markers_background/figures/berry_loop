@@ -1,0 +1,24 @@
+\begin{tikzpicture}
+
+\def  \angoff {20}
+\def \picsize {1.8}
+\def \edistance {0.5}
+\def \anground {72}
+
+\draw [-latex,domain = \angoff:\anground-\angoff] plot ({\picsize * cos (\x + 90)}, {\picsize * sin (\x + 90)});
+\draw [-latex,domain = \angoff:\anground-\angoff] plot ({\picsize * cos (\x + 90+\anground)}, {\picsize * sin (\x + 90+\anground)});
+\draw [-latex,domain = \angoff:\anground-\angoff] plot ({\picsize * cos (\x + 90+2*\anground)}, {\picsize * sin (\x + 90+2*\anground)});
+\draw [-latex,domain = \angoff:\anground-\angoff] plot ({\picsize * cos (\x + 90+3*\anground)}, {\picsize * sin (\x + 90+3*\anground)});
+\draw [-latex,domain = \angoff:\anground-\angoff] plot ({\picsize * cos (\x + 90+4*\anground)}, {\picsize * sin (\x + 90+4*\anground)});
+
+\draw node at (90:\picsize) {$\ket{\psi_1}$};
+\draw node at (90+\anground:\picsize) {$\ket{\psi_2}$};
+\draw node at (90+2*\anground:\picsize) {$\ket{\psi_3}$};
+\draw node at (90+3*\anground:\picsize) {$...$};
+\draw node at (90+4*\anground:\picsize) {$\ket{\psi_N}$};
+
+\draw node at (90+0.5*\anground:\picsize+\edistance) {$e^{-i \gamma_{1,2}}$};
+\draw node at (90+1.5*\anground:\picsize+\edistance) {$e^{-i \gamma_{2,3}}$};
+\draw node at (90+4.5*\anground:\picsize+\edistance) {$e^{-i \gamma_{N,1}}$};
+
+\end{tikzpicture}
