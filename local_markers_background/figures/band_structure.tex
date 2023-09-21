@@ -1,0 +1,47 @@
+\begin{tikzpicture}
+
+    \def \size{3}
+    \def \vsize {2}
+    \def \ksize{2}
+    \def \stepnum {8}
+    
+    \draw [->] (0,0) -- (\size,0,0);
+    \draw  [->] (0,-\vsize,0) -- (0,\vsize,0);
+    \draw  [->] (0,0) -- (0,0,1.6*\size);
+    
+    \draw node at (1.1*\size,0,0) {$k_x$};
+    \draw node at (0,1.1*\vsize,0) {$E$};
+    \draw node at (0,0,1.7*\size) {$k_y$};
+    
+    \draw node at (-1.1*\size , 1, 0) {$n=2$};
+    \draw node at (-1.1*\size , -1, 0) {$n=1$};
+    
+    \def \xone {0.5}
+    \def \yone {1.1}
+    
+    \draw [dashed] (\yone, -2 ,\xone) -- (\yone, 2 ,\xone);
+    
+    
+    
+    \foreach \yy in {-\stepnum, ..., \stepnum}
+    {	
+        \def \y {\yy*(\ksize/\stepnum)}
+        \draw [domain = -\ksize:\ksize, variable= \x, gray] plot ({\y},{0.15*(1+cos(\x*360/(2*\ksize)))*(1+cos(\y*360/(2*\ksize))) -1},{\x});
+        \draw [domain = -\ksize:\ksize, variable= \x, gray] plot ({\x},{0.15*(1+cos(\x*360/(2*\ksize)))*(1+cos(\y*360/(2*\ksize))) -1},{\y});
+        
+        \draw [domain = -\ksize:\ksize, variable= \x, gray] plot ({\y},{-0.15*(1+cos(\x*360/(2*\ksize)))*(1+cos(\y*360/(2*\ksize))) +1},{\x});
+        \draw [domain = -\ksize:\ksize, variable= \x, gray] plot ({\x},{-0.15*(1+cos(\x*360/(2*\ksize)))*(1+cos(\y*360/(2*\ksize))) +1},{\y});
+    }
+    
+    
+    \draw[fill] ({\yone},{0.15*(1+cos(\xone*360/(2*\ksize)))*(1+cos(\yone*360/(2*\ksize))) -1},{\xone}) circle [radius=0.05];
+    \draw[fill] ({\yone},{-0.15*(1+cos(\xone*360/(2*\ksize)))*(1+cos(\yone*360/(2*\ksize)))+1},{\xone}) circle [radius=0.05];
+    
+    \draw [->] (3,-1,0) --  ({\yone+0.04},{0.15*(1+cos(\xone*360/(2*\ksize)))*(1+cos(\yone*360/(2*\ksize))) -1},{\xone}) ;
+    \draw [->] (3,1,0) -- ({\yone+0.04},{-0.15*(1+cos(\xone*360/(2*\ksize)))*(1+cos(\yone*360/(2*\ksize))) +1},{\xone}) ;
+    
+    \draw node at (1.2*\size,-1,0) {$\ket{u_{\bf k, 1}}$};
+    \draw node at (1.2*\size,1,0) {$\ket{u_{\bf k, 2}}$};
+    
+    
+    \end{tikzpicture}

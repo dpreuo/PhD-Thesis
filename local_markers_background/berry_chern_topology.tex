@@ -1,182 +1,209 @@
 
-We shall start by introducing the concepts of Berry phase, Berry flux and Chern number, quantities that will be of fundamental importance for understanding the properties of topological insulators. 
+In this section we introduce the mathematical construction of Berry phase, Berry flux and Chern number. We will present these ideas in two different contexts. In \textsection\ref{sec:discrete_berry} we introduce the simplest possible story that captures the essentials of Berry phase and Chern number: that of a discretised lattice of quantum states. Here wil will miss many of the details that make such concepts relevant to physical systems, however the picture is sufficiently simple as to provide a practical intuition for how to calculate these quantities. In \textsection\ref{sec:continuous_berry}, we will do things \textit{properly}, by considering the effect on the band structure of some Hamiltonian that is changed adiabatically over some smooth parameter space. We will derive the exact form of the Chern number in this context and relate it to the TKNN invariant \cite{thouless_quantized_1982}. Finally, in \textsection\ref{sec:an_example} we give a brief example of such a calculation, demonstrating how these concepts apply to a two-state quantum system. 
 
-Berry phase was first introduced in \cite{berry_quantal_1984}, the ideas presented here will largely follow \cite{asboth_short_2016}, but other resources for understanding these concepts can be found in \cite{resta_geometry_2020,bohm_geometric_2003}. These concepts will first be introduced in the discrete case, looking at the Berry phase accumulated as one moves adiabatically around a lattice of quantum states. However in \textsection\ref{sec:continuous_case} we will extend the argument to include adiabatic paths around a smooth manifold of states. In \textsection\ref{sec:an_example} we will give a brief example of such a calculation, demonstrating how these concepts may be applied to periodic quantum systems.
+\subsection{The Simplest Story -- A Discrete Lattice of States} \label{sec:discrete_berry}
 
-\subsection{Discrete Case}
-
-Suppose we have a quantum system that lives in a Hilbert space $\mathcal{H}$. States in this system are denoted by an equivalence class of vectors in this space. This means that two states that differ only by a complex phase still represent the same state,
+In quantum mechanics a state is defined as an equivalence class of vectors, where two states that differ only by a complex phase are considered physically equivalent,
 \begin{align}
     \ket{\psi} \sim e^{-i\alpha}\ket{\psi}.
 \end{align}
-Thus we essentially have a degeneracy in our description of the physics taking place. It is possible to make a gauge transformation -- shifting the state by some complex phase -- without affecting the system in any measurable way.\par
-Now suppose that we have collected a set of states that live in this Hilbert space, $\{ \ket{\psi_j}\}$. Rather than acting on each state with the same phase (and thus implementing a global gauge transformation), you apply a different phase to each state. This amounts to making a local gauge transformation,
+Thus, we seem to have a degeneracy built into our description of physics. This means that one can define a gauge transformation -- multiplying a state with a complex phase -- that is guaranteed not to affect the system in any `real' measurable way. Any derived quantity must be invariant under gauge transformations in order to be considered physical. Thus, one would expect any quantity that depends on the state's phase to be unphysical.
+
+Similarly, considering some arbitrary set of states in the same Hilbert space, $\{ \ket{\psi_j}\}$, we may define a local gauge transformation where we apply a different phase to each individual state,
 \begin{align}
     \ket{\psi_j} \rightarrow e^{-i\alpha_j}\ket{\psi_j}.
 \end{align}
-The physical meaning of each state must be unaffected, so we expect that any quantity of physical importance should be invariant to our choice of gauge. With this condition in mind we can try to define quantities that compare our states, and test whether their definitions respect gauge invariance. The first quantity we propose is the relative phase between two states.
+Again, the physical meaning of each state is unaffected, so we expect that any physical quantity calculated from these states must be invariant under the transformation. Thus one might expect that any \textit{phase-like} quantity calculated from these states should have no physical relevance. For example, let us consider the relative phase between state $j$ and $k$, $\gamma_{j,k}$, defined according to
 \begin{align}
-    e^{-i\gamma_{j,k}} = \frac{\braket{\psi_j|\psi_k}}{|\braket{\psi_j|\psi_k}|}
+    e^{-i\gamma_{j,k}} = \frac{\braket{\psi_j|\psi_k}}{|\braket{\psi_j|\psi_k}|}.
 \end{align}
-Clearly this quantity is invariant under global gauge transformations, but it is definitely not invariant under a local transformation since it changes according to
+Clearly this quantity is invariant if all states pick up the same phase, however it is not invariant under a local transformation, changing as
 \begin{align}
-    e^{-i\gamma_{j,k}} \rightarrow e^{-i(\gamma_{j,k}+\alpha_j - \alpha_k)}.
+    e^{-i\gamma_{j,k}} \rightarrow e^{-i(\gamma_{j,k}+\alpha_j - \alpha_k)},
 \end{align}
-Let's try something else.\par
-We pick a set of $N$ ($\geq 3$) states $\ket{\psi_j}$ and arrange them in a loop.
+and so cannot be a physical observable. In order to construct a gauge-invariant object, let's pick a set of $n$ ($\geq 3$) states $\ket{\psi_j}$ and arrange them in a loop.
 \begin{center}
     \input{local_markers_background/figures/berry_loop}
 \end{center}
 We can now define a new quantity called the Berry phase:
-\begin{align}\label{berry1}
-    e^{-i \gamma^{B}} = \frac{\braket{\psi_1|\psi_2}\braket{\psi_2|\psi_3}...\braket{\psi_N|\psi_1}}{|\braket{\psi_1|\psi_2}\braket{\psi_2|\psi_3}...\braket{\psi_N|\psi_1}|}
+\begin{align}
+    e^{-i \gamma_{B}} = \frac{\braket{\psi_1|\psi_2}\braket{\psi_2|\psi_3}...\braket{\psi_N|\psi_1}}{|\braket{\psi_1|\psi_2}\braket{\psi_2|\psi_3}...\braket{\psi_N|\psi_1}|}
 \end{align}
 Another way of writing this would be
-\begin{align}
-    \gamma^{B} = -\arg \tr \left[ \rho_{1} \;\rho_{2} \; ... \;\rho_{N} \right ],
+\begin{align}  
+    \gamma_{B} = -\arg \tr 
+    \left [ \hat\psi_{1} \hat\psi_{2} 
+    \, ... \,
+    \hat\psi_{N} \right ],
 \end{align}
-where trace is over the whole system, and the $\rho$ states are density matrices
+where the trace is over the whole system, and $\hat \psi$ is shorthand for the density operator
 \begin{align}
-    \rho_{i} = \ket{\psi_{i}}\bra{\psi_{i}}.
+    \hat \psi_{i} = \ket{\psi_{i}}\bra{\psi_{i}}.
 \end{align}
-This quantity is clearly gauge-invariant, since any phase you attach to a state $\ket{\psi_m}$ will show up twice, once from $\braket{\psi_m|\psi_{m+1}}$ and once from $\braket{\psi_{m-1}|\psi_{m}}$. The phase will have opposite sign in each of these expressions so they cancel out. Furthermore, we can see that the Berry phase around a loop is simply the sum of all the relative phases around that loop modulo $2\pi$.
-\begin{align}
-	\gamma^B = \sum_{n=1}^N \gamma_{n,n+1} \mod 2\pi
+This quantity is clearly gauge-invariant, since any phase applied to a state $\ket{\psi_m}$ will show up twice, once from $\braket{\psi_m|\psi_{m+1}}$ and once from $\braket{\psi_{m-1}|\psi_{m}}$. The phase will have opposite sign in each of these expressions so they cancel out. Furthermore, we can see that the Berry phase around a loop is simply the sum of all the relative phases around that loop modulo $2\pi$.
+\begin{align}\label{eqn:discrete_berry_sum}
+	\gamma_B = \sum_{n=1}^N \gamma_{n,n+1} \mod 2\pi
 \end{align}
 
 
 \subsubsection{Berry Flux}
 
-We now imagine that we have some massive amount of states arranged in a grid. These are labeled according a pair of parameters that we will call $q_x$ and $q_y$, $\ket{\psi_{q_x,q_y}}$. Note that we have used $q$ as a label here because it will turn out that in periodic quantum systems, these states correspond to the Bloch eigenstates, and $q$ will correspond to the $\bf k$ parameter in our $\ket {u_{\bf k, n}}$ states.
+Now suppose that we have a large number of states arranged in a 2D grid. These states  $\ket{\psi_{\textbf k}}$ are labelled according with a pair of indices $k_x$ and $k_y$. In general, this parameter $\textbf k$ will refer to the crystal momentum, however the construction is equally valid for any other parameter that defines a 2D grid of quantum states.
 
 \begin{center}
 \input{local_markers_background/figures/berry_grid}
 \end{center}
 
-We introduce a new quantity called the Berry flux. This is defined to be the Berry phase around a unit loop in our grid,
+We introduce a new quantity called the Berry flux. This is defined as the Berry phase around a plaquette on our grid,
 \begin{align}\label{eqn:berry_flux}
-    F_{q_x,q_y} =  - \arg \tr \left[ \rho_{q_x,q_y} \;\rho_{q_x+1,q_y} \;\rho_{q_x+1,q_y+1} \;\rho_{q_x,q_y+1} \right ],
+    F_{\textbf k} =  
+    - \arg \tr \left [ 
+        \hat \psi_{k_x,k_y}
+        \hat \psi_{k_x+1,k_y}
+        \hat \psi_{k_x+1,k_y+1}
+        \hat \psi_{k_x,k_y+1} 
+        \right ].
 \end{align}
-where each $\rho$ represents the density matrix
-\begin{align}
-    \rho_{q_x,q_y} = \ket{\psi_{q_x,q_y}}\bra{\psi_{q_x,q_y}}.
+$F_{\textbf k}$ is just the sum (mod $2\pi$) of the relative phases along each edge of the plaquette starting at point $\textbf k$. Thus, the Berry phase around some arbitrary loop containing multiple plaquettes can be found by summing the value of $F_{\textbf k}$ for every plaquette contained in that region. Each relative phase flips sign depending on which way round it is evaluated. Any internal edge is shared between two plaquettes and so will appear twice in the sum of Berry fluxes, with opposite signs. This means all internal edges have their contribution to the total phase cancelled out and we are left with the sum of the relative phases only around the boundary of our region.
+\begin{align} \label{berry_sum_discrete}
+    \exp 
+    \bigg [
+        -i \sum_{\substack{\textup{inside} \\ \textup{region}}}F
+    \bigg ] 
+    = \exp \bigg [ 
+        -i\sum_{\textup{boundary}} \gamma
+    \bigg ]
 \end{align}
-This quantity has a neat property. $F_{q_x,q_y}$ is just the sum (mod $2\pi$) of the relative phases along each edge of the plaquette starting at point $(q_x,q_y)$. Thus, if we wanted to calculate the Berry phase around some arbitrary loop that contained multiple plaquettes, we could just sum the value of $ F_{q_x,q_y} $ for every plaquette contained in that region. Each relative phase flips sign depending on which way round it is evaluated. Any internal edge is shared between two plaquettes and so will appear twice in the sum of Berry fluxes, with opposite signs. This means all internal edges have their contribution to the total phase cancelled out and we are left with the sum of the relative phases only around the boundary of our region.
-\begin{align}\label{berry_sum_discrete}
-     \exp \left[ {-i \sum_{\textup{ inside region}}F}\right ] = \exp\left [ -i\sum_{\textup{boundary}} \gamma\right ]
-\end{align}
-This vaguely resembles Stokes' law, however there is one subtlety worth mentioning. All we have required is that the complex exponential of each sum is the same. This does \textbf{not} mean that the sum of the Berry flux inside a region is equal to the sum of relative phases around the boundary, since they are allowed to differ by an arbitrary multiple of $2\pi$
+This resembles Stokes' law, however there is a subtlety worth mentioning. All we have required is that the complex exponential of each sum is the same. This does \textbf{not} mean that the sum of the Berry flux inside a region is equal to the sum of relative phases around the boundary, since they are allowed to differ by an arbitrary multiple of $2\pi$.
 
 
 \subsubsection{Chern Number} \label{sec:discrete_chern}
-Now let's assume that our grid of points $(q_x,q_y)$ has periodic boundaries, with $1\leq q_x \leq N_x$ and $1 \leq q_y \leq N_y$. That is, we have wrapped our space up to make a torus. The product of all the Berry flux phases is now always equal to 1,
+Now let's assume that our grid of $\textbf k$ points has periodic boundaries, with $1\leq k_x \leq N_x$ and $1 \leq k_y \leq N_y$. That is, the lattice is a discretisation of the torus -- a closed manifold. The product of all the Berry flux phases is now always equal to 1,
 \begin{align}\label{torus_sum}
-    \prod_{q_x=1}^{N_x}\prod_{q_y=1}^{N_y}e^{-i F_{q_x,q_y}} = 1.
+    \prod_{k_x=1}^{N_x}\prod_{k_y=1}^{N_y}e^{-i F_{k_x,k_y}} = 1.
 \end{align}
-This is because every edge in our grid is now an internal edge, so they all cancel out! Again, as before, this does not mean that the sum of all Berry fluxes in our system vanishes. It means that the sum must always equal some multiple of $2\pi$. This sum gives us the Chern number, which we will call $\mathcal Q$,
+Here because every edge in our grid is now an internal edge and thus they cancel out. Again, as before, this does not mean that the sum of all Berry fluxes in our system vanishes. It means that the sum must always equal some multiple of $2\pi$. This sum gives us the Chern number, $\mathcal Q$,
 \begin{align}\label{eqn:discrete_chern_number}
-    \mathcal Q = \frac{1}{2\pi} \sum_{q_x,q_y}F_{q_x,q_y}.
+    \mathcal Q = \frac{1}{2\pi} \sum_{k_x,k_y}F_{k_x,k_y}.
 \end{align}
-$\mathcal Q$ is necessarily restricted to integer values, since a non-integer value would contradict equation \ref{torus_sum}.\par
+$\mathcal Q$ is necessarily restricted to integer values, since a non-integer value would contradict equation \ref{torus_sum}.
 
 
-\subsection{Continuous Case}\label{sec:continuous_case}
+\subsection{Topology of a General Hamiltonian}\label{sec:continuous_berry}
 
-Now we repeat the entire derivation, but applied to continuous quantum systems, rather than a discrete lattice of states. In this new system, rather than a grid of discrete states $\ket{\psi_{q_x, q_y}}$ we are working with some smooth parameter space $\mathcal{P}$ of states.
+Now that we have a basic intuition for what the Chern number is, let's see how this applies to a real physical system. We start by defining some arbitrary Hamiltonian $H(\textbf k)$, which depends on some set of parameters $\textbf k = (k_x, k_y ).$\footnote{In general, $\textbf k$ can have any dimensionality, but for the following treatment this will be sufficient.}
+
+For every value of $\textbf k$, the Hamiltonian will generally have some set of $\ket{\psi_n (\textbf k)}$ with corresponding energies $\varepsilon_n$. As before, these eigenstates are only strictly defined up to a phase. Thus let consider a single band $\ket{\psi(\textbf k)}$ and define a local gauge transformation as applying some $\textbf k$-dependent phase $\alpha(\textbf k)$ to all of the states over this band.
 \begin{align}
-    \ket{\psi(\bf q)}, \; \bf q \in \mathcal{P}
+	\ket{\psi(\textbf k)} \rightarrow e^{-i\alpha(\textbf k)}\ket{\psi(\textbf k)}.
 \end{align}
-In this context, a local gauge transformation amounts to applying some $\bf q$-dependent phase $\alpha(\bf q)$ to all of the states in our system.
-\begin{align}
-	\ket{\psi(\bf q)} \rightarrow e^{-i\alpha(\bf q)}\ket{\psi(\bf q)}.
-\end{align}
-Before we continue, let us define what we mean by a \textit{smooth gauge}. This is a choice of gauge for our states that ensures that the $\bf q$-derivative of a state, $\nabla_{\bf q}\ket{\psi(\bf q)}$ is always well-defined. In general it is not always possible to pick a gauge that is globally smooth over all of $\mathcal{P}$, however it \textit{is} always possible to pick a locally smooth gauge around the neighbourhood of some point in $\mathcal{P}$\footnote{Do we need a more in depth justification of this statement? Or is it ok just to state this and move on?}.
+In order for this to be well-behaved we will need to use a \textit{smooth gauge}. This is a choice of gauge that ensures that the $\textbf k$-derivative of a state, $\nabla_{\textbf k}\ket{\psi(\textbf k)}$ is always well-defined -- that is, $\alpha(\textbf k)$ does not jump around discontinuously in $\textbf k$. In general it is not always possible to pick a gauge that is globally smooth over all of $\mathcal{P}$, however it \textit{is} always possible to pick a locally smooth gauge around the neighbourhood of some point in $\mathcal{P}$.
 
-\par
-
-We now want to look at the relative phase between a state at $\bf q$ and another state that is infinitesimally displaced from it, at $\bf q + d \bf q$. This can be expressed as
+Let us define relative phase between a state at $\textbf k$ and another state that is infinitesimally displaced from it, at $\textbf k + d \textbf k$,
 \begin{align}
-    e^{-i\Delta\gamma} = \frac{\braket{\psi(\bf q)|\psi(\bf q+d\bf q)}}{|\braket{\psi(\bf q)|\psi(\bf q+d\bf q)}|}.
+    e^{-i\Delta\gamma} = \frac{\braket{\psi(\textbf k)|\psi(\textbf k+d\textbf k)}}{|\braket{\psi(\textbf k)|\psi(\textbf k+d\textbf k)}|}.
 \end{align}
-In the limit of small $d\bf q$ we can express $\ket{\psi(\bf q+d\bf q)}$ to first order in $d\bf q$ as
+In the limit of small $d\textbf k$ we can express $\ket{\psi(\textbf k+d\textbf k)}$ to first order in $d\textbf k$ as
 \begin{align}
-    \ket{\psi(\bf q+d\bf q)} = \ket{\psi(\bf q)} + d\bf q \cdot \nabla_{\bf q} \ket{\psi(\bf q)}.
+    \ket{\psi(\textbf k+d\textbf k)} = \ket{\psi(\textbf k)} + d\textbf k \cdot \nabla_{\textbf k} \ket{\psi(\textbf k)}.
 \end{align}
 Which means that
 \begin{align}
-    \braket{\psi(\bf q)|\psi(\bf q+d\bf q)} = 1 + \braket{\psi(\bf q) |d\bf q \cdot \nabla _{\bf q}|\psi(\bf q)}.
+    \braket{\psi(\textbf k)|\psi(\textbf k+d\textbf k)} = 1 + \braket{\psi(\textbf k) | \nabla _{\textbf k}|\psi(\textbf k)}\cdot d\textbf k .
 \end{align}
-Now, noticing that $ \braket{\psi(\bf q) | \nabla_{\bf q} |\psi(\bf q)}$ is pure imaginary, it can be shown that
+Now, noticing that $ \braket{\psi(\textbf k) | \nabla_{\textbf k} |\psi(\textbf k)}$ is pure imaginary, we can show that
 \begin{align}\label{A_def}
-    \Delta \gamma &= i \braket{\psi(\bf q) | \nabla_{\bf q} |\psi(\bf q)} \cdot d\bf q \\
-    &= \textbf{A} \cdot d\bf q
+    \Delta \gamma &= \textbf{A} \cdot d\textbf k, \\
+    \textbf{A}& = i
+    \braket{\psi(\textbf k) | 
+    \nabla_{\textbf k} |
+    \psi(\textbf k)} .
 \end{align}
-The quantity multiplying $d\bf q$ is the Berry connection $\textbf{A}(\bf q)$. Like the relative phase before, it is not a gauge-invariant quantity. Under a gauge transformation it changes according to
+The quantity multiplying $d\textbf k$ is the Berry connection $\textbf{A}(\textbf k)$. Like the relative phase before, it is not a gauge-invariant quantity. Under a gauge transformation it changes according to
 \begin{align} \label{eqn:gauge}
-    \ket{\psi(\bf q)} \rightarrow e^{-i\alpha(\bf q)}\ket{\psi(\bf q)},\;\;\; \textbf{A}(\bf q) \rightarrow \textbf{A}(\bf q) - \nabla _{\bf q} \alpha(\bf q)
+    \textbf{A}(\textbf k) \rightarrow \textbf{A}(\textbf k) - \nabla _{\textbf k} \alpha(\textbf k)
 \end{align}
-Essentially $\textbf{A}(\bf q)$ is telling you how the phase changes as you move away from each point in $\mathcal{P}$. \par
-As you move around some closed path $\mathcal C$ in $\mathcal{P}$, the Berry connection allows you to figure out the total phase accumulated over this route, according to
+Now let us suppose that we slowly transform our Hamiltonian around some closed path $\mathcal C$ in $\textbf k$-space and keep track of the phase picked up by a given state.\footnote{Many sources (e.g.~\cite{xiao_berry_2010}) present this picture as an \textit{adiabatic} transformation, where one has to do a little extra work to keep track of the energy-dependent phase that a state picks up $\sim e^{-i \varepsilon t}$, as well as the topological phase determined by $\textbf A$. We won't bother, and instead just consider comparing the \textit{instantaneous eigenstates} at different values of $\textbf k$.} In analogy with eqn.~\ref{eqn:discrete_berry_sum}, the Berry connection allows us to calculate the total phase accumulated over this route, according to
 \begin{align} \label{eqn:flux_loop}
-    \gamma(\mathcal C) = \oint_{\mathcal C} \textbf{A} \cdot d\bf q.
+    \gamma(\mathcal C) = \oint_{\mathcal C} \textbf{A} \cdot d\textbf k.
+\end{align} 
+The exponential of the phase $e^{-i\gamma(\mathcal C)}$ around the loop \textit{is} gauge invariant, one can see this intuitively by realising that it is identical to the Berry phase from the discrete case, but in the limit where the discrete steps become arbitrarily close together. However, the Berry phase $\gamma(\mathcal C)$ itself is not strictly gauge invariant, since one could imagine introducing a gauge transformation that introduces a branch cut around the path $\mathcal C$. After traversing the whole path, the state at the end of the loop would have picked up a total phase $2\pi$, meaning that under a gauge transformation we can change the berry phase according to 
+\begin{align}
+    \gamma (\mathcal C) \rightarrow \gamma (\mathcal C) + 
+     2\pi n \textup{ for } n \in \mathbb Z.
 \end{align}
-The total phase around the loop \textit{is} gauge invariant, one can see this intuitively by realising that it is identical to the Berry phase from the discrete case, but in the limit where the discrete steps become arbitrarily close together. However it is also immediately clear from looking at eqn. \ref{eqn:flux_loop} that any contribution to $\bf A$ from a gauge transformation has the form of a total derivative as in eqn. \ref{eqn:gauge}, so will vanish when integrated over a closed loop.
-
+\begin{figure}[t]
+    \begin{center}
+     \includegraphics[]{local_markers_background/figures/branch cut.pdf}
+    \caption{An example of a non-smooth gauge transformation designed to change the value of the Berry phase around the path $\mathcal C$ -- marked with a dashed line -- by an addition of $2\pi$. Only a small region of $\textbf k$-space is shown, with the local phase applied shown by the colormap.}
+    \label{fig:branch_cut}
+    \end{center}
+    \end{figure}
 
 \subsubsection{Berry Curvature}
-We now want to define a quantity that looks like the Berry flux we defined earlier. We start by rewriting eqn. \ref{eqn:flux_loop} in the language of differential forms, defining the one-form
+Let us now define a quantity equivalent to the Berry flux from the previous discussion. Starting with eqn.~\ref{eqn:flux_loop}, we use Stokes' theorem to transform it into a surface integral over a region $\mathcal S$ bounded by the curve $\mathcal C$,
 \begin{align}
-	A = A_a d q^a.
+    \gamma (\mathcal C) &= \int_{\mathcal S} d^2k \left ( \partial_{x} A_{y}( \textbf{k}) - \partial_{y}A_{x}( \textbf k) \right ),
 \end{align}
-The Berry phase around some infinitesimally small closed path $ \mathcal C$ can be expressed as
-\begin{align} 
-    \gamma(\mathcal C) = \oint_{\mathcal C} A.
-\end{align}
-Now we can use Stokes' theorem to re-express this as a surface integral over some region $\mathcal{R}$ that has the curve $\mathcal C$ as its boundary
+where we use the shorthand $\partial_\alpha = \frac{\partial}{\partial k_\alpha}$. Thus we may define the Berry curvature,
 \begin{align}
-	\gamma(\mathcal C) = \int_{\mathcal{R}} dA,
+    \Omega (\textbf k) = \partial_{x} A_{y}( \textbf{k}) - \partial_{y}A_{x}( \textbf k).
 \end{align}
-where $dA$ is the exterior derivative of A, a quantity that we will call the Berry curvature, $B$,
+Writing this quantity out explicitly in terms of the states $\ket{\psi(\textbf k)}$, we arrive at
 \begin{align}
-	B &= dA\\
-	 &= \frac{\partial A_a}{\partial q^b} \; dq^b \wedge dq^a.
+    \Omega(\textbf k) = i \braket{  \partial_x \psi(\textbf k) | \partial_y \psi(\textbf k)} + h.c.
 \end{align}
-This calculation has one important caveat. It is only possible to apply Stokes' theorem when $A$ is smooth over the region $\mathcal{R}$. This means that we need to have already picked a smooth gauge for our states at least in the region we are integrating over! As stated before, this is always possible, but only because we have allowed the region $\mathcal R$ to be some small subregion of $\mathcal P$.\par
-The Berry curvature is a gauge-independent quantity, as can be seen by substituting the gauge-transformed form of $A$ (eqn. \ref{eqn:gauge}) into the definition. \par
-Now, in a two dimensional parameter space, this integral becomes
+Now we can insert a resolution of the identity $\1 = \sum_n \ketbra{\psi_n}{\psi_n}$ to obtain the following
 \begin{align}
-	\gamma(\mathcal C) = \int_{\mathcal{R}} d q_x\, d q_y \left (  \partial_{x} A_{y}(\bf q) - \partial_{y} A_{x}(\bf q) \right ),
+    \Omega(\textbf k) = i \sum_{\psi_n \neq \psi} \braket{  \partial_x \psi|\psi_n }\braket{ \psi_n|\partial_y \psi} + h.c.
 \end{align}
-and we can see that the Berry curvature is a scalar
+Using the identity, 
 \begin{align}
-	B = \partial_{x} A_{y}(\bf q) - \partial_{y} A_{x}(\bf q).
+    \braket{\psi_n | \partial_\alpha \psi} = \frac{
+        \braket{\psi_n | \partial_\alpha H | \psi}
+    }{
+        \epsilon - \epsilon_n
+    }, \ \textup{for } \psi \neq \psi_n,
 \end{align}
-Similarly in three dimensions the Berry curvature is a vector quantity
-\begin{align} \label{eqn:3d_curvature}
-    \textbf{B}(\textbf{q}) = \nabla_\textbf{q} \times \textbf{A}(\textbf{q}).
+we can re-express the Berry curvature in the form
+\begin{align} \label{eqn:berry_curvature_hamiltonian}
+    \Omega(\textbf k) = i \sum_{\psi_n \neq \psi} 
+    \frac{
+        \braket{ \psi|\partial_x H|\psi_n }\braket{ \psi_n| \partial_y H |\psi}
+    }{
+        (\epsilon - \epsilon_n)^2
+    } + h.c.
 \end{align}
-
+This calculation has one important caveat. It is only possible to apply Stokes' theorem when $A$ is smooth over the region $\mathcal{R}$. This means that we need to have already picked a smooth gauge in the region we are integrating over to have a guarantee that
+\begin{align}
+    \gamma (\mathcal C) = \int_{\mathcal S} d^2 k\,  \Omega (\textbf k).
+\end{align}
+If we transform to a non-smooth gauge then it is possible that the Berry phase will change by a multiple of $2\pi$, however the Berry curvature is truly gauge invariant. This can be seen from eqn.~\ref{eqn:berry_curvature_hamiltonian}, where the Berry curvature is defined without the differentiation of states, so is invariant under even a non-smooth gauge transformation. Thus in general we only have the guarantee that
+\begin{align}\label{eqn:berry_loop_to_curvature}
+    e^{-i\gamma(\mathcal C)} = e^{\int_{\mathcal S} d^2 k\,  \Omega (\textbf k)}.
+\end{align}
 \subsubsection{Chern Number}
 
-As in \textsection\ref{sec:discrete_chern}, we make the assertion that the parameter space $\mathcal P$ is a closed manifold such as a torus. The Chern number is defined as the integral of the Berry curvature across the whole parameter space
+As in \textsection\ref{sec:discrete_chern}, we make the assertion that the $\textbf k$-space lives on the torus, a closed manifold. The Chern number can then be defined as the integral of the Berry curvature across the whole manifold,
 \begin{align}
-    \mathcal Q &= \frac{1}{2\pi} \int_{\mathcal{P}} B.
+    \mathcal Q &= \frac{1}{2\pi} \int d^2 k \, \Omega.
 \end{align}
-In a two-dimensional parameter space $(q_x,q_y)$, this can be expressed as
+As in the discrete case, the Chern number here is restricted to only take integer values. The argument follows the same lines as previously, where we can use our modified form of Stokes theorem (eqn.~\ref{eqn:berry_loop_to_curvature}) to show that the Chern number is equivalent to the Berry phase around a loop enclosing no area, implying that
 \begin{align}
-     &= \frac{1}{2\pi} \int_{\mathcal{P}}\left [ \partial_x \braket{\psi(\bf q) | \partial_y \psi(\bf q)} - \partial_y \braket{\psi(\bf q) | \partial_x \psi(\bf q)}\right ] \, dq_x\, dq_y\\
-     &= \frac{1}{\pi} \Im  \int_{\mathcal{P}} \braket{\partial_x \psi(\bf q) | \partial_y \psi(\bf q)}\, dq_x\, dq_y
+    e^{\int d^2 k\,  \Omega (\textbf k)} &= 1,
+    \implies \mathcal Q \in \mathbb Z
 \end{align}
-The Chern number here is also restricted to only take integer values. This can be seen by realising that the continuous system is equivalent to a lattice system in the limit where the lattice spacing tends to zero, and so the same argument applies. A more careful justification can be found in \cite{vanderbilt_berry_2018}.
 
 \subsection{An Example - The Two-Level System} \label{sec:an_example}
 
-We will illustrate these concepts with the example of a two-state system. Our first step will be to parametrise the possible Hamiltonians in such a system using a vector $\bf d$. We will then solve this Hamiltonian for the positive and negative energy eigenstates. This allows us to look at how the eigenstates change as we smoothly deform the Hamiltonian, exploring the parameter space of $\bf d$. By examining how the eigenstates of $\hat H$ depend on the parametrisation, we can calculate the Berry curvature of the positive and negative energy states. We then connect this with our understanding of the Bloch states in a periodic quantum system. We discuss how the bulk Hamiltonian of a periodic system corresponds to the embedding of a closed surface in $\bf d$-space and describe how to calculate the Chern number of the bands in such a system.\par
-Here the Hilbert space is $\mathbb{C}^2$. This means that any Hamiltonian we construct must be a $2\times 2$ Hermitian matrix. We will parametrise this in terms of a Pauli vector, $\bf d$,
+Let us illustrate these concepts with the example of a two-state system. Our first step is to parametrise the possible Hamiltonians in such a system using a vector $\textbf d$. We will then solve this Hamiltonian for the positive and negative energy eigenstates. This allows us to look at how the eigenstates change as we smoothly deform the Hamiltonian, exploring the parameter space of $\textbf d$. By examining how the eigenstates of $\hat H$ depend on the parametrisation, we can calculate the Berry curvature of the positive and negative energy states. We then connect this with our understanding of the Bloch states in a periodic quantum system. We discuss how the bulk Hamiltonian of a periodic system corresponds to the embedding of a closed surface in $\textbf d$-space and describe how to calculate the Chern number of the bands in such a system.
+
+The Hilbert space of a two-level system is $\mathbb C ^2$. This means that any Hamiltonian we construct must be a $2\times 2$ Hermitian matrix. We will parametrise this in terms of a Pauli vector, $\textbf d$,
 \begin{align}
     H = \textbf{d}\cdot\hat{\sigma}  = d_i \sigma^i.
 \end{align}
-where the $\sigma_i$ are the Pauli matrices.\par
+where the $\sigma^i$ are the Pauli matrices.
+
 The set of possible Hamiltonians is thus a manifold in itself, $ \{H\} \cong \mathbb{R}^3 $, since $\textbf{d} \in \mathbb{R}^3 $. The first thing we will do is to express the vector $\textbf{d}$ in standard spherical polar coordinates, giving us a Hamiltonian that looks like
 \begin{align}
     H = |\textbf{d}|\begin{pmatrix}
@@ -194,23 +221,24 @@ e^{i\phi/2} \sin(\theta/2)
 e^{i\phi/2} \cos(\theta/2)
 \end{pmatrix}.
 \end{align}
-We have thus arrived at a set of states, $\ket {\pm_{\bf d}}$ that depend on some parameter $\bf d$. This means that we can apply what we just figured out in the last section. From eqn. \ref{eqn:3d_curvature} we can see that the Berry connection and Berry curvature of the $\ket +$ state is given by
+We have thus arrived at a set of states, $\ket {\pm_{\textbf d}}$ that depend on some parameter $\textbf d$. This means that we can apply the techniques of the last section. From eqn.~\ref{eqn:cont_curvature} we know that the Berry connection and Berry curvature of the $\ket \pm$ states are given by
 \begin{align}
-    \textbf{A}^\pm (\bf d) &= i\braket{\pm_\textbf{d} | \nabla_\textbf{d}| \pm_\textbf{d}}\\
-    \textbf{B}^{\pm}(\bf d ) &= \nabla_\textbf{d} \wedge \textbf{A}^\pm (\bf d).
+    \textbf{A}^\pm (\textbf d) &= i\braket{\pm_\textbf{d} | \nabla_\textbf{d}| \pm_\textbf{d}}\\
+    \textbf{B}^{\pm}(\textbf d ) &= \nabla_\textbf{d} \wedge \textbf{A}^\pm (\textbf d).
 \end{align}
-Using this equation it is possible to directly calculate the Berry curvature. We will omit this for the sake of brevity, however the full calculation can be found in Appendix \ref{sec:berry_curvature_two_level}. We arrive at the following expression for the Berry curvature of the $\ket +$ and $\ket -$ states:
+Using this equation it is possible to directly calculate the Berry curvature, arriving at the following expression:
 \begin{align}
     \textbf{B}^{\pm} = \pm \frac{\hat{n}_\textbf{d}}{2\textbf{d}^2}
 \end{align}
-where $\hat{n}_\textbf{d}$ is a unit vector pointing in the direction of $\textbf{d}$.\par
-The Berry curvature is equivalent to a monopole field radiating out from the origin in $\bf d$-space, in analogy with electrostatics. Now, suppose we wanted to calculate the Berry phase of the $\ket{+_{\bf d}}$ state around some path in $\bf d$-space, we would want to evaluate
+where $\hat{n}_\textbf{d}$ is a unit vector pointing in the direction of $\textbf{d}$.
+
+The Berry curvature is equivalent to a monopole field radiating out from the origin in $\textbf d$-space, in analogy with electrostatics. Thus, the Berry phase of the $\ket{+_{\textbf d}}$ state around some path in $\textbf d$-space is given by
 \begin{align}
-	\gamma^+ (C) = \oint_{\mathcal C} \bf A^+ (\bf d) \cdot d \bf d.
+	\gamma^+ (C) = \oint_{\mathcal C} \textbf A^+ (\textbf d) \cdot d \textbf d.
 \end{align}
 Re-expressing this in terms of the Berry curvature gives us
 \begin{align}
-	\gamma^+ (C) = \int_{\mathcal R} \bf B^+ (\bf d) \cdot d \bf S,
+	\gamma^+ (C) = \int_{\mathcal R} \textbf B^+ (\textbf d) \cdot d \textbf S,
 \end{align}
 where the integral is over a region $\mathcal R$ that has the curve $\mathcal C$ as its boundary. Since the Berry curvature is just a monopole field with charge $\frac{1}{2}$, this integral ends up evaluating half the solid angle subtended by the curve $\mathcal C$.
 \begin{equation}
@@ -218,30 +246,29 @@ where the integral is over a region $\mathcal R$ that has the curve $\mathcal C$
 \end{equation}
 
 \subsubsection{Chern Number}
+Now we can connect this with our understanding of Bloch states. For a two-dimensional translationally symmetric system, the Hamiltonian can be diagonalised according to
+\begin{align}
+	\hat H = \sum_{\textbf k} \ket{\textbf k}\bra{\textbf k} \otimes \hat H (\textbf k).
+\end{align}
+If the unit cell contains two sites, then $\hat H (\textbf k)$ is a $2 \times 2$ matrix that depends on $\textbf k$. We can write it in terms of a $\textbf d$ vector that depends on $\textbf k$.
+\begin{align}
+H(\textbf{k}) &= \textbf{d}(\textbf{k})\cdot \hat{\sigma}.
+\end{align}
+$\textbf{k}$ lives on the surface of a torus, since both $k_x$ and $k_y$ are periodic. Furthermore, $\textbf{d}$ (and by extension $\hat H$) live in the space $\mathbb{R}^3$. Thus, the mapping $\textbf{d}$ is
+\begin{align}
+    \textbf{d} : S^1 \times S^1 &\rightarrow \mathbb{R}^3 .
+\end{align}
+The map is embedding a two-dimensional surface (the torus) into three-dimensional flat space ($\mathbb{R}^3$). There are no limits on how you can do this embedding, the torus can take any shape provided the embedding respects the topology of the Brillouin zone.
 
-Now we can connect this with our understanding of Bloch states. We will work with a translationally symmetric lattice Hamiltonian in two-dimensional space. As we showed in section \ref{sec:lattice_bloch}, it is always possible to diagonalise this Hamiltonian in the plane-wave basis,
-\begin{align}
-	\hat H = \sum_{\bf k} \ket{\bf k}\bra{\bf k} \otimes \hat H (\bf k).
-\end{align}
-If the unit cell contains two sites, then $\hat H (\bf k)$ is a $2 \times 2$ matrix that depends on $\bf k$. We can write it in terms of a $\bf d$ vector that depends on $\bf k$.
-\begin{align}
-H(\textbf{k}) &= \textbf{d}(\textbf{k})\cdot \hat{\sigma}, \\
-    \textbf{k} &= (k_x,k_y).
-\end{align}
-We know $\textbf{k}$ lives on the surface of a torus, since both $k_x$ and $k_y$ are periodic with some maximum value $k_{x}^{\textup{Max}}$ and $k_{y}^{\textup{Max}}$. Furthermore, $\textbf{d}$ (and by extension $\hat H$) live in the space $\mathbb{R}^3$. Thus, the mapping $\textbf{d}$ is
-\begin{align}
-    \textbf{d} : S^1 \times S^1 &\rightarrow \mathbb{R}^3 \\
-    \textbf{d} : (k_x,k_y) &\mapsto \textbf{d}(\textbf{k})
-\end{align}
-The map is embedding a two-dimensional surface (the torus) into three-dimensional flat space ($\mathbb{R}^3$). There are no limits on how you can do this embedding, the torus can be as twisted and crinkled up as you like so long as the embedding respects the topology of the Brillouin zone (it can't include discontinuities or cuts or other abusive things).\par
-When we want to calculate the Berry phase around a loop in k-space, all we have to do is look at the corresponding loop in d-space. Then we integrate the Berry connection over some surface that has this loop as its boundary. The Berry connection actually looks like a radiating monopole so we can simplify further, knowing that we just need to find the solid angle subtended by the curve around the origin and divide it by two.\par
-
+To calculate the Berry phase around a loop in k-space, all we have to do is look at the corresponding loop in d-space. Then we integrate the Berry connection over some surface that has this loop as its boundary. The Berry connection actually looks like a radiating monopole so we can simplify further, knowing that we just need to find the solid angle subtended by the curve around the origin and divide it by two.
 
 \begin{center}
 \input{local_markers_background/figures/donut}
 \end{center}
-What about the Chern number? To calculate this all we need to do is integrate the Berry curvature across the whole surface of the torus in d-space. If the embedding of the torus does not contain the origin, then the value of this integral is necessarily zero. This is because the torus has an inside and an outside, everywhere that the surface is presented with the inside facing the origin we have a positive contribution to the integral, however when the outside is facing the origin we get a negative contribution. If the origin is outside the torus then we have exactly equal negative and positive contributions and everything cancels out!\par
-Now suppose the torus is embedded such that it contains the origin, then we will have a surface that catches all of the Berry flux on its inside\footnote{Maybe you spotted this is not quite true, the torus is not a sphere so there will be some bits where there are outside faces presented to the origin, such as when you hit the hole in the doughnut! These will be cancelled out by the additional inside faces and so overall you still get $4\pi$.} and the solid angle subtended is $4\pi$! This means that the Chern number will be $+1$. Furthermore, you could imagine wrapping the torus around the origin twice, so that it effectively contains two origins, now the Chern number will be $+2$. You could turn it inside out and then wrap it around the origin too, that would give $\mathcal Q=-1$ and so on...
+
+What about the Chern number? To calculate this all we need to do is integrate the Berry curvature across the whole surface of the torus in d-space. If the embedding of the torus does not contain the origin, then the value of this integral is necessarily zero. 
+
+Now suppose the torus is embedded such that it contains the origin, then we will have a surface that catches all of the Berry flux on its inside and the solid angle subtended is $4\pi$! This means that the Chern number will be $+1$. Furthermore, you could imagine wrapping the torus around the origin twice, so that it effectively contains two origins, now the Chern number will be $+2$. You could turn it inside out and then wrap it around the origin too, that would give $\mathcal Q=-1$ and so on...
 
 \subsection{Final Notes}
 
@@ -249,18 +276,24 @@ We close this chapter with an explanation of the consequences of Chern number in
 
 \subsubsection{Smoothly Deforming the Hamiltonian}
 
-Now suppose that we have a pair of quantum systems that live in the same Hilbert space, described by $\hat H_1$ and $\hat H_2$. Suppose both of these Hamiltonians represent insulating materials. This means that the bands in these materials are separated across all of the Brillouin zone by a band gap. We might want to ask the question: \textit{Is it possible to smoothly deform $\hat H _1$ into $\hat H_2$ without ever crossing a point where the bands touch and the material becomes conductive?} \par
-The answer to this is that it is only possible if the bands of $\hat H_1$ and $\hat H_2$ have the same Chern numbers. This is because the Chern number is always restricted to have integer value, it cannot continuously change as we smoothly deform the Hamiltonian. In order to change the Chern number of a band we must somewhere cross a point where it is impossible to define a Chern number at all, allowing it to jump discontinuously when we leave that point. This is precisely what happens when two bands touch, the description of a single band becomes ill-defined and our calculation for Chern number stops working.\par
-We can illustrate this with the example in \textsection\ref{sec:an_example}. Smoothly deforming our Hamiltonian amounts to changing the shape of the torus embedded in $\bf d$-space. If any point on the surface of the torus touches the origin, we have a pair of zero-energy states appearing in our system, this means the bands touch and the system is conductive. If the band has a Chern number of one, this means that the torus contains the origin. If we wanted to smoothly deform this to have zero Chern number, we would need to move the torus such that the origin was now outside. At some point in this deformation the torus surface will have to touch the origin, creating a conducting Hamiltonian at that point.\par
-Thus we can classify all Hamiltonians according to the Chern number of their bands. It is always impossible to smoothly deform a Hamiltonian into one with a different Chern number while remaining insulating.\par
-This allows us to make a rough justification for why conducting edge states must appear wherever we have a material with nonzero Chern number. Suppose we have a large material where the Hamiltonian is allowed to vary slowly over space, defined by $\hat H (\bf r)$. Now let's stay that in some region this Hamiltonian looks locally like it has non-zero Chern number, $\hat H _{\textup{topological}}$, but in a different, distant region it looks locally like it has zero Chern number, $\hat H _{\textup{trivial}}$. We expect that between these regions the Hamiltonian must be gradually transforming between $\hat H _{\textup{topological}}$ and $\hat H _{\textup{trivial}}$. As we have described, it is impossible for our Hamiltonian to make this transformation without creating a conducting surface somewhere between these two regions -- edge states must appear! Loosely speaking, we can view the vacuum as a zero Chern number material, which gives us an intuitive picture for why we might expect materials with non-zero Chern number to always have edge states appearing on their surface, where the Hamiltonian has to transition to the vacuum. 
+Now suppose that we have a pair of quantum systems that live in the same Hilbert space, described by $\hat H_1$ and $\hat H_2$. Suppose both of these Hamiltonians represent insulating materials. This means that the bands in these materials are separated across all of the Brillouin zone by a band gap. We might want to ask the question: \textit{Is it possible to smoothly deform $\hat H _1$ into $\hat H_2$ without ever crossing a point where the bands touch and the material becomes conductive?}.
+
+The answer to this is that it is only possible if the bands of $\hat H_1$ and $\hat H_2$ have the same Chern numbers. This is because the Chern number is always restricted to have integer value, it cannot continuously change as we smoothly deform the Hamiltonian. In order to change the Chern number of a band we must somewhere cross a point where it is impossible to define a Chern number at all, allowing it to jump discontinuously when we leave that point. This is precisely what happens when two bands touch, the description of a single band becomes ill-defined and our calculation for Chern number stops working.
+
+We can illustrate this with the example in \textsection\ref{sec:an_example}. Smoothly deforming our Hamiltonian amounts to changing the shape of the torus embedded in $\textbf d$-space. If any point on the surface of the torus touches the origin, we have a pair of zero-energy states appearing in our system, this means the bands touch and the system is conductive. If the band has a Chern number of one, this means that the torus contains the origin. If we wanted to smoothly deform this to have zero Chern number, we would need to move the torus such that the origin was now outside. At some point in this deformation the torus surface will have to touch the origin, creating a conducting Hamiltonian at that point.
+
+Thus we can classify all Hamiltonians according to the Chern number of their bands. It is always impossible to smoothly deform a Hamiltonian into one with a different Chern number while remaining insulating.
+
+This allows us to make a rough justification for why conducting edge states must appear wherever we have a material with nonzero Chern number. Suppose we have a large material where the Hamiltonian is allowed to vary slowly over space, defined by $\hat H (\textbf r)$. Now let's stay that in some region this Hamiltonian looks locally like it has non-zero Chern number, $\hat H _{\textup{topological}}$, but in a different, distant region it looks locally like it has zero Chern number, $\hat H _{\textup{trivial}}$. We expect that between these regions the Hamiltonian must be gradually transforming between $\hat H _{\textup{topological}}$ and $\hat H _{\textup{trivial}}$. As we have described, it is impossible for our Hamiltonian to make this transformation without creating a conducting surface somewhere between these two regions -- edge states must appear! Loosely speaking, we can view the vacuum as a zero Chern number material, which gives us an intuitive picture for why we might expect materials with non-zero Chern number to always have edge states appearing on their surface, where the Hamiltonian has to transition to the vacuum. 
 
 \subsubsection{Chern Number and Globally Smooth Gauges}\label{sec:chern_smooth_gauge}
-If you thought carefully about the gauge that we chose in equation \ref{states} you might notice that it has a problem, There is actually a discontinuity at $\phi = \pi$ where $e^{i\phi}$ suddenly jumps as you cross over to $\phi = -\pi$. This is no oversight, it turns out that it is actually completely impossible to define a globally smooth set of states $\ket{\psi(\textbf{d})}$ for any band that has nonzero Chern number!\par
+If you thought carefully about the gauge that we chose in equation \ref{states} you might notice that it has a problem, There is actually a discontinuity at $\phi = \pi$ where $e^{i\phi}$ suddenly jumps as you cross over to $\phi = -\pi$. This is no oversight, it turns out that it is actually completely impossible to define a globally smooth set of states $\ket{\psi(\textbf{d})}$ for any band that has nonzero Chern number!
+
 This is because if $\ket{\psi(\textbf{d})}$ were continuous everywhere, then the Berry connection would also have to be continuous everywhere. This would mean that we could invoke Stokes' theorem when calculating the Chern number, 
 \begin{align}
 	\mathcal Q &= \frac{1}{2\pi}\int_{\mathcal P} B \\ 
 	&= \frac{1}{2\pi}\int_{d \mathcal P} A. \label{eqn:always_zero}
 \end{align}
-The problem is that the Berry curvature integral is over the whole space $\mathcal P$. Since $\mathcal P$ is a closed manifold, it must have no boundary, so eqn. \ref{eqn:always_zero} must be equal to zero. Another way of understanding this is to realise that if you were to discretise this integral into a lattice of states, every edge would be an internal edge and the total would always have to be zero!\par
+The problem is that the Berry curvature integral is over the whole space $\mathcal P$. Since $\mathcal P$ is a closed manifold, it must have no boundary, so eqn.~\ref{eqn:always_zero} must be equal to zero. Another way of understanding this is to realise that if you were to discretise this integral into a lattice of states, every edge would be an internal edge and the total would always have to be zero!
+
 In this sense, the Chern number can be regarded as something like a measure of the amount of discontinuity that \textit{must} be present regardless of the gauge you choose for the space.
