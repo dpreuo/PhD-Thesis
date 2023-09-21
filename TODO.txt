@@ -1,2 +1,3 @@
  - add a definition of IPR
- 
+ - add a discussion of ways of producing lattices
+ - include 3 dimensional k spaces in the discussion of berry curvature... you silly boy you removed it. 

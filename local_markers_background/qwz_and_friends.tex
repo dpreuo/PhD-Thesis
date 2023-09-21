@@ -145,14 +145,24 @@ Thus, the Hamiltonian we use for the amorphous system is given by
 \end{align}
 where $\theta_{i,j}$ is the angle between the edge connecting $\bf r_i$ and $\bf r_j$ and the $x$ axis.
 
-As before, the parameter $u$ controls whether the system is in a topological or trivial state. The exact dependence of the system on $u$ depends strongly on the lattice geometry, however there is generally a region around which the system has nonzero topological character. In the absence of a momentum-space description, the system's topological character can be seen indirectly by comparing the spectrum in open and periodic boundary conditions. Generally one expects the presence of a gap in periodic boundaries that becomes populated with edge modes in open boundaries. Two examples are shown in fig.~\ref{fig:amorphous_qwz_examples}
+As before, the parameter $u$ controls whether the system is in a topological or trivial state. The exact dependence of the system on $u$ depends strongly on the lattice geometry, however there is generally a region around which the system has nonzero topological character. In the absence of a momentum-space description, the system's topological character can be seen indirectly by comparing the spectrum in open and periodic boundary conditions. Generally one expects the presence of a gap in periodic boundaries that becomes populated with edge modes in open boundaries. Two examples are shown in fig.~\ref{fig:amorphous_qwz_examples}.
+
+\begin{shaded}
+    OPTIONAL -- you could add a section here on the low-k theory of the amorphous QWZ model if you wanted - would allow you to make some predictions for the Chern number as you can find the berry phase change around the low k band touching. Maybe its a bit overkill - the thesis looks like its gonna be kinda long anyway.
+\end{shaded}
 
 \begin{figure}[t]
     \begin{center}
      \includegraphics[width=0.95\textwidth]{local_markers_background/figures/amorphous_qwz.png}
-    \caption{Plots showing the spectra of the amorphous QWZ model for two different example lattices. States are coloured according to their inverse participation ratio. \textbf{(a)} A trivalent lattice generated from a Voronoi decomposition of a set of random points, followed by five iterations of LLoyd's algorithm. }
+    \caption{Plots showing the spectra of the amorphous QWZ model for two different example lattices. States are coloured according to their inverse participation ratio. 
+    \textbf{(a)} A trivalent lattice generated from a Voronoi decomposition of a set of random points, followed by five iterations of LLoyd's algorithm to regularise bond lengths. 
+    \textbf{(b)} The spectrum of the QWZ model on the voronised lattice as a function of $u$. Several gaps are present at different values of $u$ and $E$. 
+    \textbf{(c)} The spectrum of the same model as (b), but in open boundary conditions. Here we can see that all gaps for $u \in [-1.5, 1]$ are now filled with edge modes, indicating that the system is in a topological phase. 
+    \textbf{(d)} An example of a lattice forming a Delaunay triangulation, constructed as the dual of the lattice in (a). 
+    \textbf{(e)} The spectrum of the QWZ model on the Delaunay lattice as a function of $u$ showing one single large gapped region. 
+    \textbf{(f)} The spectrum of the same model as (e), but in open boundary conditions. Here we can see that the gaps is now filled with edge modes, again indicating that here the system is in a topological phase. 
+    }
     \label{fig:amorphous_qwz_examples}
     \end{center}
 \end{figure}
 
-% as a function of $u$ is not as straightforward as in the regular QWZ model - the amorphous systems have different properties. In order to gauge when the system is topological and when it is trivial, we can look at the band structure as a function of $u$ for both the Voronoi and Delaunay lattices. This is shown in fig.~\ref{fig:amorphous_energy_sweeps}, where we see band crossings for the parameter range $u \in [-3,~0.8]$ indicating that the system is topological in this regime.
