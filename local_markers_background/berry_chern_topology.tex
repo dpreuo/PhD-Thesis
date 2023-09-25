@@ -157,31 +157,50 @@ where we use the shorthand $\partial_\alpha = \frac{\partial}{\partial R_\alpha}
     \Omega (\textbf R) &= \partial_{x} A_{y}( \textbf{k}) - \partial_{y}A_{x}( \textbf R) \\ 
     \bm \Omega( \textbf R) &= \nabla_\textbf R \times \textbf{A}(\textbf R).
 \end{align}
-Now let us focus only on the 2D case. Writing this quantity out explicitly in terms of the states $\ket{\psi(\textbf R)}$, we arrive at
-\begin{align}
-    \Omega(\textbf R) = i \braket{  \partial_x \psi(\textbf R) | \partial_y \psi(\textbf R)} + h.c.
-\end{align}
-We can insert a resolution of the identity $\1 = \sum_n \ketbra{\psi_n}{\psi_n}$ to obtain
-\begin{align}
-    \Omega(\textbf R) = i \sum_{\psi_n \neq \psi} \braket{  \partial_x \psi|\psi_n }\braket{ \psi_n|\partial_y \psi} + h.c.
-\end{align}
-Using the identity, 
-\begin{align}
-    \braket{\psi_n | \partial_\alpha \psi} = \frac{
-        \braket{\psi_n | \partial_\alpha H | \psi}
-    }{
-        \epsilon - \epsilon_n
-    }, \ \textup{for } \psi \neq \psi_n,
-\end{align}
-we can re-express the Berry curvature in the form
-\begin{align} \label{eqn:berry_curvature_hamiltonian}
-    \Omega(\textbf R) = i \sum_{\psi_n \neq \psi} 
-    \frac{
-        \braket{ \psi|\partial_x H|\psi_n }\braket{ \psi_n| \partial_y H |\psi}
-    }{
-        (\epsilon - \epsilon_n)^2
-    } + h.c.
-\end{align}
+
+\begin{shaded}
+{\it Two Useful Ways to Re-express the Berry Curvature ---} Now let us focus only on the 2D case and reformulate this expression in two different ways.
+
+\begin{enumerate}
+    \item The first way finds the curvature in terms of the rate of change of the Hamiltonian only. Writing this quantity out explicitly in terms of the states $\ket{\psi(\textbf R)}$, we arrive at
+    \begin{align}\label{berry_curvature_state_deriv}
+        \Omega(\textbf R) = i \braket{  \partial_x \psi(\textbf R) | \partial_y \psi(\textbf R)} + h.c.
+    \end{align}
+    We can insert a resolution of the identity $\1 = \sum_n \ketbra{\psi_n}{\psi_n}$ to obtain
+    \begin{align}
+        \Omega(\textbf R) = i \sum_{\psi_n \neq \psi} \braket{  \partial_x \psi|\psi_n }\braket{ \psi_n|\partial_y \psi} + h.c.
+    \end{align}
+    Using the identity, 
+    \begin{align}
+        \braket{\psi_n | \partial_\alpha \psi} = \frac{
+            \braket{\psi_n | \partial_\alpha H | \psi}
+        }{
+            \epsilon - \epsilon_n
+        }, \ \textup{for } \psi \neq \psi_n,
+    \end{align}
+    we can re-express the Berry curvature in the form
+    \begin{align} \label{eqn:berry_curvature_hamiltonian}
+        \Omega(\textbf R) = i \sum_{\psi_n \neq \psi} 
+        \frac{
+            \braket{ \psi|\partial_x H|\psi_n }\braket{ \psi_n| \partial_y H |\psi}
+        }{
+            (\epsilon - \epsilon_n)^2
+        } + h.c.
+    \end{align}
+
+    \item Note that the definition provided for the Berry curvature  (eqn.~\ref{berry_curvature_state_deriv}) is only well-defined across $\mathcal R$ when the state remains fully gapped. That is, no other states ever have the same energy as $\ket{\psi(\textbf R)}$. When another state energy crosses that of $\ket \psi$, the individual states become ill-defined and so it becomes challenging to write down a natural derivative for the states. With this in mind, let us consider re-expressing the Berry curvature in terms of the single state projector $\hat \psi = \ketbra\psi \psi$,
+    \begin{align}
+        i \braket{  \partial_x \psi | \partial_y \psi} + h.c.
+        =
+        i \tr \left [ \hat \psi \partial_x \hat \psi \, \partial _y \hat \psi \right ] + h.c.
+    \end{align} 
+    For a single state, this is identical to the regular Berry curvature, however the utility of this expression becomes evident when we construct it for a projector onto a set of states $P = \sum_{i \in \textup{band}} \ketbra {\psi_i}{\psi_i} $. Since $\partial P$ is still well-defined when the states in $P$ are degenerate, we can write an expression for the combined berry curvature of a set of states that can handle degeneracy (provided no states outside $P$ become degenerate with $P$).
+    \begin{align}
+        \Omega_P = i\tr \left [ P \partial_x P \partial_y P \right ] + h.c.
+    \end{align}
+\end{enumerate}
+\end{shaded}
+
 This calculation has one important caveat. It is only possible to apply Stokes' theorem when $\textbf A$ is smooth over the region $\mathcal{R}$. This means that we need to have already picked a smooth gauge in the region we are integrating over to have a guarantee that eqns.~\ref{eqn:2d_berry_curvature} and \ref{eqn:2d_berry_curvature} hold. If we transform to a non-smooth gauge then it is possible that the Berry phase will change by a multiple of $2\pi$, however the Berry curvature is truly gauge invariant. This can be seen from eqn.~\ref{eqn:berry_curvature_hamiltonian}, where the Berry curvature is defined without the differentiation of states, so is invariant under even a non-smooth gauge transformation. Thus in general we only have the guarantee that
 \begin{align}\label{eqn:berry_loop_to_curvature}
     e^{-i\gamma(\mathcal C)} = e^{\int_{\mathcal S} d^2 R\,  \Omega (\textbf R)}.
@@ -286,7 +305,7 @@ The answer to this is that it is only possible if the bands of $\hat H_1$ and $\
 
 We can illustrate this with the example in \textsection\ref{sec:an_example}. Smoothly deforming our Hamiltonian amounts to changing the shape of the torus embedded in $\textbf d$-space. If any point on the surface of the torus touches the origin, we have a pair of zero-energy states appearing in our system, this means the bands touch and the system is conductive. If the band has a Chern number of one, this means that the torus contains the origin. If we wanted to smoothly deform this to have zero Chern number, we would need to move the torus such that the origin was now outside. At some point in this deformation the torus surface will have to touch the origin, creating a conducting Hamiltonian at that point.
 
-Thus we can classify all Hamiltonians according to the Chern number of their bands. It is always impossible to smoothly deform a Hamiltonian into one with a different Chern number while remaining insulating. Similarly, it is always possible to smoothly deform two Hamiltonians into one another without closing a gap, provided that their bands have identical Chern numbers.
+Thus we can classify all Hamiltonians according to the Chern number of their bands. It is always impossible to smoothly deform a Hamiltonian into one with a different Chern number while remaining insulating. Similarly, it is always possible to smoothly deform two Hamiltonians into one another without closing a gap, provided that their bands have identical Chern numbers \cite{avron_homotopy_1983}.
 
 This allows us to make a rough justification for why conducting edge states must appear wherever we have a material with nonzero Chern number. Suppose we have a large material where the Hamiltonian is allowed to vary slowly over space, defined by $\hat H (\textbf r)$. Now let's stay that in some region this Hamiltonian looks locally like it has non-zero Chern number, $\hat H _{\textup{topological}}$, but in a different, distant region it looks locally like it has zero Chern number, $\hat H _{\textup{trivial}}$. We expect that between these regions the Hamiltonian must be gradually transforming between $\hat H _{\textup{topological}}$ and $\hat H _{\textup{trivial}}$. As we have described, it is impossible for our Hamiltonian to make this transformation without creating a conducting surface somewhere between these two regions -- edge states must appear! Loosely speaking, we can view the vacuum as a zero Chern number material, which gives us an intuitive picture for why we might expect materials with non-zero Chern number to always have edge states appearing on their surface, where the Hamiltonian has to transition to the vacuum. 
 

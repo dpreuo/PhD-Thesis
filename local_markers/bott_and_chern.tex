@@ -1,0 +1,167 @@
+We will work with a lattice model, where unit cells are indexed by a vector of the form $(m_x,m_y)$. The lattice has size $(L_x,L_y)$, and we have set periodic boundary conditions. Sites are indexed by 
+\begin{align}
+	\ket{\textbf m \alpha} = \ket{\textbf m} \otimes \ket{\alpha},
+\end{align} 
+where $\textbf m$ is a vector labelling the unit cell and $\alpha$ selects a site within the unit cell. We shall use a Hamiltonian that has translational symmetry, so we may apply Bloch's theorem to obtain the form of the energy eigenstates,
+\begin{align}
+	\hat H &= \sum_{\textbf k} \ket{\textbf k}\bra{\textbf k}\otimes \hat H(\textbf k) \\ 
+	\ket{\psi_{\textbf k, n}} &= \ket{\textbf k} \otimes\ket {u_{\textbf k, n}},
+\end{align}
+where $\ket {u_{\textbf k, n}}$ are the eigenstates of $\hat H(\textbf k)$ and the momentum states are defined as in \textsection\ref{sec:lattice_bloch},
+\begin{align}
+	\ket{\textbf k} = \frac{1}{\sqrt{L_x L_y}} \sum_{\textbf m} e^{i \textbf m \cdot \textbf k} \ket {\textbf m},
+\end{align}
+and we assume that the system has a total of $\eta$ bands, so $n \in  \{1,...,\eta\}$. Henceforth we will assume that only the $n$\ts{th} band is occupied, so we can construct a projector onto the occupied subspace, $\hat P$, and its complement, $\hat Q$.
+\begin{align}
+	\hat P & = \sum_{\textbf k} \ket{\psi_{\textbf k, n}}\bra{\psi_{\textbf k, n}} \\
+	\hat Q & = \sum_{\textbf k,\, m \neq n} \ket{\psi_{\textbf k, m}}\bra{\psi_{\textbf k, m}}.
+\end{align}
+We also introduce a pair of operators $e^{i \delta_x \hat x}$ and $e^{i \delta_y \hat y}$, 
+with
+\begin{align}
+\delta_x = \frac{2\pi}{L_x} ,\  \delta_y = \frac{2\pi}{L_y}.
+\end{align}
+In order to understand the effect of these operators, we consider their effect on the plane wave states
+\begin{align}
+	e^{i \delta_x \hat x}\ket{\textbf k} &= \frac{1}{\sqrt{L_x L_y}} \sum_{\textbf m} e^{i \delta_x \hat x} e^{i \textbf m \cdot \textbf k} \ket {\textbf m} \\
+	& = \frac{1}{\sqrt{L_x L_y}} \sum_{\textbf m} e^{i \textbf m \cdot (\textbf k + \boldsymbol{\delta}_x)} \ket {\textbf m}\\
+	& = \ket{\textbf k + \boldsymbol \delta_x},
+\end{align}
+similarly
+\begin{align}
+	e^{i \delta_y \hat y}\ket{\textbf k} = \ket{\textbf k + \boldsymbol \delta_y } 
+\end{align}
+Here the symbols $\boldsymbol{\delta}_x$ and $\boldsymbol{\delta}_y$ represents a vector translation in $\textbf k$-space,
+\begin{align}
+	\boldsymbol \delta_x = \begin{pmatrix}
+	\delta_x \\
+	0
+	\end{pmatrix}, \ \boldsymbol \delta_y = \begin{pmatrix}
+	0 \\
+	\delta_y
+	\end{pmatrix}.
+\end{align}
+Thus, these operators effect a translation in $\textbf k$ space by the minimum step in the reciprocal lattice. \par
+Now let's look at the effect of these operators on the projector $\hat P$,
+\begin{align}
+	e^{i \delta_x \hat x} \hat P e^{-i \delta_x \hat x}  &=  \sum_{\textbf k} e^{i \delta_x \hat x}  \ket{\textbf k} \bra{\textbf k} e^{-i \delta_x \hat x}\otimes \ket{u_{\textbf k, n}}\bra{u_{\textbf k, n}} \\
+	&=  \sum_{\textbf k} \ket{\textbf k +\boldsymbol{\delta}_x} \bra{\textbf k +\boldsymbol{\delta}_x } \otimes \ket{u_{\textbf k, n}}\bra{u_{\textbf k, n}} \\
+	&=  \sum_{\textbf k} \ket{\textbf k } \bra{\textbf k } \otimes \ket{u_{\textbf k-\boldsymbol{\delta}_x, n}}\bra{u_{\textbf k-\boldsymbol{\delta}_x , n}},
+\end{align}
+where the last line follows from a redefinition of $\textbf k$. This is allowed as we are summing over the whole Brillouin zone. For the sake of clarity later on, we will re-express the density operator $\ket{u_{\textbf k, n}}\bra{u_{\textbf k, n}}$ in the following form
+\begin{align}
+	\ket{u_{\textbf k, n}}\bra{u_{\textbf k, n}} = \hat u_{\textbf k, n},
+\end{align}\par
+so we get
+\begin{align} \label{eqn:p_identity}
+	e^{i \delta_x \hat x} \hat P e^{-i \delta_x \hat x}  =  \sum_{\textbf k} \ket{\textbf k } \bra{\textbf k } \otimes \hat u_{\textbf k-\boldsymbol{\delta}_x, n}.
+\end{align}
+Now we have enough tools to introduce the definition of the Bott index!
+\begin{align}\label{eqn:bott_index}
+    B(\textbf A) = -\frac{N}{2\pi} \sum_\alpha \Im \bra{\textbf A \alpha} \log \left [ \hat U\hat V\hat U^\dag \hat V^\dag + \hat Q \right ]\ket{ \textbf A \alpha}
+\end{align}
+Here $N$ denotes the total number of unit cells in the system and the log is a standard matrix logarithm, defined as
+\begin{align}
+	\log (M) = \sum_{k=1}^\infty (-1)^{k+1} \frac{(M-\1)^k}{k}.
+\end{align}
+The Bott index is a local indicator, $\textbf A$ is a vector that selects which unit cell in the system we are looking at, and
+\begin{align}
+	\hat U  = \hat P e^{i \delta_x \hat x} \hat P \\
+	\hat V  = \hat P e^{i \delta_y \hat y} \hat P.
+\end{align}
+To make sense of this expression, let us focus on the $ \hat U\hat V\hat U^\dag \hat V^\dag$ part only, writing this out explicitly gives us
+\begin{align}
+	 \hat U\hat V\hat U^\dag \hat V^\dag = \hat P e^{i \delta_x \hat x} \hat P e^{i \delta_y \hat y} \hat P e^{- i \delta_x \hat x} \hat P e^{-i \delta_y \hat y} \hat P.
+\end{align}
+We now add in the identity in the form $e^{i \delta_x \hat x} e^{-i \delta_x \hat x} $, as well as the corresponding expression for $y$, and regroup the equation, taking advantage of the fact that $\hat x$ and $\hat y$ commute, to get
+\begin{align}
+	 \hat U\hat V\hat U^\dag \hat V^\dag =  \hat P
+	  \left [ e^{i \delta_x \hat x} \hat P e^{-i \delta_x \hat x} \right]
+	  \left [ e^{i \delta_y \hat y} e^{i \delta_x \hat x} \hat P  e^{-i \delta_y \hat y} e^{- i \delta_x \hat x } \right]
+	  \left [ e^{i \delta_y \hat y} \hat P e^{-i \delta_y \hat y } \right]
+	 \hat P.
+\end{align}
+Using eqn.~\ref{eqn:p_identity} we can now rewrite this in terms of Bloch states to get
+\begin{align}
+	\hat U\hat V\hat U^\dag \hat V^\dag = \sum_{\textbf k} \ket{\textbf k } \bra{\textbf k } \otimes  \hat u_{\textbf k, n}  \hat u_{\textbf k -\boldsymbol{\delta}_x , n}  \hat u_{\textbf k-\boldsymbol{\delta}_x-\boldsymbol{\delta}_y, n}  \hat u_{\textbf k-\boldsymbol{\delta}_y, n}  \hat u_{\textbf k, n}.
+\end{align}
+Since the first and last $\hat u$ density operator in this expression are identical, we can rewrite this in terms of a trace to get
+\begin{align}
+	\hat U\hat V\hat U^\dag \hat V^\dag = \sum_{\textbf k} \ket{\textbf k } \bra{\textbf k } \otimes  \ket {u_{\textbf k, n}} \bra{u_{\textbf k, n}} \cdot  \tr \left [ \hat u_{\textbf k, n} \hat u_{\textbf k -\boldsymbol{\delta}_x , n}  \hat u_{\textbf k-\boldsymbol{\delta}_x-\boldsymbol{\delta}_y, n}  \hat u_{\textbf k-\boldsymbol{\delta}_y, n} \right ].
+\end{align}
+If we compare this to the definition of Berry flux (eqn.~\ref{eqn:berry_flux}), we see that this reduces to
+\begin{align}
+	\hat U\hat V\hat U^\dag \hat V^\dag = \sum_{\textbf k} \ket{\textbf k } \bra{\textbf k } \otimes  \ket {u_{\textbf k, n}} \bra{u_{\textbf k, n}} \cdot r_{\textbf k} e^{-i F_{\textbf k-\boldsymbol{\delta}_x-\boldsymbol{\delta}_y}},
+\end{align}
+where $r_{\textbf k}$ is just some real number that we don't care about, arising from the $u$ states not being perfectly parallel to one another. This is promising, remember we are aiming to get a sum of $F_{\textbf k}$ over the whole Brillouin zone. Thus in order to extract the term in the exponential we would like to take a log. However, we cannot simply log the expression in the form we have here. This is because it only has support on the occupied subspace,
+\begin{align}
+    \hat U\hat V\hat U^\dag \hat V^\dag \sim \begin{pmatrix}
+M &0 \\ 
+ 0& 0
+\end{pmatrix},
+\end{align}
+where $M$ just indicates the presence of a nonzero operator. The presence of a null space means a log of this matrix will diverge. To remedy this, we add in the $\hat Q$ projector, 
+\begin{align}
+    \hat U\hat V\hat U^\dag \hat V^\dag  + \hat Q \sim \begin{pmatrix}
+M &0 \\ 
+ 0& \1
+\end{pmatrix}.
+\end{align}
+Now we can safely take the log of this matrix, getting the following result
+\begin{align}
+	\log \left [ \hat U\hat V\hat U^\dag \hat V^\dag + \hat Q \right ] = \sum_{\textbf k} \ket{\textbf k } \bra{\textbf k } \otimes  \ket {u_{\textbf k, n}} \bra{u_{\textbf k, n}} \cdot \left ( \log(r_{\textbf k})-i F_{\textbf k-\boldsymbol{\delta}_x-\boldsymbol{\delta}_y}\right ),
+\end{align}
+Next we trace out the internal degree of freedom and squeeze this expression between a pair of position states $\ket {\textbf A}$, selecting some arbitrary unit cell in our system. 
+\begin{align}
+	\sum_\alpha \bra{\textbf A \alpha}\log \left [ \hat U\hat V\hat U^\dag \hat V^\dag + \hat Q \right ]   \ket{\textbf A \alpha} = \sum_{\textbf k} |\braket{\textbf A|\textbf k}|^2 \cdot  \braket{u_{\textbf k, n}|u_{\textbf k, n} } \cdot \left ( \log(r_{\textbf k})-i F_{\textbf k-\boldsymbol{\delta}_x-\boldsymbol{\delta}_y}\right ).
+\end{align}
+We can show that $|\braket{\textbf A|\textbf k}|^2 = \frac{1}{N}$ and $\braket{u_{\textbf k, n}|u_{\textbf k, n} } = 1$. All that is left to do is take the imaginary part, 
+\begin{align}
+	\sum_\alpha \Im \bra{\textbf A \alpha}\log \left [ \hat U\hat V\hat U^\dag \hat V^\dag + \hat Q \right ]   \ket{\textbf A \alpha} = \frac{1}{N} \sum_{\textbf k} - F_{\textbf k-\boldsymbol{\delta}_x-\boldsymbol{\delta}_y} .
+\end{align}
+Now, redefining $\textbf k$ and multiplying by $-\frac{N}{2\pi}$ gives us
+\begin{align}
+	-\frac{N}{2\pi} \sum_\alpha \Im \bra{\textbf A \alpha}\log \left [ \hat U\hat V\hat U^\dag \hat V^\dag + \hat Q \right ]   \ket{\textbf A \alpha} = \frac{1}{2\pi} \sum_{\textbf k}  F_{\textbf k}.
+\end{align}
+By comparing with eqn.~\ref{eqn:discrete_chern_number}, we can see that we have arrived at an expression for the Chern number!
+\begin{align}
+	\mathcal Q = -\frac{N}{2\pi} \sum_\alpha \Im \bra{\textbf A \alpha}\log \left [ \hat U\hat V\hat U^\dag \hat V^\dag + \hat Q \right ]   \ket{\textbf A \alpha} .
+\end{align}
+Thus we have shown that in the case of a translationally symmetric system with periodic boundaries, the Bott index evaluated at any point in our material always exactly calculates the Chern number. Before we show some example calculations, let us introduce one more quantity.
+
+\section{Chern Marker}
+
+The Chern marker was first introduced in \cite{bianco_mapping_2011}, however we will not restate the derivation that they used. Instead we will justify the Chern marker by showing that it can be obtained from the Bott index in the limit of large system size.\par
+Our starting point is the expression for Bott index, eqn.~\ref{eqn:bott_index}. We start by multiplying $\hat U$  and $\hat V$ by complex phases $e^{-i \delta_x C_x}$ and $e^{-i \delta_y C_y}$. This has no effect on the value of the Bott index, since the phases have opposite sign in $\hat U ^\dag$ and $\hat V ^\dag$.
+\begin{align}
+	\hat U  \rightarrow \hat P e^{i \delta_x (\hat x - C_x)} \hat P \\
+	\hat V  \rightarrow \hat P e^{i \delta_y (\hat y - C_y)} \hat P.
+\end{align}
+As the system size becomes large, the factors $\delta_x$ and $\delta_y$ will become infinitesimally small. Around the neighbourhood of the unit cell at position $(C_x, C_y)$, the term in the exponential will be small so we can Taylor expand it,
+\begin{align}
+	\hat U &=  \hat P + i \delta_x \hat P \hat x_C \hat P + O(\hat x_C^2)\\
+	\hat V &= \hat P + i \delta_y \hat P \hat y_C \hat P + O(\hat y_C^2)
+\end{align}
+where we have relabelled $ \hat x - C_x= \hat x_C$ and $ \hat y - C_y= \hat y_C$.  Using these expressions, we can re-express the operator $\hat U\hat V\hat U^\dag \hat V^\dag$ up to second order in $\delta$ as\footnote{You might have noticed that we have omitted the $\delta_x^2$ and $\delta_y^2$ terms. This is justified because those terms involve only hermitian operators, such as $ \hat P \hat x_C \hat P \hat x_C \hat P$, and these give no contribution when we take the imaginary part later.}
+\begin{align}
+ 	\hat U\hat V\hat U^\dag \hat V^\dag = \hat P  - \delta_x \delta_y \left (  \hat P \hat x_C \hat P \hat y_C \hat P  -  \hat P \hat y_C \hat P \hat x_C \hat P \right ) + O(\delta_x^2, \delta_y^2)
+\end{align}
+Now we use the identities 
+\begin{align}
+	\hat P + \hat Q &= \1\\
+	\log \left [ \1 + \delta M \right ] & \simeq M, \textup{  for  } \delta \textup{ small} 
+\end{align}
+to show that
+\begin{align}
+	\log \left [ \hat U\hat V\hat U^\dag \hat V^\dag  + Q  \right ] \simeq - \delta_x \delta_y \left [  \hat P \hat x_C \hat P, \hat P \hat y_C \hat P  \right ]
+\end{align}
+We can now drop the constant shifts in $\hat x_C$ and $\hat y_C$, since these vanish due to the commutator. Inserting this into the expression for Bott index, we arrive at the form of the Chern marker,
+\begin{align}
+ 	C(\textbf A)  = -2\pi i \sum_\alpha \bra{\textbf A \alpha} \left [  \hat P \hat x \hat P, \hat P \hat y \hat P  \right ]  \ket{\textbf A \alpha} .
+\end{align}
+We have skipped taking the imaginary part by noticing that the commutator is anti-Hermitian, so all of its eigenvalues are imaginary anyway, allowing us to make the substitution $\Im \rightarrow -i $.\par
+This calculation comes with one important caveat. The Chern marker has an extra property that the Bott index lacks. If the system in question has finite size, then the sum of the Chern number over the whole system vanishes. This is because the sum of $C(\textbf A)$ over the system is given by
+\begin{align}\label{eqn:chern_sum}
+	\sum_{\textbf A} C(\textbf A) = - 2\pi i \, \tr  \left [  \hat P \hat x \hat P, \hat P \hat y \hat P  \right ] ,
+\end{align}
+and the trace of a commutator is always zero in a finite Hilbert space. 
