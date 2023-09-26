@@ -1,0 +1,49 @@
+\begin{tikzpicture}
+
+\def \squaresize{2}
+\def \squarepos{0}
+\def \arrowdistance {0.3}
+\def \stepnum {4}
+\def \len  {0.2}
+
+
+
+% \draw [dashed] ( - \squaresize , - \squaresize) --  ( \squaresize , - \squaresize) --   ( \squaresize , \squaresize) -- ( - \squaresize, \squaresize) -- ( - \squaresize , - \squaresize);
+
+\draw [dashed]( - 2 , 0) --  ( 2 , - 0);
+
+\node (a) at (1,1.1) {};
+\filldraw (a) circle (1.5pt);
+\node (b) at (0.3,.2) {};
+\filldraw (b) circle (1.5pt);
+\node (c) at (0.,-0.6) {};
+\filldraw (c) circle (1.5pt);
+\node (d) at (-1.3,0.5) {};
+\filldraw (d) circle (1.5pt);
+\node (e) at (-1,-1.2) {};
+\filldraw (e) circle (1.5pt);
+\node (f) at (1.2,-1) {};
+\filldraw (f) circle (1.5pt);
+
+\node at (-2.3,0) {$R_y$};
+
+\draw[line width=0.3mm] (a) -- (b);
+\draw[line width=0.3mm] (a) -- (d);
+
+\draw[red!50,line width=0.4mm] (c) -- (b);
+\draw[red!50,line width=0.4mm] (c) -- (d);
+\draw[red!50,line width=0.4mm] (d) -- (e);
+\draw[red!50,line width=0.4mm] (a) -- (f);
+
+
+\draw[line width=0.3mm] (c) -- (f);
+\draw[line width=0.3mm] (c) -- (e);
+
+\draw[line width=0.3mm] (d) -- (-1.8,1.3);
+\draw[line width=0.3mm] (a) -- (1.8,1.3);
+\draw[line width=0.3mm] (e) -- (-1.8,-1.5);
+\draw[line width=0.3mm] (f) -- (1.8,-1.5);
+\draw[line width=0.3mm] (c) -- (0,-1.5);
+
+
+\end{tikzpicture}

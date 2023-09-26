@@ -2,7 +2,6 @@
 \usepackage{amsmath}
 \usepackage{multicol}
 \usepackage{amssymb}
-% \setlength\intextsep{11pt}
 \usepackage{braket}
 \numberwithin{equation}{section}
 \usepackage{bm}
@@ -10,29 +9,33 @@
 \usepackage{lipsum}
 \usepackage{microtype}
 \usepackage{appendix}
+\usepackage{mathtools}
 \usepackage{soul}
 \usepackage{titlesec}
 \usepackage{hyperref}
 \usepackage{bbm}
-\usepackage{titlesec}
-\usepackage{subfiles}
 \usepackage{wrapfig}
 \usepackage[justification=centering]{caption}
+
+\usepackage{subfiles}
+% \makeatletter
+% \newcommand{\insubfile}[1]{\ifx\@onlypreamble\@notprerr\else#1\fi}
+% \makeatother
 
 \usepackage{tikz}
 \usetikzlibrary{angles, quotes}
 
 \usepackage[
-backend=biber, %use the biber backed which is supposed to be better than the bibtex backend
-style=phys, %use the AIP style defined by the biblatex-phys package
-citestyle=numeric-comp, %for the inline citations use compressed numeric citations ie [1], [1,3,5] [4-8]
-biblabel=brackets, %the style used in bibliography itself ie [78-80]
-sorting=none, %sort in order of citation
-hyperref=true, %try to make urls into links and emit a warning if the hyperref package is not explicitely loaded
-maxnames=4, %after this many names truncate
-maxnames=4, %when truncating, how any names to include
-% backref=true, % add back references to the bibliography, showing where each reference is used
-% backrefstyle=two, %in the back references, compress any two or more consecutive pages to a range 1-5
+    backend=biber, %use the biber backed which is supposed to be better than the bibtex backend
+    style=phys, %use the AIP style defined by the biblatex-phys package
+    citestyle=numeric-comp, %for the inline citations use compressed numeric citations ie [1], [1,3,5] [4-8]
+    biblabel=brackets, %the style used in bibliography itself ie [78-80]
+    sorting=none, %sort in order of citation
+    hyperref=true, %try to make urls into links and emit a warning if the hyperref package is not explicitely loaded
+    maxnames=4, %after this many names truncate
+    maxnames=4, %when truncating, how any names to include
+    % backref=true, % add back references to the bibliography, showing where each reference is used
+    % backrefstyle=two, %in the back references, compress any two or more consecutive pages to a range 1-5
 ]{biblatex}
 \addbibresource{bibliography.bib}
 
