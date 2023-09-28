@@ -91,7 +91,9 @@ Here because every edge in our grid is now an internal edge and thus they cancel
 \end{align}
 $\mathcal Q$ is necessarily restricted to integer values, since a non-integer value would contradict equation \ref{torus_sum}.
 
-
+\begin{shaded}
+    Maybe its more consistent to use u rather than psi here
+\end{shaded}
 \subsection{Topology of a General Hamiltonian}\label{sec:continuous_berry}
 
 Now that we have a basic intuition for what the Chern number is, let's see how this applies to a real physical system. We start by defining some arbitrary Hamiltonian $H(\textbf R)$, which depends on some smooth parameter $\textbf R \in \mathcal R$.
@@ -192,7 +194,7 @@ where we use the shorthand $\partial_\alpha = \frac{\partial}{\partial R_\alpha}
     \end{align}
 
     \item Note that the definition provided for the Berry curvature  (eqn.~\ref{berry_curvature_state_deriv}) is only well-defined across $\mathcal R$ when the state remains fully gapped. That is, no other states ever have the same energy as $\ket{\psi(\textbf R)}$. When another state energy crosses that of $\ket \psi$, the individual states become ill-defined and so it becomes challenging to write down a natural derivative for the states. With this in mind, let us consider re-expressing the Berry curvature in terms of the single state projector $\hat \psi = \ketbra\psi \psi$,
-    \begin{align}
+    \begin{align} \label{eqn:operator_berry_curvature}
         i \braket{  \partial_x \psi | \partial_y \psi} + h.c.
         =
         i \tr \left [ \hat \psi \partial_x \hat \psi \, \partial _y \hat \psi \right ] + h.c.
