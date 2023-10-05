@@ -1,9 +1,10 @@
-The majority of accounts of local markers tend to focus on the development of the Bott index and the Chern marker. However, the first construction of a real-space Chern number can, along with the rest of modern physics, be found in the appendices of a seminal work by Kitaev \cite{kitaev_anyons_2006}. Thus, we shall start our discussion with an explanation of Kitaev's local marker, the discussion will largely follow the source material, however we provide some detail at various points where it is brushed passed there. 
+
+The majority of accounts of local markers tend to focus on the development of the Bott index and the Chern marker. However, the first construction of a real-space Chern number can, along with the rest of modern physics, be found in the appendices of a seminal work by Kitaev \cite{kitaev_anyons_2006}. Thus, we shall start our discussion with an explanation of Kitaev's local marker, the discussion will largely follow the source material, however we provide some additional detail at various points. 
 
 \begin{figure}
     \centering
      \begin{center}
-        \includegraphics[]{local_markers/figures/h_jkl.pdf}
+        \includegraphics[]{crosshair_marker/figures/h_jkl.pdf}
     \end{center}
      \captionof{figure}{
      Diagram showing the partition of the plane into three regions labelled with $A$, $B$ and $C$. An example of $h_{jkl}$ is depicted with red dots, where arrows indicate the positive direction. 
@@ -30,10 +31,10 @@ We divide our system into three regions in real space, $A$, $B$ and $C$, and def
     \qkit(P) = \sum_{j \in A}\sum_{k \in B}\sum_{l \in C} h_{jkl},
 \end{align}
 which we can re-express in terms of a set of projectors onto the three regions,
-\begin{align}
+\begin{align} \label{eqn:qkit_def}
     \qkit(P) = 12\pi i \tr( PAPBPC - PCPBPA) .
 \end{align}
-This quantity remains invariant when we relabel any finite area from one region to another. 
+This quantity remains invariant when we relabel any finite area from one region to another. Additionally, due to the localised nature of $P$, the only nonzero contributions to it come from around the point where the three regions $A$, $B$ and $C$ meet. 
 
 \begin{shaded}
     {\it The Invariance of $\qkit$ to changes in $A$, $B$ and $C$ --- } In order to see why this is the case, let us consider picking up some finite chunk of the region $B$, which we label with $\alpha$ and moving it over into region $A$. Thus, let us make the redefinition
@@ -42,7 +43,7 @@ This quantity remains invariant when we relabel any finite area from one region 
         B' & = B - \alpha
     \end{align}
     \begin{center}
-        \includegraphics[]{local_markers/figures/alpha_region.pdf}
+        \includegraphics[]{crosshair_marker/figures/alpha_region.pdf}
     \end{center}
     Thus, the matrix term in the Kitaev Chern number becomes
     \begin{align}
@@ -65,7 +66,7 @@ where we have used the identity $P^2 = P$ to obtain this line. All the extra ter
     \tr (PAPBPC - h.c.) = \tr (PA'PB'PC  - h.c.).
 \end{split}
 \end{align}
-In fact, the extra finite region $\alpha$ need not be a projector, since the above proof holds regardless of the properties of $\alpha$ provided that it has finite support. Thus we can go even further and see that the value of $\qkit$ is invariant under the addition of any finite matrix to one region, provided we subtract it from another region as well.
+In fact, the extra finite region $\alpha$ need not be a projector, since the above proof holds regardless of the properties of $\alpha$ provided that it has finite support. Thus we can go even further and see that the value of $\qkit$ is invariant under the addition of any finite matrix to one of out three regions, provided we subtract it from another region as well.
 
 
 \end{shaded}  
@@ -81,7 +82,7 @@ note that we are not allowed to cycle the terms in the trace here. Inserting the
     C = \1 - A - B,
 \end{align} 
 we arrive at the following expression,
-\begin{align}
+\begin{align} \label{eqn:qkit_as_commutator}
     \qkit(P) = 4 \pi i \tr[
         PAP, PBP
     ]
@@ -92,7 +93,7 @@ This invariance to the form of $A, B$ and $C$ affords us with an astounding amou
 
 \subsection{Relation to the Chern Number}
 
-So far we have constructed a quantity, $\qkit$ and shown that there is a remarkable amount of freedom in how we can build it without changing the value. In order to connect this to band topology, we will need to show that when evaluated in a translationally symmetric context, $\qkit$ corresponds exactly to the Chern number. Let us start by re-expressing $\qkit$ again in a new form. We define a set of step function projectors $\vartheta_x, \vartheta_y$ that satisfy 
+So far we have constructed a quantity, $\qkit$ and shown that there is a remarkable amount of freedom in how we can modify it without changing its value. In order to connect this to band topology, we will need to show that when evaluated in a translationally symmetric context, $\qkit$ corresponds exactly to the Chern number. Let us start by re-expressing $\qkit$ again in a new form. We define a set of step function projectors $\vartheta_x, \vartheta_y$ that satisfy 
 \begin{align}
     \vartheta_\alpha \ket{\textbf r} = 
     \begin{cases}
@@ -105,9 +106,15 @@ Let us now consider the operator
     2 \pi i \tr
     [ P\vartheta_x P, P\vartheta_y P ].
 \end{align}
-\begin{center}
-        \includegraphics[]{local_markers/figures/four_boxes.pdf}
-\end{center}
+\begin{figure}
+    \begin{center}
+       \includegraphics[]{crosshair_marker/figures/four_boxes.pdf}
+   \end{center}
+    \captionof{figure}{
+     ...
+    }\label{fig:four_squares}
+\end{figure}
+
 By decomposing the step function into projectors onto the four quarters of the plane, we arrive at
 \begin{align}\begin{split}
     2\pi i\tr [P \vartheta_xP, P \vartheta_yP ] = 2\pi i \tr \big ( 
@@ -118,8 +125,8 @@ By decomposing the step function into projectors onto the four quarters of the p
         \big )    
 \end{split}
 \end{align}
-Clearly the second term on the RHS vanishes. The third term also vanishes, which can be seen by its invariance under a mirror symmetry across the line $y +x = 0$ (a mirror reflection will always change the sign of $h_{jkl}$). Finally, we see that the first and last terms are both equal to $\qkit/2$, thus
-\begin{align}
+Clearly the second term on the RHS vanishes. The third term also vanishes, which can be seen by its invariance under a mirror symmetry across the line $y +x = 0$ (a mirror reflection will always flip the sign of $h_{jkl}$). Finally, we see that the first and last terms are both equal to $\qkit/2$, thus
+\begin{align}\label{eqn:qkit_step_functions}
     \qkit = 2\pi i\tr [P \vartheta_xP, P \vartheta_yP ].
 \end{align}
 In order to make contact with momentum space, we shall work in an infinite translational system. Clearly, in this context the position of the step functions will have no effect on the value of $\qkit$. Thus, let us define a set of translated step functions
@@ -130,14 +137,14 @@ In order to make contact with momentum space, we shall work in an infinite trans
         0&\textup{ for }r_{\alpha} < R_\alpha.
     \end{cases}
 \end{align} 
-Obviously, the value of $\qkit(\textbf R) = 2\pi i\tr [P \vartheta_x(\textbf R) P, P \vartheta_y(\textbf R)P ]$ is constant. Thus let us choose some square region of area $L^2$ the plane and take the average of $\qkit(\textbf R)$ over this region, 
+Obviously, the value of $\qkit(\textbf R) = 2\pi i\tr [P \vartheta_x(\textbf R) P, P \vartheta_y(\textbf R)P ]$ is the same as $\qkit$. Thus let us choose some (arbitrarily large) square region of area $L^2$ the plane and take the average of $\qkit(\textbf R)$ over this region, 
 \begin{align}
     \qkit &= \frac{1}{L^2} \int_{-L/2}^{L/2} dR_x\, dR_y\, \qkit(\textbf R)  \\ 
     & = \frac{2\pi i}{L^2} \tr [ PxP, PyP ] \\ 
     & = \frac{2\pi i}{L^2} \tr P \big[ [x,P],[y,P] \big ] 
 \end{align}
 In the limit of large L, we expect that the contribution to the trace is uniform in space, and so can replace the global trace with a local trace around some arbitrary point in the system $\textbf r$, $\frac1 {L^2} \tr \rightarrow \loctr_{\textbf{r}} $. Thus we arrive at 
-\begin{align}
+\begin{align}\label{eqn:chern_marker_from_kitaev}
     \qkit = 2\pi i \loctr _{\textbf{r}} \big [P[x,P],[y,P]\big ]. 
 \end{align}
 Now let us construct the exact form of the projector onto a band for a translationally symmetric Hamiltonian. From Bloch's theorem, we know the projector will have the following form
@@ -184,6 +191,55 @@ Comparing to eqn.~\ref{eqn:operator_berry_curvature}, we see that this quantity 
 
 \subsection{Kitaev's Marker in a Finite System}
 
-So far, we have defined Kitaev's chern number for a system with infinite boundary conditions. This version of the Chern number is useful in analytical arguments -- for example, such a Chern number was used to prove the quantisation of Hall conductivity in the presence of disorder \cite{bellissard_noncommutative_1994}. However, to be of practical use, $\qkit$ must still work in a 
+So far, we have defined Kitaev's Chern number for a system with infinite boundary conditions. This version of the Chern number is useful in analytical arguments -- for example, such a quantity was used to prove the quantisation of Hall conductivity in the presence of disorder \cite{bellissard_noncommutative_1994}. However, to be of broad practical use, $\qkit$ must still work in a finite system with open or periodic boundary conditions. Our current definition is unsuitable, which can be seen from eqn.~\ref{eqn:qkit_as_commutator}. Since the trace of a commutator vanishes in a finite system, this quantity is only nonzero in infinite boundary conditions. 
+
+\begin{figure}
+     \begin{center}
+        \includegraphics[]{crosshair_marker/figures/finite_kitaev_issues.pdf}
+    \end{center}
+     \captionof{figure}{
+      Two examples depicting how $\qkit$ vanishes in finite systems. \textbf{(Left)} A topological system in open boundary conditions with necessarily have gapless edge modes present (depicted here with a blue border), which contribute a term to $\qkit$ that exactly cancels out the topological value around the triple contact point. \textbf{(Right)} An example partition of the torus (shown with opposite edges identified) into three regions. In this case, four triple contact points are present. Around each two have the regions arranged clockwise around them and two counter-clockwise, so overall $\qkit$ vanishes.
+     }\label{fig:finite_kitaev_issues}
+\end{figure}
+Before we modify $\qkit$, let us first consider the details of how it misbehaves in finite systems. The stability of $\qkit$ depends on two assumptions -- that the projector $P$ is exponentially localised, and that the three regions $A$, $B$, $C$ all touch at a single point only. In a finite system, at least one of these two assumptions will always fail. In the case of the localisation of the projector, as long as the band remains gapped, we can expect that this condition will hold. However in a system with nonzero Chern number and open boundaries, the bulk boundary correspondence forces the existence of gapless edge modes. This means that the topological bulk is surrounded by a gapless region where the projector no longer has short-ranged correlations, allowing for a contribution to eqn.~\ref{eqn:qkit_def} that cancels out the central contribution from the triple contact point. In periodic boundaries we have no edge modes, however it is impossible to partition the torus into three regions with only a single point where the three meet. Instead, triple contact points are always created in pairs. Furthermore, of these pairs, one contact point always has the regions ordered clockwise and the other counter-clockwise around the point. This means that the contributions to $\qkit$ from the two points will always cancel out prefectly. An example of each of these effects is shown in fig.~\ref{fig:finite_kitaev_issues}. 
 
 
+\begin{figure}
+    \centering
+     \begin{center}
+        \includegraphics[]{crosshair_marker/figures/restricted_regions.pdf}
+    \end{center}
+     \captionof{figure}{
+    Three restricted regions for which $\qkit$ can be calculated. Now there is only one point where the three regions meet. Provided that $P$ remains short ranged in the circular region and the distance from the triple contact point to the boundary of the circle is larger than the correlation length of $P$, this will calculate a quantised Chern number.
+     }\label{fig:restricted_kitaev}
+\end{figure}
+In order to remedy this, let us restrict the three regions over which the Chern number is calculated, such that the boundaries and other triple contact points are avoided as shown, as shown in fig.~\ref{fig:restricted_kitaev}. In this case, there is only a single point where $A$, $B$ and $C$ meet. Let us define a projector onto the circular region as $O$. In this case, the finite version of $\qkit$ is defined the same as eqn.~\ref{eqn:qkit_def}, however with the following redefinition of the projectors
+\begin{align}
+    A \rightarrow \tilde A = OA.
+\end{align}
+The restricted Chern number can be written as
+\begin{align} \label{eqn:qkit_def_restricted}
+    \qkit^O = 12\pi i \tr( 
+        P\tilde AP\tilde BP\tilde C - 
+        P\tilde CP\tilde BP\tilde A).
+\end{align}
+Using the identity
+\begin{align}
+    C = O - A - B,
+\end{align}
+we can re-express this in a similar way to eqn.~\ref{eqn:qkit_as_commutator},
+\begin{align}
+    \qkit^O = 4 \pi i \tr_O[
+        P\tilde AP, P\tilde BP
+    ],
+\end{align}
+where the trace is taken only over the region $O$. Finally, making the assumption that the boundary of O is sufficiently far from the triple contact point that the contribution near the boundary vanishes, we can drop the tilde on $A$ and $B$ to get,
+\begin{align}
+    \qkit^O = 4 \pi i \tr_O[
+        P AP, P BP
+    ].
+\end{align}
+
+
+
+% \subsection{Some Examples}

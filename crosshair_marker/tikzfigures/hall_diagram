@@ -11,7 +11,7 @@
 
 % \draw [] ( - \squaresize , - \squaresize) --  ( \squaresize , - \squaresize) --   ( \squaresize , 0) -- ( - \squaresize, 0) -- ( - \squaresize , - \squaresize);
 \filldraw[white,inner color=red!70,outer color=white] (0,0) circle (1.3);
-z
+
 \draw [dashed] ( - \squaresize , -\squaresize) --  ( \squaresize , -\squaresize) --   ( \squaresize , \squaresize) -- ( - \squaresize, \squaresize) -- ( - \squaresize , -\squaresize);
 
 \draw (0,- \squaresize-0.1 ) -- (0, \squaresize+0.1 ) ;

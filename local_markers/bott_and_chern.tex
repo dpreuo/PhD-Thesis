@@ -1,3 +1,5 @@
+The Kitaev Chern number was defined with infinite systems in mind, and requires some modifying to allow it to work properly in a finite system. In this section we will introduce another real-space Chern number, initially proposed by Hastings and Loring \cite{hastings_almost_2010,hastings_topological_2011}. This marker is most naturally suited to systems in periodic boundary conditions. This section is as follows: We derive the exact form of the Bott index, showing that it is exactly equal to Chern number in a periodic, translationally symmetric system. In \textsection\ref{sec:chern_marker} we show how the Chern marker \cite{bianco_mapping_2011} (also given by Kitaev in eqn.~\ref{eqn:chern_marker_from_kitaev}) can be understood as the Bott index in the large-system limit.
+
 We will work with a lattice model, where unit cells are indexed by a vector of the form $(m_x,m_y)$. The lattice has size $(L_x,L_y)$, and we have set periodic boundary conditions. Sites are indexed by 
 \begin{align}
 	\ket{\textbf m \alpha} = \ket{\textbf m} \otimes \ket{\alpha},
@@ -127,11 +129,11 @@ By comparing with eqn.~\ref{eqn:discrete_chern_number}, we can see that we have 
 \begin{align}
 	\mathcal Q = -\frac{N}{2\pi} \sum_\alpha \Im \bra{\textbf A \alpha}\log \left [ \hat U\hat V\hat U^\dag \hat V^\dag + \hat Q \right ]   \ket{\textbf A \alpha} .
 \end{align}
-Thus we have shown that in the case of a translationally symmetric system with periodic boundaries, the Bott index evaluated at any point in our material always exactly calculates the Chern number. Before we show some example calculations, let us introduce one more quantity.
+Thus we have shown that in the case of a translationally symmetric system with periodic boundaries, the Bott index evaluated at any point in our material always exactly calculates the Chern number.
 
-\section{Chern Marker}
+\section{The Chern Marker} \label{sec:chern_marker}
 
-The Chern marker was first introduced in \cite{bianco_mapping_2011}, however we will not restate the derivation that they used. Instead we will justify the Chern marker by showing that it can be obtained from the Bott index in the limit of large system size.\par
+Most sources cite \cite{bianco_mapping_2011} for the invention of the Chern marker, however as we shall see in the next chapter, the Chern marker is a relatively trivial restatement of Kitaev's marker. Here we will derive the Chern marker by showing that it can be obtained from the Bott index in the limit of large system size.\par
 Our starting point is the expression for Bott index, eqn.~\ref{eqn:bott_index}. We start by multiplying $\hat U$  and $\hat V$ by complex phases $e^{-i \delta_x C_x}$ and $e^{-i \delta_y C_y}$. This has no effect on the value of the Bott index, since the phases have opposite sign in $\hat U ^\dag$ and $\hat V ^\dag$.
 \begin{align}
 	\hat U  \rightarrow \hat P e^{i \delta_x (\hat x - C_x)} \hat P \\
