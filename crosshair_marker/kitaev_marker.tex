@@ -131,13 +131,13 @@ Clearly the second term on the RHS vanishes. The third term also vanishes, which
 \end{align}
 In order to make contact with momentum space, we shall work in an infinite translational system. Clearly, in this context the position of the step functions will have no effect on the value of $\qkit$. Thus, let us define a set of translated step functions
 \begin{align}
-    \vartheta_\alpha(\textbf R) \ket{\textbf r} = 
+    \vartheta_{R_\alpha} \ket{\textbf r} = 
     \begin{cases}
         \ket {\textbf r}&\textup{ for }r_{\alpha} \geq R_\alpha,\\ 
         0&\textup{ for }r_{\alpha} < R_\alpha.
     \end{cases}
 \end{align} 
-Obviously, the value of $\qkit(\textbf R) = 2\pi i\tr [P \vartheta_x(\textbf R) P, P \vartheta_y(\textbf R)P ]$ is the same as $\qkit$. Thus let us choose some (arbitrarily large) square region of area $L^2$ the plane and take the average of $\qkit(\textbf R)$ over this region, 
+Obviously, the value of $\qkit(\textbf R) = 2\pi i\tr [P \vartheta_{R_x} P, P \vartheta_{R_y}P ]$ is the same as $\qkit$. Thus let us choose some (arbitrarily large) square region of area $L^2$ the plane and take the average of $\qkit(\textbf R)$ over this region, 
 \begin{align}
     \qkit &= \frac{1}{L^2} \int_{-L/2}^{L/2} dR_x\, dR_y\, \qkit(\textbf R)  \\ 
     & = \frac{2\pi i}{L^2} \tr [ PxP, PyP ] \\ 
@@ -189,9 +189,9 @@ Comparing to eqn.~\ref{eqn:operator_berry_curvature}, we see that this quantity 
     \end{align}
 \end{shaded}
 
-\subsection{Kitaev's Marker in a Finite System}
+\subsection{Kitaev's Marker in a Finite System} \label{sec:finite_kitaev}
 
-So far, we have defined Kitaev's Chern number for a system with infinite boundary conditions. This version of the Chern number is useful in analytical arguments -- for example, such a quantity was used to prove the quantisation of Hall conductivity in the presence of disorder \cite{bellissard_noncommutative_1994}. However, to be of broad practical use, $\qkit$ must still work in a finite system with open or periodic boundary conditions. Our current definition is unsuitable, which can be seen from eqn.~\ref{eqn:qkit_as_commutator}. Since the trace of a commutator vanishes in a finite system, this quantity is only nonzero in infinite boundary conditions. 
+So far, we have defined Kitaev's Chern number for a system with infinite boundary conditions. This version of the Chern number is useful in analytical arguments -- for example, a similar quantity was used to prove the quantisation of Hall conductivity in the presence of disorder \cite{bellissard_noncommutative_1994}. However, to be of broad practical use, $\qkit$ must still work in a finite system with open or periodic boundary conditions. Our current definition is unsuitable, which can be seen from eqn.~\ref{eqn:qkit_as_commutator}. Since the trace of a commutator vanishes in a finite system, this quantity is only nonzero in infinite boundary conditions. 
 
 \begin{figure}
      \begin{center}
@@ -200,20 +200,19 @@ So far, we have defined Kitaev's Chern number for a system with infinite boundar
      \captionof{figure}{
       Two examples depicting how $\qkit$ vanishes in finite systems. \textbf{(Left)} A topological system in open boundary conditions with necessarily have gapless edge modes present (depicted here with a blue border), which contribute a term to $\qkit$ that exactly cancels out the topological value around the triple contact point. \textbf{(Right)} An example partition of the torus (shown with opposite edges identified) into three regions. In this case, four triple contact points are present. Around each two have the regions arranged clockwise around them and two counter-clockwise, so overall $\qkit$ vanishes.
      }\label{fig:finite_kitaev_issues}
-\end{figure}
-Before we modify $\qkit$, let us first consider the details of how it misbehaves in finite systems. The stability of $\qkit$ depends on two assumptions -- that the projector $P$ is exponentially localised, and that the three regions $A$, $B$, $C$ all touch at a single point only. In a finite system, at least one of these two assumptions will always fail. In the case of the localisation of the projector, as long as the band remains gapped, we can expect that this condition will hold. However in a system with nonzero Chern number and open boundaries, the bulk boundary correspondence forces the existence of gapless edge modes. This means that the topological bulk is surrounded by a gapless region where the projector no longer has short-ranged correlations, allowing for a contribution to eqn.~\ref{eqn:qkit_def} that cancels out the central contribution from the triple contact point. In periodic boundaries we have no edge modes, however it is impossible to partition the torus into three regions with only a single point where the three meet. Instead, triple contact points are always created in pairs. Furthermore, of these pairs, one contact point always has the regions ordered clockwise and the other counter-clockwise around the point. This means that the contributions to $\qkit$ from the two points will always cancel out prefectly. An example of each of these effects is shown in fig.~\ref{fig:finite_kitaev_issues}. 
+    \end{figure}
+    Before we modify $\qkit$, let us first consider the details of how it misbehaves in finite systems. The stability of $\qkit$ depends on two assumptions -- that the projector $P$ is exponentially localised, and that the three regions $A$, $B$, $C$ all touch at a single point only. In a finite system, at least one of these two assumptions will always fail. In the case of the localisation of the projector, as long as the band remains gapped, we can expect that this condition will hold. However in a system with nonzero Chern number and open boundaries, the bulk boundary correspondence forces the existence of gapless edge modes. This means that the topological bulk is surrounded by a gapless region where the projector no longer has short-ranged correlations, allowing for a contribution to eqn.~\ref{eqn:qkit_def} that cancels out the central contribution from the triple contact point. In periodic boundaries we have no edge modes, however it is impossible to partition the torus into three regions with only a single point where the three meet. Instead, triple contact points are always created in pairs. Furthermore, of these pairs, one contact point always has the regions ordered clockwise and the other counter-clockwise around the point. This means that the contributions to $\qkit$ from the two points will always cancel out perfectly. An example of each of these effects is shown in fig.~\ref{fig:finite_kitaev_issues}. 
+    \begin{figure}
+        \centering
+         \begin{center}
+            \includegraphics[]{crosshair_marker/figures/restricted_regions.pdf}
+        \end{center}
+         \captionof{figure}{
+        Three restricted regions for which $\qkit$ can be calculated. Now there is only one point where the three regions meet. Provided that $P$ remains short ranged in the circular region and the distance from the triple contact point to the boundary of the circle is larger than the correlation length of $P$, this will calculate a quantised Chern number.
+         }\label{fig:restricted_kitaev}
+    \end{figure}
 
-
-\begin{figure}
-    \centering
-     \begin{center}
-        \includegraphics[]{crosshair_marker/figures/restricted_regions.pdf}
-    \end{center}
-     \captionof{figure}{
-    Three restricted regions for which $\qkit$ can be calculated. Now there is only one point where the three regions meet. Provided that $P$ remains short ranged in the circular region and the distance from the triple contact point to the boundary of the circle is larger than the correlation length of $P$, this will calculate a quantised Chern number.
-     }\label{fig:restricted_kitaev}
-\end{figure}
-In order to remedy this, let us restrict the three regions over which the Chern number is calculated, such that the boundaries and other triple contact points are avoided as shown, as shown in fig.~\ref{fig:restricted_kitaev}. In this case, there is only a single point where $A$, $B$ and $C$ meet. Let us define a projector onto the circular region as $O$. In this case, the finite version of $\qkit$ is defined the same as eqn.~\ref{eqn:qkit_def}, however with the following redefinition of the projectors
+In order to remedy this, let us restrict the three regions over which the Chern number is calculated, such that the boundaries and other triple contact points are avoided, as shown in fig.~\ref{fig:restricted_kitaev}. In this case, there is only a single point where $A$, $B$ and $C$ meet. Let us define a projector onto the circular region as $O$. In this case, the finite version of $\qkit$ is defined the same as eqn.~\ref{eqn:qkit_def}, however with the following redefinition of the projectors
 \begin{align}
     A \rightarrow \tilde A = OA.
 \end{align}
@@ -233,13 +232,54 @@ we can re-express this in a similar way to eqn.~\ref{eqn:qkit_as_commutator},
         P\tilde AP, P\tilde BP
     ],
 \end{align}
-where the trace is taken only over the region $O$. Finally, making the assumption that the boundary of O is sufficiently far from the triple contact point that the contribution near the boundary vanishes, we can drop the tilde on $A$ and $B$ to get,
-\begin{align}
+where the trace is taken only over the region $O$. Finally, assuming that the boundary of O is sufficiently far from the triple contact point (or any region where $P$ is long-ranged), we can expect that there is no contribution near the boundary of $O$, we can drop the tilde on $A$ and $B$ to get,
+\begin{align} \label{eqn:qkit_finite_step}
     \qkit^O = 4 \pi i \tr_O[
         P AP, P BP
     ].
 \end{align}
+The value of the marker is not dependent to the exact shape of $O$, provided its boundary avoids any other triple contact points, or gap closings.
 
+\section{Numerical Examples}
 
+Let us now provide a slide show of numerical examples of Kitaev's Chern number calculated in the amorphous QWZ model, verifying the arguments presented above. In each case, we calculate the step-function form of the Chern number given in eqn.~\ref{eqn:qkit_step_functions}. Rather than immediately summing over a bulk region, we shall consider the real-space contribution to the trace by finding the local trace of the marker, $\tr_{\textbf r} ( ... ) = \tr \braket{\textbf r | ... | \textbf r}$. Thus, we evaluate the local contribution given by
+\begin{align}
+    \qkit (\textbf r) = 4 \pi i \tr_{\textbf r}[
+        P \vartheta_x P, P \vartheta_y P
+    ].
+\end{align}
+By plotting $\qkit (\textbf r)$ over the system, it is easy to see where the central contribution to $\qkit$ ends, and thus deduce what area to trace over to find a quantised Chern number. 
 
-% \subsection{Some Examples}
+In each case, we also calculate the trace of the marker over a circular region, $O$, around the central peak, varying the radius of the circular region. We expect that as the region is increased, the trace should quickly converge to a near-quantised number. Once the circle becomes large enough to approach the edges of the system, the sum approaches zero as the trace becomes a trace over the whole system. 
+
+We show three sets of examples. In fig.~\ref{fig:qkit_example_boundaries} we compare the marker value in periodic boundary conditions and open boundary conditions, giving a direct example of the picture presented in \textsection\ref{sec:finite_kitaev}, where we discuss the two ways that finite size effects can cause the full trace to vanish. In fig.~\ref{fig:qkit_phase_transition} we plot the marker while tuning the QWZ model from a topological phase to a trivial phase. This is done by tuning the on-site splitting parameter $u$ (see eqn.~\ref{eqn:amorphous_qwz_hamiltonian}) over the phase transition at $u = -1.5$. Finally, in fig.~\ref{fig:qkit_disorder}, we add disorder by locally varying the value of $u$ with a perturbation drawn from a normal distribution. By increasing the standard deviation, we see how the marker changes as disorder gradually destroys the topological phase. 
+
+\begin{figure}
+    \centering
+     \begin{center}
+        \includegraphics[width = \textwidth]{crosshair_marker/figures/ch_first_eg.pdf}
+    \end{center}
+     \captionof{figure}{
+    $\qkit$ for the same amorphous QWZ model in periodic and open boundary conditions. In both cases $u$ is tuned to $-0.5$, close to the center of the topological region shown in fig.~\ref{fig:QWZ_band_struct}. \textbf{(a)} In periodic boundaries, there are four points where both step functions meet. One in the center and three on the boundary. At each of these points, the marker has a contribution determined by the Chern number, however at two of these points the step functions are such that the ordering of the regions is counter clockwise so the contribution is negative. Thus, the total trace vanishes. \textbf{(b)} In open boundaries the bulk Chern insulator is surrounded by a ring of gapless edge modes. Thus, on the boundary the projector is long-ranged and contributes a nonvanishing term to $\qkit$ that exactly cancels out the bulk term. \textbf{(c)} A plot showing the trace of $\qkit$ over a circular region $O$ around the central peak, showing the sum against circle radius. The maximum values reached in the PBS and OBC cases both quantised to one part in $10^6$, this extremely precise quantisation can be improved by increasing system size, further separating the bulk and edge effects. Once the circle becomes large enough to include boundary effects, both markers vanish.
+     }\label{fig:qkit_example_boundaries}
+\end{figure}
+
+\begin{figure}
+    \centering
+     \begin{center}
+        \includegraphics[width = 0.94\textwidth]{crosshair_marker/figures/ch_phase_transition.pdf}
+    \end{center}
+     \captionof{figure}{
+    $\qkit$ for an amorphous QWZ system in OBC for a range of $u$ values across a transition from a topological to a trivial phase. \textbf{(a-f)} Local distribution of $qkit$ for a set of $u$ values that range from $u=-1.1$ to $u =-1.6$, where the phase boundary is at $u =-1.5$. Nearing the phase boundary, the edge modes permeate deeper into the bulk -- and so the edge contributions get closer to the central peak in $\qkit$. At the exact phase transition the entire system is conducting, and the bulk and edge parts of $\qkit$ are not separable. Past the boundary, the marker vanishes. \textbf{(g)} Trace of $\qkit$ over a circular region $O$ around the central peak. Before the phase transition, the line tends towards $+1$ until it starts to include the edge effects, after the phase transition it tends to 0. 
+     }\label{fig:qkit_phase_transition}
+\end{figure}
+
+\begin{figure}
+    \centering
+     \begin{center}
+        \includegraphics[width = 0.94\textwidth]{crosshair_marker/figures/ch_increasing_disorder.pdf}
+    \end{center}
+        \captionof{figure}{
+            $\qkit$ for an amorphous QWZ system in OBC with increasing on-site disorder, added by locally varying the value of $u$ -- sampling from a Gaussian distribution centred on $u = -0.5$. \textbf{(a-f)} Local distribution of $qkit$ for a set of $u$ values sampled with a standard deviation ranging from $\sigma = 0$ to $\sigma = 1.75$ in steps of $0.35$. Once $\sigma$ is sufficiently large, the disorder is strong enough to create topologically trivial regions in the material that destroy the quantisation of $\qkit$, and the material is topologically trivial. \textbf{(g)} Trace of $\qkit$ over a circular region $O$ around the central peak. At sufficiently weak disorder, the marker remains close to quantised. However past a threshold around $\sigma \sim 1$, the marker no longer approaches a quantised value.
+            }\label{fig:qkit_disorder}
+\end{figure}
