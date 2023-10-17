@@ -20,7 +20,7 @@ where $H_{i,j} = H_{j,i}^\dag$ acts on the internal degrees of freedom. We will 
 \begin{figure}
     \centering
     \includegraphics[width = 0.9\textwidth]{crosshair_marker/figures/gauge_trans.png}
-    \caption{\label{fig:fields} a) The electric potential used to generate our electric field. b) The electric field, with only the nonzero $y$-component is shown.
+    \caption{\label{fig:fields} \textbf{(a)} The electric potential used to generate our electric field. \textbf{(b)} The electric field, with only the nonzero $y$-component is shown.
     }
 \end{figure}
 
@@ -249,4 +249,14 @@ Finally it is worth mentioning that -- following the argument presented for eqn.
     \mathfrak{C}(\textbf r) = \int d^2 \textbf R\ C(\textbf r;  \textbf R),
 \end{align}
 where the integral is over the whole system. 
+
+\subsection{Final Remarks}
+
+% TODO - add meat to this
+
+In this section, we presented a physically motivated local marker for the Chern number of a two-dimensional quantum system. The marker was derived as a local Hall conductivity for current around a crosshair in the bulk. We present a rigorous expression for this conductance for non-interacting electrons on the lattice, and show that it is equivalent to the real-space Chern number presented in~\cite{kitaev_anyons_2006}, although we make a slight modification to ensure it is nonzero for finite-size systems. Mathematically, the marker plays a similar role to existing methods such as Chern marker~\cite{bianco_mapping_2011} and Bott index~\cite{loring_guide_2019} -- locally indicating the topological phase of the system -- however unlike these markers, the crosshair marker is precisely quantised in the bulk.
+
+The arguments used to derive the crosshair marker are essentially a prescription for measuring the quantity in the lab: a step-function potential is used to excite current across the system in the vertical direction. The cross-conductance is then measured in the horizontal direction. An obvious next step will be to look at experimentally verifying the proposed method. 
+
+Until recently, local markers were developed in a non-interacting context as a property derived from the projector onto a band of states. In interacting systems, where the ground state does not correspond to a projector onto a set of single-particle states, most existing markers are inapplicable, however early progress has been made in understanding how local topology can be detected in interacting systems~\cite{markov_local_2021}. Clearly, in such a system the mathematical formalism presented here does not work, however our physical argument does not depend on the microscopic details of the system. Thus, it would be interesting to re-express the marker in a many-body framework. Similarly, we expect that the physical definition of the marker could provide a clue to understanding the role that local topology has to play in systems out of equilibrium~\cite{mcginley_classification_2019,caio_topological_2019, golovanova_truly_2021}.
 
