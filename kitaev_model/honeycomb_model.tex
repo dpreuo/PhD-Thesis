@@ -18,9 +18,9 @@ The Kitaev honeycomb model is defined for a set of spin half degrees of freedom 
     -J^y \sum_{y\textup{-bonds}} \sigma_j^y \sigma_k^y
     -J^z \sum_{z\textup{-bonds}} \sigma_j^z \sigma_k^z,
 \end{align}
-where the parameters $J^\alpha$ determine the strength of the $x$, $y$ and $z$ bonds, and $\sigma_j^\alpha$ represents a Pauli operator acting on the spin at site $j$. The exact solution of this model -- as with all integrable systems --  depends on the presence of an extensive set of conserved quantities, given by the following $W_p$ operators, defined by taking the product of the bond operators around a given hexagonal plaquette, $p$, 
-\begin{align}
-    W_p = \sum_{\braket{jk} \in p}
+where the parameters $J^\alpha$ determine the strength of the $x$, $y$ and $z$ bonds, and $\sigma_j^\alpha$ represents a Pauli operator acting on the spin at site $j$. The exact solution of this model -- as with all integrable systems --  depends on the presence of an extensive set of conserved quantities, given by the product of the bond operators around a given hexagonal plaquette, $p$, 
+\begin{align}\label{eqn:wp_definition}
+    W_p = \prod_{\braket{jk} \in p}
     \sigma_j^\alpha \sigma_k^\alpha,
 \end{align}
 where the order of the $\sigma_j$ operators is arranged such that they run clockwise around the hexagonal plaquette. Using that standard Pauli multiplication rules, we can show that the product can be simplified into a product of the six Pauli operators that connect outwards from each site on the hexagon. For example, the plaquette shown in fig.~\ref{fig:honeycomb_kitaev}b has $W_p$ given by
@@ -61,6 +61,7 @@ with the corresponding identity for $f_\uparrow$ using $b^y$ and $b^x$. Thus, th
 \begin{align}
     D =  b^x b^y b^z c.
 \end{align}
+
 In the Majorana representation, the spin operators take the following form,
 \begin{align}
     \sigma^x  & \rightarrow \frac{i}{2} (c b^x - b^z b^y), \\ 
@@ -74,35 +75,121 @@ As long as a state is in the physical Hilbert space, we have that $c b^z b^y b^x
     c b^z \ket \psi &= - b^y b^x \ket \psi,
 \end{align}
 with an equivalent identity for any other pairing of the Majoranas. Thus we see that when acted {\it only on the physical subspace} the spin operators may be represented with
-\begin{align}
+\begin{align} \label{sigma_to_majorana}
     \sigma^x = i c b^x,\qquad  \sigma^y = i c b^y ,\qquad  \sigma^z = i c b^z.
 \end{align}
 
-\subsection{The Majorana Hamiltonian}
+\begin{figure} 
+    \begin{center}
+        \includegraphics[]{kitaev_model/figures/spin_to_majorana.pdf}
+        \caption{
+            A depiction of the three steps in transforming the spin Hamiltonian into a quadratic Majorana Hamiltonian.
+            \textbf{(a)} A single $z$-bond with two spins located at the endpoints, labelled with $j$ and $k$.
+            \textbf{(b)} After the transformation to the Majorana basis each spin becomes a set of four Majorana fermions. On each site, the $b^x$, $b^y$ and $b^z$ Majorana takes part only in the $x$, $y$ and $z$ bond respectively. The $c$-Majorana takes part in all three couplings. 
+            \textbf{(c)} Once the eigenvalues of the $u_{jk}$ operators have been assigned, we are left with a quadratic Hamiltonian on the $c_j$ degrees of freedom only, with hopping determined by the $u_{jk}$ values, where the arrow indicates the direction in which $u_{jk} = +1$.
+        }\label{fig:spin_to_maj}
+    \end{center}
+\end{figure}
 
+We are now in a position to transform the Hamiltonian into the Majorana basis. Applying the identities derived above and reordering the Majorana operators, we arrive at the following,
+\begin{align} \label{eqn:kitaev_ham_majorana}
+    H = -\sum_{jk} J^\alpha_{jk} 
+    \sigma_j^\alpha \sigma_k^\alpha \rightarrow 
+    \sum_{jk} J^\alpha_{jk}
+    (i b^\alpha_k b^\alpha_j) (i c_j c_k ).
+\end{align}
+Note that the Majoranas forming $\hat u_{jk} = i b^\alpha_k b^\alpha_j$ appear only once in this Hamiltonian. This means that all $\hat u$ operators satisfy $[\hat u_{jk},\hat u_{mn}] = 0$ and $[\hat u_{jk},H] = 0$. Furthermore, they satisfy $\hat u_{jk}^2 = \1$, ensuring that their eigenvalues are $\pm 1$. Thus, these represent an extensive set of conserved quantities, where we may partition the Majorana Hilbert space according to the eigenvalues of these operators, $u_{jk}=\pm 1$. For a given choice of these bond variables, eqn.~\ref{eqn:kitaev_ham_majorana} reduces to a quadratic Majorana Hamiltonian
+\begin{equation}\label{eqn:majorana_hamiltonian_with_u}
+    H_u = \frac{i}{4}\sum_{ j,k }A_{jk} c_j c_k,
+\end{equation}
+where $A_{jk}=2J^{\alpha}u_{jk}$. Note that the bond variables satisfy $u_{jk} = -u_{kj}$. Thus, the matrix $A$ is real and antisymmetric. We may graphically represent the bond variables by replacing every edge in the lattice with an arrow, where the arrow depicts the direction in which $u_{jk}$ is positive. 
 
-\section{The Amorphous Honeycomb Model} \label{sec:amorphous_kitaev_model}
-Here we write down the Kitaev Hamiltonian for a general lattice. Talk about spins, classical frustration and discuss the properties of this model.
+Once a set of $\{u_{jk}\}$ have been chosen, the Hamiltonian $H_u$ can be solved to find the ground state $\ket{\psi_u}$. In general one might expect each distinct set of $\{u_{jk}\}$ to correspond to a unique system and thus a unique ground state, however as we shall see in the next section, the $u$ terms may be understood as a $\mathbb Z_2$ gauge field, where the only physical degrees of freedom are the $\mathbb Z_2$ fluxes through each plaquette. 
 
-How many conserved quantities are there, show the form of the plaquette operators and explain why they are conserved. Discuss how much this chops the Hilbert space - in general you would want a system that scales linearly with size but we're still exponential in $2^{n/2}$.
+\subsection{Gauge Transformations and Fluxes}
 
+\begin{figure} 
+    \begin{center}
+        \includegraphics[]{kitaev_model/figures/gauge_transformation.pdf}
+        \caption{
+            A depiction of a gauge transformation. We start with the configuration of $\{u_{jk}\}$ shown on the left. Now we apply a gauge transformation to the system by applying $D_j$ operators to all sites in some subset $\mathcal S$, here coloured red. All bonds that connect to one red site have the sign of $u$ flipped. Bonds between two red sites are flipped twice, and so remain invariant. The flipped bonds are highlighted. This is pictorially represented by the pink loops that encircle all the red sites. Any bond that crosses a pink loop has $u_{jk}$ flipped. 
+        }\label{fig:gauge_transformation}
+    \end{center}
+\end{figure}
+Let us consider the effect of the parity operators $D_j$ on our system. Before a set of $u_{jk}$ values are chosen, the Hamiltonian in eqn.~\ref{eqn:kitaev_ham_majorana} satisfies $[D_j , H] = 0$ for $\forall j$. However, once $u_{jk}$ are no longer operators, $D_j$ has the effect of flipping the sign of all $u$ terms that connect to site $j$, since
+\begin{align}
+    D_j u_{jk} c_j c_k D_j = -u_{jk} c_j c_k .
+\end{align}
+Thus, the effect applying a set of $D_j$ on some subset of sites ($j \in \mathcal S$) is to transform to a new set of bond operators $\{u\} \rightarrow \{u'\}$, where every bond that touches one flipped site has $u'_{jk} = - u_{jk}$. Pictorially, this can be represented as flipping all bond operators on the boundary between sites in the subset $\mathcal S$ and those not included. This is shown in fig.~\ref{fig:gauge_transformation}. The transformation effected by $D_j$ has no effect on the spectrum of $H_u$, thus we may interpret $D_j$ as a gauge transformation, transporting us to a different set of $\{u_{jk}\}$ that represents the same physical system.
 
+\begin{shaded} {\it Proof that $D_j$ leaves the spectrum invariant --- }
+    This can be seen by examining how the $A$ matrix is changed in eqn.~\ref{eqn:kitaev_ham_majorana}. A single $D_j$ operator's effect on $A$ can be represented as
+    \begin{align}
+        A \rightarrow R A R,
+    \end{align}
+    where R is a diagonal matrix given by
+    \begin{align}
+        R_{ii} = \begin{cases}
+            +1 \textup{ for } i \neq j, \\
+            -1\textup{ for } i = j.
+        \end{cases}
+    \end{align}
+    Clearly, $R$ is a unitary matrix, so the spectrum of $A$ is unaffected. Thus, the spectrum of $H_u$ is the same as the spectrum of $H_{u'}$ 
+\end{shaded}
+
+Since $H_u$ is not invariant under the action of $D_j$, the ground state $\ket{\psi_u}$ does not live in the physical Hilbert space. To construct a physical state we must apply a projector onto $\mathcal{H}_{\textup{phys}}$, given by
+\begin{align}
+    P = \prod_j \frac{1 + D_j}2.
+\end{align}
+From the form of $P$, we see that the physical state $\ket{\psi_{\textup{phys}}} = P \ket{\psi_u}$ is found by taking a equal superposition of every possible gauge-equivalent arrangement of~$\{u_{jk}\}$.
+
+The above argument does not imply that {\it all} sets of $u_{jk}$ are equivalent. To see why, let us construct a gauge-invariant quantity -- the $\mathbb Z_2$ flux through each plaquette $p$,
+\begin{equation} \label{eqn:z2_flux_def}
+    \phi_p = \prod_{(j,k) \in p} -iu_{jk},
+\end{equation}
+where the product is taken over the $u_{jk}$ values going clockwise around each plaquette. The gauge invariance of this can be seen clearly from fig.~\ref{fig:gauge_transformation}. A gauge transformation always corresponds to flipping over closed loops (depicted with a pink line). Each individual plaquette will always have an even number of bonds flipped by a gauge transformation, since every loop must both enter and exit the plaquette, leaving the value of $\phi_p$ invariant. In fact, the plaquette flux defined here is identical to the conserved quantity defined in eqn.~\ref{eqn:wp_definition}, $W_p$, which can be seen by applying the substitution in eqn.~\ref{sigma_to_majorana} to the definition of $W_p$. Thus, gauge inequivalent sectors of the Hilbert space may be labelled by the values of $\phi_p = \pm 1$ through each plaquette. In order to change the flux through a given plaquette, we perform a line of flips that terminates at the plaquette, as shown in fig.~\ref{fig:flux_flips}a. Thus, in periodic boundary conditions, it is only possible to flip $\phi_p$ in pairs, however in an open or infinite system we may flip a single flux with a line that starts at that plaquette and extends to the boundary of the system, or is infinite. 
+
+Finally, we note that in periodic boundaries every flux sector is fourfold degenerate. This is because one may flip a line of $u_{jk}$ that wraps the system in either the $x$ or $y$-direction, producing a new flux sector with identical values of $\phi_p$, that is not gauge equivalent to the starting state. If one constructs the Kitaev model on a general manifold with genus $m$, there are $2m$ such inequivalent gauge flips, leading to a $2^{2m}$ degeneracy in each flux sector. To measure this, we may construct a pair of global fluxes $\Phi_x$ and $\Phi_y$, by taking a product of bond operators around a loop $L_x$ or $L_y$ that wraps the system in the $x$ or $y$ direction
+\begin{equation} \label{eqn:non_contractible_flux}
+    \Phi_\alpha = \prod_{(j,k) \in L_\alpha} -iu_{jk}.
+\end{equation}
+
+\begin{shaded}
+    Add a section about state counting - maybe better to put this in the next section...
+\end{shaded}
+
+\begin{figure} 
+    \begin{center}
+        \includegraphics[]{kitaev_model/figures/flux_flips.pdf}
+        \caption{
+            \textbf{(a)} An example of a bond operator flip that corresponds to the creation of six fluxes. We start with a constant background (shown by the grey edges) where every plaquette has flux $+1$. On this background we flip three sets of bonds (in black). Each of these sets forms a line, where the flux of the coloured plaquettes at each end has been flipped to $-1$.
+            \textbf{(b)} An example of flipping bonds along two non-contractible loops in periodic boundary conditions. Each of these flips transports the system to a gauge inequivalent set of bond operators, resulting in a four-fold degeneracy for each flux sector. 
+        }\label{fig:flux_flips}
+    \end{center}
+\end{figure}
+ 
 \subsection{Solving the Hamiltonian}
 
-Now explain the process for actually solving the Hamiltonian
-\begin{itemize}
-    \item Describe the old XG wen trick of turning a spin into two fermions
-    \item Talk about how we have doubled the Hilbert space
-    \item discuss how we have to also enforce a projector onto the smaller Hilbert space
-    \item Now break these fermions up into Majorana fermions
-    \item Show how the spin operators become $icb$ operators in this representation
-    \item Show what the projector becomes in this basis
-    \item Discuss gauge invariance w/ proof
-\end{itemize}
+Once a flux sector has been chosen, we are left with a Majorana Hamiltonian, $H_u$, as defined in eq.~\ref{eqn:majorana_hamiltonian_with_u}. The full methodology for diagonalising such a Hamiltonian is detailed in Appendix \ref{sec:majorana_diagonalisation}, thus we shall present only the broad strokes here. We diagonalise the Hamiltonian by rotating to a new Majorana basis consisting of pairs of operators $\tilde c_j', \tilde c_j''$, 
+\begin{align}
+    \tilde c_j = O_{jk}c_k,
+\end{align}
+where $O$ is a real orthogonal matrix. In this basis the Hamiltonian takes the form 
+\begin{align}
+    H = \sum_{ j } \varepsilon_j\, i \tilde c_j' \tilde c_j''.
+\end{align}
+Each of these paired sets of Majorana operators may now be transformed back to a new fermionic basis according to the identity $ i \tilde c_j' \tilde c_j'' = 2 f_i^\dag f_i - 1$. Thus the Hamiltonian becomes
+\begin{align}
+    H = \sum_{ j } \varepsilon_j\,(2 f_i^\dag f_i - 1).
+\end{align}
+The ground state energy can now be read directly off the Hamiltonian, since it corresponds to leaving every fermionic state unoccupied. 
+\begin{align}
+    \egs = -\sum_j \varepsilon_j.
+\end{align}
+For each eigen-energy, there exists a fermionic excitation, created by applying the corresponding $f^\dag_j$ to the ground state, with energy cost $2\varepsilon_j$.
+
+In a system with $n_p$ plaquettes, we have $2^{n_p}$ possible flux sectors ($2^{n_p-1}$ in periodic boundaries), and in general it is a non-trivial task to determine which flux sector corresponds to the lowest ground state energy. However, on the honeycomb lattice the ground state was shown by Lieb to be found by setting $\phi_p=+1$ for all plaquettes \cite{lieb_flux_1994}. Thus, the ground state can always be found by bipartitioning the sites into an $A$ and $B$ sublattice, and setting the bond operators such that $u_{jk}$ always points from each $A$ site towards its three neighbouring $B$ sites (this was the `background' flux sector depicted in fig.~\ref{fig:flux_flips}).
 
 \subsection{The Ground State Phase Diagram}
 
-\subsection{Solving the Quadratic Hamiltonian}
-
-
-\subsection{Physical Realisations}
+We finish this review with a brief discussion of the ground state
