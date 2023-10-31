@@ -30,7 +30,7 @@ where the order of the $\sigma_j$ operators is arranged such that they run clock
 \end{align} 
 All $W_p$ operators commute with each other and $H$. Furthermore, we have $W_p^2 = 1$, which means that $W_p$ have eigenvalues $\pm 1$. The Hilbert space has dimension $2^N$, where $N$ is the number of spins. Since we have $N/2$ plaquettes in the system, these conserved quantities allow us to split the Hilbert space into $2^{N/2}$ sectors according to the eigenvalues of $\{W_p\}$.
 
-\subsection{Spins to Fermions to Majoranas}
+\subsection{Spins to Fermions to Majoranas} \label{sec:spins_to_majoranas}
 
 Although the Kitaev model can be solved with a Jordan-Wigner transformation \cite{feng_topological_2007,chen_exact_2007,chen_exact_2008}, here we will follow the original construction in terms of Majorana fermions. The first step is an old trick, often referred to as the parton construction \cite{senthil_z2_2000, wen_theory_1996, wen_quantum_2007}. We introduce a pair of fermion operators for each site, $f^\dag_\uparrow$ and $f^\dag_\downarrow$, which create a spin up and spin down state respectively. Spin operators are straightforwardly modified to
 \begin{align}
@@ -180,9 +180,9 @@ and does not change any of the Majorana operators,
 \begin{align}
     \hat T c_j \hat T^{-1} = c_j, \qquad \hat T b_j \hat T^{-1} = b_j.
 \end{align}
-This means that the Majorana Hamiltonian is not manifestly TRS invariant, since the time reversal operator has the property
+This means that the Majorana Hamiltonian is not obviously TRS invariant, since the time reversal operator has the property
 \begin{align}
-    \hat T ic_jc_k \hat T^{-1} = -ic_jc_k,
+    \hat T iu_{jk}c_jc_k \hat T^{-1} = -iu_{jk}c_jc_k,
 \end{align}
 so has the effect of flipping all bond operators in the system, $u_{jk} \rightarrow -u_{jk}$. On a bipartite system such as the Honeycomb this has no effect, since we can flip all bonds in the system by applying a gauge flip operator $D_j$ to every spin on the $A$ sublattice. The time reversed Hamiltonian is gauge equivalent to the original Hamiltonian. In general, provided the Majorana Hamiltonian has no coupling terms between two sites on the same sublattice, we are guaranteed that a gauge transformation exists that can map the time reversed state back, so time reversal has no effect on the system. 
 
