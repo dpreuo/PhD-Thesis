@@ -70,7 +70,7 @@ The colour of $\mathfrak f_j$ is uniquely defined provided that this process is 
 \begin{figure}[t]
     \centering
     \includegraphics{appendices/diagrams/f_paths.pdf}
-    \caption{... }
+    \caption{Two distinct paths from $f_0$ to $f_j$. The combination of both paths forms a closed loop, where the value of $\mathfrak{f_j}$ is uniquely determined provided that $\bigoplus \mathfrak e$ around this loop vanishes.}
     \label{fig:two_paths}
 \end{figure}
 \begin{align}
@@ -92,12 +92,12 @@ In order to show this condition holds, let us first notice that -- as we saw in 
 
 This argument completes the proof, any path from $f_0$ to $f_j$ will give an identical value for $\mathfrak f_j$. Furthermore, the 4-colouring obtained is guaranteed to always satisfy the condition of no adjacent faces having the same colour, since any two adjacent faces $\mathfrak f_1$ and $\mathfrak f_2$ separated by $\mathfrak e$ must satisfy 
 \begin{align}
-    \mathfrak f_1 \otimes e = f_2 \neq f_1 \textup{ for } e \neq \textbf 0.
+    \mathfrak f_1 \oplus \mathfrak e = \mathfrak f_2 \neq \mathfrak f_1 \textup{ for } e \neq \textbf 0.
 \end{align}
 
 \begin{shaded}
-    {\it What about periodic boundaries?} ---
-    The eagle-eyed reader might have noticed an omission in the argument presented. We showed that all closed loops that encircle a set of vertices are guaranteed to have $\bigotimes e = \textbf 0$. However not all closed loops have a defined inside and outside. If we construct such a system on a manifold with genus $g$, then in general there will be $2g$ topologically distinct non-contractible loops. Since these have no inside and outside, the argument above fails. 
+    {\it What about periodic boundaries?} --- 
+    The eagle-eyed reader might have noticed an omission in the argument presented. We showed that all closed loops that encircle a set of vertices are guaranteed to have $\bigoplus e = \textbf 0$. However not all closed loops have a defined inside and outside. If we construct such a system on a manifold with genus $g$, then in general there will be $2g$ topologically distinct non-contractible loops. Since these have no inside and outside, the argument above fails. 
 
     Thus, on a manifold that is not simply connected, a 4-face colouring implies a 3-edge colouring however a 3-edge colouring \textit{does not} imply a 4-face colouring!
 \end{shaded}

@@ -29,26 +29,204 @@ Let us begin, as we did in \textsection\ref{sec:honeycomb_model}, by defining th
 \end{align} 
 As before, plaquette operators can be defined by taking the product of bond operators around a given plaquette $p$. In order for all plaquette operators to commute with one another and the Hamiltonian, the colouring must be chosen such that no vertex connects to more than one bond of each type. Thus, we restrict our investigation to lattices in which every vertex has coordination number $z \leq 3$. Here we generate such lattices using Voronoi tessellation, as described in \textsection\ref{sec:voronoi}, an example of a coloured voronoi lattice is shown in fig.~\ref{fig:colouring_example}a. 
 
-The problem of finding such a colouring on a three-coordinated lattice was first studied in the late 19th century by Scottish physicist Peter Tait in an unsuccessful attempt at solving the famous four colour theorem. Tait proved that the problem of finding a 3-edge colouring was equivalent to finding a four-colouring the faces \cite{Tait1880}, a proof is detailed in appendix \ref{apx:tait_colourings}. The four colour theorem was proved 100 years later \cite{appelEveryPlanarMap1989a}, so we have the guarantee that in open boundaries, every planar cubic graph is 3-edge colourable. On the torus, both Tait's proof and the four colour theorem fail, a face colouring can take up to seven colours~\cite{ringel_solution_1968}. In the graph theory literature, a cubic graph that cannot be 3-edge coloured is called a snark, the most famous of which being the Peterson snark. As a concequence of the four colour theorem, all sarks must be non-planar, however the peterson snark can be made planar on the torus, shown in fig.~\ref{fig:colouring_example}. Thankfully, in practice we shall find that snarks on the torus are extraordinarily rare -- when working on this project we never encountered an un-colourable Voronoi lattice. 
+The problem of finding such a colouring on a three-coordinated lattice was first studied in the late 19th century by Scottish physicist Peter Tait in an unsuccessful attempt at solving the famous four colour theorem. Tait proved that the problem of finding a 3-edge colouring was equivalent to finding a four-colouring the faces \cite{Tait1880}, a proof is detailed in appendix \ref{apx:tait_colourings}. The four colour theorem was proved 100 years later \cite{appelEveryPlanarMap1989a}, so we have the guarantee that in open boundaries, every planar cubic graph is 3-edge colourable. On the torus, both Tait's proof and the four colour theorem fail, a face colouring can take up to seven colours~\cite{ringel_solution_1968}. In the graph theory literature, a cubic graph that cannot be 3-edge coloured is called a snark, the most famous of which being the Peterson snark. As a consequence of the four colour theorem, all snarks must be non-planar, however the Peterson snark can be made planar on the torus, shown in fig.~\ref{fig:colouring_example}. Thankfully, in practice we shall find that snarks on the torus are extraordinarily rare -- when working on this project we never encountered an un-colourable Voronoi lattice. 
 
 Of course, it is not sufficient to simply state that a colouring exists -- a process is necessary for colouring an arbitrary lattice. The 3-edge colouring problem is one of the canonical examples of an NP-complete problem \cite{Karp1972}, so no polynomial-time algorithm can be used to find a valid colouring. In order to solve this, we map the colouring problem onto a boolean-satisfiability problem, which is then solved using the open-source solver \texttt{MiniSAT}~\cite{imms-sat18}. 
 
 Although one might expect such an NP-complete problem to be computationally demanding to solve, we found that this process generally required little computing power. This is due to the fact that, on the lattices considered, there are a large number of valid colourings to choose from. To illustrate this, note that given a colouring it is always possible to to generate a new colouring. This can be done, as shown in fig.~\ref{fig:colouring_example}d, by considering two colours only. If bonds with the third colour are removed, we see that the lattice separates into a series of loops of even length, which are alternatingly coloured. For each individual loop, we may swap the two colours leaving the rest invariant. Doing this will generate a new colouring as well as changing the loop structure for the other two pairings. Thus, this process can be repeated for different pairs of colours and loops, each time generating completely inequivalent colourings. In fact, by considering a set of randomly generated lattices, some rough numerics indicate that the number of valid colourings grows with the exponential of system size according to $n_{\textup{colourings}} \sim e^{0.143n_{\textup{sites}}}$. 
 
 \subsection{Fluxes on an Amorphous Lattice}
+\label{sec:fluxes_amorphous}
+Once the lattice has been constructed and colouring has been found, the amorphous Hamiltonian can be diagonalised using the same procedure as that for the honeycomb model, described in \textsection\ref{sec:spins_to_majoranas}. We transform each spin into four Majorana degrees of freedom, resulting in a Hamiltonian analogous to that in eqn.~\ref{eqn:kitaev_ham_majorana}. Again, we find a set of $n_{\textup{edge}}$ bond operators $u_{jk}$, which commute with one another and $H$, so can be replaced with a scalar gauge field $u_{jk} = \pm 1$. Gauge transformations are also identical to those in the honeycomb case, where the $D_j$ operator's effect is to flip the value of $u_{jk}$ for all bonds connected to site $j$.  When represented in the Majorana Hilbert space, the flux operators $W_p = \prod_{\partial p}\sigma_{j}^\alpha\sigma_{k}^\alpha $ again become a set of conserved gauge fluxes $\phi_p = \prod_{\partial p}-iu_{jk}$, with one flux per plaquette in the system.
 
-Once the lattice has been constructed and colouring has been found, the amorphous Hamiltonian can be diagonalised using the same procedure as that for the honeycomb model, described in \textsection\ref{sec:spins_to_majoranas}. We transform each spin into four Majorana degrees of freedom, resulting in a Hamiltonian analogous to that in eqn.~\ref{eqn:kitaev_ham_majorana}. Again, we find a set of $n_{\textup{edge}}$ bond operators $u_{jk}$, which commute with one another and $H$, so can be replaced with a scalar gauge field $u_{jk} = \pm 1$. Gauge transformations are also identical to those in the honeycomb case, where the $D_j$ operator's effect is to flip the value of $u{jk}$ for all bonds connected to site $j$.  When represented in the Majorana Hilbert space, the flux operators $W_p = \prod_{\partial p}\sigma_{j}^\alpha\sigma_{k}^\alpha $ again become a set of conserved gauge fluxes $\phi_p = \prod_{\partial p}-iu_{jk}$, with one flux per plaquette in the system.
+The spin Hamiltonian is real, so it has time reversal symmetry. However, unlike the honeycomb case, the gauge flux through any plaquette with an odd number of sites is imaginary. A gauge sector is specified by a set of $\phi_p = \pm 1$ for every even plaquette and a set of  $\phi_p = \pm i$ for every odd plaquette, see the example in fig.~\ref{fig:amorphous_fluxes}a. Thus we find that the presence of odd plaquettes leads to a spontaneous breaking of time reversal symmetry, since the effect of time reversal will be to flip the sign of every bond operator on the lattice. Any odd-plaquette flux $\phi_p$ will thus also have its sign flipped. On the honeycomb, the flipping of every bond operator in the system could be done via a gauge transformation applied to all the sites on one of the two sublattices. On a lattice with odd cycles we no longer have $A$ and $B$ sublattices, so this is no longer possible -- a time reversed system is not gauge equivalent to the original. Thus, any state with a fixed flux sector spontaneously breaks time reversal symmetry, which in the context of crystalline Kitaev models was first described by Yao and Kivelson\footnote{Actually, Kitaev alluded to it in the original paper on the honeycomb model but did nothing with the result. Perhaps he did not think this was interesting enough to devote much time to studying, or perhaps he wanted to leave a few exercises for the interested reader.}~\cite{yaoExactChiralSpin2007}. All flux sectors come in degenerate pairs, where time reversal is equivalent to inverting the flux through every odd plaquette.
 
-The spin Hamiltonian is real, so it has time reversal symmetry. However, unlike the honeycomb case, the gauge flux through any plaquette with an odd number of sites is imaginary. A gauge sector is specified by a set of $\phi_p = \pm 1$ for every even plaquette and a set of  $\phi_p = \pm i$ for every odd plaquette. Thus we find that the presence of odd plaquettes leads to a spontaneous breaking of time reversal symmetry, since the effect of time reversal will be to flip the sign of every bond operator on the lattice. Any odd-plaquette flux $\phi_p$ will thus also have its sign flipped. On the honeycomb, the flipping of every bond operator in the system could be done via a gauge transformation applied to all the sites on one of the two sublattices. On a lattice with odd cycles we no longer have $A$ and $B$ sublattices, so this is no longer possible -- a time reversed system is not gauge equivalent to the original. Thus, any state with a fixed flux sector spontaneously breaks time reversal symmetry, which in the context of crystalline Kitaev models was first described by Yao and Kivelson~\cite{Yao2011}. All flux sectors come in degenerate pairs, where time reversal is equivalent to inverting the flux through every odd plaquette~\cite{yaoExactChiralSpin2007, Peri2020}.
+\begin{figure}
+    \centering
+    \includegraphics{kitaev_model/figures/amorphous_fluxes.pdf}
+    \caption{
+    \textbf{(a)} 
+    \textbf{(b)} 
+    \textbf{(c)} 
+    } 
+    \label{fig:amorphous_fluxes}
+\end{figure}
 
-Finally, let us detail the process for creating 
+On our model, we have seen that only the gauge fluxes though each plaquette have physical significance, however the degrees of freedom we actually have access to are the bond operators. Thus, let us detail an efficient process for choosing the bond operators such that a particular flux sector can be reproduced. The space of bond operator configurations is massively degenerate -- that is, many different configurations are gauge equivalent. However we can deal with this by restricting to only changing $u_{jk}$ on a subset of bonds. In particular, we construct a spanning tree on the dual lattice, which passes through every plaquette in the system, but contains no loops, as shown in fig.~\ref{fig:amorphous_fluxes}b. The tree contains $n_p - 1$ edges, shown in red, whose configuration space has a $1:1$ mapping onto the $2^{n_p - 1}$ distinct flux sectors. Starting with some arbitrary flux sector, every other flux sector can be created in precisely one way if we only flip edges on the tree (provided all other bond variables not on the tree remain fixed). 
 
+To construct the correct set of bond operators, we start with some arbitrary flux sector generated at random. We then count which plaquettes have the incorrect flux compared to the configuration we are targeting. We then construct our dual spanning tree and consider only the bonds that lie on this tree. To decide whether a bond should be flipped, we remove the bond from our spanning tree, cutting the tree into two. Now we count the number of incorrect plaquettes on one of the two trees. If the number is odd then the bond must be flipped, if the number is even then the bond is left as it is. An example of this process is depicted in fig.~\ref{fig:amorphous_fluxes}.
 
 \subsection{The Ground State Flux Sector} \label{sec:ground_state}
 
-In this section we detail the numerical evidence collected to support the claim that, for an arbitrary lattice, a gapped ground state flux sector is found by setting the flux through each plaquette to $\phi_{\textup{g.s.}} = -(\pm i)^{n_{\textup{sides}}}$. This was done by generating a large number ($\sim$ 25,000) of lattices and exhaustively checking every possible flux sector to find the configuration with the lowest energy. We checked both the isotropic point ($J^\alpha = 1$), as well as in the toric code ($J^x = J^y = 0.25, J^z = 1$).\par
-The argument has one complication: for a graph with $n_p$ plaquettes, there are $2^{n_p - 1}$ distinct flux sectors to search over, with an added factor of 4 when the global fluxes $\Phi_x$ and $\Phi_y$ wrapping around the cylinder directions are taken into account. Note that the $-1$ appears in this counting because fluxes can only be flipped in pairs. To be able to search over the entire flux space, one is necessarily restricted to looking at small system sizes -- we were able to check all flux sectors for systems with $n_p \leq 16$ in a reasonable amount of time. However, at such small system size we find that finite size effects are substantial. In order to overcome these effects we tile the system and use Bloch's theorem (a trick that we shall refer to as \textit{twist-averaging} for reasons that shall become clear) to efficiently find the energy of a much larger (but periodic) lattice. Thus we are able to suppress finite size effects, at the expense of losing long-range disorder in the lattice.\par
-Our argument has three parts: First we shall detail the techniques used to exhaustively search the flux space for a given lattice. Next, we discuss finite-size effects and explain the way that our methods are modified by the twist-averaging procedure. Finally, we demonstrate that as the size of the disordered system is increased, the effect of twist-averaging becomes negligible -- suggesting that our conclusions still apply in the case of large disordered lattices. 
+We now have all the tools necessary for constructing the amorphous Kitaev model. We can choose a flux sector, solve the system, and determine all the fermionic properties. However, we are missing one final piece of the puzzle: the flux sector of the ground state. On the honeycomb, Lieb's theorem \cite{lieb_flux_1994} applies, and the ground state is found by setting $\phi_p = +1$ for every hexagon. Here we are not so lucky since an extension of Lieb's theorem to more general lattices has not been proved. In this section we will provide numerical evidence to support the conjecture that, for an arbitrary lattice, the ground state may be found by setting the flux through each plaquette to
+\begin{align} \label{eqn:gnd_flux}
+    \phi^{\textup{g.s.}}_p = -(\pm i)^{n_{\textup{sides}}},
+\end{align}
+where $n_{\textup{sides}}$ is the number of edges that form the plaquette and the $\pm$ represents a global sign choice which gives us the two TRS-degenerate ground state flux sectors. We collect this evidence by generating a large number of lattices and exhaustively checking every possible flux sector to find the configuration with the lowest energy.
+
+The argument has one complication: for a graph with $n_p$ plaquettes, there are $2^{n_p - 1}$ flux sectors which must be searched over. Thus, one is necessarily restricted to looking at small system sizes -- we were able to check all flux sectors for systems with $n_p \leq 16$ in a reasonable amount of time. At such small system size we find that finite size effects are substantial and extra care must be taken to account for such effects.
+
+The argument has three parts. First we present a formulation of the ground state energy in terms of quantities defined on cycles on the lattice. Next, we shall use this formulation to discuss the effect of finite system size, and propose a method for dealing with these finite size effects. Finally we shall present the numerical results -- that all lattices we checked had a ground state consistent with our conjecture, and argue that the result may be straightforwardly extrapolated to larger system sizes. 
+
+\subsubsection{Cycles and the Ground State Energy}
+
+As discussed previously, the ground state energy can be found by taking the sum of the negative eigenvalues of the antisymmetric Hermitian matrix $iA$, defined in eqn.~\ref{eqn:iA_definition}. This Hamiltonian has particle-hole symmetry, since it is pure imaginary, so has $\mathcal{K} H \mathcal{K} = -H$, forcing all the eigenvalues to pair up with opposite signs,
+\begin{align}
+    iA = \sum_{i}^{N/2} \left ( \varepsilon_i \ket{\psi_i}\bra{\psi_i}  - \varepsilon_i \ket{\psi_i^*}\bra{\psi_i^*}\right ),
+\end{align}
+where $\varepsilon_i$ are always positive and $N$ is the dimensionality of the Majorana Hilbert space. To find the ground state energy, let us square this matrix and then take the square root - forcing all the eigenstates to be positive,
+\begin{align}
+    \sqrt{(iA)^2} = \sum_{i}^{N/2}
+    \varepsilon_i \left (\ket{\psi_i}\bra{\psi_i} + \ket{\psi_i^*}\bra{\psi_i^*}\right ).
+\end{align}
+Thus, the trace of this quantity is exactly double the magnitude of the ground state energy (which is negative),
+\begin{align}\label{eqn:ground_state}
+    \tr\sqrt{(iA)^2} = 2\sum_i \varepsilon_i = 2|\egs|.
+\end{align}
+We want to re-express this square root as a power series in $iA$. Our starting point is the binomial expansion for the square root
+\begin{align}
+    (1+x)^{\frac 12} = \sum_{n = 0}^\infty \frac{\left (\frac 12\right )_n}{n!}x^n.
+\end{align}
+The symbol $(\cdot)_n$ represents a falling factorial, 
+\begin{align}
+    (\alpha)_n = \alpha(\alpha-1)(\alpha-2)...(\alpha-n+1).
+\end{align}
+To apply this to our problem, we wish to replace $(iA)^2 = 1+x$, however there is a complication. The series only converges for $|x| \leq 1$, so we must first rescale $(iA)^2$ such that none of its eigenvalues are $>2$, let us therefore introduce a rescaling factor $s$,
+\begin{align}
+    \sqrt{(iA)^2} = \sqrt s \sum_{n = 0}^\infty \frac{\left (\frac 12\right )_n}{n!}
+    \left [ 
+        \frac{(iA)^2}{s} - \1
+    \right ]^n.
+\end{align}
+Rearranging slightly to make the sign structure more explicit, we have the following power series expression for the energy of the ground state, 
+\begin{align} \label{eqn:energy_as_power_series}
+   2|\egs| = \sqrt s n_v - 
+   \sqrt s \sum_{n = 1}^\infty 
+    \left |  
+    \frac{\left (\frac 12\right )_n}{n!s^n}
+    \right |
+    \tr
+    \left [ 
+        s - (iA)^2
+    \right ]^n,
+\end{align}
+where $n_v$ is the number of vertices on the lattice. 
+
+\begin{shaded}
+    {\it The Spectral Radius of $iA$ --- }
+    Let us briefly comment on the value of $s$, which is defined by the largest eigenvalue of $(iA)^2$. Thankfully, there has already been some work put into understanding the properties of matrices like $iA$ by the graph theorists \cite{adiga_skew_2010,cavers_skew-adjacency_2012}. At the isotropic point $J^\alpha = 1$, $(iA)$ is a \textit{skew-adjacency matrix} (although they don't include the factor if $i$), the energy we are after is called the \textit{skew-energy}. Their emphasis is rather different, spectral graph theorists use quantities like this as a signature to differentiate between different graphs. In \cite{cavers_skew-adjacency_2012} they prove that the spectral radius of the skew adjacency graph is always less than the spectral radius of the regular adjacency matrix,
+    \begin{align}
+        \rho(iA) \leq \rho ( |iA| ),
+    \end{align}
+    where $|\cdot|$ denotes an element-wise modulus. This is incredibly handy because it is well known that the spectral radius of the adjacency matrix is always equal or less than the largest vertex coordination number $\Delta$,
+    \begin{align}
+        \rho(|iA|) \leq \Delta,
+    \end{align}
+    with equality if the lattice is $\Delta$-regular (i.e. all vertices have coordination number $\Delta$). Our lattices are guaranteed to always have coordination number 3 (or lower if we have open boundaries for example). Thus, we have a guarantee that the spectral radius of $iA$ has
+    \begin{align}
+        \rho(iA) \leq 3.
+    \end{align}
+    This means that provided $s \geq 4.5$, our series is guaranteed to converge. As we move away from the isotropic point in $J^\alpha$, provided we still satisfy $J^\alpha \leq 1$, the above inequality still holds. 
+\end{shaded}
+
+Now let us show that the trace of the $k^{\textup{th}}$ power of a matrix is determined solely by the products of matrix elements around loops in the lattice. Consider a diagonal element of $M^k$,
+\begin{align}\label{eqn:power_sum}
+    (M^k)_{jj} = \sum_{\alpha, \beta, ... ,\chi, \omega} (M_{j\alpha})(M_{\alpha\beta})...(M_{\chi\omega})(M_{\omega j}).
+\end{align}
+The summand in this expression can be visualised as taking a $k$-edge walk that starts at $p_j$, then traverses over all the intermediate points ($p_\alpha, p_\beta ...$) before coming back to finish at $p_j$. Thus, the matrix element above calculates the sum of all walks that start and end at point $p_j$. The whole trace can thus be seen as a sum over all closed $k$-walks on our lattice. 
+
+Now let's consider traces of $iA$ at the isotropic point ($J^\alpha=1$). In this case, up to an overzall factor, we have $iA_{jk} = iu_{jk}$. This means that a trace of $(iA)^k$ sums the flux $\phi_{w_k}$ through every walk $w_k$ of length $k$,
+\begin{align}
+    \tr \left [ (iA)^k \right ]= \sum_{w_k} \phi_{w_k}
+\end{align}
+Note that this flux differs from our previous definition in that it is calculated for an arbitrary walk around the lattice, rather than specifically for individual plaquettes. Let us state two properties of these fluxes:
+\begin{enumerate}
+    \item 
+    The flux around a walk that encircles zero area is always $+1$.
+    For a path to encircle no area, it needs to leave and return to point $p_1$ along the same path. This means that every constituent $u_{jk}$ in the flux product must appear twice in the overall expression,
+    \begin{align}
+        \phi_w= (iu_{12})(iu_{23})...(iu_{n-1 \ n})(iu_{n \ n-1}) ... (iu_{32})(iu_{21}).
+    \end{align}
+    From the antisymmetry of $u_{jk}$ we can immediately see that each pair of $u$ values gives an overall +1 factor, so the overall flux is +1.
+    \item 
+    The flux of a closed walk is the product of the flux through the plaquettes it encircles.
+    \begin{align}
+        \phi_w = \prod_{p \in w} \phi_{p}
+    \end{align}
+    This can be proved by noticing that a combined path has all the same constituent edges as the plaquettes minus some shared edges. Since the shared edges show up with opposite direction in each plaquette, the $iu_{ij}$ factors cancel out when their fluxes are multiplied.
+\end{enumerate}
+\begin{figure}
+    \centering
+    \includegraphics{kitaev_model/figures/compound_path.pdf}
+    \caption{
+    ...
+    } 
+    \label{fig:compound_path}
+\end{figure}
+As a consequence of these two properties, we see that the flux through any complex closed walk around the lattice can be decomposed into the product of its constituent plaquettes, as shown in fig.~\ref{fig:compound_path}. Thus, every term in eqn.~\ref{eqn:energy_as_power_series} is a trace of a power $iA$, which then can be decomposed into products of fluxes through individual plaquettes,
+\begin{align}
+    |\egs| \sim \sum_{p_j} c_{j} \phi_{p_j} + \sum_{p_j, p_k} c_{jk} \phi_{p_j}\phi_{p_k} + ...
+\end{align} 
+Determining the exact values of $c_j$ in this expansion is, of course, complex and dependent on the specific geometry of the individual lattice. 
+
+In periodic boundaries, not every walk can be expressed as a product over plaquette operators, since any walk that wraps the torus encircles no plaquettes. Torus wrapping walks have a minimum length that scales with system size $L$, so first show up in the series at order $L$. Thus we expect these to vanish for arbitrarily large systems, and consider their influence to be a finite size effect, which we discuss in the next section.
+
+\begin{shaded}
+    {\it A Clue for the Ground State Flux Sector --- } Let us consider the sign structure of the sum in eqn.~\ref{eqn:energy_as_power_series}. Since the sum is in powers of $-(iA)^2$, we see that, ignoring the magnitude of each term, the sum looks like
+    \begin{align}
+        |\egs| \sim a_0 
+        + |a_1|(iA)^2 
+        - |a_2|(iA)^4 
+        + |a_3|(iA)^6
+        - |a_4|(iA)^8 - ...
+    \end{align}
+    For a given plaquette $p$ with $n_s$ sides, we expect it to contribute at lowest order in eqn.~\ref{eqn:energy_as_power_series} in a term of the form 
+    \begin{align}
+        (-1)^{\frac{n_s}2}(iA)^{n_s} \sim \textup{terms} +  (-1)^{\frac{n_s}2}\phi_p
+    \end{align}
+    The lowest ground state energy is found by extremising this sum. Thus, if we set the flux through every plaquette of length $4m$ to $-1$ and the flux through every plaquette of length $4m+2$ to $+1$, we can be sure that their lowest order contribution to the sum will be positive. Thus, we expect that this should give us the best chance of maximising $|\egs|$. 
+
+    The flux through odd plaquettes does not show up in this expression. However, if we consider the ways that odd plaquettes can combine to form even plaquettes, we may extend this argument to include them as well. For two odd plaquettes with $n_{s1}$ and $n_{s2}$ sides which share an edge, the combined even plaquette will have $n_{s1}+n_{s2} -2$ sides, and the flux through the combined plaquette will be $\phi_1\phi_2$. Thus, if we set the flux through all plaquettes with $4m+1$ sides to $+i$ a the flux through all $4m+3$ sided plaquettes to $-1$, we have a guarantee that they will always combine with a neighbour to form an even plaquette whose flux agrees with the rule stated above. Note that this also works if we swap the $+i$ and $-i$ in this argument. Thus, we might be tempted to suggest that the ground state flux sector corresponds to setting all plaquettes to 
+    \begin{align}
+        \phi^{\textup{g.s.}}_p = -(\pm i)^{n_{\textup{sides}}}.
+    \end{align}
+    Unfortunately, the above argument only works at the lowest order at which each plaquette appears. If you include higher order terms, the counting is not so straightforward, since individual plaquettes can reappear at arbitrarily high order in arbitrarily long walks that show up with both positive and negative coefficients. Quod \underline{not} erat demonstrandum.
+
+\end{shaded}
+
+\subsubsection{Finite Size Effects}
+
+\begin{figure}
+    \centering
+    \includegraphics{kitaev_model/figures/twist_phases.pdf}
+    \caption{
+    ...
+    } 
+    \label{fig:twist_phases}
+\end{figure}
+
+
+In our numerical investigation, the objective was to test as many example lattices as possible. We aim for the largest lattice size that could be efficiently solved, requiring a balance between lattice size and cases tested. Each added plaquette doubles the number of flux sectors that must be checked. 25,000 lattices containing 16 plaquettes were used. However, in his numerical investigation of the honeycomb model, Kitaev demonstrated that finite size effects persist up to much larger lattice sizes than we were able to access. 
+
+In order to circumvent this problem, we treat the 16-plaquette amorphous lattice as a unit cell in an arbitrarily large periodic system. The bonds that originally connected across the periodic boundaries now connect adjacent unit cells. This infinite periodic Hamiltonian can then be solved using Bloch's theorem, since the larger system is diagonalised by a plane wave ansatz. For a given crystal momentum $\textbf q \in [0,2\pi)^2 $, we are left with a Bloch Hamiltonian, which is identical to the original Hamiltonian aside from an extra phase on edges that cross the periodic boundaries in the $x$ and $y$ directions,
+\begin{align}
+    iA_{jk}(\textbf q) =  \frac{i}{2} J^{\alpha} u_{jk} e^{i q_{jk}},
+\end{align}
+where $q_{jk} = q_x$ for a bond that crosses the $x$-periodic boundary in the positive direction, with the analogous definition for $y$-crossing bonds. We also have $q_{jk} = -q_{kj}$. Finally $q_{jk} = 0$ if the edge does not cross any boundaries at all -- in essence we are imposing twisted boundary conditions on our system. The total energy of the tiled system can be calculated by averaging over the energy for every value of $\textbf q$. 
+
+Let us recontextualise the effect of such a twist-averaging procedure to the loop-sum picture presented in the previous section. Let us consider a walk $w$ on our lattice. If the walk does not wrap the torus in either the $x$ or $y$ directions, then $\phi_w$ is invariant to $\textbf q$. even if the walk does cross the boundaries, a non-wrapping walk will cross once forward (picking up $e^{iq}$) and then again backward (picking up $e^{-iq}$), leaving the overall flux invariant. 
+
+However, consider a general walk that wraps the system $n_x$ times in the $x$-direction and $n_y$ times in the $y$-direction. When a twist $\textbf q$ is applied, the flux through this walk will pick up an extra phase
+\begin{align}
+    \phi_w \rightarrow \phi_w 
+    e^{in_x q_x+in_y q_y}.
+\end{align}
+Thus, each successive set of $\textbf q$ included in our averaging procedure has the effect of cancelling out the contribution to $|\egs|$ from walks with larger values of $n_\alpha$. To illustrate this, consider first averaging over $\textbf q = (0,0)$ and $\textbf q = (\pi,0)$. Any walk with odd $n_x$ will appear with opposite sign in the two respective sums for each twist, cancelling out. Adding in $\textbf q = (\frac{\pi}2,0)$ and $\textbf q = (\frac{3\pi}2,0)$, then cancels out all walks with $n_x = 2,6,10...$ Thus, we see that averaging over sufficiently many phase twists has the effect of cancelling out all torus-wrapping walks, while leaving all non-wrapping walks invariant. 
+
+\todo{ mention global fluxes - fourfold boys}
+
+\subsubsection{Numerics}
+We now detail the numerical evidence collected to support our claim for the flux configuration of the ground state. We generated a large number ($\sim$ 25,000) of lattices and exhaustively checked every possible flux sector to find the configuration with the lowest energy. We checked both the isotropic point ($J^\alpha = 1$), as well as in the toric code phase ($J^{x,y} = 0.25, J^z = 1$). Since a lattice with $n_p$ plaquettes has $2^{n_p - 1}$ distinct flux sectors to search over, one is necessarily restricted to looking at small system sizes -- we were able to check all flux sectors for systems with $n_p \leq 16$ in a reasonable amount of time. Practically, this is done by iterating over all possible configurations of $\{u_{jk}\}$ a plaquette-spanning tree, as described in \textsection\ref{sec:fluxes_amorphous}. At such small system size, the substantial finite size effects are thus accounted for by averaging over $50\times50$ sets of twisted boundary conditions.
 
 \begin{figure}[t]
     \centering
@@ -57,39 +235,10 @@ Our argument has three parts: First we shall detail the techniques used to exhau
     \label{fig:energy_gaps_example}
 \end{figure}
 
-{\it Testing All Flux Sectors ---}
-For a given lattice and flux sector, defined by $\{ u_{jk}\}$, the fermionic ground state energy is calculated by taking the sum of the negative eigenvalues of the matrix
-\begin{align}
-    M_{jk} = \frac{i}{2} J^{\alpha} u_{jk}.
-\end{align}
-The set of bond variables $u_{jk}$, which we are free to choose, determine the $\mathbb Z_2$ gauge field. However only the fluxes, defined for each plaquette according to 
-\begin{equation}
-    \phi_p = \prod_{(j,k) \in \partial p} -iu_{jk},
-\end{equation}
-have any effect on the energies. Thus, there is enormous degeneracy in the $u_{jk}$ degrees of freedom. Flipping the bonds along any closed loop on the dual lattice has no effect on the fluxes, since each plaquette has had an even number of its constituent bonds flipped - as is shown in the following diagram:
-\begin{center}
-    \input{kitaev_model/figures/tikzpictures/flux_loop.tex}
-\end{center}
-where the flipped bonds are shown in red. In order to explore every possible flux sector using the $u_{jk}$ variables, we restrict ourselves to change only a subset of the bonds in the system. In particular, we construct a spanning tree on the dual lattice, which passes through every plaquette in the system, but contains no loops. 
-\begin{center}
-    \input{kitaev_model/figures/tikzpictures/spanning_tree.tex}
-\end{center}
-The tree contains $n_p - 1$ edges, shown in red, whose configuration space has a $1:1$ mapping onto the $2^{n_p - 1}$ distinct flux sectors. Each flux sector can be created in precisely one way by flipping edges only on the tree (provided all other bond variables not on the tree remain fixed). Thus, all possible flux sectors can be accessed by iterating over all configurations of edges on this spanning tree.
+For each lattice, $2^{15} =$ 32,768 flux sectors are generated. In each case we find the energy (averaged over all twist values) and the size of the fermion gap, which is defined as the lowest energy excitation for any value of $\textbf q$. We then check if the lowest energy flux sector aligns with our ansatz ( $\phi^{\textup{g.s.}}_p = -(\pm i)^{n_{\textup{sides}}}$) and whether this flux sector is gapped. At the isotropic point ($J^\alpha = 1$), all 25,000 examples conformed to our guess for the ground state flux sector. A tiny minority ($\sim 10$) of the systems were found to be gapless. As we shall see shortly, the proportion of gapless systems vanishes as we increase the size of the amorphous lattice. An example of the energies and gaps for one of the systems tested is shown in fig.~\ref{fig:energy_gaps_example}a. For the anisotropic phase (we used $ J^{x,y} = 0.25, J^z = 1$) the overwhelming majority of cases adhered to our ansatz, however a small minority ($\sim 0.5 \%$) did not. In these cases, however, the energy difference between our ansatz and the ground state was at most of order $10^{-6}$. Further investigation would need to be undertaken to determine whether these anomalous systems are a finite size effect due to the small amorphous system sizes used or a genuine feature of the toric code phase on such lattices. Especially since the flux gap (i.e.~the second lowest ground state energy of any flux sector) of the honeycomb toric code phase scales with ${{J^x}^2{J^y}^2}/{{J^z}^3}$, so becomes very small in this regime anyway.
 
-{\it Finite Size Effects ---}
-In our numerical investigation, the objective was to test as many example lattices as possible. We aim for the largest lattice size that could be efficiently solved, requiring a balance between lattice size and cases tested. Each added plaquette doubles the number of flux sectors that must be checked. 25,000 lattices containing 16 plaquettes were used. However, in his numerical investigation of the honeycomb model, Kitaev demonstrated that finite size effects persist up to much larger lattice sizes than we were able to access \cite{kitaev_anyons_2006}. \par 
-In order to circumvent this problem, we treat the 16-plaquette amorphous lattice as a unit cell in an arbitrarily large periodic system. The bonds that originally connected across the periodic boundaries now connect adjacent unit cells. This infinite periodic Hamiltonian can then be solved using Bloch's theorem, since the larger system is diagonalised by a plane wave ansatz. For a given crystal momentum $\textbf q \in [0,2\pi)^2 $, we are left with a Bloch Hamiltonian, which is identical to the original Hamiltonian aside from an extra phase on edges that cross the periodic boundaries in the $x$ and $y$ directions,
-\begin{align}
-    M_{jk}(\textbf q) =  \frac{i}{2} J^{\alpha} u_{jk} e^{i q_{jk}},
-\end{align}
-where $q_{jk} = q_x$ for a bond that crosses the $x$-periodic boundary in the positive direction, with the analogous definition for $y$-crossing bonds. We also have $q_{jk} = -q_{kj}$. Finally $q_{jk} = 0$ if the edge does not cross any boundaries at all -- in essence we are imposing twisted boundary conditions on our system. The total energy of the tiled system can be calculated by summing the energy of $M(\textbf q)$ for every value of $\textbf q$. In practice we constructed a lattice of $50 \times 50$ values of $\textbf q$ spanning the Brillouin zone. The procedure is called twist averaging because the energy-per-unit cell is equivalent to the average energy over the full range of twisted boundary conditions. \par 
-{\it Evidence for the Ground State Ansatz ---}
-For each lattice with 16 plaquettes, $2^{15} =$ 32,768 flux sectors are generated. In each case we find the energy (averaged over all twist values) and the size of the fermion gap, which is defined as the lowest energy excitation for any value of $\textbf q$. We then check if the lowest energy flux sector aligns with our ansatz (given by $\phi^{\textup{g.s.}}_p = -(\pm i)^{n_{\textup{sides}}}$) and whether this flux sector is gapped. \par
-In the isotropic case ($J^\alpha = 1$), all 25,000 examples conformed to our guess for the ground state flux sector. A tiny minority ($\sim 10$) of the systems were found to be gapless. As we shall see shortly, the proportion of gapless systems vanishes as we increase the size of the amorphous lattice. An example of the energies and gaps for one of the systems tested is shown in fig.~\ref{fig:energy_gaps_example} (a). For the anisotropic phase (we used $ J^x, J^y = 0.25, J^z = 1$) the overwhelming majority of cases adhered to our ansatz, however a small minority ($\sim 0.5 \%$) did not. In these cases, however, the energy difference between our ansatz and the ground state was at most of order $10^{-6}$. Further investigation would need to be undertaken to determine whether these anomalous systems are a finite size effect due to the small amorphous system sizes used or a genuine feature of the toric code phase on such lattices. \par
+We turn our attention to checking that the ground state flux sector is gapped. We no longer need to exhaustively search over flux space for the ground state, so it is possible to go to much larger system size. We generate 40 sets of systems with plaquette numbers ranging from 9 to 1600. For each system size, 1000 distinct lattices are generated and the energy and gap size are calculated without phase twisting, since the effect is negligible for such large system sizes. As can be seen in fig.~\ref{fig:energy_gaps_example}c-d, for very small system size a small minority of gapless systems appear, however beyond around 20 plaquettes all systems had a stable fermion gap in the ground state. Finally, we note that the energy and gap difference between the phase twisted and non-phase twisted results vanished exponentially in the system size, supporting the claim that the results can be straightforwardly extrapolated to large systems. 
 
-{\it A Gapped Ground State ---} Now that we have collected sufficient evidence to support our guess for the ground state flux sector, we turn our attention to checking that this sector is gapped. We no longer need to exhaustively search over flux space for the ground state, so it is possible to go to much larger system size. We generate 40 sets of systems with plaquette numbers ranging from 9 to 1600. For each system size, 1000 distinct lattices are generated and the energy and gap size are calculated without phase twisting, since the effect is negligible for such large system sizes. As can be seen in fig.~\ref{fig:energy_gaps_example} (c-d), for very small system size a small minority of gapless systems appear, however beyond around 20 plaquettes all systems had a stable fermion gap in the ground state. Finally, the energy and gap difference between the phase twisted and non-phase twisted results vanished exponentially with the system size, supporting the claim that the results can be straightforwardly extrapolated to large systems. 
-
-\subsection{Time Reversal Symmetry}
 
 \subsection{The Ground-State Phase Diagram}
 
@@ -100,7 +249,7 @@ In the isotropic case ($J^\alpha = 1$), all 25,000 examples conformed to our gue
     \centering
     \includegraphics[width=0.9\textwidth]{kitaev_model/figures/bond_disorder.pdf}
     \caption{
-    \textbf{(a)} Close up of a section of amorphous lattice generated using a single voronoi partition on a set of uniformly sampled seed points. \textbf{(b)} A section of amorphous lattice generated using the regularised method detailed in appendix \ref{apx:bond-dis}, by creating a Voronoi partition using seed points sampled from a blue noise distribution. This is then followed by four iterations of Lloyd's algorithm to further regularise the bond lengths. \textbf{(c)} A histogram of bond lengths for the example graphs in sub figures a and b. Note that the distribution is much more tightly peaked around the mean bond length in the regularised lattice, with no extremely short bonds present. \textbf{(d)} The Majorana spectrum for a single example of an amorphous lattice for five different values of $\alpha \in  [0 , 8]$. \textbf{(e)} Finite-size scaling analysis of the fermion gap in the flux-free sector. Solid lines indicate the gap averaged over 50 random lattice samples for each system size, and the shaded regions indicate the full range of the sampled gaps.
+    \textbf{(a)} Close up of a section of amorphous lattice generated using a single Voronoi partition on a set of uniformly sampled seed points. \textbf{(b)} A section of amorphous lattice generated using the regularised method detailed in appendix \ref{apx:bond-dis}, by creating a Voronoi partition using seed points sampled from a blue noise distribution. This is then followed by four iterations of Lloyd's algorithm to further regularise the bond lengths. \textbf{(c)} A histogram of bond lengths for the example graphs in sub figures a and b. Note that the distribution is much more tightly peaked around the mean bond length in the regularised lattice, with no extremely short bonds present. \textbf{(d)} The Majorana spectrum for a single example of an amorphous lattice for five different values of $\alpha \in  [0 , 8]$. \textbf{(e)} Finite-size scaling analysis of the fermion gap in the flux-free sector. Solid lines indicate the gap averaged over 50 random lattice samples for each system size, and the shaded regions indicate the full range of the sampled gaps.
     } 
     \label{fig:disorder}
 \end{figure}
@@ -109,7 +258,7 @@ The effect of bond disorder in the Kitaev honeycomb lattice model is well studie
 
 We study the effect of bond disorder on the amorphous lattice by introducing a bond-length dependent factor to the hopping terms in the Hamiltonian, such that $J_{jk} = J_{jk}^0 / r_{jk}^\alpha$, where $r_{jk}$ is the bond length from site $j$ to site $k$, which has been normalised such that $\langle r_{jk}^\alpha \rangle = 1$ to prevent this term from substantially rescaling the energies of the system. The parameter $\alpha$ controls the strength of the disorder, where setting $\alpha=0$ reproduces the original Hamiltonian. As $\alpha$ is varied, we calculate the fermionic spectrum, observing how the band gap is affected by this disorder. 
 
-Clearly, this Hamiltonian will produce unphysical results on any lattice where some bonds are extremely short-ranged, leading to extremely strong hopping terms. Thus, in order to get physical results, one must first regularise the bond lengths of the lattice. This is done in two steps. First, the initial points are sampled from a blue noise distribution, rather than a uniform distribution, using Mitchell's best-candidate algorithm \cite{mitchell_1991, demofox2_generating_2017}. This produces seed points that are regularly spaced, yet still amorphous. The second step is to regularise the lattice using Lloyd's algorithm \cite{lloyd_1982} -- where vertices are repeatedly moved to the centre of mass of the plaquettes adjacent and the Voronoi diagram is regenerated. In practice we used four iterations of this method. An example of such a lattice is shown in fig.~\ref{fig:disorder} (b).\par 
+Clearly, this Hamiltonian will produce unphysical results on any lattice where some bonds are extremely short-ranged, leading to extremely strong hopping terms. Thus, in order to get physical results, one must first regularise the bond lengths of the lattice. This is done in two steps. First, the initial points are sampled from a blue noise distribution, rather than a uniform distribution, using Mitchell's best-candidate algorithm \cite{mitchell_1991, demofox2_generating_2017}. This produces seed points that are regularly spaced, yet still amorphous. The second step is to regularise the lattice using Lloyd's algorithm \cite{lloyd_1982} -- where vertices are repeatedly moved to the centre of mass of the plaquettes adjacent and the Voronoi diagram is regenerated. In practice we used four iterations of this method. An example of such a lattice is shown in fig.~\ref{fig:disorder}b.\par 
 
 The fermionic spectrum is calculated for a range of $\alpha$ between 0 and 8, at a variety of lattice sizes parametrised by the length $L$, where the number of vertices $N$ scales with $N \sim L^2 $. As disorder is increased, the gap shrinks however no truly gapless systems are generated for systems sizes larger than $L\sim 10$, providing evidence of the Kitaev phase's stability in the presence of even relatively strong bond disorder.We note that these calculations were carried out in periodic boundary conditions, hence the absence of in-gap edge states.
 
