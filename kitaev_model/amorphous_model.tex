@@ -223,7 +223,7 @@ However, consider a general walk that wraps the system $n_x$ times in the $x$-di
 \end{align}
 Thus, each successive set of $\textbf q$ included in our averaging procedure has the effect of cancelling out the contribution to $|\egs|$ from walks with larger values of $n_\alpha$. To illustrate this, consider first averaging over $\textbf q = (0,0)$ and $\textbf q = (\pi,0)$. Any walk with odd $n_x$ will appear with opposite sign in the two respective sums for each twist, cancelling out. Adding in $\textbf q = (\frac{\pi}2,0)$ and $\textbf q = (\frac{3\pi}2,0)$, then cancels out all walks with $n_x = 2,6,10...$ Thus, we see that averaging over sufficiently many phase twists has the effect of cancelling out all torus-wrapping walks, while leaving all non-wrapping walks invariant. 
 
-\todo{ mention global fluxes - fourfold boys}
+\todo{ mention global fluxes}
 
 \subsubsection{Numerics}
 We now detail the numerical evidence collected to support our claim for the flux configuration of the ground state. We generated a large number ($\sim$ 25,000) of lattices and exhaustively checked every possible flux sector to find the configuration with the lowest energy. We checked both the isotropic point ($J^\alpha = 1$), as well as in the toric code phase ($J^{x,y} = 0.25, J^z = 1$). Since a lattice with $n_p$ plaquettes has $2^{n_p - 1}$ distinct flux sectors to search over, one is necessarily restricted to looking at small system sizes -- we were able to check all flux sectors for systems with $n_p \leq 16$ in a reasonable amount of time. Practically, this is done by iterating over all possible configurations of $\{u_{jk}\}$ a plaquette-spanning tree, as described in \textsection\ref{sec:fluxes_amorphous}. At such small system size, the substantial finite size effects are thus accounted for by averaging over $50\times50$ sets of twisted boundary conditions.
@@ -263,7 +263,7 @@ A fundamental tool for understanding the distinction between the two phases is t
     \centering
     \includegraphics[]{kitaev_model/figures/chern_and_edge_modes.pdf}
     \caption{ An example system in the B phase, on a lattice with $\sim 8000$ vertices. 
-    \textbf{(a)} The local Kitaev marker $\qkit$ for a crosshair placed in the center of the material. The sum of the central positive contribution is quantised to $\mathcal Q +1$ by one part in $10^{-5}$.
+    \textbf{(a)} The local Kitaev marker $\qkit$ for a crosshair placed in the center of the material. The sum of the central positive contribution is quantised to $\mathcal Q = +1$ by one part in $10^{-5}$.
     \textbf{(b)} A plot of the logarithm of number density for a gap crossing edge mode with energy $\varepsilon = 0.003$. The log of the density decays linearly from the edge to the bulk, indicated that the that is exponentially localised to the boundary. 
     \textbf{(c)} The density of states of the Majorana Hamiltonian, coloured according to the average IPR of states at a given energy.
     }
