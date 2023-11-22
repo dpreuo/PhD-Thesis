@@ -28,7 +28,7 @@
 \draw node [] at (0.0 , 1.3*\squaresize) {$J_{R_x}$};
 
 \draw [-latex, gray] (  -1.15*\squaresize ,-0.3) -- ( -1.15*\squaresize, 0.3) ;
-\draw node [] at (-1.3*\squaresize, 0) {$\bf E$};
+\draw node [] at (-1.3*\squaresize, 0) {$\textbf E$};
 
 % \draw node [] at (-0.7*\squaresize, -0.85*\squaresize) {$ \phi = 0 $};
 % \draw node [] at (-0.7*\squaresize, 0.85*\squaresize) {$ \phi > 0 $};

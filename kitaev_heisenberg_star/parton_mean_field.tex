@@ -1,1 +1,281 @@
-\section{Majorana Parton Mean Field Study}
+\section{A Majorana Parton Mean Field Study}\label{sec:majorana_mft}
+
+Let us now study the entire phase diagram using a Majorana MFT~\cite{schaffer_quantum_2012,knolle_dynamics_2018}. The uses of this method are twofold: first we shall corroborate the ground state phase diagram determined in \textsection\ref{sec:triplons_dmrg} -- providing evidence that the results are robust for large system sizes.
+Secondly, the MFT will allow us to obtain the excitation spectrum of the chiral QSLs away from the soluble points, obtaining the Majorana band structure and Chern numbers as well as the ground state phases. Thus we shall see that across the extended KSL phases, nonzero Chern numbers of the bulk bands give rise to chiral edge modes whose dispersion are weakly renormalized by the presence of Heisenberg interactions. 
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[]{kitaev_heisenberg_star/figures/maj_mft_evidence.pdf}
+    \caption { 
+    The Majorana MFT results for the star lattice KH model as a function of the parameter $\varphi$, defined in eqn.~\ref{eqn:phi_def}. Phase boundaries are indicated with background colour.
+    \textbf{(a)} Ground state energy per site as a function of $\varphi$.  The four non-KSL phases are shown with a diagram of the corresponding phase. KSL phases appear at $\varphi = 0.5\pi, 1.5\pi$.
+    \textbf{(b)} Expectation values of the  $z$-component of magnetisation for each site on the lattice $m_z = \braket{\sigma_j^z}$, found using the magnetically ordered mean field channel. Line colour indicates the site position with respect to arrangement of spins in the stripy phase.
+    \textbf{(c)} Spin-spin correlations for each bond in the \textit{on-colouring} direction, $s_{jk}^\alpha = \braket{\sigma_j^\alpha \sigma_k^\alpha}$, where we sum over the correlations calculated with both mean field channels..
+    \textbf{(d)} Spin-spin correlations for each bond in the two remaining \textit{off-colouring} directions, $\braket{\sigma_j^\alpha \sigma_k^\alpha}$, calculated as in part c.  In (c) and (d), correlations for in-triangle bonds are coloured in blue, whereas inter-triangle bonds are shown in orange.    
+    }
+    \label{fig:mft_results}
+\end{figure}
+
+We construct the parton description by using the Majorana fermion decomposition originally proposed by Kitaev~\cite{kitaev_anyons_2006}, and presented in Chapter \ref{chap:amorphous_kitaev}. Each spin is represented with four Majorana operators $(c\, b^x\, b^y\, b^z)$, such that $\sigma_j^\alpha \rightarrow i c_j b_j^\alpha$. Under this transformation, the Hamiltonian takes the form
+\begin{align} \label{eqn:maj_hamiltonian}
+    H = - \sum_{\langle jk \rangle_\alpha}
+    \bigg [  
+    K (i b^\alpha_j   c_j)  i b^\alpha_k c_k  
+    + J \sum_{\bar \alpha \neq \alpha} 
+    (i b^{\bar \alpha}_j   c_j )  ib^{\bar \alpha}_k c_k 
+    \bigg ].
+\end{align}
+In order to apply a mean field treatment, the Majorana operators must be paired up into fermionic bilinears, which can then be replaced with their ground state expectation value -- resulting in a quadratic Majorana Hamiltonian. Of course, there are several different ways that the operators can be paired up, each giving a different MFT channel. We shall consider two physically-motivated channels for decoupling the Hamiltonian, a spin liquid channel and a magnetically ordered channel.
+
+{\it The Spin Liquid Channel ---} In the Kitaev limit ($\varphi = 0.5\pi $ or $1.5\pi$) $J$ vanishes completely, leaving only the `on-colouring' $K$-part of the Hamiltonian. Here, the Hamiltonian is identical to that presented and solved in Chapter \ref{chap:amorphous_kitaev}. Thus, the set of fermionic operators $\hat u_{jk}^\alpha = ib_j^\alpha b_k^\alpha$ are guaranteed to be completely static, commuting with one another and the Hamiltonian. Once we stray from the exact Kitaev limit, off-colouring bond operators are introduced that break the exactly commuting structure of the $\hat u_{jk}^\alpha$ operators, meaning that no exact solution exists. However, at least in the limit of $J \ll K$ we expect that the spin liquid phase will persist, and propose a mean field decoupling that can capture this state~\cite{schaffer_quantum_2012, knolle_dynamics_2018}. We start by rearranging the Hamiltonian to the form
+\begin{align}
+    H = \sum_{{\langle jk \rangle}_{\alpha}}
+    \bigg [  
+    K (i b^\alpha_j b^\alpha_k) i c_j c_k  
+    + J \sum_{\bar \alpha \neq \alpha} 
+    (i b^{\bar \alpha}_j b^{\bar \alpha}_k) i c_j c_k  
+    \bigg ],
+\end{align}
+and introducing the following two sets of mean field parameters.
+\begin{align}
+    \langle i c_j c_k \rangle = \chi_{jk} \label{eqn:c_mean_field}\\ 
+    \langle i b^\alpha_j b^\alpha_k \rangle = u_{jk}^\alpha.\label{eqn:b_mean_field}
+\end{align}
+Using the standard approximation $\hat U \hat V \approx \langle U \rangle \hat V + \hat  U \langle V \rangle  -  \langle U \rangle  \langle V \rangle$, we transform the Hamiltonian to the form
+\begin{align}\label{eqn:mean_field_spin_liquid_ham}
+    \begin{aligned}
+    H_{SL} = \sum_{{\langle jk \rangle}_{\alpha}}
+    \big[
+     &\left(
+    K u^\alpha_{jk} +J u^{\bar \alpha}_{jk}
+    \right) 
+    i c_j c_k \\
+    &+ \chi_{jk} 
+    ( Ki b^\alpha_j b^\alpha_k + J  ib^{\bar \alpha}_j b^{\bar \alpha}_k)\big] \\
+    - \sum_{{\langle jk \rangle}_{\alpha}}
+    &( K u^\alpha_{jk} + J u^{\bar \alpha}_{jk}  ) \chi_{jk}
+    .    
+    \end{aligned}
+\end{align}
+Note that here and in the following discussion, we will assume summation over the two off-colouring  spin operators labelled by $\bar \alpha$.
+
+{\it The Magnetically Ordered Channel ---} In the ferromagnetic case ($\varphi = 0$), we expect the ground state to magnetically align, with some non-zero expectation value for $\braket{\sigma^\alpha_j} = \braket{i c_j b^\alpha_j}$. Clearly this is not captured by the above mean field theory, so we introduce a second channel using the parameters
+\begin{align} \label{eqn:m_mean_field}
+    \langle i b^\alpha_j   c_j \rangle = m^\alpha _j.
+\end{align}
+Under this parametrisation, the Hamiltonian is decomposed into the following form,
+\begin{align} \begin{aligned}
+    H_{M} = - \sum_{\braket{jk}} &\big [  
+    K \left ( 
+    im^\alpha_j b^\alpha_k c_k  + 
+    ib^\alpha_j c_j m^\alpha_k  
+    \right )   \\ 
+    &  + 
+    J \left ( 
+    im^{\bar \alpha}_j b^{\bar \alpha}_k c_k  + 
+    ib^{\bar \alpha}_j c_j m^{\bar \alpha}_k  
+     \right ) 
+    \big] \\ 
+    + \sum_{\braket{jk}} 
+    & \left [ 
+    K m^\alpha_j m^\alpha_k 
+    + J m^{\bar \alpha}_j m^{\bar \alpha}_k 
+    \right ].
+\end{aligned}\end{align}
+Overall, our final mean field Hamiltonian is given by the sum of these two decouplings as $H_{MF} = H_{SL} + H_{M}$. 
+
+
+The resulting quadratic Hamiltonian is parametrised by the three sets of mean fields, and can be written in terms of the Majorana vector $\Psi = (\bm c, \bm b^x, \bm b^y, \bm b^z)^T$. Here $\bm c = (c_0, c_1 ... c_N)$, with an equivalent description for $\bm b^\alpha$. Thus the overall Hamiltonian may be expressed as
+\begin{align}
+    H_{MF}(\chi, u, m) = \Psi^T iA(\chi, u, m)  \Psi,
+\end{align}
+where $A$ is a real skew-symmetric matrix determined by the mean fields. The ground state expectation value of the mean fields can be determined by diagonalising the matrix $iA$, finding the matrix projector onto the negative eigenstates $P$, and then using the identity
+\begin{align} 
+    \braket{i \hat \psi_j \hat \psi_k} = -2i P_{jk},
+\end{align}
+where $\hat \psi_j$ is the corresponding Majorana operator at position $j$ in the Majorana vector $\Psi$.
+
+Thus, a self-consistent MFT can be determined for a given Hamiltonian by starting with an ansatz for the three mean fields. The quadratic Hamiltonian, $H_{MF}(\chi, u, m)$, is then created and the ground state is calculated. Next, updated values for the mean fields are calculated according to eqns.~\ref{eqn:c_mean_field}, \ref{eqn:b_mean_field} and \ref{eqn:m_mean_field}. Given a new set of mean fields, one can define a new Hamiltonian, and the process can be repeated. This is iterated until a self-consistent set of mean fields is found, where their values no longer change under such an update. This was performed for 100 $\varphi$ values across the range $[0, 2\pi]$, each time starting from a set of initial ans\"atze and selecting the final converged state with the lowest energy. In each case, we tested two magnetically ordered ground state ans\"atze -- ferromagnetic and stripy -- and two spin liquid ans\"atze -- ferromagnetic and antiferromagnetic Kitaev states. However in general we note that results often depended on the choice of initial guess -- starting with an unphysical initial state, one often converges to an unphysical final state -- some physical intuition must be used to ensure the right initial states are chosen.
+
+Results are shown in fig.~\ref{fig:mft_results}, where we plot the ground state energy, the on-site $z$-magnetisation, $m^z_j$, and the spin-spin correlations, which are summed over both mean field channels,
+\begin{align}
+     s_{jk}^\alpha \coloneqq \braket{\sigma^\alpha_j \sigma_k^\alpha} = m^\alpha_j m^\alpha_k - \chi_{jk}u^\alpha_{jk}.
+\end{align}
+Note that in practice the system always converged to a ground state where one of the two decoupling channels vanishes.
+\begin{figure}[t]
+    \centering
+    \includegraphics[]{kitaev_heisenberg_star/figures/edge_mode_mft.pdf}
+    \caption{The Majorana fermion band structure calculated for the chiral QSL phase within a parton MFT for a strip-geometry, with periodic boundaries in the $x$-direction and open boundaries in the $y$ direction. We have tuned the model to the antiferromagnetic Kitaev regime ($\alpha = 1.45\pi$) in the vicinity of the soluble point. Energies are plotted as a function of momentum in the $y$-direction, for a sample with $L_x = L_y = 200$. The Chern number $\nu$ of the three bands is labelled. States are coloured according to their inverse participation ratio, where red indicates a localised edge mode and grey a delocalised bulk mode.}
+    \label{fig:kitaev_chern_bands}
+\end{figure}
+
+Six phases are found, with the phase boundaries shown in fig.~\ref{fig:mft_results}. Four of these phases -- the ferromagnetic and stripe order, as well as the two chiral spin liquid phases -- have analogues in the honeycomb KH model. For $\varphi \in [0.83\pi, 1.26\pi]$ a singlet valence bond solid appears. Here, the mean fields on all triangle bonds vanish completely and on inter-triangle bonds we have $\braket{\sigma^\alpha_j \sigma_k^\alpha} = -\chi_{jk} u^\alpha_{jk} = -1$ for all $\alpha$, with $m = 0$, indicating that the spins are fully anti-aligned into a singlet. For  $\varphi \in [1.63\pi, 1.83\pi]$, a similar VBS appears with non-zero fields only on the inter-triangle bonds. However in this case we have $\braket{\sigma^\alpha_j \sigma_k^\alpha} = -1$ for $\alpha$ matching the bond colouring, and $\braket{\sigma^{\bar \alpha}_j \sigma_k^{\bar \alpha}} = +1$ for the two off-colouring directions, ${\bar \alpha}$. This is consistent with a triplet valence bond solid, where on each bond a triplet state forms whose direction depends on the bond colouring. 
+
+Now we turn our attention to the topological nature of the Kitaev phases around $\varphi = \pi/2$ and $ 3\pi/2$. Here, the $m$-fields vanish, as well as the off-colouring $u$-fields. This means that the mean field Hamiltonian is block-diagonal, with the $c_j$ Majoranas and three sets of $b_j^\alpha$ Majoranas completely decoupled from one another. Thus, we have four decoupled sets of three energy levels. The ground state Chern number is encoded in the $c$-type Majorana spectrum. 
+
+In both Kitaev phases, the system has two degenerate ground states related by a sign flip of all $u$ fields. This is a generic feature of the Kitaev model on any lattice with odd cycles~\cite{yao_exact_2007}. The Chern number of the ground state can be calculated from the projector $P$ onto the negative energy eigenstates of the matrix $iA$. Here, the two degenerate states have Chern numbers $\pm 1$. In open boundaries, this means that chiral edge modes form at the boundaries. An example is shown in fig.~\ref{fig:kitaev_chern_bands}.
+
+
+% \section{General Majorana Diagonalisation Methods}\label{apx:majorana_mean_field_theory}
+% \begin{shaded}
+%     I should cut this section -- its just restating one page of kitaev's paper in great detail
+% \end{shaded}
+% Here we shall provide a detailed explanation of the methods used to solve the Majorana mean field Hamiltonian in momentum space, as well as the methods for calculating mean field expectation values and Chern number. Finally we shall discuss the detailed results obtained from this method.
+
+
+% \subsection{Solving a Majorana Hamiltonian}
+
+% \begin{shaded}
+%     Perhaps this whole appendix is a bit unnecessary - I had it typed up anyway so thought it might be useful for any audience that has not carefully digested K's original paper...
+% \end{shaded}
+
+% We start by defining a maximally generic Majorana free fermion system:
+% \begin{align}
+%     H = \sum_{jk} iA_{jk} c_j c_k.
+% \end{align}
+% Here, $A$ is a real skew-symmetric matrix, ensuring that the overall operator is Hermitian. The matrix $iA$ is pure imaginary, so has particle hole symmetry, so we have a guarantee that the eigenstates come in conjugate pairs, with opposite energy. Thus, we may diagonalise $iA$ according to
+% \begin{align}
+%     iA_{jk} = R ^\dag 
+%     \begin{pmatrix}
+%         \varepsilon_1 & 0 &  &  & \\ 
+%         0& - \varepsilon_1 &  &  & \\ 
+%         &  &  \varepsilon_2& 0 & \\ 
+%         &  & 0 & -\varepsilon_2 & \\ 
+%         &  &  &  & \ddots 
+%     \end{pmatrix}
+%     R,
+% \end{align}
+% with $R$ being a row matrix of eigenstates of $iA$,
+% \begin{align}
+%     R = \begin{pmatrix} 
+%         & \horzbar & \psi_1 & \horzbar & \\
+%         & \horzbar & \psi_1^* & \horzbar & \\ 
+%         & \horzbar & \psi_2 & \horzbar & \\ 
+%         & \horzbar & \psi_2^* & \horzbar & \\
+%         &  & \vdots & & 
+%     \end{pmatrix} .
+% \end{align}
+% Of course, none of these eigenstates $\psi_i$ represent a valid Majorana mode, which must take the form $b_{j} = Q_{jk} c_k$ with $Q$ a real orthogonal matrix. Thus, let us perform a further rotation on each subspace containing conjugate pair of eigenstates to find a pair of real Majorana modes $\phi$ and $\phi'$ corresponding to the real and imaginary parts of $\psi_i$,
+% \begin{align}
+%     \begin{pmatrix}
+%         \phi \\
+%         \phi'
+%     \end{pmatrix} = \frac{1}{\sqrt 2}
+%     \begin{pmatrix}
+%         1  & 1 \\
+%         -i & i
+%     \end{pmatrix} \begin{pmatrix}
+%         \psi \\
+%         \psi^*
+%     \end{pmatrix}.
+% \end{align}
+% Thus, we may define a real orthogonal transformation 
+% \begin{align}
+%     Q = \begin{pmatrix} 
+%         & \horzbar & \phi_1 & \horzbar & \\
+%         & \horzbar & \phi_1' & \horzbar & \\ 
+%         & \horzbar & \phi_2 & \horzbar & \\ 
+%         & \horzbar & \phi_2' & \horzbar & \\
+%         &  & \vdots & & 
+%     \end{pmatrix} .
+% \end{align}
+% that skew-diagonalises the matrix $iA$ according to
+% \begin{align}
+%     iA_{jk} = Q^T
+%     \begin{pmatrix}
+%         0& i\varepsilon_1  &  &  & \\ 
+%         -i \varepsilon_1 & 0 &  &  & \\ 
+%         &  & 0 & i\varepsilon_2 & \\ 
+%         &  & -i\varepsilon_2 & 0 & \\ 
+%         &  &  &  & \ddots 
+%     \end{pmatrix}
+%     Q,
+% \end{align}
+% with $Q$ calculated according to
+% \begin{align} \label{eqn:r_to_q}
+%     Q = 
+%     \frac{1}{\sqrt 2}
+%     \begin{pmatrix}
+%         1  & 1  &  &  & \\ 
+%         -i & i &  &  & \\ 
+%         &  & 1  & 1 & \\ 
+%         &  & -i & i & \\ 
+%         &  &  &  & \ddots 
+%     \end{pmatrix}
+%     R
+% \end{align}
+% The Hamiltonian can now be written in terms of a new basis of Majorana fermions $b_{n} = Q_{(2n-1)k}c_k$ and $b'_{n} = Q_{(2n)k}c_k$ as 
+% \begin{align}
+%     H = \sum_{j} i \varepsilon_j b_j b'_j - i \varepsilon_j b'_j b_j,
+% \end{align}
+% which can be re-expressed in terms of fermions using the identity $i b_j b'_j = 2 f^\dag _j f_j -1$
+% \begin{align} \label{eqn:fermion_ham}
+%     H = \sum_{j} 2 \left (2 f^\dag _j f_j -1 \right ).
+% \end{align}
+% Thus we see that the ground state $\ket{\Psi}$ contains no $f$-type fermions, and has energy 
+% \begin{align}
+%     E_{g.s.} = -2\sum_{j} \varepsilon_j
+% \end{align}
+
+% \subsection{Correlation Values}
+
+% \begin{shaded}
+%     Note -- I'm a little bit sloppy with $b$ and $b'$ notation here - can I get away with this or is it not obvious at all!?
+% \end{shaded}
+
+% Now let us derive the expression for the ground state expectation value of a two-Majorana operator $\braket{\Psi |i c_i c_j|\Psi }$. We start by transforming to the `diagonalising' Majorana basis, according to $c_j = Q^T_{jk} b_k$ to get
+% \begin{align} \label{eqn:correlator_to_matrices}
+%     \langle i c_j c_k \rangle = \braket{\Psi |i b_\alpha  b_\beta | \Psi} 
+%     Q_{\alpha j} Q^T_{k \beta} ,
+% \end{align}
+% We know that the ground state contains no fermions as defined in eqn.~\ref{eqn:fermion_ham}, thus we can derive the following four relations for the diagonalising $b$-Majorana modes: 
+% \begin{align}
+%     \braket{i b_j b_j } = \braket{i b'_j b'_j }  &= i, \\
+%     \braket{i b_j b'_j } &= -1, \\
+%     \braket{i b'_j b_j } &= +1, \\
+%     \braket{i b_j b_k } &= 0 \ \ \forall j \neq k.
+% \end{align}
+% From this we can calculate the matrix element
+% \begin{align}
+%     \braket{\Psi |i b_\alpha  b_\beta | \Psi} = M_{\alpha \beta} = \begin{pmatrix}
+%         i & -1 & &  \\
+%         +1 & i& & \\
+%         & & i & -1 & \\
+%         & & +1 & i & \\
+%         & &  & & \ddots \\
+%     \end{pmatrix}_{\alpha \beta}.
+% \end{align} 
+% Therefore, eqn. \ref{eqn:correlator_to_matrices} becomes
+% \begin{align}
+% \begin{aligned}
+%     \sum_{\alpha \beta} 
+%     \braket{\Psi |i b_\alpha  b_\beta | \Psi} 
+%     Q^T_{ j \alpha } Q _{ \beta k} 
+%     &= 
+%     \left[
+%     Q^T M Q
+%     \right]_{jk}.
+% \end{aligned}
+% \end{align}
+% Finally, using eqn.~\ref{eqn:r_to_q}, we see that this expression becomes  
+% \begin{align}
+%     \begin{aligned}
+%         \braket{\Psi |i c_j  c_k | \Psi} 
+%         &= 
+%         \left[
+%         R^\dag \begin{pmatrix}
+%             2i & 0 & &  \\
+%             0 & 0& & \\
+%             & & 2i& 0 & \\
+%             & & 0 & 0 & \\
+%             & &  & & \ddots \\
+%         \end{pmatrix}R
+%         \right]_{jk}.
+%     \end{aligned}
+%     \end{align}
+% Therefore, we arrive at the final expression
+% \begin{align}
+%         \braket{\Psi |i c_j  c_k | \Psi} 
+%         &= -2i P_{jk},
+% \end{align}
+% where $P_{jk}$ is the projector onto the negative energy eigenstates of $iA$. 

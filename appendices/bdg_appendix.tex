@@ -1,11 +1,541 @@
+\label{apx:boson_bdg}
+
 This appendix is concerned with solving quadratic Hamiltonians of the form 
 \begin{align}
     H = \sum_{jk} M_{jk} c^?_j c^?_k
 \end{align}
 
 
-\section{The Fermionic Case}
-
 \section{The Majorana Case}\label{sec:majorana_diagonalisation}
 
-\section{The Bosonic Case}
+Here we shall provide a detailed explanation of the methods used to solve the Majorana mean field Hamiltonian in momentum space, as well as the methods for calculating mean field expectation values and Chern number. Finally we shall discuss the detailed results obtained from this method.
+
+We start by defining a maximally generic Majorana free fermion system:
+\begin{align}
+    H = \sum_{jk} iA_{jk} c_j c_k.
+\end{align}
+Here, $A$ is a real skew-symmetric matrix, ensuring that the overall operator is Hermitian. The matrix $iA$ is pure imaginary, so has particle hole symmetry, so we have a guarantee that the eigenstates come in conjugate pairs, with opposite energy. Thus, we may diagonalise $iA$ according to
+\begin{align}
+    iA_{jk} = R ^\dag 
+    \begin{pmatrix}
+        \varepsilon_1 & 0 &  &  & \\ 
+        0& - \varepsilon_1 &  &  & \\ 
+        &  &  \varepsilon_2& 0 & \\ 
+        &  & 0 & -\varepsilon_2 & \\ 
+        &  &  &  & \ddots 
+    \end{pmatrix}
+    R,
+\end{align}
+with $R$ being a row matrix of eigenstates of $iA$,
+\begin{align}
+    R = \begin{pmatrix} 
+        & \horzbar & \psi_1 & \horzbar & \\
+        & \horzbar & \psi_1^* & \horzbar & \\ 
+        & \horzbar & \psi_2 & \horzbar & \\ 
+        & \horzbar & \psi_2^* & \horzbar & \\
+        &  & \vdots & & 
+    \end{pmatrix} .
+\end{align}
+Of course, none of these eigenstates $\psi_i$ represent a valid Majorana mode, which must take the form $b_{j} = Q_{jk} c_k$ with $Q$ a real orthogonal matrix. Thus, let us perform a further rotation on each subspace containing conjugate pair of eigenstates to find a pair of real Majorana modes $\phi$ and $\phi'$ corresponding to the real and imaginary parts of $\psi_i$,
+\begin{align}
+    \begin{pmatrix}
+        \phi \\
+        \phi'
+    \end{pmatrix} = \frac{1}{\sqrt 2}
+    \begin{pmatrix}
+        1  & 1 \\
+        -i & i
+    \end{pmatrix} \begin{pmatrix}
+        \psi \\
+        \psi^*
+    \end{pmatrix}.
+\end{align}
+Thus, we may define a real orthogonal transformation 
+\begin{align}
+    Q = \begin{pmatrix} 
+        & \horzbar & \phi_1 & \horzbar & \\
+        & \horzbar & \phi_1' & \horzbar & \\ 
+        & \horzbar & \phi_2 & \horzbar & \\ 
+        & \horzbar & \phi_2' & \horzbar & \\
+        &  & \vdots & & 
+    \end{pmatrix} .
+\end{align}
+that skew-diagonalises the matrix $iA$ according to
+\begin{align}
+    iA_{jk} = Q^T
+    \begin{pmatrix}
+        0& i\varepsilon_1  &  &  & \\ 
+        -i \varepsilon_1 & 0 &  &  & \\ 
+        &  & 0 & i\varepsilon_2 & \\ 
+        &  & -i\varepsilon_2 & 0 & \\ 
+        &  &  &  & \ddots 
+    \end{pmatrix}
+    Q,
+\end{align}
+with $Q$ calculated according to
+\begin{align} \label{eqn:r_to_q}
+    Q = 
+    \frac{1}{\sqrt 2}
+    \begin{pmatrix}
+        1  & 1  &  &  & \\ 
+        -i & i &  &  & \\ 
+        &  & 1  & 1 & \\ 
+        &  & -i & i & \\ 
+        &  &  &  & \ddots 
+    \end{pmatrix}
+    R
+\end{align}
+The Hamiltonian can now be written in terms of a new basis of Majorana fermions $b_{n} = Q_{(2n-1)k}c_k$ and $b'_{n} = Q_{(2n)k}c_k$ as 
+\begin{align}
+    H = \sum_{j} i \varepsilon_j b_j b'_j - i \varepsilon_j b'_j b_j,
+\end{align}
+which can be re-expressed in terms of fermions using the identity $i b_j b'_j = 2 f^\dag _j f_j -1$
+\begin{align} \label{eqn:fermion_ham}
+    H = \sum_{j} 2 \left (2 f^\dag _j f_j -1 \right ).
+\end{align}
+Thus we see that the ground state $\ket{\Psi}$ contains no $f$-type fermions, and has energy 
+\begin{align}
+    E_{g.s.} = -2\sum_{j} \varepsilon_j
+\end{align}
+
+\subsection{Correlation Values}
+
+\begin{shaded}
+    Note -- I'm a little bit sloppy with $b$ and $b'$ notation here - can I get away with this or is it not obvious at all!?
+\end{shaded}
+
+Now let us derive the expression for the ground state expectation value of a two-Majorana operator $\braket{\Psi |i c_i c_j|\Psi }$. We start by transforming to the `diagonalising' Majorana basis, according to $c_j = Q^T_{jk} b_k$ to get
+\begin{align} \label{eqn:correlator_to_matrices}
+    \langle i c_j c_k \rangle = \braket{\Psi |i b_\alpha  b_\beta | \Psi} 
+    Q_{\alpha j} Q^T_{k \beta} ,
+\end{align}
+We know that the ground state contains no fermions as defined in eqn.~\ref{eqn:fermion_ham}, thus we can derive the following four relations for the diagonalising $b$-Majorana modes: 
+\begin{align}
+    \braket{i b_j b_j } = \braket{i b'_j b'_j }  &= i, \\
+    \braket{i b_j b'_j } &= -1, \\
+    \braket{i b'_j b_j } &= +1, \\
+    \braket{i b_j b_k } &= 0 \ \ \forall j \neq k.
+\end{align}
+From this we can calculate the matrix element
+\begin{align}
+    \braket{\Psi |i b_\alpha  b_\beta | \Psi} = M_{\alpha \beta} = \begin{pmatrix}
+        i & -1 & &  \\
+        +1 & i& & \\
+        & & i & -1 & \\
+        & & +1 & i & \\
+        & &  & & \ddots \\
+    \end{pmatrix}_{\alpha \beta}.
+\end{align} 
+Therefore, eqn. \ref{eqn:correlator_to_matrices} becomes
+\begin{align}
+\begin{aligned}
+    \sum_{\alpha \beta} 
+    \braket{\Psi |i b_\alpha  b_\beta | \Psi} 
+    Q^T_{ j \alpha } Q _{ \beta k} 
+    &= 
+    \left[
+    Q^T M Q
+    \right]_{jk}.
+\end{aligned}
+\end{align}
+Finally, using eqn.~\ref{eqn:r_to_q}, we see that this expression becomes  
+\begin{align}
+    \begin{aligned}
+        \braket{\Psi |i c_j  c_k | \Psi} 
+        &= 
+        \left[
+        R^\dag \begin{pmatrix}
+            2i & 0 & &  \\
+            0 & 0& & \\
+            & & 2i& 0 & \\
+            & & 0 & 0 & \\
+            & &  & & \ddots \\
+        \end{pmatrix}R
+        \right]_{jk}.
+    \end{aligned}
+    \end{align}
+Therefore, we arrive at the final expression
+\begin{align}
+        \braket{\Psi |i c_j  c_k | \Psi} 
+        &= -2i P_{jk},
+\end{align}
+where $P_{jk}$ is the projector onto the negative energy eigenstates of $iA$. 
+
+
+\section{Triplons and the Bosonic Case}\label{apx:triplon_mean_field_theory}
+
+In this section we shall provide a detailed explanation of the methods used for solving the triplon Hamiltonian presented in \textsection\ref{sec:triplon_bond_operator} using bosonic triplon MFT. This section has three parts: First we discuss the momentum space construction of the Hamiltonian, next we shall explain the methods used to solve this Hamiltonian for the bosonic eigenstates. Finally we derive the form of the Chern number for a bosonic system. 
+
+\subsection{Construction of the Hamiltonian}
+
+Let us start by restating the Hamiltonian given in eqn.\ref{eqn:triplon_hamiltonian}, given by 
+\begin{align}
+    H &=H_0 + H_2 + H_4,
+\end{align}
+where
+\begin{align}
+    H_0 &=  N\left [ \bar s^2 (K + 2 J - \mu)  + \mu\right ],\\
+    \begin{split}
+    H_2 &=  \sum_{j \in  \mathcal D} 
+    (K - 2 J - \mu) t_{\alpha j}^\dag t_{\alpha j} 
+    - (K+\mu) t_{\bar \alpha j }^\dag t_{\bar \alpha j }
+    \\ 
+    &\qquad \quad +h_\alpha 2i\varepsilon_{\alpha \beta \gamma} t^\dag_\beta t_\gamma \\
+    &\quad - \sum_{jk \in \mathcal D, \alpha} 
+    J^\alpha _{jk} \bar s^2 \left (
+     t_{\alpha k}^\dag t_{\alpha j} 
+    - t_{\alpha j} t_{\alpha k} + h.c.
+    \right ).
+    \end{split}
+\end{align}
+The four-boson Hamiltonian is decoupled using the mean fields, 
+\begin{align} 
+    P_{jk}^\alpha &= \braket{t_{j\alpha}^\dag t_{k\alpha}} 
+    \\ 
+    Q _{jk}^\alpha &= \braket{t_{j\alpha} t_{k\alpha}},
+\end{align}
+taking the following form
+\begin{align}\begin{aligned}
+    H_4 = 
+    & - \sum_{jk \in \mathcal D, \alpha} J^\alpha _{jk} 
+    \Big (
+    P_{jk}^{b} t_{cj}^\dag t_{ck} +  t_{bj}^\dag t_{bk} P_{jk}^{c*} + h.c.  
+    \\
+    & \qquad 
+    - t_{bj}^\dag t_{bk}^\dag Q^{c}_{jk} -  Q^{b * }_{jk} t_{cj} t_{ck}
+    + h.c.   
+    \Big )\\
+    & + \sum_{jk \in \mathcal D, \alpha} J^\alpha _{jk} 
+    \Big (
+        P_{jk}^b P_{jk}^{c*} - Q^{b * }_{jk} Q^{c}_{jk} + h.c.
+    \Big ).
+\end{aligned} \end{align}
+Note that here, the indices $b$ and $c$ denote the two subscripts that are not equal to $\alpha$ for each term in the sum. 
+Since we are working in a translationally invariant system, we transform to momentum space. We replace every position index $j$, with a pair $\textbf r, j$, where $\textbf r$ labels the unit cell position and $j$ now labels the site within the unit cell. Momentum-space annihilation operators are defined as
+\begin{align}
+    t_{j \textbf r , \alpha} =\frac{1}{\sqrt N} \sum_{\textbf q} e^{-i \textbf r \cdot \textbf q }t_{j \textbf q , \alpha}.
+\end{align}
+Under this, terms in the Hamiltonian containing triplet operators are transformed according to
+\begin{align}
+    \sum_{\textbf r} 
+    t^\dag_{j \textbf r + \bm \Delta , \alpha} 
+    t_{k \textbf r, \alpha} & = 
+    \sum_{\textbf q} e^{i \textbf q \bm \Delta} 
+    t_{j \textbf q, \alpha}^\dag
+    t_{k \textbf q, \alpha}, 
+\end{align}
+\begin{align} \begin{split}
+    \sum_{\textbf r} 
+    t_{j \textbf r + \bm \Delta , \alpha} 
+    t_{k \textbf r, \alpha} & = 
+    \frac{1}{2}
+    \sum_{\textbf q} \Big (
+    e^{i \textbf q \bm \Delta} 
+    t_{j -\textbf q, \alpha}
+    t_{k \textbf q, \alpha} \\
+    & \qquad \ + 
+    e^{-i \textbf q \bm \Delta} 
+    t_{k -\textbf q, \alpha}
+    t_{j \textbf q, \alpha} 
+    \Big ).
+\end{split}
+\end{align}
+Thus we get a full Hamiltonian containing the following seven sets of terms:
+\begin{align}
+        \textup{Constant shift: } 
+        & 3\bar s^2 \left ( K + 2J -\mu \right ) + 3\mu 
+        \\ 
+        \textup{On-colouring on-site potential: } 
+        & (K - 2J - \mu) \sum_{\textbf q, j} 
+        t^\dag _{j \textbf q, \alpha }  t_{j \textbf q, \alpha } 
+        \\
+        \textup{Off-colouring on-site potential: } 
+        & (- K - \mu) \sum_{\textbf q, j} 
+        t^\dag _{j \textbf q, \alpha }  t_{j \textbf q, \alpha } 
+        \\ 
+        \textup{Magnetic Field: } 
+        & 2ih_\alpha \sum_{\textbf q,j}\varepsilon_{\alpha \beta \gamma} t^\dag_{j\textbf q,\beta} t_{j\textbf q,\gamma} 
+        \\
+        \begin{split}
+        \textup{Hopping: } & -
+        \sum_{\braket{j,k},\alpha} 
+        J^\alpha _{jk} \bar s^2 
+        \sum_{\textbf q} e^{i \textbf q \cdot \bm \Delta}
+        t_{j \textbf q, \alpha}^\dag t_{k \textbf q, \alpha}  + h.c.
+        \\
+        & +\sum_{\braket{j,k},\alpha} 
+        \frac{1}{2} J^\alpha _{jk}  \bar s^2 \sum_{\textbf q,j,k} 
+        e^{i \textbf q \cdot \bm \Delta}
+        t_{j -\textbf q, \alpha}t_{k \textbf q, \alpha} + 
+        e^{-i \textbf q \cdot \bm \Delta}
+        t_{k -\textbf q, \alpha}t_{j \textbf q, \alpha} + h.c.
+    \end{split}
+    \end{align}
+    Adding in the mean fields (i.e. the quartic interactions) we get a few additional terms:
+    \begin{align}
+        \textup{Constant shift: } &  
+        \sum_{\textup{bonds}}\sum_{\alpha} J^\alpha _{jk} \left(
+        P_{jk}^{b}P_{jk}^{c*}- 
+        Q_{jk}^{b}Q_{jk}^{c*} + h.c.
+        \right)
+    \\
+        \begin{split}
+        \textup{Hopping: } &
+        -\sum_{\textbf q,\alpha}
+        J^\alpha _{jk} e^{i \textbf q \cdot \bm \Delta}
+        \left( P^{b*}_{jk} t^\dag_{j \textbf q, c}t_{k \textbf q,c} + P^{c*}_{jk} t^\dag_{j \textbf q, b}t_{k \textbf q,b}\right) + h.c. \\
+        & + \sum_{\textbf q,\alpha} \frac{1}{2} J^\alpha _{jk}
+        Q_{jk}^{b*} \left ( 
+        e^{i \textbf q \cdot \bm \Delta} t_{j -\textbf q, c}\, t_{k \textbf q, c}
+        + e^{-i \textbf q \cdot \bm \Delta} t_{k -\textbf q, c}\, t_{j \textbf q, c}
+        \right ) + h.c. \\
+         & + \sum_{\textbf q,\alpha}\frac{1}{2} J^\alpha _{jk}
+        Q_{jk}^{c*} \left ( 
+        e^{i \textbf q \cdot \bm \Delta} t_{j -\textbf q, b}\, t_{k \textbf q, b}
+        + e^{-i \textbf q \cdot \bm \Delta} t_{k -\textbf q, b}\, t_{j \textbf q, b}
+        \right ) + h.c. 
+    \end{split}
+\end{align}
+
+
+\subsection{Bosonic Bogoliubov-de Gennes Method}
+
+In order to solve this Hamiltonian, we shall use the bosonic Bogoliubov-de Gennes (BDG) method, detailed in \cite{blaizot_quantum_1986}. This method is well-understood, however for the sake of completeness, and to introduce the notation used to derive the Chern number in \textsection\ref{apx:chern_number}, we discuss the method here.
+
+Let us work with a generic set of momentum-space bosonic annihilation operators, $b_{\textbf q j}$, satisfying the bosonic commutation relations $[b_{\textbf q j}, b_{\textbf p k}^\dag] = \delta(\textbf q - \textbf p) \delta_{jk}$, where the Hamiltonian is given by
+\begin{align} 
+    \begin{split}
+        H_{\textbf q} & = 
+        h_{jk}(\textbf q) b_{\textbf q j}^\dag b_{\textbf q k}  \\ 
+        & + \frac{1}{2}\left ( \Delta_{jk} (\textbf q) b_{\textbf q j}^\dag b_{-\textbf q k}^\dag
+        + \Delta_{jk}^\dag (\textbf q) b_{-\textbf q j} b_{\textbf q k}
+        \right ), 
+    \end{split}
+\end{align}
+where $h$ is a hermitian matrix. We assume that $h$ satisfies the relation $h^*(\textbf q) = h(-\textbf q)$, with the same for $\Delta$. Using the bosonic commutation relations, we may rewrite the first term in the following form,
+\begin{align}
+\begin{split}
+    h_{jk}(\textbf q) b_{\textbf q j}^\dag b_{\textbf q k}  =
+    & \frac{1}{2} \left ( 
+    h_{jk}(\textbf q) b_{\textbf q j}^\dag b_{\textbf q k} + 
+    h_{jk}^T(\textbf q)  b_{\textbf q j} b_{\textbf q k}^\dag
+    \right ) \\ 
+    & - \frac{1}{2} \tr h.
+\end{split}
+\end{align}
+Thus, the Hamiltonian can be written in a generic BdG form as 
+\begin{align}
+    H_{\textbf q} =
+    \frac{1}{2}
+    \Psi_{\textbf q}^\dag
+    M(\textbf q)
+    \Psi_{\textbf q}
+    - \frac{1}{2} \tr h,
+\end{align}
+where we have introduced the bosonic vector of creation/annihilation operators
+\begin{align}
+    \Psi_{\textbf q} = (b_{\textbf q 0},b_{\textbf q 1},...,b^\dag_{-\textbf q 0},b^\dag_{-\textbf q 1},...  )^T
+\end{align}
+and defined the BdG matrix
+\begin{align}\label{eqn:m_definition}
+    M(\textbf q) = 
+    \begin{pmatrix}
+        h(\textbf q) & \Delta  ( \textbf q) \\
+        \Delta^\dag(\textbf q) & h (\textbf q)
+    \end{pmatrix}.
+\end{align}
+To diagonalise this, let us consider the time-dependence of $\Psi_{\textbf q}$, given by
+\begin{align} 
+    \partial_t \Psi_{\textbf q} = i\left [ H_{\textbf q}, \Psi_{\textbf q}\right ].
+\end{align}
+Applying the bosonic commutation relations, we arrive at the following expression,
+\begin{align}\label{eqn:boson_eom}
+    \partial_t \Psi_{\textbf q} = i 
+    \eta M_{\textbf q}
+    \Psi_{\textbf q},
+\end{align}
+where the `metric' $\eta$ is defined as
+\begin{align}
+    \eta := 
+    \begin{pmatrix}
+        \1 & \\
+        & -\1
+    \end{pmatrix}
+\end{align}
+We now define a rotated set of bosonic operators $\bm \alpha_{\textbf q}$, with $\Phi_{\textbf q} = (\bm \alpha_{\textbf q 0},...,\bm \alpha^\dag_{-\textbf q 0},...  )^T$, according to
+\begin{align} \label{eqn:uv_define}
+    b_{\textbf qj} & = 
+    \textbf u_j \cdot  \bm \alpha_{\textbf q} +
+    \textbf v_j \cdot \bm \alpha^\dag_{-\textbf q},  \\
+     b_{-\textbf q j}^\dag & = 
+    \bar {\textbf v}_j \cdot \bm \alpha_{\textbf q}  +
+    \bar {\textbf u}_j \cdot \bm \alpha^\dag_{-\textbf q}, \\
+    \implies      
+    \Psi_q
+    & = R_{\textbf q} \Phi_{\textbf q} \textup{, for } R_{\textbf q} = \begin{pmatrix}
+        U & V\\
+         \bar {V} &\bar {U}
+    \end{pmatrix}.
+\end{align}
+Here $R_{\textbf q}$ is a rotation matrix that must be determined. In order to preserve bosonic commutation relations for $\bm \alpha$, we require that $R_{\textbf q}$ satisfies
+\begin{align}
+    R\eta R^\dag\label{eqn:gamma_r0}
+    = \eta, \\
+    R^\dag \eta R\label{eqn:gamma_r}
+    = \eta.
+\end{align}
+After applying this transformation to our equation of motion \ref{eqn:boson_eom}, we arrive at
+\begin{align}
+    i\partial_t \Phi_{\textbf q} = 
+    R ^{-1}
+    \eta M(\textbf q)
+    R
+    \Phi_{\textbf q}.
+\end{align}
+Thus, eigenstates of the Hamiltonian are found by choosing a transformation $R$ that diagonalises the operator $\eta M(\textbf q)$, which we write in the form
+\begin{align}
+    R^{-1} \eta M_{\textbf q} R = \eta D
+\end{align}
+where $D$ should have only positive eigenvalues, ensuring that the bosonic modes all have positive energy. In practice, this can be done by diagonalising the matrix $\eta M$ and adjusting the normalisation of the eigenstates such that they satisfy eqns.~\ref{eqn:gamma_r0} and \ref{eqn:gamma_r}.
+
+Now, let us rewrite the original Hamiltonian as
+\begin{align}
+    H_{\textbf q} = \frac{1}{2}
+    \begin{pmatrix}
+        \bm \alpha^\dag_{\textbf q} &
+        \bm \alpha_{-\textbf q}
+    \end{pmatrix}
+    R^\dag M_{\textbf q} R
+    \begin{pmatrix}
+        \bm \alpha_{\textbf q} \\
+        \bm \alpha^\dag_{-\textbf q}
+    \end{pmatrix}- \frac{1}{2} \tr h.
+\end{align}
+By rearranging eqn.~\ref{eqn:gamma_r} to get the identity $R^\dag = \eta R^{-1} \eta$, and inserting it into the above, we can show that $R^\dag M_{\textbf q} R = D$ and the Hamiltonian takes the form
+\begin{align}
+    H_{\textbf q} = \frac{1}{2}
+    \sum_{j} \left ( 
+    \omega_{j} \alpha_{\textbf q j}^\dag \alpha_{\textbf q j}
+    + \omega'_{j} \alpha_{- \textbf q j}\alpha_{ - \textbf q j}^\dag 
+    \right ) - \frac{1}{2} \tr h.
+\end{align}
+where we have labelled the positive eigenvalues of $\eta M$ as $\omega_j$ and the negative eigenvalues of $\eta M$ determine $\omega'_j$ (which are positive -- negative energies would indicate an instability, where the system can infinitely populate the negative energy states). We rearrange the second set of bosonic operators to get
+\begin{align}\begin{split}
+    H_{\textbf q} = &\frac{1}{2}
+    \sum_{j} \big ( 
+    \omega_{j} 
+    \alpha_{\textbf q j}^\dag 
+    \alpha_{\textbf q j}
+     + \omega'_{j}
+    \alpha_{ - \textbf q j}^\dag
+    \alpha_{- \textbf q j}
+    \big )\\
+    & - \frac{1}{2}\tr h + \frac{1}{2}\sum \omega ' 
+\end{split}
+\end{align}
+
+Of course, in order to implement the full mean field theory, one needs not only the bosonic spectrum but also the ground state expectation values for the mean fields, $\braket{0 |b^\dag_{\textbf q j} b_{\textbf q' k}  | 0} $ and $\braket{0 |b_{\textbf q j} b_{\textbf q' k}  | 0} $. These can be extracted from the rotation matrix $R_{\textbf q}$ by transforming the expectation value to our diagonalising basis $\{\bm \alpha\}$:
+\begin{align}\begin{split}
+    \braket{0 |b^\dag_{\textbf q j} b_{\textbf q k}  | 0} 
+    = \bra{0}
+    &(
+    \textbf u^*_{j} \cdot \bm \alpha_{\textbf q}^\dag + 
+    \textbf v^*_{j} \cdot \bm \alpha_{-\textbf q}
+    ) \\ 
+    \times
+    &(
+    \textbf u_k \cdot  \bm \alpha_{\textbf q} +
+    \textbf v_k \cdot \bm \alpha^\dag_{-\textbf q}
+    ) 
+    \ket{0}.
+\end{split}
+\end{align}
+Since the ground state contains no bosons, the only term here that does not vanish is
+\begin{align}
+    \braket{0 |b^\dag_{\textbf q j} b_{\textbf q k}  | 0} 
+    & =
+    \braket{0 |
+    (\textbf v^*_{j} \cdot \bm \alpha_{-\textbf q} )
+    (\textbf v_k \cdot \bm \alpha^\dag_{-\textbf q})
+    | 0} \\
+    & = \braket{0 |
+    V^*_{jm}V_{km}
+    | 0} \\
+    &= (V V^\dag) _{kj}.\label{eqn:P}
+\end{align}
+Equally, we can repeat the process for the other correlation function of interest,
+\begin{align}
+    \braket{0 |b_{-\textbf q j} b_{\textbf q k}  | 0} 
+   = (V \bar U^\dag)_{kj}.\label{eqn:Q}
+\end{align}
+
+\subsection{Bosonic Chern Number}\label{apx:chern_number}
+
+In order to define a bosonic version of the Chern number, let us start by restating the results of the previous section. We have a BdG matrix given by $M(\textbf q)$ -- assumed to be positive definite (defined in eqn.~\ref{eqn:m_definition}), with a set of eigenstates $\ket{\psi_j(\textbf q)}$ which satisfy
+\begin{align}
+    \eta M(\textbf q) \ket{\psi_j(\textbf q)} = 
+    \lambda_j (\textbf q) \ket{\psi_j(\textbf q)}.
+\end{align}
+For a physical solution, we make the assumption that all eigenstates are real, i.e.~there is no dynamical instability. Then we can show that if $\ket{\psi_j(\textbf q)}$ is a right eigenstate of $\eta M(\textbf q)$, from the hermiticity of $M_{\textbf q}$, we must have a corresponding left eigenvector defined as 
+\begin{align}
+    \bra{\overline{\psi_j}(\textbf q)} = \bra{\psi_j(\textbf q)} \eta,
+\end{align}
+with the same eigenvalue. Now, let's assume that the eigenstates of $\eta M$ are all either positive or negative, then we can calculate the quantity
+\begin{align}
+    \braket{\overline{\psi_j} | \eta M |\psi_j} 
+    &= \lambda_{j}
+    \braket{\overline{\psi_j} | \psi_j} \\ 
+    \implies
+    \braket{\psi_j | M | \psi_j} 
+    & = \lambda_{j}
+    \braket{\overline{\psi_j} | \psi_j}.
+\end{align}
+The left hand side here is always positive due to the positive definiteness of $M$. This implies that positive eigenstates of $\eta M$ have positive norm, and the negative eigenstates of $\eta M$ have negative norm. Thus we see that (in agreement with condition \ref{eqn:gamma_r}) the states can be split into two sets and normalised, which we will label with $\phi_i^+$ and $\phi_i^-$ with the following norms
+\begin{align}
+    \braket{\phi_i^+ | \eta  |\phi_i^+} = +1 \\
+    \braket{\phi_i^- | \eta  |\phi_i^-} = -1 .
+\end{align} 
+
+In this context, let us look now at finding relative phases between adjacent eigenstates in k-space. We can define the phase between two states as
+\begin{align}
+    \gamma = \arg \left [ \pm 
+    \braket{\phi_i^\pm(\textbf k) | \eta  |\phi_i^\pm(\textbf q)}
+    \right ].
+\end{align}
+In analogy with the standard discussion around Berry phase, this quantity is not gauge invariant for a local gauge $\ket{\phi_i(\textbf q)} \rightarrow e^{i\alpha(\textbf q)}\ket{\phi_i(\textbf q)}$. Thus, let us define a gauge-invariant quantity -- the Berry phase around a plaquette in k-space,
+\begin{align} 
+    \begin{split}
+        \gamma_B(\textbf q) = &\arg \left [
+        \braket{\phi_i^\pm(\textbf q) | \eta  |\phi_i^\pm(\textbf q + \bm \delta_x)} \right .\\ 
+        & \braket{\phi_i^\pm(\textbf q + \bm \delta_x) | \eta  |\phi_i^\pm(\textbf q + \bm \delta_x+ \bm \delta_y)}  \\
+        & \braket{\phi_i^\pm(\textbf q + \bm \delta_x+ \bm \delta_y) | \eta  |\phi_i^\pm(\textbf q + \bm \delta_y)}\\
+        & \left .\braket{\phi_i^\pm(\textbf q + \bm \delta_y) | \eta  |\phi_i^\pm(\textbf q)} \right ],
+    \end{split}
+\end{align}
+where $\delta_x$ and $\delta_y$ represent a translation in momentum space by $2\pi /L$ in either the $x$ or $y$ direction, $L$ being the system size. Here the factor of $(\pm 1)^4$ from state normalisation clearly vanishes. Let us simplify this expression by defining the symplectic projector onto a single eigenstate,
+\begin{align}
+    \hat \phi_i^\pm (\textbf q) = \ket{ \phi_i^\pm (\textbf q)}\bra{ \phi_i^\pm (\textbf q)} \eta,
+\end{align}
+which is identical to a standard density matrix aside from the extra factor of $\eta$. Using this expression we can rewrite the Berry phase in the following form:
+\begin{align} 
+\begin{split}
+    \gamma_{B} (\textbf q) = \arg \tr &\left[
+    \hat \phi_i^\pm (\textbf q)
+    \hat \phi_i^\pm (\textbf q + \bm \delta_x) \right. \\ 
+    &\left. \hat \phi_i^\pm (\textbf q+ \bm \delta_x + \bm \delta_y)
+    \hat \phi_i^\pm (\textbf q + \bm \delta_y)
+    \right]. 
+\end{split}
+\end{align}
+Finally the Chern number is calculated using the usual expression
+\begin{align} 
+    \begin{split}
+    C  = \frac{1}{2\pi}\sum_{\textbf q} \arg \tr & \left[
+    \hat \phi_i^\pm (\textbf q)
+    \hat \phi_i^\pm (\textbf q + \bm \delta_x) \right. \\ 
+    & \left. \hat \phi_i^\pm (\textbf q+ \bm \delta_x + \bm \delta_y)
+    \hat \phi_i^\pm (\textbf q + \bm \delta_y)
+    \right].
+\end{split}
+\end{align}
+

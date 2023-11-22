@@ -6,15 +6,15 @@ Let us introduce the Qi-Wu-Zhang (QWZ) model as a paradigmatic example of a two-
 \begin{figure}[t]
     \begin{center}
      \includegraphics[width=\textwidth]{local_markers_background/figures/QWZ_donut}
-    \caption{The embedding of the Brillouin zone in $\bf d$-space for the QWZ model. This is shown in four progressive cutaways to ensure the internal structure can be seen. In all four images $k_x$ spans the interval $\left [0, 2\pi \right )$, however in \textbf{(a)} $k_y$ spans $\left [ 0, \frac{\pi}{2} \right )$, in \textbf{(b)} $k_y$ spans $\left [0, \pi \right )$, in \textbf{(c)} $k_y$ spans $\left [0, \frac{3 \pi}{2} \right )$, and in \textbf{(d)} $k_y$ spans $\left [0, 2\pi \right )$. }
+    \caption{The embedding of the Brillouin zone in $\textbf d$-space for the QWZ model. This is shown in four progressive cutaways to ensure the internal structure can be seen. In all four images $k_x$ spans the interval $\left [0, 2\pi \right )$, however in \textbf{(a)} $k_y$ spans $\left [ 0, \frac{\pi}{2} \right )$, in \textbf{(b)} $k_y$ spans $\left [0, \pi \right )$, in \textbf{(c)} $k_y$ spans $\left [0, \frac{3 \pi}{2} \right )$, and in \textbf{(d)} $k_y$ spans $\left [0, 2\pi \right )$. }
     \label{fig:QWZ_donut}
     \end{center}
 \end{figure}
-We work on a square lattice of unit cells indexed by a two dimensional lattice vector $\bf m$, where each cell contains two sites. The QWZ model is defined by three terms, a hopping between unit cells in the $x$-direction, a hopping in the $y$-direction, and a staggered on-site potential whose strength is determined by a parameter $u$.
+We work on a square lattice of unit cells indexed by a two dimensional lattice vector $\textbf m$, where each cell contains two sites. The QWZ model is defined by three terms, a hopping between unit cells in the $x$-direction, a hopping in the $y$-direction, and a staggered on-site potential whose strength is determined by a parameter $u$.
 \begin{align} \label{eqn:qwz_hamiltonian}
-    \hat H &= \sum_{\bf m} \ket{\bf m+ 1_x}\bra{\bf m} \otimes \frac{\sigma_z + i\sigma_x}{2} + h.c. \nonumber \\
-    &+ \sum_{\bf m} \ket{\bf m+ 1_y}\bra{\bf m} \otimes \frac{\sigma_z + i\sigma_y}{2} + h.c. \nonumber \\
-    &+ \sum_{\bf m} \ket{\bf m}\bra{\bf m} \otimes u\; \sigma_z,
+    \hat H &= \sum_{\textbf m} \ket{\textbf m+ 1_x}\bra{\textbf m} \otimes \frac{\sigma_z + i\sigma_x}{2} + h.c. \nonumber \\
+    &+ \sum_{\textbf m} \ket{\textbf m+ 1_y}\bra{\textbf m} \otimes \frac{\sigma_z + i\sigma_y}{2} + h.c. \nonumber \\
+    &+ \sum_{\textbf m} \ket{\textbf m}\bra{\textbf m} \otimes u\; \sigma_z,
 \end{align}
 where $1_x$ and $1_y$ represent the unit displacement in their respective directions,
 \begin{align}
@@ -28,13 +28,13 @@ where $1_x$ and $1_y$ represent the unit displacement in their respective direct
 \end{align}
 Using Bloch's theorem, we can find the bulk Hamiltonian,
 \begin{align}
-    \hat H(\bf k) = \begin{pmatrix}
+    \hat H(\textbf k) = \begin{pmatrix}
 \sin k_x \\ 
 \sin k_y\\ 
 u + \cos k_x+ \cos k_y
 \end{pmatrix} \cdot \bm \sigma.
 \end{align}
-Here, $k_x$ and $k_y$ determine our position in the Brillouin zone. As explained in \textsection\ref{sec:an_example}, this represents the embedding of a torus in $\bf d$-space, shown in fig.~\ref{fig:QWZ_donut}.
+Here, $k_x$ and $k_y$ determine our position in the Brillouin zone. As explained in \textsection\ref{sec:an_example}, this represents the embedding of a torus in $\textbf d$-space, shown in fig.~\ref{fig:QWZ_donut}.
 
 The $u$-parameter has the effect of translating the torus by a fixed amount in the $z$-direction. From this we can see that the QWZ model only has non-zero Chern number for values of $u$ between -2 and 2. Translating the torus by any more will move the origin completely outside. Thus the Chern number is
 \begin{align}
@@ -139,11 +139,11 @@ In our amorphous lattice, hopping operators can act across an edge connecting tw
 Thus, the Hamiltonian we use for the amorphous system is given by
 \begin{align}\label{eqn:amorphous_qwz_hamiltonian}
 \begin{aligned}
-    \hat H &= \sum_{i,j} \ket{\bf r_i}\bra{\bf r_j} \otimes h_{\theta_{i,j}} + h.c. \\
-    &+ \sum_{i} \ket{\bf r_i}\bra{\bf r_i} \otimes u_i  \sigma^z,
+    \hat H &= \sum_{i,j} \ket{\textbf r_i}\bra{\textbf r_j} \otimes h_{\theta_{i,j}} + h.c. \\
+    &+ \sum_{i} \ket{\textbf r_i}\bra{\textbf r_i} \otimes u_i  \sigma^z,
 \end{aligned}
 \end{align}
-where $\theta_{i,j}$ is the angle between the edge connecting $\bf r_i$ and $\bf r_j$ and the $x$ axis.
+where $\theta_{i,j}$ is the angle between the edge connecting $\textbf r_i$ and $\textbf r_j$ and the $x$ axis.
 
 As before, the parameter $u$ controls whether the system is in a topological or trivial state. The exact dependence of the system on $u$ depends strongly on the lattice geometry, however there is generally a region around which the system has nonzero topological character. In the absence of a momentum-space description, the system's topological character can be seen indirectly by comparing the spectrum in open and periodic boundary conditions. Generally one expects the presence of a gap in periodic boundaries that becomes populated with edge modes in open boundaries. Two examples are shown in fig.~\ref{fig:amorphous_qwz_examples}.
 \begin{figure}[t]

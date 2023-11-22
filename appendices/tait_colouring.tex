@@ -92,14 +92,15 @@ In order to show this condition holds, let us first notice that -- as we saw in 
 
 This argument completes the proof, any path from $f_0$ to $f_j$ will give an identical value for $\mathfrak f_j$. Furthermore, the 4-colouring obtained is guaranteed to always satisfy the condition of no adjacent faces having the same colour, since any two adjacent faces $\mathfrak f_1$ and $\mathfrak f_2$ separated by $\mathfrak e$ must satisfy 
 \begin{align}
-    \mathfrak f_1 \oplus \mathfrak e = \mathfrak f_2 \neq \mathfrak f_1 \textup{ for } e \neq \textbf 0.
+    \mathfrak f_1 \oplus \mathfrak e = \mathfrak f_2 \neq \mathfrak f_1 \textup{ for } \mathfrak e \neq \textbf 0.
 \end{align}
 
 \begin{shaded}
     {\it What about periodic boundaries?} --- 
-    The eagle-eyed reader might have noticed an omission in the argument presented. We showed that all closed loops that encircle a set of vertices are guaranteed to have $\bigoplus e = \textbf 0$. However not all closed loops have a defined inside and outside. If we construct such a system on a manifold with genus $g$, then in general there will be $2g$ topologically distinct non-contractible loops. Since these have no inside and outside, the argument above fails. 
+    The eagle-eyed reader might have noticed an omission in the argument presented. We showed that all closed loops that encircle a set of vertices are guaranteed to have $\bigoplus e = \textbf 0$. However not all closed loops have a defined inside and outside. If we construct such a system on a manifold with genus $g$, then in general there will be $2g$ topologically distinct non-contractible loops. Since these have no inside and outside, the argument above fails and it is possible for such non-contractible loops to have $\bigoplus e \neq \textbf 0$. In such a case, a valid 3-edge colouring does not imply a 4-face colouring. 
 
     Thus, on a manifold that is not simply connected, a 4-face colouring implies a 3-edge colouring however a 3-edge colouring \textit{does not} imply a 4-face colouring!
 \end{shaded}
 
-\section{The Four-Unit-Cell Spin Transformation}
+% \section{The Four-Unit-Cell Spin Transformation}
+% Here we show that the four unit four-unit-cell transformation presented in \textsection\ref{sec:spin_flip_transformation} is precisely equivalent to this argument. However here, rather than connecting a 3-edge colouring to a 4-face colouring, we connect it to a 4-vertex colouring. Let us start by restating the problem in a rather more abstract way than that presented in \textsection\ref{sec:spin_flip_transformation}.
