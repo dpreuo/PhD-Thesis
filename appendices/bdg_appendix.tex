@@ -1,10 +1,10 @@
 \label{apx:boson_bdg}
 
-This appendix is concerned with solving quadratic Hamiltonians of the form 
+In this appendix we shall present the details of the methods used to diagonalise the quadratic Hamiltonians encountered in chapters \ref{chap:amorphous_kitaev} and \ref{chap:kitaev_star}. In each of these cases, the problem amounts to expressing some Hamiltonian in the form
 \begin{align}
-    H = \sum_{jk} M_{jk} c^?_j c^?_k
+    H  \sim \Psi^\dag M \Psi,
 \end{align}
-
+where $\Psi$ is some arbitrary column vector consisting of either Majorana fermionic of bosonic creation operators. Let us start with the Majorana fermion case, followed by the bosonic case.
 
 \section{The Majorana Case}\label{sec:majorana_diagonalisation}
 
@@ -99,10 +99,6 @@ Thus we see that the ground state $\ket{\Psi}$ contains no $f$-type fermions, an
 \end{align}
 
 \subsection{Correlation Values}
-
-\begin{shaded}
-    Note -- I'm a little bit sloppy with $b$ and $b'$ notation here - can I get away with this or is it not obvious at all!?
-\end{shaded}
 
 Now let us derive the expression for the ground state expectation value of a two-Majorana operator $\braket{\Psi |i c_i c_j|\Psi }$. We start by transforming to the `diagonalising' Majorana basis, according to $c_j = Q^T_{jk} b_k$ to get
 \begin{align} \label{eqn:correlator_to_matrices}

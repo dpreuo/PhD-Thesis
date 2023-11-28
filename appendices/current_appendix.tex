@@ -27,12 +27,14 @@ This describes the change of number density at site $\textbf r$ as a sum of the 
 \begin{align}\label{eqn:two_point_current}
     f_{\textbf r_i,\textbf r_j} = i \left (\delta_{\textbf r_j}H\delta_{\textbf r_i }-\delta_{\textbf r_i}H\delta_{ \textbf r_j }\right ),
 \end{align}
-as quantifying the flow of electrons from the site at $\textbf r_i$ to $\textbf r_j$. Note that it is antisymmetric in $\textbf r_i \leftrightarrow \textbf r_j$.\par
+as quantifying the flow of electrons from the site at $\textbf r_i$ to $\textbf r_j$. Note that it is antisymmetric in $\textbf r_i \leftrightarrow \textbf r_j$.
+
 In the next section we will work in the adiabatic limit, thus let us find the current per unit of scaled time $s$. Using the substitution $t = sT$, we define the scaled flow operator
 \begin{align}
     \bar f_{\textbf r_i,\textbf r_j} = iT \left (\delta_{\textbf r_j}H\delta_{\textbf r_i }-\delta_{\textbf r_i}H\delta_{ \textbf r_j }\right ),
 \end{align}
-which satisfies the scaled continuity equation $\partial_s \left \langle \delta_{\textbf r} \right \rangle = \sum_j \tr (P \bar f_{\textbf r_i,\textbf r_j})$.\par
+which satisfies the scaled continuity equation $\partial_s \left \langle \delta_{\textbf r} \right \rangle = \sum_j \tr (P \bar f_{\textbf r_i,\textbf r_j})$.
+
 Both current operators described in \textsection\ref{sec:current} can be written as a sum of individual flows. The operator in def.~\ref{eqn:non_resolved_current}, representing the total current between the two halves of the system, is the sum of all two-point currents where $\textbf r_i \rightarrow \textbf r_j$ crosses $x = R_x$,
 \begin{align}
     J_{R_x} &= \sum_{\substack{x_i > R_x \\ x_j < R_x} } f_{\textbf r_i,\textbf r_j},
@@ -53,8 +55,10 @@ with $f^A$ defined according to
 \begin{align}\label{eqn:adiabatic_current}
         \bar f_{\textbf r_i,\textbf r_j}^A = i \delta_{\textbf r_j} \bar K\delta_{\textbf r_i }-i\delta_{\textbf r_i}\bar K\delta_{ \textbf r_j },
 \end{align}
-and $\bar K = i[\partial_s P_I , P_I] $ in analogy to the definition in \textsection \ref{sec:kato}. Note that the flow in eqn.~\ref{eqn:two_point_current} is always valid regardless of what state it is acted on. Since $K$ is defined for a choice of $P_I$, the adiabatic flow is only correct when evaluated with an occupied band consisting of the states in $P_I$.\par
-Our argument has two parts. We shall first decompose the Hamiltonian into a term that commutes with $P$ and a term that does not. Only the non-commuting term contributes to measurable change in the system. Finally, we show that this term has a straightforward expression in the near-adiabatic limit, and defines the adiabatic flow. \par
+and $\bar K = i[\partial_s P_I , P_I] $ in analogy to the definition in \textsection \ref{sec:kato}. Note that the flow in eqn.~\ref{eqn:two_point_current} is always valid regardless of what state it is acted on. Since $K$ is defined for a choice of $P_I$, the adiabatic flow is only correct when evaluated with an occupied band consisting of the states in $P_I$.
+
+Our argument has two parts. We shall first decompose the Hamiltonian into a term that commutes with $P$ and a term that does not. Only the non-commuting term contributes to measurable change in the system. Finally, we show that this term has a straightforward expression in the near-adiabatic limit, and defines the adiabatic flow. 
+
 As shown in appendix \ref{sec:kato_appendix}, the time-evolution of our system is determined by the scaled Von-Neumann equation,
 \begin{align}\label{eqn:von_neumann_ap}
     \partial_{s} P = -i T[H,P],
@@ -63,7 +67,8 @@ where we treat $T$ as a tunable parameter. Clearly, any component in $H$ that co
 \begin{align}
     H = (PHP + QHQ) + (PHQ + QHP),
 \end{align}
-where we define $Q = \1 - P$ as the projector onto unoccupied states. We will label the two terms in brackets $H_{\parallel}$ and $H_{\perp}$ respectively. $H_{\parallel}$ commutes with $P$, vanishing in the Von-Neumann equation and thus does not effect any change in $P$ whatsoever. Furthermore, any Hamiltonian that differs from H only by a term that commutes with $P$ (e.g.~$H' = H + PMP + QMQ$ for some arbitrary operator $M$) will still produce the exact same dynamics for $P$.\par
+where we define $Q = \1 - P$ as the projector onto unoccupied states. We will label the two terms in brackets $H_{\parallel}$ and $H_{\perp}$ respectively. $H_{\parallel}$ commutes with $P$, vanishing in the Von-Neumann equation and thus does not effect any change in $P$ whatsoever. Furthermore, any Hamiltonian that differs from H only by a term that commutes with $P$ (e.g.~$H' = H + PMP + QMQ$ for some arbitrary operator $M$) will still produce the exact same dynamics for $P$.
+
 Using these two components of $H$, we can split the flow operator into two components according to
 \begin{align}
 \begin{aligned}
@@ -95,7 +100,8 @@ Writing out the $\bar f^\parallel$ term explicitly, we see that it vanishes
     &= 0.
     \end{aligned}
 \end{align}
-Thus, the only term that contributes to the continuity equation is $\bar f^\perp_{\textbf r_i, \textbf r_j}$. We can interpret $\bar f^\parallel_{\textbf r_i, \textbf r_j}$ as a circulating current, representing the flow between occupied states in $P$. As it vanishes in the continuity equation, it is not possible for this term to change the number density at any site in the system. \par
+Thus, the only term that contributes to the continuity equation is $\bar f^\perp_{\textbf r_i, \textbf r_j}$. We can interpret $\bar f^\parallel_{\textbf r_i, \textbf r_j}$ as a circulating current, representing the flow between occupied states in $P$. As it vanishes in the continuity equation, it is not possible for this term to change the number density at any site in the system. 
+
 Now, let us examine $\bar f^\perp_{\textbf r_i, \textbf r_j}$ in the near-adiabatic limit. As we have seen in appendix \ref{sec:kato_appendix}, the projector is equal to the instantaneous projector $P_I$ up to order $T^{-1}$. Thus, treating $T$ as a tunable parameter, let us expand the dynamics around the limit $T \rightarrow \infty$, 
 \begin{align}\label{eqn:p_expansion}
     P = P_I + \frac{1}{T}\delta P + \mathcal{O}\left (\frac{1}{T^2}\right ),
@@ -111,7 +117,8 @@ The terms omitted are at least of order $T^{-1}$. The first term on the right va
 Time evolution of $P_I$ is determined by $\bar K$, thus we arrive at the identity
 \begin{align} \label{eqn:HPKP}
     [H, \delta P] = [\bar K, P_I].
-\end{align}\par
+\end{align}
+
 Let us consider $H_\perp$ in this limit. It is straightforward to show that
 \begin{align}
 \begin{aligned}
@@ -141,7 +148,8 @@ The first represents a circulating current that does not effect a change in $P$ 
 \begin{align}
     \bar f^\parallel _{\textbf r_i, \textbf r_j} = iT \delta_{\textbf r_j}H_\parallel \delta_{\textbf r_i } + h.c.
 \end{align}
-is linearly dependent on $T$, since $H^\parallel$ has nonzero components of order $T^0$. Thus it diverges as $T \rightarrow \infty$. Any constant current scaled over an infinitely large time period will diverge. In what follows, we shall omit these terms, meaning that our current operator will not account for persistent or \textit{frozen in} current in the bulk at any point in the adiabatic evolution.\par
+is linearly dependent on $T$, since $H^\parallel$ has nonzero components of order $T^0$. Thus it diverges as $T \rightarrow \infty$. Any constant current scaled over an infinitely large time period will diverge. In what follows, we shall omit these terms, meaning that our current operator will not account for persistent or \textit{frozen in} current in the bulk at any point in the adiabatic evolution.
+
 The second term, given by
 \begin{align}
     \bar f^\perp_{\textbf r_i, \textbf r_j} = i \delta_{\textbf r_j}\bar K\delta_{\textbf r_i }-i\delta_{\textbf r_i}\bar K\delta_{ \textbf r_j },
