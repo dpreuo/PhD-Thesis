@@ -1,5 +1,5 @@
 
-In this section we introduce the mathematical construction of Berry phase, Berry flux and Chern number. We will present these ideas in two different contexts. In \textsection\ref{sec:discrete_berry} we introduce the simplest possible story that captures the essentials of Berry phase and Chern number: that of a discretised lattice of quantum states. Here wil will miss many of the details that make such concepts relevant to physical systems, however the picture is sufficiently simple as to provide a practical intuition for how to calculate these quantities. In \textsection\ref{sec:continuous_berry}, we will do things \textit{properly}, by considering the effect on the band structure of some Hamiltonian that is changed adiabatically over some smooth parameter space. We will derive the exact form of the Chern number in this context and relate it to the TKNN invariant \cite{thouless_quantized_1982}. Finally, in \textsection\ref{sec:an_example} we give a brief example of such a calculation, demonstrating how these concepts apply to a two-state quantum system. 
+In this section we introduce the mathematical construction of Berry phase, Berry flux and Chern number. We will present these ideas in two different contexts. In \textsection\ref{sec:discrete_berry} we introduce the simplest possible story that captures the essentials of Berry phase and Chern number: that of a discretised lattice of quantum states. Here wil will miss many of the details that make such concepts relevant to physical systems, however the picture is sufficiently simple as to provide a practical intuition for how to calculate these quantities. In \textsection\ref{sec:continuous_berry}, we will do things \textit{properly}, by considering the effect on the band structure of some Hamiltonian that is changed adiabatically over some smooth parameter space. We will derive the exact form of the Chern number in this context and relate it to the TKNN invariant~\cite{thouless_quantized_1982}. Finally, in \textsection\ref{sec:an_example} we give a brief example of such a calculation, demonstrating how these concepts apply to a two-state quantum system. 
 
 \subsection{The Simplest Story -- A Discrete Lattice of States} \label{sec:discrete_berry}
 
@@ -299,9 +299,9 @@ What about the Chern number? To calculate this all we need to do is integrate th
 Now suppose the torus is embedded such that it contains the origin, then we will have a surface that catches all of the Berry flux on its inside and the solid angle subtended is $4\pi$! This means that the Chern number will be $+1$. Furthermore, you could imagine wrapping the torus around the origin twice, so that it effectively contains two origins, now the Chern number will be $+2$. You could turn it inside out and then wrap it around the origin too, that would give $\mathcal Q=-1$ and so on...
 
 \subsection{Final Notes}
-\begin{shaded}
+\todo{
     this section needs a bit more formal equation-y stuff
-\end{shaded}
+}
 
 We close this section with an explanation of the consequences of Chern number in topological insulators.
 
@@ -313,7 +313,7 @@ The answer to this is that it is only possible if the bands of $\hat H_1$ and $\
 
 We can illustrate this with the example in \textsection\ref{sec:an_example}. Smoothly deforming our Hamiltonian amounts to changing the shape of the torus embedded in $\textbf d$-space. If any point on the surface of the torus touches the origin, we have a pair of zero-energy states appearing in our system, this means the bands touch and the system is conductive. If the band has a Chern number of one, this means that the torus contains the origin. If we wanted to smoothly deform this to have zero Chern number, we would need to move the torus such that the origin was now outside. At some point in this deformation the torus surface will have to touch the origin, creating a conducting Hamiltonian at that point.
 
-Thus we can classify all Hamiltonians according to the Chern number of their bands. It is always impossible to smoothly deform a Hamiltonian into one with a different Chern number while remaining insulating. Similarly, it is always possible to smoothly deform two Hamiltonians into one another without closing a gap, provided that their bands have identical Chern numbers \cite{avron_homotopy_1983}.
+Thus we can classify all Hamiltonians according to the Chern number of their bands. It is always impossible to smoothly deform a Hamiltonian into one with a different Chern number while remaining insulating. Similarly, it is always possible to smoothly deform two Hamiltonians into one another without closing a gap, provided that their bands have identical Chern numbers~\cite{avron_homotopy_1983}.
 
 This allows us to make a rough justification for why conducting edge states must appear wherever we have a material with nonzero Chern number. Suppose we have a large material where the Hamiltonian is allowed to vary slowly over space, defined by $\hat H (\textbf r)$. Now let's stay that in some region this Hamiltonian looks locally like it has non-zero Chern number, $\hat H _{\textup{topological}}$, but in a different, distant region it looks locally like it has zero Chern number, $\hat H _{\textup{trivial}}$. We expect that between these regions the Hamiltonian must be gradually transforming between $\hat H _{\textup{topological}}$ and $\hat H _{\textup{trivial}}$. As we have described, it is impossible for our Hamiltonian to make this transformation without creating a conducting surface somewhere between these two regions -- edge states must appear! Loosely speaking, we can view the vacuum as a zero Chern number material, which gives us an intuitive picture for why we might expect materials with non-zero Chern number to always have edge states appearing on their surface, where the Hamiltonian has to transition to the vacuum. 
 
@@ -326,4 +326,4 @@ In this sense, the Chern number can be regarded as something like a measure of t
 
 \subsubsection{The Bulk-Boundary Correspondence}
 
-\todo{add some stuff here \cite{hatsugai_chern_1993}}
+\todo{add some stuff here~\cite{hatsugai_chern_1993}}

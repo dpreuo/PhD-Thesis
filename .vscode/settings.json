@@ -1,14 +1,18 @@
 {
     "todo-tree.tree.scanMode": "workspace only",
     "cSpell.words": [
+        "colormap",
         "crosshair",
         "DMRG",
         "Dzyaloshinskii",
         "eigenmode",
         "eqns",
+        "erat",
         "Kivelson",
         "Kubo",
+        "Loring",
         "Moriya",
-        "Shastry"
+        "Shastry",
+        "TKNN"
     ]
 }

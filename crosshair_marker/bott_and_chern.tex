@@ -1,4 +1,4 @@
-The Kitaev Chern number was defined with infinite systems in mind, and requires some modifying to allow it to work properly in a finite system. In this section we will introduce another real-space Chern number, initially proposed by Hastings and Loring \cite{hastings_almost_2010,hastings_topological_2011}. This marker is most naturally suited to systems in periodic boundary conditions. This section is as follows: We derive the exact form of the Bott index, showing that it is exactly equal to Chern number in a periodic, translationally symmetric system. In \textsection\ref{sec:chern_marker} we show how the Chern marker \cite{bianco_mapping_2011} (also given by Kitaev in eqn.~\ref{eqn:chern_marker_from_kitaev}) can be understood as the Bott index in the large-system limit.
+The Kitaev Chern number was defined with infinite systems in mind, and requires some modifying to allow it to work properly in a finite system. In this section we will introduce another real-space Chern number, initially proposed by Hastings and Loring~\cite{hastings_almost_2010,hastings_topological_2011}. This marker is most naturally suited to systems in periodic boundary conditions. This section is as follows: We derive the exact form of the Bott index, showing that it is exactly equal to Chern number in a periodic, translationally symmetric system. In \textsection\ref{sec:chern_marker} we show how the Chern marker~\cite{bianco_mapping_2011} (also given by Kitaev in eqn.~\ref{eqn:chern_marker_from_kitaev}) can be understood as the Bott index in the large-system limit.
 
 We will work with a lattice model, where unit cells are indexed by a vector of the form $(m_x,m_y)$. The lattice has size $(L_x,L_y)$, and we have set periodic boundary conditions. Sites are indexed by 
 \begin{align}
@@ -133,7 +133,7 @@ Thus we have shown that in the case of a translationally symmetric system with p
 
 \subsection{The Chern Marker} \label{sec:chern_marker}
 
-Most sources cite \cite{bianco_mapping_2011} for the invention of the Chern marker, however as we shall see in the next chapter, the Chern marker is a relatively trivial restatement of Kitaev's marker. Here we will derive the Chern marker by showing that it can be obtained from the Bott index in the limit of large system size.
+Most sources cite~\cite{bianco_mapping_2011} for the invention of the Chern marker, however as we shall see in the next chapter, the Chern marker is a relatively trivial restatement of Kitaev's marker. Here we will derive the Chern marker by showing that it can be obtained from the Bott index in the limit of large system size.
 
 Our starting point is the expression for Bott index, eqn.~\ref{eqn:bott_index}, which we rewrite using the following shorthand
 \begin{align}
@@ -168,7 +168,7 @@ Now, writing explicitly the form of $\delta_\alpha$ and expanding out the commut
 		PxP, PyP
 	\right ],
 \end{align}
-which is precisely the expression for the Chern marker \cite{bianco_mapping_2011}.
+which is precisely the expression for the Chern marker~\cite{bianco_mapping_2011}.
 
 \begin{shaded}
 	\textit{A Quick Note on Periodic Boundaries --- } As we shall see in the following examples, the Chern marker is ill-suited to periodic boundaries. This is because the position operators $x$ and $y$ have discontinuities at the system boundaries. However, eqn.~\ref{eqn:chern_bott_expansion} hints at the correct way to modify the Chern marker to be well-behaved in PBC. This can be done by noticing that the commutators $[x,P]$ and $[y,P]$ effectively calculate a displacement, since they may be written as
