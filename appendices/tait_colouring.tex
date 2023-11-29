@@ -5,7 +5,7 @@ In this appendix we will discuss a very old theorem first proposed by scottish p
 
 Let us start by making a few definitions. We will be working only with fully connected cubic graphs, consisting of a set of vertices $v_i$, edges $e_i$ and faces $f_i$ -- where every vertex connects to three edges. Furthermore, a bridge is an edge where, if it were removed the graph would be divided into two connected components. For example in the following graph, the red edge is a bridge, so the graph is considered illegal.
 \begin{center}
-    \includegraphics{appendices/diagrams/bridge.pdf}
+    \includegraphics{appendices/figures/bridge.pdf}
 \end{center}
 Let us construct a labelling system for our faces and edges. Rather than using an integer from 0-4, we will label them using a binary representation of these integers, 
 \begin{align}
@@ -35,7 +35,7 @@ Thus, we may visualise the face colours as behaving something like a `height' or
 
 \begin{figure*}[t]
     \centering
-    \includegraphics[width=0.9\textwidth]{appendices/diagrams/four_colouring.pdf}
+    \includegraphics[width=0.9\textwidth]{appendices/figures/four_colouring.pdf}
     \caption{ An example of a 3-edge colouring on a graph with coordination number $z\leq3$, along with the corresponding 4-face colouring, related according to eqn.~\ref{eqn:face_to_edge}. }
     \label{fig:face_edge_colouring}
 \end{figure*}
@@ -46,7 +46,7 @@ Suppose we start with a valid 4-face colouring. Let us show that the relation in
 
 Now we must show that it is not possible for any vertex to touch two edges of the same colour. Let us consider a single vertex between three faces. Each face has a distinct colour $\mathfrak f_i$ and each edge that meets this vertex has a colouring $\mathfrak e_i$ as shown below:
 \begin{center}
-    \includegraphics{appendices/diagrams/site_e_f.pdf}
+    \includegraphics{appendices/figures/site_e_f.pdf}
 \end{center}
 Now let us consider the quantity
 \begin{align} \label{eqn:e_i_sum}
@@ -69,7 +69,7 @@ Suppose we start with a valid 3-edge colouring and are instructed to transform i
 The colour of $\mathfrak f_j$ is uniquely defined provided that this process is invariant to the choice of path taken. If we consider two paths $p$ and $p'$, from $f_0$ to $f_j$, shown in fig.~\ref{fig:two_paths} we require that
 \begin{figure}[t]
     \centering
-    \includegraphics{appendices/diagrams/f_paths.pdf}
+    \includegraphics{appendices/figures/f_paths.pdf}
     \caption{Two distinct paths from $f_0$ to $f_j$. The combination of both paths forms a closed loop, where the value of $\mathfrak{f_j}$ is uniquely determined provided that $\bigoplus \mathfrak e$ around this loop vanishes.}
     \label{fig:two_paths}
 \end{figure}

@@ -1,5 +1,7 @@
 thesis.pdf
 *.ai
+illustrator
+python
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
