@@ -6,12 +6,12 @@
 
 \begin{document}
 
-\title{\LARGE {\bf Buongiorno, I'm Fabio, I Am Very Interested in what Makes Topology Work}\\
+\title{\LARGE {\bf A cool title for a cool thesis}\\
  \vspace*{6mm}
 } 
 
 \author{Peru d'Ornellas} 
-\submitdate{December 2023}
+\submitdate{January 2023}
 \narrowlinespacing
 % \normallinespacing
 
@@ -22,33 +22,36 @@
 \tableofcontents
 
 \pagestyle{uheadings}
-\chapter{Introduction}
 
-
-\input{introduction/section_text.tex}
 
 \begin{refsection}
-\input{local_markers_background/section_text.tex}
+\chapter{Introduction} \label{chap:introduction}
+\input{introduction/section_text.tex} 
 \end{refsection}
 
 \begin{refsection}
-\chapter{Local Markers and the Crosshair Marker}
-\input{crosshair_marker/section_text.tex}
+    \chapter{Chern Number and Topological Insulators}\label{chap:chern_intro}
+    \input{local_markers_background/section_text.tex}
 \end{refsection}
 
 \begin{refsection}
-    \chapter{The Amorphous Kitaev Model}
+    \chapter{Local Chern Markers} \label{chap:local_markers}
+    \input{crosshair_marker/section_text.tex}
+\end{refsection}
+
+\begin{refsection}
+    \chapter{The Amorphous Kitaev Model}\label{chap:amorphous_kitaev}
     \input{kitaev_model/section_text.tex}
 \end{refsection}
 
 \begin{refsection}
-\chapter{The Kitaev-Heisenberg Model on the Star Lattice}
-
-\input{kitaev_heisenberg_star/section_text.tex}
+    \chapter{The Kitaev-Heisenberg Model on the Star Lattice}
+    \input{kitaev_heisenberg_star/section_text.tex}
 \end{refsection}
 
-\chapter{Conclusion and Outlook}
-
+\begin{refsection}
+\chapter{Conclusion and Outlook} \label{chap:outlook}
+\end{refsection}
 
 \appendix
 \input{appendices/section_text.tex}

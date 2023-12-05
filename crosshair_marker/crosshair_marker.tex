@@ -1,3 +1,6 @@
+\section{A Physical Interpretation}
+\label{sec:physical_interpretation_kitaev_marker}
+
 So far, we have presented three real-space formulations of the Chern number -- the Bott index, Chern marker and Kitaev's Chern number. Each of these quantities at least approximately solve the problem of defining a Chern number without relying on momentum space. However, these markers still all suffer from one substantial drawback. That is, they were defined as a purely mathematical exercise, by restating the Chern number in a real-space mathematical language. Thus, it is not clear at all whether they correspond to a real, observable physical quantity. In other words, on handing these markers to an experimentalist we could expect a variety of responses along the lines of:
 \begin{itemize}
     \item `What the hell am I supposed to do with this'
@@ -91,9 +94,6 @@ where the change in $P_I$ follows the instantaneous eigenstates of $H$. Using th
 \end{align}
 
 The full time evolution of the projector follows the instantaneous eigenstates in the limit of large $T \gg \Delta$. Thus, in the following discussion, where we are working in the adiabatic regime, we may use eqn.~\ref{eqn:P_adiabatic_derivative} to describe the change in $P$, and drop the subscript on $P_I$, since all our time evolution is adiabatic. Having defined the adiabatic Hamiltonian, let us examine the exact form of $K$ for our applied electric field, as well as deriving an adiabatic equivalent of the current operator in eqn.~\ref{eqn:current_operator}.
-% \begin{shaded}
-% Really would prefer saying something here about no-energy-gap adiabatic theorems
-% \end{shaded}
 
 \subsubsection{Adiabatic EM Fields}\label{sec:kato_field}
 
@@ -257,14 +257,4 @@ Finally it is worth mentioning that -- following the argument presented for eqn.
     \mathfrak{C}(\textbf r) = \int d^2 \textbf R\ C(\textbf r;  \textbf R),
 \end{align}
 where the integral is over the whole system. 
-
-% \subsection{Final Remarks}
-
-% % TODO - add meat to this
-
-% In this section, we presented a physically motivated local marker for the Chern number of a two-dimensional quantum system. The marker was derived as a local Hall conductivity for current around a crosshair in the bulk. We present a rigorous expression for this conductance for non-interacting electrons on the lattice, and show that it is equivalent to the real-space Chern number presented in~\cite{kitaev_anyons_2006}, although we make a slight modification to ensure it is nonzero for finite-size systems. Mathematically, the marker plays a similar role to existing methods such as Chern marker~\cite{bianco_mapping_2011} and Bott index~\cite{loring_guide_2019} -- locally indicating the topological phase of the system -- however unlike these markers, the crosshair marker is precisely quantised in the bulk.
-
-% The arguments used to derive the crosshair marker are essentially a prescription for measuring the quantity in the lab: a step-function potential is used to excite current across the system in the vertical direction. The cross-conductance is then measured in the horizontal direction. An obvious next step will be to look at experimentally verifying the proposed method. 
-
-% Until recently, local markers were developed in a non-interacting context as a property derived from the projector onto a band of states. In interacting systems, where the ground state does not correspond to a projector onto a set of single-particle states, most existing markers are inapplicable, however early progress has been made in understanding how local topology can be detected in interacting systems~\cite{markov_local_2021}. Clearly, in such a system the mathematical formalism presented here does not work, however our physical argument does not depend on the microscopic details of the system. Thus, it would be interesting to re-express the marker in a many-body framework. Similarly, we expect that the physical definition of the marker could provide a clue to understanding the role that local topology has to play in systems out of equilibrium~\cite{mcginley_classification_2019,caio_topological_2019, golovanova_truly_2021}.
 

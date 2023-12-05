@@ -76,9 +76,7 @@ $F_{\textbf k}$ is just the sum (mod $2\pi$) of the relative phases along each e
 \end{align}
 This resembles Stokes' law, however there is a subtlety worth mentioning. All we have required is that the complex exponential of each sum is the same. This does \textbf{not} mean that the sum of the Berry flux inside a region is equal to the sum of relative phases around the boundary, since they are allowed to differ by an arbitrary multiple of $2\pi$.
 
-\begin{shaded}
-    add a touch more here - it was obvious to k but maybe not to everyone
-\end{shaded}
+\todo{add a touch more here - it was obvious to k but maybe not to everyone}
 
 \subsubsection{Chern Number} \label{sec:discrete_chern}
 Now let's assume that our grid of $\textbf k$ points has periodic boundaries, with $1\leq k_x \leq N_x$ and $1 \leq k_y \leq N_y$. That is, the lattice is a discretisation of the torus -- a closed manifold. The product of all the Berry flux phases is now always equal to 1,
@@ -91,9 +89,8 @@ Here because every edge in our grid is now an internal edge and thus they cancel
 \end{align}
 $\mathcal Q$ is necessarily restricted to integer values, since a non-integer value would contradict equation \ref{torus_sum}.
 
-\begin{shaded}
-    Maybe its more consistent to use u rather than psi here
-\end{shaded}
+\todo{Maybe its more consistent to use u rather than psi here}
+
 \subsection{Topology of a General Hamiltonian}\label{sec:continuous_berry}
 
 Now that we have a basic intuition for what the Chern number is, let's see how this applies to a real physical system. We start by defining some arbitrary Hamiltonian $H(\textbf R)$, which depends on some smooth parameter $\textbf R \in \mathcal R$.
@@ -132,7 +129,7 @@ Now let us suppose that we slowly transform our Hamiltonian around some closed p
 \begin{align} \label{eqn:flux_loop}
     \gamma(\mathcal C) = \oint_{\mathcal C} \textbf{A} \cdot d\textbf R.
 \end{align} 
-The exponential of the phase $e^{-i\gamma(\mathcal C)}$ around the loop \textit{is} gauge invariant, one can see this intuitively by realising that it is identical to the Berry phase from the discrete case, but in the limit where the discrete steps become arbitrarily close together. However, the Berry phase $\gamma(\mathcal C)$ itself is not strictly gauge invariant, since one could imagine introducing a gauge transformation that introduces a branch cut around the path $\mathcal C$. After traversing the whole path, the state at the end of the loop would have picked up a total phase $2\pi$, meaning that under a gauge transformation we can change the berry phase according to 
+The exponential of the phase $e^{-i\gamma(\mathcal C)}$ around the loop \textit{is} gauge invariant, one can see this intuitively by realising that it is identical to the Berry phase from the discrete case, but in the limit where the discrete steps become arbitrarily close together. However, the Berry phase $\gamma(\mathcal C)$ itself is not strictly gauge invariant, since one could imagine introducing a gauge transformation that introduces a branch cut around the path $\mathcal C$. After traversing the whole path, the state at the end of the loop would have picked up a total phase $2\pi$, meaning that under a gauge transformation we can change the Berry phase according to 
 \begin{align}
     \gamma (\mathcal C) \rightarrow \gamma (\mathcal C) + 
      2\pi n \textup{ for } n \in \mathbb Z.
@@ -199,7 +196,7 @@ where we use the shorthand $\partial_\alpha = \frac{\partial}{\partial R_\alpha}
         =
         i \tr \left [ \hat \psi \partial_x \hat \psi \, \partial _y \hat \psi \right ] + h.c.
     \end{align} 
-    For a single state, this is identical to the regular Berry curvature, however the utility of this expression becomes evident when we construct it for a projector onto a set of states $P = \sum_{i \in \textup{band}} \ketbra {\psi_i}{\psi_i} $. Since $\partial P$ is still well-defined when the states in $P$ are degenerate, we can write an expression for the combined berry curvature of a set of states that can handle degeneracy (provided no states outside $P$ become degenerate with $P$).
+    For a single state, this is identical to the regular Berry curvature, however the utility of this expression becomes evident when we construct it for a projector onto a set of states $P = \sum_{i \in \textup{band}} \ketbra {\psi_i}{\psi_i} $. Since $\partial P$ is still well-defined when the states in $P$ are degenerate, we can write an expression for the combined Berry curvature of a set of states that can handle degeneracy (provided no states outside $P$ become degenerate with $P$).
     \begin{align}
         \Omega_P = i\tr \left [ P \partial_x P \partial_y P \right ] + h.c.
     \end{align}
@@ -299,9 +296,7 @@ What about the Chern number? To calculate this all we need to do is integrate th
 Now suppose the torus is embedded such that it contains the origin, then we will have a surface that catches all of the Berry flux on its inside and the solid angle subtended is $4\pi$! This means that the Chern number will be $+1$. Furthermore, you could imagine wrapping the torus around the origin twice, so that it effectively contains two origins, now the Chern number will be $+2$. You could turn it inside out and then wrap it around the origin too, that would give $\mathcal Q=-1$ and so on...
 
 \subsection{Final Notes}
-\todo{
-    this section needs a bit more formal equation-y stuff
-}
+\todo{ this section needs a bit more formal equation-y stuff}
 
 We close this section with an explanation of the consequences of Chern number in topological insulators.
 
