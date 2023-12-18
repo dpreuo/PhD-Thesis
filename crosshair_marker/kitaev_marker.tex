@@ -16,15 +16,11 @@ As always, our starting point is a Hamiltonian defined on an arbitrary lattice w
 \begin{align}
     P_{jk} = \braket{\textbf r_j |P| \textbf r_k}.
 \end{align}
-In general, if this is onto a gapped set of states, then the projector will have exponentially localised correlations~\cite{hastings_spectral_2006},
+In general, if this is onto a gapped set of states, then the projector will satisfy the following condition~\cite{hastings_spectral_2006},
 \begin{align}
-    |P_{jk}| \leq c|\textbf r_j - \textbf r_k|^{-\alpha}
+    |P_{jk}| \leq c|\textbf r_j - \textbf r_k|^{-\alpha},
 \end{align}
-\begin{shaded}
-    \todo{This is not exponential localisation - this is quasidiagonal note that $\alpha$ has to be larger than the dimension -- this basically means infinite for our systems... }
-    maybe add an argument for why this has to be the case -- see the Paley-Wiener theorem
-\end{shaded}
-Following Kitaev, let us define a 2-current,
+for any $\alpha$ greater than the dimensionality of the system. Following Kitaev, let us define a 2-current,
 \begin{align}
     h_{jkl} = 12\pi i (P_{jk}P_{kl}P_{lj} - P_{jl}P_{lk}P_{kj}).
 \end{align}
@@ -113,12 +109,13 @@ Let us now consider the operator
        \includegraphics[]{crosshair_marker/figures/four_boxes.pdf}
    \end{center}
     \captionof{figure}{
-     \todo{add a caption here!}
+    The decomposition of the two step functions proposed in eqn.~\ref{eqn:qkit_abcd} into a set of four projectors on the quarters of the plane. The $x$-step function is composed of regions $b$ and $c$, and the $y$-step function is composed of regions $a$ and $b$.
     }\label{fig:four_squares}
 \end{figure}
 
 By decomposing the step function into projectors onto the four quarters of the plane, we arrive at
-\begin{align}\begin{split}
+\begin{align}\label{eqn:qkit_abcd}
+    \begin{split}
     2\pi i\tr [P \vartheta_xP, P \vartheta_yP ] = 2\pi i \tr \big ( 
         &[P a P, P b P ] + 
         [P b P, P b P ] \\
@@ -262,7 +259,7 @@ We show three sets of examples. In fig.~\ref{fig:qkit_example_boundaries} we com
         \includegraphics[width = \textwidth]{crosshair_marker/figures/ch_first_eg.pdf}
     \end{center}
      \captionof{figure}{
-    $\qkit$ for the same amorphous QWZ model in periodic and open boundary conditions. In both cases $u$ is tuned to $-0.5$, close to the center of the topological region shown in fig.~\ref{fig:QWZ_band_struct}. \textbf{(a)} In periodic boundaries, there are four points where both step functions meet. One in the center and three on the boundary. At each of these points, the marker has a contribution determined by the Chern number, however at two of these points the step functions are such that the ordering of the regions is counter clockwise so the contribution is negative. Thus, the total trace vanishes. \textbf{(b)} In open boundaries the bulk Chern insulator is surrounded by a ring of gapless edge modes. Thus, on the boundary the projector is long-ranged and contributes a nonvanishing term to $\qkit$ that exactly cancels out the bulk term. \textbf{(c)} A plot showing the trace of $\qkit$ over a circular region $O$ around the central peak, showing the sum against circle radius. The maximum values reached in the PBS and OBC cases both quantised to one part in $10^6$, this extremely precise quantisation can be improved by increasing system size, further separating the bulk and edge effects. Once the circle becomes large enough to include boundary effects, both markers vanish.
+    $\qkit$ for the same amorphous QWZ model in periodic and open boundary conditions. In both cases $u$ is tuned to $-0.5$, close to the center of the topological region shown in fig.~\ref{fig:QWZ_band_struct}. \textbf{(a)} In periodic boundaries, there are four points where both step functions meet. One in the center and three on the boundary. At each of these points, the marker has a contribution determined by the Chern number, however at two of these points the step functions are such that the ordering of the regions is counter clockwise so the contribution is negative. Thus, the total trace vanishes. \textbf{(b)} In open boundaries the bulk Chern insulator is surrounded by a ring of gapless edge modes. Thus, on the boundary the projector is long-ranged and contributes a non-vanishing term to $\qkit$ that exactly cancels out the bulk term. \textbf{(c)} A plot showing the trace of $\qkit$ over a circular region $O$ around the central peak, showing the sum against circle radius. The maximum values reached in the PBS and OBC cases both quantised to one part in $10^6$, this extremely precise quantisation can be improved by increasing system size, further separating the bulk and edge effects. Once the circle becomes large enough to include boundary effects, both markers vanish.
      }\label{fig:qkit_example_boundaries}
 \end{figure}
 
@@ -285,3 +282,4 @@ We show three sets of examples. In fig.~\ref{fig:qkit_example_boundaries} we com
             $\qkit$ for an amorphous QWZ system in OBC with increasing on-site disorder, added by locally varying the value of $u$ -- sampling from a Gaussian distribution centred on $u = -0.5$. \textbf{(a-f)} Local distribution of $qkit$ for a set of $u$ values sampled with a standard deviation ranging from $\sigma = 0$ to $\sigma = 1.75$ in steps of $0.35$. Once $\sigma$ is sufficiently large, the disorder is strong enough to create topologically trivial regions in the material that destroy the quantisation of $\qkit$, and the material is topologically trivial. \textbf{(g)} Trace of $\qkit$ over a circular region $O$ around the central peak. At sufficiently weak disorder, the marker remains close to quantised. However past a threshold around $\sigma \sim 1$, the marker no longer approaches a quantised value.
             }\label{fig:qkit_disorder}
 \end{figure}
+\newpage
