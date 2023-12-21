@@ -3,7 +3,7 @@ thesis.pdf
 # illustrator
 python
 .tmp*
-**/Icon
+Icon?
 
 
 ## Core latex/pdflatex auxiliary files:

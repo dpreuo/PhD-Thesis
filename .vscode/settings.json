@@ -1,6 +1,7 @@
 {
     "todo-tree.tree.scanMode": "workspace only",
     "cSpell.words": [
+        "Avron",
         "colormap",
         "crosshair",
         "DMRG",
@@ -12,7 +13,9 @@
         "Kubo",
         "Loring",
         "Moriya",
+        "Seiler",
         "Shastry",
+        "Thouless",
         "TKNN"
     ]
 }
