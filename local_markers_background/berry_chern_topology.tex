@@ -125,7 +125,7 @@ The quantity multiplying $d\textbf R$ is the Berry connection $\textbf{A}(\textb
 \begin{align} \label{eqn:gauge}
     \textbf{A}(\textbf R) \rightarrow \textbf{A}(\textbf R) - \nabla _{\textbf R} \alpha(\textbf R)
 \end{align}
-Now let us suppose that we slowly transform our Hamiltonian around some closed path $\mathcal C$ in $\textbf R$-space and keep track of the phase picked up by a given state.\footnote{Many sources (e.g.~\cite{xiao_berry_2010}) present this picture as an \textit{adiabatic} transformation, where one has to do a little extra work to keep track of the energy-dependent phase that a state picks up $\sim e^{-i \varepsilon t}$ alongside the topological phase determined by $\textbf A$. We won't bother, and instead just consider comparing the \textit{instantaneous eigenstates} at different values of $\textbf R$.} In analogy with eqn.~\ref{eqn:discrete_berry_sum}, the Berry connection allows us to calculate the total phase accumulated over this route, according to
+Now let us suppose that we slowly transform our Hamiltonian around some closed path $\mathcal C$ in $\textbf R$-space and keep track of the phase picked up by a given state.\footnote{Many sources (e.g.~\cite{xiao_berry_2010}) present this picture as an \textit{adiabatic} transformation, where one has to do a little extra work to keep track of the energy-dependent phase that a state picks up $\sim e^{-i \varepsilon t}$ alongside the topological phase determined by $\textbf A$. We won't bother, and instead just consider comparing the \textit{instantaneous eigenstates} at different values of $\textbf R$.} In analogy with Eqn.~\ref{eqn:discrete_berry_sum}, the Berry connection allows us to calculate the total phase accumulated over this route, according to
 \begin{align} \label{eqn:flux_loop}
     \gamma(\mathcal C) = \oint_{\mathcal C} \textbf{A} \cdot d\textbf R.
 \end{align} 
@@ -143,7 +143,7 @@ The exponential of the phase $e^{-i\gamma(\mathcal C)}$ around the loop \textit{
     \end{figure}
 
 \subsubsection{Berry Curvature}
-Let us now define a quantity equivalent to the Berry flux from the previous discussion. Starting with eqn.~\ref{eqn:flux_loop}, we use Stokes' theorem to transform it into a surface integral over a surface $\mathcal S$ bounded by the curve $\mathcal C$. We will consider the case for a two and three dimensional parameter space $\mathcal R$, but of course this argument generalises to arbitrary dimensions.
+Let us now define a quantity equivalent to the Berry flux from the previous discussion. Starting with Eqn.~\ref{eqn:flux_loop}, we use Stokes' theorem to transform it into a surface integral over a surface $\mathcal S$ bounded by the curve $\mathcal C$. We will consider the case for a two and three dimensional parameter space $\mathcal R$, but of course this argument generalises to arbitrary dimensions.
 \begin{align}
     \textup{In 2D: } & \gamma (\mathcal C) = \int_{\mathcal S} d^2R 
     \left ( 
@@ -190,7 +190,7 @@ where we use the shorthand $\partial_\alpha = \frac{\partial}{\partial R_\alpha}
         } + h.c.
     \end{align}
 
-    \item Note that the definition provided for the Berry curvature  (eqn.~\ref{berry_curvature_state_deriv}) is only well-defined across $\mathcal R$ when the state remains fully gapped. That is, no other states ever have the same energy as $\ket{\psi(\textbf R)}$. When another state energy crosses that of $\ket \psi$, the individual states become ill-defined and so it becomes challenging to write down a natural derivative for the states. With this in mind, let us consider re-expressing the Berry curvature in terms of the single state projector $\hat \psi = \ketbra\psi \psi$,
+    \item Note that the definition provided for the Berry curvature  (Eqn.~\ref{berry_curvature_state_deriv}) is only well-defined across $\mathcal R$ when the state remains fully gapped. That is, no other states ever have the same energy as $\ket{\psi(\textbf R)}$. When another state energy crosses that of $\ket \psi$, the individual states become ill-defined and so it becomes challenging to write down a natural derivative for the states. With this in mind, let us consider re-expressing the Berry curvature in terms of the single state projector $\hat \psi = \ketbra\psi \psi$,
     \begin{align} \label{eqn:operator_berry_curvature}
         i \braket{  \partial_x \psi | \partial_y \psi} + h.c.
         =
@@ -203,7 +203,7 @@ where we use the shorthand $\partial_\alpha = \frac{\partial}{\partial R_\alpha}
 \end{enumerate}
 \end{shaded}
 
-This calculation has one important caveat. It is only possible to apply Stokes' theorem when $\textbf A$ is smooth over the region $\mathcal{R}$. This means that we need to have already picked a smooth gauge in the region we are integrating over to have a guarantee that eqns.~\ref{eqn:2d_berry_curvature} and \ref{eqn:2d_berry_curvature} hold. If we transform to a non-smooth gauge then it is possible that the Berry phase will change by a multiple of $2\pi$, however the Berry curvature is truly gauge invariant. This can be seen from eqn.~\ref{eqn:berry_curvature_hamiltonian}, where the Berry curvature is defined without the differentiation of states, so is invariant under even a non-smooth gauge transformation. Thus in general we only have the guarantee that
+This calculation has one important caveat. It is only possible to apply Stokes' theorem when $\textbf A$ is smooth over the region $\mathcal{R}$. This means that we need to have already picked a smooth gauge in the region we are integrating over to have a guarantee that eqns.~\ref{eqn:2d_berry_curvature} and \ref{eqn:2d_berry_curvature} hold. If we transform to a non-smooth gauge then it is possible that the Berry phase will change by a multiple of $2\pi$, however the Berry curvature is truly gauge invariant. This can be seen from Eqn.~\ref{eqn:berry_curvature_hamiltonian}, where the Berry curvature is defined without the differentiation of states, so is invariant under even a non-smooth gauge transformation. Thus in general we only have the guarantee that
 \begin{align}\label{eqn:berry_loop_to_curvature}
     e^{-i\gamma(\mathcal C)} = e^{\int_{\mathcal S} d^2 R\,  \Omega (\textbf R)}.
 \end{align}
@@ -213,7 +213,7 @@ As in \textsection\ref{sec:discrete_chern}, we make the assertion that the $\tex
 \begin{align} \label{eqn:cont_chern_number}
     \mathcal Q &= \frac{1}{2\pi} \int d^2 R \, \Omega.
 \end{align}
-As in the discrete case, the Chern number here is restricted to only take integer values. The argument follows the same lines as previously, where we can use our modified form of Stokes theorem (eqn.~\ref{eqn:berry_loop_to_curvature}) to show that the Chern number is equivalent to the Berry phase around a loop enclosing no area, implying that
+As in the discrete case, the Chern number here is restricted to only take integer values. The argument follows the same lines as previously, where we can use our modified form of Stokes theorem (Eqn.~\ref{eqn:berry_loop_to_curvature}) to show that the Chern number is equivalent to the Berry phase around a loop enclosing no area, implying that
 \begin{align}
     e^{\int d^R k\,  \Omega (\textbf R)} &= 1,
     \implies \mathcal Q \in \mathbb Z
@@ -313,6 +313,6 @@ Thus, we can classify all Hamiltonians according to the Chern number of their ba
 This allows us to make a rough justification for why conducting edge states must appear wherever we have a material with nonzero Chern number. Suppose we have a large material where the Hamiltonian is allowed to vary slowly over space, defined by $\hat H (\textbf r)$. In one region this Hamiltonian locally has non-zero Chern number, $\hat H _{\textup{topological}}$, but in a different distant region it locally has zero Chern number, $\hat H _{\textup{trivial}}$. We expect that between these regions the Hamiltonian must be gradually transforming between $\hat H _{\textup{topological}}$ and $\hat H _{\textup{trivial}}$. As we have seen, it is impossible for our Hamiltonian to make this transformation without passing through a conducting region somewhere along the way -- edge states must appear! Loosely speaking, we can view the vacuum as a Chern number zero material, which gives us an intuitive picture for why we might expect materials with non-zero Chern number to always have edge states appearing on their surface, where the Hamiltonian has to transition to the vacuum. 
 
 \subsubsection{Chern Number and Globally Smooth Gauges}\label{sec:chern_smooth_gauge}
-Carefully considering the gauge that used in equation \ref{states}, one might notice that there is a discontinuity at $\phi = \pi$ where $e^{i\phi}$ suddenly jumps as you cross over to $\phi = -\pi$. This is no oversight, it is completely impossible to define a globally smooth set of states $\ket{\psi(\textbf{d})}$ for any band that has nonzero Chern number. This is because if $\ket{\psi(\textbf{d})}$ were continuous everywhere, then the Berry connection would also have to be continuous everywhere. Thus we could invoke Stokes' theorem in eqn.~\ref{eqn:cont_chern_number}, showing that the Chern number must vanish since the integral is over the whole (closed) manifold. A nonzero Chern number thus relies on there being points where Stokes' theorem cannot be used. In this sense, the Chern number can be regarded as something like a measure of the amount of discontinuity that \textit{must} be present regardless of the gauge you choose for the space.
+Carefully considering the gauge that used in equation \ref{states}, one might notice that there is a discontinuity at $\phi = \pi$ where $e^{i\phi}$ suddenly jumps as you cross over to $\phi = -\pi$. This is no oversight, it is completely impossible to define a globally smooth set of states $\ket{\psi(\textbf{d})}$ for any band that has nonzero Chern number. This is because if $\ket{\psi(\textbf{d})}$ were continuous everywhere, then the Berry connection would also have to be continuous everywhere. Thus we could invoke Stokes' theorem in Eqn.~\ref{eqn:cont_chern_number}, showing that the Chern number must vanish since the integral is over the whole (closed) manifold. A nonzero Chern number thus relies on there being points where Stokes' theorem cannot be used. In this sense, the Chern number can be regarded as something like a measure of the amount of discontinuity that \textit{must} be present regardless of the gauge you choose for the space.
 
 

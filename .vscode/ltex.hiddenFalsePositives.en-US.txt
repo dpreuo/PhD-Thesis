@@ -1,0 +1,1 @@
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QAgain we choose a direction and set all spins on the \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q sublattice to point in this direction and all spins on the \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q sublattice to point opposite, forming Néel order.\\E$"}

@@ -1,0 +1,5 @@
+Néel
+Kitaev
+Néel-ordering
+unfrustrated
+kagome

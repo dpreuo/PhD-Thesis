@@ -33,7 +33,7 @@ Using Bloch's theorem, we can find the bulk Hamiltonian,
 u + \cos k_x+ \cos k_y
 \end{pmatrix} \cdot \bm \sigma.
 \end{align}
-Here, $k_x$ and $k_y$ determine our position in the Brillouin zone. As explained in \textsection\ref{sec:an_example}, this represents the embedding of a torus in $\textbf d$-space, shown in fig.~\ref{fig:QWZ_donut}.
+Here, $k_x$ and $k_y$ determine our position in the Brillouin zone. As explained in \textsection\ref{sec:an_example}, this represents the embedding of a torus in $\textbf d$-space, shown in Fig.~\ref{fig:QWZ_donut}.
 
 The $u$-parameter has the effect of translating the torus by a fixed amount in the $z$-direction. From this we can see that the QWZ model only has non-zero Chern number for values of $u$ between -2 and 2. Translating the torus by any more will move the origin completely outside. Thus the Chern number is
 \begin{align}
@@ -43,7 +43,7 @@ Q = \left\{\begin{matrix}
 0  &:&  \textit{otherwise},
 \end{matrix}\right. 
 \end{align}
-not including the points at $u =$ -2, 0 and 2, at which the Chern number is undefined because the band gap closes and the material becomes conducting. Some example band structures for varying values of $u$ are shown in fig.~\ref{fig:QWZ_band_struct}.
+not including the points at $u =$ -2, 0 and 2, at which the Chern number is undefined because the band gap closes and the material becomes conducting. Some example band structures for varying values of $u$ are shown in Fig.~\ref{fig:QWZ_band_struct}.
 \begin{figure}[t]
 \begin{center}
  \includegraphics[width=\textwidth]{local_markers_background/figures/QWZ_band_struct} 
@@ -64,7 +64,7 @@ where $\ket{k_y}$ is a plane wave in the $y$ direction and $\ket{v_{k_y}}$ is a 
     \hat H(k_y) &= \sum_{m_x} \ket{m_x+1}\bra{m_x} \otimes \frac{\sigma_z + i\sigma_x}{2} + h.c.\nonumber \\
     &+ \sum_{m_x} \ket{m_x}\bra{m_x} \otimes \left [ (u_{m_x} + \cos k_y) \; \sigma_z + \sin k_y \; \sigma_y  \right ].
 \end{align}
-We have effectively reduced our system from a lattice of sites in $x$ and $y$, to a set of chain models in $x$, that are each labelled by a value of $k_y$. The band structure for this system in both periodic boundaries and strip geometry is shown in fig.~\ref{fig:strip_energy}.
+We have effectively reduced our system from a lattice of sites in $x$ and $y$, to a set of chain models in $x$, that are each labelled by a value of $k_y$. The band structure for this system in both periodic boundaries and strip geometry is shown in Fig.~\ref{fig:strip_energy}.
 \begin{figure}[t]
 \begin{center}
  \includegraphics[width=.85\textwidth]{local_markers_background/figures/strip_energy}
@@ -102,7 +102,7 @@ These edge states are only valid solutions for $k_y$ in the region
 \begin{align}
 	-1 < u+\cos k_y < 1.
 \end{align}
-These limits can be seen in fig.~\ref{fig:strip_energy}, where the edge states peel away from the bands to cross the energy gap. These expressions are only strictly valid in the limit of a large system. since we have made the assumption the edge states can be calculated by taking into consideration only one edge and ignoring the effect of the other. The edge states decay exponentially through the system, so we are relying on the assumption that the edge state has effectively decayed to nothing before reaching the other side. When this condition is relaxed the edge states are able to couple to one another. This has a two effects, the first being that at the crossing of edge states, our energy eigenvalues become positive and negative superposition states of both edge states. The other is that the left state coupling to the right state shifts their energy levels producing an avoided crossing such that no states cross $E = 0$.
+These limits can be seen in Fig.~\ref{fig:strip_energy}, where the edge states peel away from the bands to cross the energy gap. These expressions are only strictly valid in the limit of a large system. since we have made the assumption the edge states can be calculated by taking into consideration only one edge and ignoring the effect of the other. The edge states decay exponentially through the system, so we are relying on the assumption that the edge state has effectively decayed to nothing before reaching the other side. When this condition is relaxed the edge states are able to couple to one another. This has a two effects, the first being that at the crossing of edge states, our energy eigenvalues become positive and negative superposition states of both edge states. The other is that the left state coupling to the right state shifts their energy levels producing an avoided crossing such that no states cross $E = 0$.
 
 \subsection{The Amorphous QWZ Model}
 \begin{figure}
@@ -144,7 +144,7 @@ Thus, the Hamiltonian we use for the amorphous system is given by
 \end{align}
 where $\theta_{i,j}$ is the angle between the edge connecting $\textbf r_i$ and $\textbf r_j$ and the $x$ axis.
 
-As before, the parameter $u$ controls whether the system is in a topological or trivial state. The exact dependence of the system on $u$ depends strongly on the lattice geometry, however there is generally a region around which the system has nonzero topological character. In the absence of a momentum-space description, the system's topological character can be seen indirectly by comparing the spectrum in open and periodic boundary conditions. Generally one expects the presence of a gap in periodic boundaries that becomes populated with edge modes in open boundaries. Two examples are shown in fig.~\ref{fig:amorphous_qwz_examples}.
+As before, the parameter $u$ controls whether the system is in a topological or trivial state. The exact dependence of the system on $u$ depends strongly on the lattice geometry, however there is generally a region around which the system has nonzero topological character. In the absence of a momentum-space description, the system's topological character can be seen indirectly by comparing the spectrum in open and periodic boundary conditions. Generally one expects the presence of a gap in periodic boundaries that becomes populated with edge modes in open boundaries. Two examples are shown in Fig.~\ref{fig:amorphous_qwz_examples}.
 \begin{figure}[t]
     \begin{center}
      \includegraphics[width=\textwidth]{local_markers_background/figures/amorphous_qwz.png}

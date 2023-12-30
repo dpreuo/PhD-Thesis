@@ -1,4 +1,4 @@
-\section{The Ground State Phase Diagram} \label{sec:triplons_dmrg}
+\section{The Ground-State Phase Diagram} \label{sec:triplons_dmrg}
 
 \begin{figure}[t]
     \centering
@@ -9,7 +9,7 @@
     \label{fig:kh_phase_diagram}
 \end{figure}
 
-Let us briefly recap the phase diagram of the standard Kitaev model on the honeycomb lattice~\cite{chaloupka_zigzag_2013, gohlke_dynamics_2017}, which will be useful for elucidating the novel features of the star lattice. The full phase diagram, shown in fig.~\ref{fig:kh_phase_diagram} in $\varphi$ contains two Kitaev spin liquid phases, equivalent to the phase discussed in the previous chapter, and four distinct magnetically ordered phases. These come in two pairs, where the two phases in each pair can be mapped exactly onto one another by rotating the coordinate system of certain spins in the lattice according to a four unit cell pattern~\cite{schaffer_quantum_2012, chaloupka_kitaev-heisenberg_2010, kimchi_kitaev-heisenberg_2014}. Around $\varphi = 0$ ($K, J >0$) the system orders into a ferromagnetic (FM) phase, with completely aligned spins. Around $\varphi = 0.6\pi$ ($K>0, J<0$) the system forms a stripy ordered phase, which can be mapped onto the ferromagnetic phase by the four unit cell spin rotation. Around $\varphi = \pi$ ($K,J < 0$) the system forms an antiferromagnetic (AFM) N\'eel ordered phase, which is again isomorphic to a zigzag phase that appears around $\varphi = 1.6\pi$ ($K<0, J>0$). The mapping implies that the dynamics in each pair of isomorphic phases is identical.
+Let us briefly recap the phase diagram of the standard Kitaev model on the honeycomb lattice~\cite{chaloupka_zigzag_2013, gohlke_dynamics_2017}, which will be useful for elucidating the novel features of the star lattice. The full phase diagram, shown in Fig.~\ref{fig:kh_phase_diagram} in $\varphi$ contains two Kitaev spin liquid phases, equivalent to the phase discussed in the previous chapter, and four distinct magnetically ordered phases. These come in two pairs, where the two phases in each pair can be mapped exactly onto one another by rotating the coordinate system of certain spins in the lattice according to a four unit cell pattern~\cite{schaffer_quantum_2012, chaloupka_kitaev-heisenberg_2010, kimchi_kitaev-heisenberg_2014}. Around $\varphi = 0$ ($K, J >0$) the system orders into a ferromagnetic (FM) phase, with completely aligned spins. Around $\varphi = 0.6\pi$ ($K>0, J<0$) the system forms a stripy ordered phase, which can be mapped onto the ferromagnetic phase by the four unit cell spin rotation. Around $\varphi = \pi$ ($K,J < 0$) the system forms an antiferromagnetic (AFM) N\'eel ordered phase, which is again isomorphic to a zigzag phase that appears around $\varphi = 1.6\pi$ ($K<0, J>0$). The mapping implies that the dynamics in each pair of isomorphic phases is identical.
 
 Next, let us turn our attention to the star lattice, We numerically determine the ground state across the full range of $\varphi$ using the density matrix renormalisation group (DMRG) method. DMRG is a variational optimisation algorithm used to find the ground state of many-body Hamiltonians. Although it is predominantly used for characterising 1D physics, recent work has shown that it can provide an effective description of several 2D frustrated systems~\cite{gohlke_dynamics_2017,shinjo_density-matrix_2015}. Here, we construct the Hamiltonian on a system with infinite cylindrical geometry, using a $2\times2$ unit cell fragment of the star lattice, with 12 sites wrapping the system in the finite direction and 24 sites in total. The ground state is represented with a matrix product state ansatz with bond dimension $\chi = 1600$, and is calculated using the TeNPy library~\cite{tenpy} for 1000 values of $\varphi$ across the full range $[0,2\pi]$. Each time, we start with a magnetically aligned initial state and converge to the correct ground state. Two initial states were used, a ferromagnetically aligned state and an anti-aligned state corresponding to the stripy AFM ground state. In each case we determine the expectation value of the magnetisation in the $z$-direction,
 \begin{align}
@@ -21,12 +21,12 @@ as well as the expectation value of the $x$, $y$ and $z$-spin-spin correlations 
     \sigma_j^\alpha 
     \sigma_k^\alpha }.
 \end{align}
-The results are shown in fig.~\ref{fig:dmrg_results}. The phases that comprise the ground state can be identified by considering these observables. We find that the phase diagram contains six distinct phases, shown in fig.~\ref{fig:kh_phase_diagram}. 
+The results are shown in Fig.~\ref{fig:dmrg_results}. The phases that comprise the ground state can be identified by considering these observables. We find that the phase diagram contains six distinct phases, shown in Fig.~\ref{fig:kh_phase_diagram}. 
 \begin{figure}[t]
     \centering
     \includegraphics[]{kitaev_heisenberg_star/figures/dmrg_evidence.pdf}
     \caption { 
-    The iDMRG results for the star lattice KH model as a function of the parameter $\varphi$, defined in eqn.~\ref{eqn:phi_def}. Phase boundaries are indicated with background colour.
+    The iDMRG results for the star lattice KH model as a function of the parameter $\varphi$, defined in Eqn.~\ref{eqn:phi_def}. Phase boundaries are indicated with background colour.
     \textbf{(a)} Ground state energy per site as a function of $\varphi$.  The four non-KSL phases are shown with a diagram of the corresponding phase. KSL phases appear at $\varphi = 0.5\pi, 1.5\pi$.
     \textbf{(b)} Expectation value of the $z$-component of magnetisation for each site on the lattice $m_z = \braket{\sigma_j^z}$.
     \textbf{(c)} Spin-spin correlations for each bond in the \textit{on-colouring} direction, $\braket{\sigma_j^\alpha \sigma_k^\alpha}$.
@@ -64,14 +64,14 @@ Finally, we confirm that the pure Kitaev points ($\varphi = 0.5\pi$ or $1.5\pi$)
     \includegraphics[]{kitaev_heisenberg_star/figures/transformation.pdf}
     \caption{
     \textbf{(a)} Plot of the four unit cell transformation that encodes the isometry of the KH phase diagram. Each $0$-marked site is untouched, however the sites labelled with $x$, $y$ or $z$ each experience a $\pi$-rotation around the labelled axis in spin space. Bond-types are indicated by colour. Enlarged unit cell is depicted with the dashed rhombus. 
-    \textbf{(b)} The KH phase diagram as parametrised by $\varphi$ defined in eqn.~\ref{eqn:phi_def}. Dashed lines indicate points that are isomorphic under the spin rotation. 
+    \textbf{(b)} The KH phase diagram as parametrised by $\varphi$ defined in Eqn.~\ref{eqn:phi_def}. Dashed lines indicate points that are isomorphic under the spin rotation. 
     }
     \label{fig:on_site_transformation}
 \end{figure}
 
 One of the remarkable aspects of the Heisenberg-Kitaev model on the honeycomb lattice is a hidden symmetry between different phases of the model~\cite{chaloupka_zigzag_2013}. In fact, such a transformation can be performed on a variety of lattices~\cite{kimchi_kitaev-heisenberg_2014}. In this section we discuss a transformation that holds on the star lattice, which will help us to understand the phase diagram and clarify the connection between the distinct types of VBS phases. 
 
-Let us introduce a spin transformation by dividing the spins in the system into four sets, each labelled with $0$, $x$, $y$ or $z$, arranged in a four-unit-cell pattern as shown in fig.~\ref{fig:on_site_transformation}a. Spins marked with $0$ will be left untouched, however on the other spins we apply a $\pi$-rotation in spin space, where the axis of rotation is determined by the site labels. Under such a rotation, the sign of the two spin operators that do not line up with the rotational axis will be flipped, for example if the site $j$ is labelled with $x$ we have
+Let us introduce a spin transformation by dividing the spins in the system into four sets, each labelled with $0$, $x$, $y$ or $z$, arranged in a four-unit-cell pattern as shown in Fig.~\ref{fig:on_site_transformation}a. Spins marked with $0$ will be left untouched, however on the other spins we apply a $\pi$-rotation in spin space, where the axis of rotation is determined by the site labels. Under such a rotation, the sign of the two spin operators that do not line up with the rotational axis will be flipped, for example if the site $j$ is labelled with $x$ we have
 \begin{align}
     \begin{aligned}
         \sigma_j^x &\rightarrow \sigma_j^x \\
@@ -97,7 +97,7 @@ In terms of the single parameter $\varphi$, this is equivalent to transforming t
 \begin{align}
      \tan \tilde \varphi = -\tan \varphi - 1
 \end{align}
-with the correspondence indicated with dashed lines in fig.~\ref{fig:on_site_transformation}b.
+with the correspondence indicated with dashed lines in Fig.~\ref{fig:on_site_transformation}b.
 
 Thus, we see that there is a correspondence between the ferromagnetic Hamiltonian and the stripy ordered Hamiltonian, as well as a correspondence between the singlet VBS and the stripy VBS Hamiltonians. We can similarly verify that the transformation gives the correct relation between the phases: 
 First, The FM case is easy -- starting with a FM alignment in the $z$-direction, we can see that any site labelled with $x$ or $y$ has its spin flipped, which leads precisely to the stripy magnetically ordered phase. Second, the we look at the more subtle VBS correspondence. A spin singlet on an $x$-labelled bond will be adjacent to either a $0-x$ pair of sites, in which case the resulting state will be transformed as

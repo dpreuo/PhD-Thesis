@@ -1,3 +1,66 @@
-\section{Lattice-Dependent Properties}
-\subsection{The Antiferromagnetic Heisenberg Model}
-\subsection{Geometric Frustration and Spin Liquids}
+\section{Microscopic-Dependent Properties}\label{sec:lattice_specific}
+
+Let us now turn our attention to the opposite case to that discussed in \textsection\ref{sec:universality}, to systems whose properties are extremely sensitive to the microscopic arrangement of the material. One of the simplest examples can be found in the study of magnetism, by considering the Heisenberg model of interacting spins. We shall work on an arbitrary lattice, consisting of a set of sites at positions  $ \textbf{x}_j $ and a set of edges $e_{jk}$ that connect nearest-neighbour vertices at $ \textbf{x}_j $ and $ \textbf{x}_k$. At each vertex we place a single spin-$S$ degree of freedom, which interact with one another according to the Hamiltonian,
+\begin{align}
+    H = - \sum_{\braket{jk}}J_{jk} \textbf{s}_j \cdot \textbf{s}_k,
+\end{align}
+where the sum is only taken over nearest-neighbour pairs of spins and $J_{jk}$ determines the strength and sign of each bond's coupling. In the ferromagnetic regime (all $J_{jk} > 0$) this Hamiltonian favours the alignment of neighbouring spins and the ground-state can be straightforwardly constructed for any lattice by simply choosing a direction, say $\hat {\textbf z}$ and aligning all spins in that direction. Each bond contributes a value $-J_{jk}S^2$ to the ground state energy -- the lowest contribution possible -- so we consider all bonds fully satisfied. This phase is stable on any lattice, with any values of $J_{jk}>0$. Thus, the ferromagnetic case falls into the class of models described in the previous section -- an emergent phase that is largely insensitive to the details of the system. 
+
+Now let us consider the antiferromagnetic case ($J_{jk} < 0$). Here neighbouring spins want to anti-align. On a bipartite lattice -- where all sites can be divided into two sublattices, $A$ and $B$, and a spin on an $A$-site is only adjacent to $B$-sites and vice-versa -- a similar ground state can be constructed. Choosing a direction, we can set all spins on the $A$ sublattice to point along this direction and all spins on the $B$ sublattice to point in the opposite direction\footnote{This statement is really only \textit{strictly} true in the case of classical spins (or equivalently the $S \gg 1$ limit). For a finite, antiferromagnetic quantum system the ground state is generically a rotationally invariant singlet state \cite{lieb_ordering_1962}, with N\'eel-ordering only becoming the true ground state in the thermodynamic limit.}. Thus, the system forms N\'eel order, and all bonds are maximally (classically) satisfied, contributing $-|J_{jk}|S^2$ to the ground-state energy\footnote{We specify classically because in a quantum system, an individual antiferromagnetic bond can lower its energy below the classical limit by forming a spin singlet, which is antiferromagnetically aligned in all three directions, so has three times lower energy.}. However, on any lattice with odd-length cycles -- e.g.~a lattice containing triangles, pentagons etc.~-- this picture is dramatically altered. Now it is no longer possible to construct a N\'eel-ordered state since the system lacks sublattice symmetry. Rather, the ground state of the system will depend strongly on the geometry of the lattice \cite{richter_quantum_2004}. For example, after years of debate the consensus is that the triangular lattice forms a 120$^\circ$ ordered state \cite{huse_simple_1988,singh_three_1992,white_neel_2007}, shown in Fig.~\ref{fig:lattice_order_examples}b. On the star lattice, the ground state resists classical ordering altogether, forming a valence bond solid \cite{richter_absence_2004,choy_classification_2009,yang_competing_2010, jahromi_spin-frac12_2018,jahromi_infinite_2018,ran_emergent_2018}, shown in Fig.~\ref{fig:lattice_order_examples}c, where spins on the inter-triangle bonds pair up to form spin singlet states, $\ket s = ( \ket{\uparrow\downarrow} - \ket{\downarrow\uparrow})/\sqrt 2$. 
+\begin{figure}
+    \centering
+    \includegraphics{introduction/figures/lattice_order_examples.pdf}
+    \caption{
+        The ground state of the spin-$\frac 12$ antiferromagnetic Heisenberg model on three example lattices.
+        \textbf{(a)} The honeycomb lattice is bipartite, so the ground state is N\'eel ordered.
+        \textbf{(b)} On the triangular lattice the ground state is a three site 120$^\circ$ magnetically ordered phase. Here the spins are arranged such that the sum of the spins around each triangle always vanishes.
+        \textbf{(c)} On the star lattice, the system forms a valence bond solid, with spin singlets on the inter-triangle bonds, indicated by the red ellipses. 
+    } 
+    \label{fig:lattice_order_examples}
+\end{figure}
+
+As a rule of thumb, the magnetic properties of an antiferromagnetic material are most strongly influenced by two broad features of the lattice. The first is coordination number. In small-$S$ systems, lattices with low coordination numbers favour strong quantum fluctuations, reducing the likelihood of forming a classically-ordered ground state \cite{richter_quantum_2004}. The second property is frustration, and describes the extent to which the system is unable to simultaneously satisfy all bonds in the Hamiltonian, leading to a ground state energy that is higher than that in an equivalent unfrustrated system. In the example above, the triangle lattice is highly frustrated, but with a large coordination number, so forms a classical frustrated order. In the star lattice, the combination of low coordination number and frustration leads to the non-classical ground state. 
+
+\subsection{Classical Frustration}
+
+To better understand the role of frustration, let us turn our attention to the classical case, neglecting the role of quantum fluctuations altogether. In the large spin limit ($S\gg1$) the quantum spins, generally described in operator form and defined by their spin algebra, are well-approximated by a classical $d$-dimensional vector of length $S$, where $d$ (generally $\leq 3$) defines the number of spin components. Let us set all $J_{jk} = -1$ and consider a set of $n$ fully interacting spins. The Hamiltonian is given by
+\begin{align}
+    H = \frac 12 \sum_{jk} \textbf s_j \cdot \textbf s_k.
+\end{align}
+Constructing the total spin operator $\textbf S = \sum_{j}\textbf s_j$, this Hamiltonian can be rewritten as
+\begin{align}
+    H = \frac 12 \left (
+        |\textbf S|^2 - n S^2,
+        \right )
+\end{align}
+where the constant terms come from the fact that $\textbf s_j \cdot \textbf s_j = S^2$. Thus, we see that the ground state is given by any arrangement with total spin $\textbf S = 0$, and has energy 
+\begin{align}
+    \egs = -nS^2/2.
+\end{align}
+This is in contrast with the unfrustrated energy that the system would have if all bonds were satisfied, given by 
+\begin{align}E_{\textup{u.f.}} = - n!S^2/2,
+\end{align}
+where $n!/2$ is the number of bonds in a cluster of $n$ spins. 
+
+\begin{figure}
+    \centering
+    \includegraphics{introduction/figures/frustrated_intro.pdf}
+    \caption{
+        \textbf{(a)} Three clusters of $n \in \{2...4\}$ spins, showing a ground state configuration of spins. In the $n=2$ and $3$ case, there is a single unique configuration (up to global reflection and rotations), whereas for $n=4$ there are two independent degrees of freedom, marked with $\phi_m$ leading to an extremely degenerate ground state.  
+        \textbf{(b)}
+    } 
+    \label{fig:frustrated_simplex}
+\end{figure}
+Not only does frustration cause the ground state energy to be higher than one might expect based on the coupling strength, but also generally leads to systems with \textit{extensive ground state degeneracy}. To see how this arises, let us count the number of ways to arrange the spins into an $\textbf S = 0$ state. For $n=2$ or $3$, ignoring overall rotations and reflections, there is one unique way. However, for $n=4$ we have two continuous degrees of freedom, shown in fig.~\ref{fig:frustrated_simplex}a. 
+
+Now, let us consider a generic corner-sharing lattice composed of $N_c$ clusters, for example the kagome lattice with $n=3$ or the pyrochlore lattice with $n=4$, shown in Fig.~\ref{fig:frustrated_simplex}b and c. The Hamiltonian can again be decomposed into a sum of the total spin for each interacting cluster, this time ignoring the constant terms,
+\begin{align}
+    H = \sum_{n_c}^{N_c} |\textbf S_{n_c}| - \textit{constant}.
+\end{align}
+Again, the ground state is found by setting the total spin through each cluster to zero. The ground state degeneracy can be estimated by comparing the degrees of freedom of each spin against the number of constraints from each cluster.
+
+
+\subsection{Kitaev's Honeycomb Model}
+Let us now provide a classical introduction to Kitaev's honeycomb model.
+
+\subsection{Spin Liquids} 

@@ -1,0 +1,1 @@
+{"rule":"COPYRIGHT","sentence":"^\\Q(c) On the star lattice, the system forms a valence bond solid, with spin singlets on the inter-triangle bonds, indicated by the red ellipses.\\E$"}
