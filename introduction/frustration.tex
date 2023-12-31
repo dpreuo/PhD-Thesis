@@ -23,7 +23,7 @@ As a rule of thumb, the magnetic properties of an antiferromagnetic material are
 
 \subsection{Classical Frustration}
 
-To better understand the role of frustration, let us turn our attention to the classical case, neglecting the role of quantum fluctuations altogether. In the large spin limit ($S\gg1$) the quantum spins, generally described in operator form and defined by their spin algebra, are well-approximated by a classical $d$-dimensional vector of length $S$, where $d$ (generally $\leq 3$) defines the number of spin components. Let us set all $J_{jk} = -1$ and consider a set of $n$ fully interacting spins. The Hamiltonian is given by
+To better understand the role of frustration, let us turn our attention to the classical case, neglecting the role of quantum fluctuations altogether. Our discussion will largely draw from the references \cite{moessner_magnets_2001,chalker_geometrically_2011}. In the large spin limit ($S\gg1$) the quantum spins, generally described in operator form and defined by their spin algebra, are well-approximated by a classical $d$-dimensional vector of length $S$, where $d$ (generally $\leq 3$) defines the number of spin components. Let us set all $J_{jk} = -1$ and consider a set of $n$ fully interacting spins. The Hamiltonian is given by
 \begin{align}
     H = \frac 12 \sum_{jk} \textbf s_j \cdot \textbf s_k.
 \end{align}
@@ -40,27 +40,57 @@ where the constant terms come from the fact that $\textbf s_j \cdot \textbf s_j 
 This is in contrast with the unfrustrated energy that the system would have if all bonds were satisfied, given by 
 \begin{align}E_{\textup{u.f.}} = - n!S^2/2,
 \end{align}
-where $n!/2$ is the number of bonds in a cluster of $n$ spins. 
+where $n!/2$ is the number of bonds in a cluster of $n$ spins. The difference between the true ground state energy $\egs$ and the unfrustrated ground state energy $E_{\textup{u.f.}}$ can give a rough measure of the degree of frustration in the lattice \cite{kobe_frustration_1995}.
 
 \begin{figure}
     \centering
     \includegraphics{introduction/figures/frustrated_intro.pdf}
     \caption{
         \textbf{(a)} Three clusters of $n \in \{2...4\}$ spins, showing a ground state configuration of spins. In the $n=2$ and $3$ case, there is a single unique configuration (up to global reflection and rotations), whereas for $n=4$ there are two independent degrees of freedom, marked with $\phi_m$ leading to an extremely degenerate ground state.  
-        \textbf{(b)}
-    } 
+        \textbf{(b)} A section of kagome lattice, formed by vertex-sharing triangles. 
+        \textbf{(b)} A section of pyrochlore lattice, formed by vertex-sharing tetrahedra. \textit{ Figure reproduced from Theory of Quantum Matter Unit, OIST} 
+        } 
     \label{fig:frustrated_simplex}
 \end{figure}
 Not only does frustration cause the ground state energy to be higher than one might expect based on the coupling strength, but also generally leads to systems with \textit{extensive ground state degeneracy}. To see how this arises, let us count the number of ways to arrange the spins into an $\textbf S = 0$ state. For $n=2$ or $3$, ignoring overall rotations and reflections, there is one unique way. However, for $n=4$ we have two continuous degrees of freedom, shown in fig.~\ref{fig:frustrated_simplex}a. 
 
-Now, let us consider a generic corner-sharing lattice composed of $N_c$ clusters, for example the kagome lattice with $n=3$ or the pyrochlore lattice with $n=4$, shown in Fig.~\ref{fig:frustrated_simplex}b and c. The Hamiltonian can again be decomposed into a sum of the total spin for each interacting cluster, this time ignoring the constant terms,
+Now, let us consider a generic corner-sharing lattice composed of $N_c$ clusters, for example the kagome lattice with $n=3$ or the pyrochlore lattice with $n=4$, shown in Fig.~\ref{fig:frustrated_simplex}b/c. The Hamiltonian can again be decomposed into a sum of the total spin for each interacting cluster, this time ignoring the constant terms,
 \begin{align}
     H = \sum_{n_c}^{N_c} |\textbf S_{n_c}| - \textit{constant}.
 \end{align}
-Again, the ground state is found by setting the total spin through each cluster to zero. The ground state degeneracy can be estimated by comparing the degrees of freedom of each spin against the number of constraints from each cluster.
+Again, the ground state is found by setting the total spin through each cluster to zero. The ground state degeneracy can be estimated by noting that of each spin contributes $d-1$ degress of freedom, each cluster contributes $d$ constraints. Thus, one naively expects the ground state to have
+\begin{align}
+    D = \frac{N_c}{2} 
+    \left (
+        n(d-1) - 2d
+    \right )
+\end{align}
+remaining degrees of freedom, where the factor of a half comes from the fact that each spin forms part of two clusters. According to this, the Kagome lattice ($n=3$) has no remaining degrees of freedom, but the pyrochlore lattice has an extensive ground state degeneracy, with each tetrahedron contributing one parameter that can be freely adjusted while remaining in the ground state. In fact, this guess is usually an underestimate, since it does not take into account the fact that the constraints of adjacent plaquettes are not completely independent. For example, the kagome lattice ground state can, in certain ground states, be rotated locally around certain hexagons as shown in Fig.~\ref{fig:kagome_rot}a, leading to a $D = N_c/9$ remaining unconstrained degrees of freedom \cite{ritchey_spin_1993,chalker_hidden_1992}. In general, such remaining degrees of freedom are highly specific to the geometry of the lattice. For example, adding in an extra site to the kagome as shown in Fig.~\ref{fig:kagome_rot}b has the effect of combining three regions, which must now be rotated together, effectively removing two degrees of freedom, despite the fact that the frustration as measured by comparing $\egs$ and $E_{\textup{u.f.}}$ has not changed. 
 
+\begin{figure}
+    \centering
+    \includegraphics{introduction/figures/kagome_rot.pdf}
+    \caption{
+        \textbf{(a)} On the Kagome lattice, the spin arrangement shown can undergo a simultaneous rotation of the purple and green spins without leaving the ground state.
+        \textbf{(b)} Modifying the lattice, for example by adding the central purple spin triples the size of the regions that must be rotated together, removing two degrees of freedom. 
+        } 
+    \label{fig:kagome_rot}
+\end{figure}
+
+\subsubsection{Order-by-Disorder}
+
+\todo{Let's see if order-by-disorder is needed} So far we have only considered frustrated magnets at zero temperature
+
+\subsubsection{Bulk Properties}
+
+Thus far, we have demonstrated that frustrated and unfrustrated magnets have different microscopic arrangements, however in order to demonstrate that these are truly different phases one must consider their bulk properties. The simplest signature of frustration can be found by measuring the magnetic susceptibility $\chi$ of the material as a function of temperature. In a conventional ferromagnet or antiferromagnet the system undergoes a phase transition with increasing temperature from a magnetically ordered phase to a disordered paramagnetic phase. This transition is well described by mean field theory, where the high temperature susceptibility is given by \cite{simon_oxford_2013},
+\begin{align}
+    \chi^-1 \sim 
+\end{align}
 
 \subsection{Kitaev's Honeycomb Model}
-Let us now provide a classical introduction to Kitaev's honeycomb model.
+
+In the previous sectionb we have only discussed so-called \textit{geometrical} frustration, where the inability of the system to satisfy all couplings is driven by the geometry of the lattice -- usually the presence of odd cycles. However, frustration can also be engineered on lattices that would not be considered frustrated though the engineering of competing interactions. 
 
 \subsection{Spin Liquids} 
+

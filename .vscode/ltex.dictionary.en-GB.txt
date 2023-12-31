@@ -3,3 +3,4 @@ Kitaev
 Néel-ordering
 unfrustrated
 kagome
+antiferromagnet

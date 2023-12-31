@@ -4,6 +4,7 @@ thesis.pdf
 python
 .tmp*
 Icon?
+Icon\r\r
 *.gdoc
 
 ## Core latex/pdflatex auxiliary files:
