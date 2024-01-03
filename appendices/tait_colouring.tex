@@ -1,5 +1,5 @@
 \label{apx:tait_colourings}
-In this appendix we will discuss a very old theorem first proposed by scottish physicist Peter Tait, who in the late 1800s was working towards a proof of the four colour theorem. In his attempt to simplify the problem, Tait found a correspondence between the problem of four-colouring the faces of a graph and three-colouring the edges~\cite{tait_remarks_1880, appel_every_1989}. In fact, Tait used this result to construct an incorrect proof of the four-colour theorem, which stood unchallenged for 11 years until a counterexample was provided by Julius Petersen~\cite{petersen_theorie_1891,mulder_julius_1992}. Here we will provide a simple proof of Tait's original correspondence, which states that:
+In this appendix we will discuss a very old theorem first proposed by Scottish physicist Peter Tait, who in the late 1800s was working towards a proof of the four-colour theorem. In his attempt to simplify the problem, Tait found a correspondence between the problem of four-colouring the faces of a graph and three-colouring the edges~\cite{tait_remarks_1880, appel_every_1989}. Tait used this result to construct an incorrect proof of the four-colour theorem, which stood unchallenged for 11 years until a counterexample was provided by Julius Petersen~\cite{petersen_theorie_1891,mulder_julius_1992}. Here we will provide a simple proof of Tait's original correspondence, which states that:
 
 \textbf{Every bridge-free cubic planar graph can be face-coloured with four colours if and only if it can be edge-coloured with 3 colours.}
 
@@ -15,7 +15,7 @@ where $\textup{IF}^2_2$ is a 2d vector space over the finite field of order 2. N
 \begin{align}
     \mathfrak l_1 \oplus \mathfrak l_2 = (0,0) \implies \mathfrak l_1 = \mathfrak l_2,
 \end{align}
-although it does fail to satisfy some of the other properties one might expect of subtraction such as having $\mathfrak l_1 \oplus \mathfrak l_2 = \mathfrak l_2 \oplus \mathfrak l_1$.
+although it does fail to satisfy some other properties one might expect of subtraction such as having $\mathfrak l_1 \oplus \mathfrak l_2 = \mathfrak l_2 \oplus \mathfrak l_1$.
 
 We shall define a 4-face colouring by assigning one of these four labels $\mathfrak f$ to each of the faces in the graph, with the condition that no two adjacent faces share the same label. 
 \begin{align}
@@ -26,19 +26,19 @@ Similarly, we define a 3-edge colouring by assigning an edge label $\mathfrak e$
     \mathfrak{e}: e_i\rightarrow \mathfrak{e}_i \in  \textup{IF}^2_2 / \textbf 0
 \end{align}
 
-Now let us suppose that we have two labelled faces, $f_1$ and $f_2$, which are separated by an edge $e$. We assert that the a valid edge colouring can be found by taking the difference of the two adjacent face colours
+Now let us suppose that we have two labelled faces, $f_1$ and $f_2$, which are separated by an edge $e$. We assert that a valid edge colouring can be found by taking the difference of the two adjacent face colours
 \begin{align} \label{eqn:face_to_edge}
     \mathfrak e = \mathfrak f_1 \oplus \mathfrak f_2.
 \end{align} 
 
 Thus, we may visualise the face colours as behaving something like a `height' or `position' coordinate, and the edge colours as acting more like a `difference' coordinate. Now let us prove that the relation above provides a direct mapping from any valid 4-face colouring to a 3-edge colouring and vice versa, see Fig.~\ref{fig:face_edge_colouring}.
 
-\begin{figure*}[t]
+\begin{figure}[t]
     \centering
     \includegraphics[width=0.9\textwidth]{appendices/figures/four_colouring.pdf}
     \caption{ An example of a 3-edge colouring on a graph with coordination number $z\leq3$, along with the corresponding 4-face colouring, related according to Eqn.~\ref{eqn:face_to_edge}. }
     \label{fig:face_edge_colouring}
-\end{figure*}
+\end{figure}
 
 \section{4-Face Colouring to a 3-Edge Colouring}
 
@@ -97,7 +97,7 @@ This argument completes the proof, any path from $f_0$ to $f_j$ will give an ide
 
 \begin{shaded}
     {\it What about periodic boundaries?} --- 
-    The eagle-eyed reader might have noticed an omission in the argument presented. We showed that all closed loops that encircle a set of vertices are guaranteed to have $\bigoplus e = \textbf 0$. However not all closed loops have a defined inside and outside. If we construct such a system on a manifold with genus $g$, then in general there will be $2g$ topologically distinct non-contractible loops. Since these have no inside and outside, the argument above fails and it is possible for such non-contractible loops to have $\bigoplus e \neq \textbf 0$. In such a case, a valid 3-edge colouring does not imply a 4-face colouring. 
+    The eagle-eyed reader might have noticed an omission in the argument presented. We showed that all closed loops that encircle a set of vertices are guaranteed to have $\bigoplus e = \textbf 0$. However not all closed loops have a defined inside and outside. If we construct such a system on a manifold with genus $g$, then in general there will be $2g$ topologically distinct non-contractible loops. Since these have no inside and outside, the argument above fails, and it is possible for such non-contractible loops to have $\bigoplus e \neq \textbf 0$. In such a case, a valid 3-edge colouring does not imply a 4-face colouring. 
 
     Thus, on a manifold that is not simply connected, a 4-face colouring implies a 3-edge colouring however a 3-edge colouring \textit{does not} imply a 4-face colouring!
 \end{shaded}

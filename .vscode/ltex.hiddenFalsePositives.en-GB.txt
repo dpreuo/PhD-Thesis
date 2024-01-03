@@ -1,1 +1,8 @@
 {"rule":"COPYRIGHT","sentence":"^\\Q(c) On the star lattice, the system forms a valence bond solid, with spin singlets on the inter-triangle bonds, indicated by the red ellipses.\\E$"}
+{"rule":"EN_A_VS_AN","sentence":"^\\QTo see how this arises, let us count the number of ways to arrange the spins into an \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q state.\\E$"}
+{"rule":"SMALL_NUMBER_OF","sentence":"^\\QWith just a few assumptions one could simplify the Hamiltonian to the point that it depended on a small number of parameters.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QFigure reproduced from Theory of Quantum Matter Unit, OIST Not only does frustration cause the ground state energy to be higher than one might expect based on the coupling strength, but also generally leads to systems with extensive ground state degeneracy.\\E$"}
+{"rule":"NUMEROUS_DIFFERENT","sentence":"^\\QThe space of bond operator configurations is massively degenerate – that is, many different configurations are gauge equivalent.\\E$"}
+{"rule":"LARGE_NUMBER_OF","sentence":"^\\QWe collect this evidence by generating a large number of lattices and exhaustively checking every possible flux sector to find the configuration with the lowest energy.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QQuod not erat demonstrandum.\\E$"}
+{"rule":"ALL_MOST_SOME_OF_NOUN","sentence":"^\\QIn these cases, however, the energy difference between our ansatz and the ground state was at most of order \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}

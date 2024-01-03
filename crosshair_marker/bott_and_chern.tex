@@ -12,7 +12,7 @@ where $\textbf m$ is a vector labelling the unit cell and $\alpha$ selects a sit
 	 H &= \sum_{\textbf k} \ket{\textbf k}\bra{\textbf k}\otimes  H(\textbf k) \\ 
 	\ket{\psi_{\textbf k, n}} &= \ket{\textbf k} \otimes\ket {u_{\textbf k, n}},
 \end{align}
-where $\ket {u_{\textbf k, n}}$ are the eigenstates of $ H(\textbf k)$ and the momentum states are defined as in Eqn.~\ref{eqn:k_state_def}. We assume that the system has a total of $\eta$ bands, so $n \in  \{1,...,\eta\}$. Henceforth we will assume that only the $n$\ts{th} band is occupied, so we can construct a projector onto the occupied subspace, $ P$, and its complement, $ Q$.
+where $\ket {u_{\textbf k, n}}$ are the eigenstates of $ H(\textbf k)$ and the momentum states are defined as in Eqn.~\ref{eqn:k_state_def}. We assume that the system has a total of $\eta$ bands, so $n \in  \{1,...,\eta\}$. Henceforth, we will assume that only the $n$\ts{th} band is occupied, so we can construct a projector onto the occupied subspace, $ P$, and its complement, $ Q$.
 \begin{align}
 	 P & = \sum_{\textbf k} \ket{\psi_{\textbf k, n}}\bra{\psi_{\textbf k, n}} \\
 	 Q & = \sum_{\textbf k,\, m \neq n} \ket{\psi_{\textbf k, m}}\bra{\psi_{\textbf k, m}}.
@@ -28,7 +28,7 @@ In order to understand the effect of these operators, we consider their effect o
 	& = \frac{1}{\sqrt{L_x L_y}} \sum_{\textbf m} e^{i \textbf m \cdot (\textbf k + \boldsymbol{\delta}_x)} \ket {\textbf m}\\
 	& = \ket{\textbf k + \boldsymbol \delta_x},
 \end{align}
-with a similar expression for $e^{i \delta_y  y}$.Here the symbols $\boldsymbol{\delta}_x$ and $\boldsymbol{\delta}_y$ represents a vector translation in $\textbf k$-space,
+with a similar expression for $e^{i \delta_y  y}$. Here the symbols $\boldsymbol{\delta}_x$ and $\boldsymbol{\delta}_y$ represents a vector translation in $\textbf k$-space,
 \begin{align}
 	\boldsymbol \delta_x = \begin{pmatrix}
 	\delta_x \\
@@ -132,7 +132,7 @@ By comparing with Eqn.~\ref{eqn:discrete_chern_number}, we can see that we have 
 	\tr_{\textbf r}
 	\log \left [  U V U^\dag  V^\dag +  Q \right ].
 \end{align}
-Thus we have shown that in the case of a translationally symmetric system with periodic boundaries, the Bott index evaluated at any point in our material always exactly calculates the Chern number.
+Thus, we have shown that in the case of a translationally symmetric system with periodic boundaries, the Bott index evaluated at any point in our material always exactly calculates the Chern number.
 
 \subsection{The Chern Marker} \label{sec:chern_marker}
 
@@ -144,7 +144,7 @@ Our starting point is the expression for Bott index, Eqn.~\ref{eqn:bott_index}, 
 \end{align}
 with similar expressions for $P_y$ and $P_{xy}$. Thus, the Bott index can be written as
 \begin{align}
-	B(\textbf r) = - \frac{N}{2\pi} \im \tr_{\bf r} \log \left [ 
+	B(\textbf r) = - \frac{N}{2\pi} \im \tr_{\textbf r} \log \left [ 
 		P P_x P_{xy} P_y P + Q
 	\right ].
 \end{align}
@@ -196,9 +196,9 @@ which is precisely the expression for the Chern marker~\cite{bianco_mapping_2011
 
 \subsection{Some Examples}
 
-Let us finish this section by illustrating a few examples of Bott and Chern markers for an amorphous QWZ model, shown in Fig.~\ref{fig:marker_examples}. In each case we calculate the marker for the same Hamiltonian -- corresponding to the model with internal parameter $u = -0.5$, around the center of the topological gap seen in Fig.~\ref{fig:amorphous_qwz_examples}b. Both the Bott index and the Chern markers have average bulk values of $+1$, verifying that this model does indeed have a nonzero topological invariant. 
+Let us finish this section by illustrating a few examples of Bott and Chern markers for an amorphous QWZ model, shown in Fig.~\ref{fig:marker_examples}. In each case we calculate the marker for the same Hamiltonian -- corresponding to the model with internal parameter $u = -0.5$, around the centre of the topological gap seen in Fig.~\ref{fig:amorphous_qwz_examples}b. Both the Bott index and the Chern markers have average bulk values of $+1$, verifying that this model does indeed have a nonzero topological invariant. 
 
-In the case of the Bott index, the marker appears well-behaved in periodic boundaries, with an average over the whole system of exactly $+1$. In open boundaries, the Bott index displays anomalous \todo{draw less attention to this - I don't want to put a lengthy discussion of why the bott index has weird edge behaviour...} behaviour around the edge, however still averages to $+1$. The Chern marker calculated in periodic boundaries shows extremely large divergences around the boundary edges and corners, due to the discontinuities in $x$ and $y$. These can be removed by calculating the modified Chern marker described in Eqn.~\ref{eqn:pbc_chern_marker}, providing a marker that is almost identical to the Bott index. Calculation of the periodic Chern marker is much less computationally expensive, since the Chern marker avoids the need for a matrix logarithm to be taken. Finally we see that in open boundaries the Chern marker has sharp drops at the boundaries of the system which ensure that the sum over the whole system vanishes. 
+In the case of the Bott index, the marker appears well-behaved in periodic boundaries, with an average over the whole system of exactly $+1$. In open boundaries, the Bott index displays anomalous \todo{Draw less attention to this - I don't want to put a lengthy discussion of why the Bott index has weird edge behaviour...} behaviour around the edge, however still averages to $+1$. The Chern marker calculated in periodic boundaries shows extremely large divergences around the boundary edges and corners, due to the discontinuities in $x$ and $y$. These can be removed by calculating the modified Chern marker described in Eqn.~\ref{eqn:pbc_chern_marker}, providing a marker that is almost identical to the Bott index. Calculation of the periodic Chern marker is much less computationally expensive, since the Chern marker avoids the need for a matrix logarithm to be taken. Finally, we see that in open boundaries the Chern marker has sharp drops at the boundaries of the system which ensure that the sum over the whole system vanishes. 
 
 \begin{figure}
     \centering
@@ -207,11 +207,11 @@ In the case of the Bott index, the marker appears well-behaved in periodic bound
     \end{center}
     \captionof{figure}{
     Bott index and Chern markers calculated for an example amorphous QWZ model with $u=-0.5$.
-	\textbf{(a)} The Bott index calculated in periodic boundary conditions. 
-	\textbf{(b)} The Bott index calculated in open boundary conditions. Here we see sharp drops on some edges and a large spike localised on two edges, and in the bulk an identical profile as in subplot (a).
-	\textbf{(c)} The Chern marker calculated according to Eqn.~\ref{eqn:chern_marker} in periodic boundary conditions. The bulk variation in the marker is barely visible due to the large discontinuities at the boundaries of the material, where the $x$ and $y$ operators are discontinuous. 
-	\textbf{(d)} The modified periodic Chern marker calculated according to Eqn.~\ref{eqn:pbc_chern_marker} in periodic boundary conditions. Here the boundary discontinuities vanish, and the marker is almost identical to the Bott index in subplot (a).
-	\textbf{(e)} The Chern marker calculated according to Eqn.~\ref{eqn:chern_marker} in open boundaries. Here the marker must sum to zero, which leads to the presence of sharp drops at the boundaries, counteracting the positive bulk value.
+	\textbf{(a)}~The Bott index calculated in periodic boundary conditions. 
+	\textbf{(b)}~The Bott index calculated in open boundary conditions. Here we see sharp drops on some edges and a large spike localised on two edges, and in the bulk an identical profile as in subplot (a).
+	\textbf{(c)}~The Chern marker calculated according to Eqn.~\ref{eqn:chern_marker} in periodic boundary conditions. The bulk variation in the marker is barely visible due to the large discontinuities at the boundaries of the material, where the $x$ and $y$ operators are discontinuous. 
+	\textbf{(d)}~The modified periodic Chern marker calculated according to Eqn.~\ref{eqn:pbc_chern_marker} in periodic boundary conditions. Here the boundary discontinuities vanish, and the marker is almost identical to the Bott index in subplot (a).
+	\textbf{(e)}~The Chern marker calculated according to Eqn.~\ref{eqn:chern_marker} in open boundaries. Here the marker must sum to zero, which leads to the presence of sharp drops at the boundaries, counteracting the positive bulk value.
     }\label{fig:marker_examples}
 \end{figure}
 
@@ -224,11 +224,11 @@ In the case of the Bott index, the marker appears well-behaved in periodic bound
     \end{center}
      \captionof{figure}{
 		The effect of a lattice-only distortion on the Chern marker of a translationally uniform QWZ model in PBC with $u = 0.5$ -- a system with Chern number $\mathcal Q = +1$.
-		\textbf{(a)} A lattice distortion is applied to the system, where individual sites are translated according to a Gaussian function of their position. 
-		\textbf{(b)} The Chern number is calculated using an identical Hamiltonian and projector to the undistorted, with spatial positions shifted by the lattice distortion. Where the inter-site distances have been stretched, the Chern marker is larger than the exactly known Chern number, appearing to indicate a region of Chern number $\mathcal Q =+2$. Equally, where the lattice is compressed the Chern marker is reduced, appearing to show $\mathcal Q = 0$.
+		\textbf{(a)}~A lattice distortion is applied to the system, where individual sites are translated according to a Gaussian function of their position. 
+		\textbf{(b)}~The Chern number is calculated using an identical Hamiltonian and projector to the undistorted, with spatial positions shifted by the lattice distortion. Where the inter-site distances have been stretched, the Chern marker is larger than the exactly known Chern number, appearing to indicate a region of Chern number $\mathcal Q =+2$. Equally, where the lattice is compressed the Chern marker is reduced, appearing to show $\mathcal Q = 0$.
     }\label{fig:lattice_warp}
 \end{figure}
 
-Careful inspection of the examples shown in Fig.~\ref{fig:marker_examples} will reveal a peculiar structure to the deviations of the Bott and Chern markers around their bulk average (the Chern number, $+1$). In some regions the marker appears to indicate a Chern number of $+2$ and in other regions it seems to show $\mathcal Q = 0$. Thus one might conclude that the material has a deeply complex topological structure, where pockets of different Chern numbers appear scattered throughout. This would be a mistake however, which can be seen by considering the geometry of the amorphous lattice. Areas where the marker is larger tend to correspond to regions where the plaquettes are larger and the sites are spaced further apart. Equally, dips in the value correspond to regions where the vertices are closer together. Thus, uneven spacing between vertices has the effect of overestimating the Chern number when vertices are further apart (so $\Delta x$ appears larger between sites) and underestimating it when vertices are closer together (so $\Delta x$ appears smaller between sites).
+Careful inspection of the examples shown in Fig.~\ref{fig:marker_examples} will reveal a peculiar structure to the deviations of the Bott and Chern markers around their bulk average (the Chern number, $+1$). In some regions the marker appears to indicate a Chern number of $+2$ and in other regions it seems to show $\mathcal Q = 0$. Thus, one might conclude that the material has a deeply complex topological structure, where pockets of different Chern numbers appear scattered throughout. This would be a mistake however, which can be seen by considering the geometry of the amorphous lattice. Areas where the marker is larger tend to correspond to regions where the plaquettes are larger and the sites are spaced further apart. Equally, dips in the value correspond to regions where the vertices are closer together. Thus, uneven spacing between vertices has the effect of overestimating the Chern number when vertices are further apart (so $\Delta x$ appears larger between sites) and underestimating it when vertices are closer together (so $\Delta x$ appears smaller between sites).
 
 In order to illustrate this, let us consider a translationally symmetric QWZ model constructed on a square lattice with uniform $u = 0.5$. Here we expect that the Bott index or periodic Chern marker will be precisely $+1$ throughout the system. Let us consider distorting the lattice as shown in Fig.~\ref{fig:lattice_warp}a while keeping the Hamiltonian (and thus the projector $P$) invariant. Since the properties of the state itself have not changed under such a transformation, one expects the topological properties of the system to remain invariant. However, calculating the local Chern marker, as shown in Fig.~\ref{fig:lattice_warp}b, we find the value substantially inflated at points where the lattice has expanded, and vice versa at points of contraction. Thus, we see that these local markers do not solely capture the topological properties of the occupied band, but also depend on the details of the lattice embedding on the plane. Of course, averaging over a sufficiently large area one can always recover a close to quantised value. However, if we accept that such markers can only be interpreted by considering an average over a large region of the bulk then how can they be considered local? In the next section we shall present an alternative, where the locality of the

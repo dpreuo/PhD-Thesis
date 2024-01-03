@@ -4,6 +4,7 @@ Chern number:
  
 
 Kitaev spin liquids:
+ - classical spin liquid on amorphous lattice
 
 Kitaev heisenberg:
  - extension of the spin transformation?

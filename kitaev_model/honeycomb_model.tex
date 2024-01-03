@@ -6,8 +6,8 @@ Let us begin by providing a review of the model as it was originally proposed by
     \begin{center}
         \includegraphics[]{kitaev_model/figures/honeycomb_kit.pdf}
         \caption{
-            \textbf{(a)} A section of honeycomb lattice with the bond labels shown according to colour. Sites are labelled according to sublattice. Our choice for the unit cell is marked by the dashed grey rhombus.
-            \textbf{(b)} A single $W_p$ operator, where the full-colour lines indicate the bond operators that take part in $W_p$. After multiplying out the Pauli operators, the remaining terms are shown, corresponding to spin operators that connect outwards from the plaquette. States are numbered to correspond to the ordering in Eqn.~\ref{eqn:wp_operator}.
+            \textbf{(a)}~A section of honeycomb lattice with the bond labels shown according to colour. Sites are labelled according to sublattice. Our choice for the unit cell is marked by the dashed grey rhombus.
+            \textbf{(b)}~A single $W_p$ operator, where the full-colour lines indicate the bond operators that take part in $W_p$. After multiplying out the Pauli operators, the remaining terms are shown, corresponding to spin operators that connect outwards from the plaquette. States are numbered to correspond to the ordering in Eqn.~\ref{eqn:wp_operator}.
         }\label{fig:honeycomb_kitaev}
     \end{center}
 \end{figure}
@@ -72,7 +72,7 @@ This expression can be simplified by requiring that we act only on states in the
 \begin{align}
     c b^z \ket \psi &= - b^y b^x \ket \psi,
 \end{align}
-with an equivalent identity for any other pairing of the Majoranas. Thus we see that when acted {\it only on the physical subspace} the spin operators may be written as
+with an equivalent identity for any other pairing of the Majoranas. Thus, we see that when acted {\it only on the physical subspace} the spin operators may be written as
 \begin{align} \label{sigma_to_majorana}
     \sigma^x = i c b^x,\qquad  \sigma^y = i c b^y ,\qquad  \sigma^z = i c b^z.
 \end{align}
@@ -81,9 +81,9 @@ with an equivalent identity for any other pairing of the Majoranas. Thus we see 
         \includegraphics[]{kitaev_model/figures/spin_to_majorana.pdf}
         \caption{
             A depiction of the three steps in transforming the spin Hamiltonian into a quadratic Majorana Hamiltonian.
-            \textbf{(a)} A single $z$-bond with two spins located at the endpoints, labelled with $j$ and $k$.
-            \textbf{(b)} After the transformation to the Majorana basis each spin becomes a set of four Majorana fermions. On each site, the $b^x$, $b^y$ and $b^z$ Majorana takes part only in the $x$, $y$ and $z$ bond respectively. The $c$-Majorana takes part in all three couplings. 
-            \textbf{(c)} Once the eigenvalues of the $u_{jk}$ operators have been assigned, we are left with a quadratic Hamiltonian on the $c_j$ degrees of freedom only, with hopping determined by the $u_{jk}$ values, where the arrow indicates the direction in which $u_{jk} = +1$.
+            \textbf{(a)}~A single $z$-bond with two spins located at the endpoints, labelled with $j$ and $k$.
+            \textbf{(b)}~After the transformation to the Majorana basis each spin becomes a set of four Majorana fermions. On each site, the $b^x$, $b^y$ and $b^z$ Majorana takes part only in the $x$, $y$ and $z$ bond respectively. The $c$-Majorana takes part in all three couplings. 
+            \textbf{(c)}~Once the eigenvalues of the $u_{jk}$ operators have been assigned, we are left with a quadratic Hamiltonian on the $c_j$ degrees of freedom only, with hopping determined by the $u_{jk}$ values, where the arrow indicates the direction in which $u_{jk} = +1$.
         }\label{fig:spin_to_maj}
     \end{center}
 \end{figure}
@@ -142,7 +142,7 @@ Since $H_u$ is not invariant under the action of $D_j$, the ground state $\ket{\
 \begin{align}
     P = \prod_j \frac{1 + D_j}2.
 \end{align}
-From the form of $P$, we see that the physical state $\ket{\psi_{\textup{phys}}} = P \ket{\psi_u}$ is found by taking a equal superposition of every possible gauge-equivalent arrangement of~$\{u_{jk}\}$.
+From the form of $P$, we see that the physical state $\ket{\psi_{\textup{phys}}} = P \ket{\psi_u}$ is found by taking an equal superposition of every possible gauge-equivalent arrangement of~$\{u_{jk}\}$.
 
 The above argument does not imply that {\it all} sets of $u_{jk}$ are equivalent. To see why, let us construct a gauge-invariant quantity -- the $\mathbb Z_2$ flux through each plaquette $p$,
 \begin{equation} \label{eqn:z2_flux_def}
@@ -159,8 +159,8 @@ Finally, we note that in periodic boundaries every flux sector is fourfold degen
     \begin{center}
         \includegraphics[]{kitaev_model/figures/flux_flips.pdf}
         \caption{
-            \textbf{(a)} An example of a bond operator flip that corresponds to the creation of six fluxes. We start with a constant background (shown by the grey edges) where every plaquette has flux $+1$. On this background we flip three sets of bonds (in black). Each of these sets forms a line, where the flux of the coloured plaquettes at each end has been flipped to $-1$.
-            \textbf{(b)} An example of flipping bonds along two non-contractible loops in periodic boundary conditions. Each of these flips transports the system to a gauge inequivalent set of bond operators, resulting in a four-fold degeneracy for each flux sector. 
+            \textbf{(a)}~An example of a bond operator flip that corresponds to the creation of six fluxes. We start with a constant background (shown by the grey edges) where every plaquette has flux $+1$. On this background we flip three sets of bonds (in black). Each of these sets forms a line, where the flux of the coloured plaquettes at each end has been flipped to $-1$.
+            \textbf{(b)}~An example of flipping bonds along two non-contractible loops in periodic boundary conditions. Each of these flips transports the system to a gauge inequivalent set of bond operators, resulting in a four-fold degeneracy for each flux sector. 
         }\label{fig:flux_flips}
     \end{center}
 \end{figure}
@@ -192,7 +192,7 @@ so has the effect of flipping all bond operators in the system, $u_{jk} \rightar
 
 \subsection{Solving the Hamiltonian}
 
-Once a flux sector has been chosen, we are left with a Majorana Hamiltonian, $H_u$, as defined in eq.~\ref{eqn:majorana_hamiltonian_with_u}. The full methodology for diagonalising such a Hamiltonian is detailed in Appendix \ref{sec:majorana_diagonalisation} -- we present only the broad strokes here. We diagonalise the Hamiltonian by rotating to a new Majorana basis consisting of pairs of operators $\tilde c_j', \tilde c_j''$, 
+Once a flux sector has been chosen, we are left with a Majorana Hamiltonian, $H_u$, as defined in Eqn.~\ref{eqn:majorana_hamiltonian_with_u}. The full methodology for diagonalising such a Hamiltonian is detailed in Appendix \ref{sec:majorana_diagonalisation} -- we present only the broad strokes here. We diagonalise the Hamiltonian by rotating to a new Majorana basis consisting of pairs of operators $\tilde c_j', \tilde c_j''$, 
 \begin{align}
     \tilde c_j = O_{jk}c_k,
 \end{align}
@@ -200,7 +200,7 @@ where $O$ is a real orthogonal matrix. In this basis the Hamiltonian takes the f
 \begin{align}
     H = \sum_{ j } \varepsilon_j\, i \tilde c_j' \tilde c_j''.
 \end{align}
-Each of these paired sets of Majorana operators may now be transformed back to a new fermionic basis according to the identity $ i \tilde c_j' \tilde c_j'' = 2 f_i^\dag f_i - 1$. Thus the Hamiltonian becomes
+Each of these paired sets of Majorana operators may now be transformed back to a new fermionic basis according to the identity $ i \tilde c_j' \tilde c_j'' = 2 f_i^\dag f_i - 1$. Thus, the Hamiltonian becomes
 \begin{align}
     H = \sum_{ j } \varepsilon_j\,(2 f_i^\dag f_i - 1).
 \end{align}
@@ -214,7 +214,7 @@ In practice, it is often unnecessary to find the real orthogonal matrix $O$, and
 
 In a system with $n_p$ plaquettes, we have $2^{n_p}$ possible flux sectors ($2^{n_p-1}$ in periodic boundaries), and in general it is a non-trivial task to determine which flux sector corresponds to the lowest ground state energy. However, on the honeycomb lattice the ground state was shown by Lieb to be found by setting $\phi_p=+1$ for all plaquettes~\cite{lieb_flux_1994}. Thus, the ground state can always be found by bipartitioning the sites into an $A$ and $B$ sublattice, and setting the bond operators such that $u_{jk}$ always points from each $A$ site towards its three neighbouring $B$ sites (this was the `background' flux sector depicted in Fig.~\ref{fig:flux_flips}). In the following, we shall refer to this flux configuration as the {\it canonical flux sector.}
 
-Thus, we see that our interacting spin system has been divided into two separate degrees of freedom: a `classical' $\mathbb Z_2$ flux degree of of freedom corresponding to the bond operators and plaquette fluxes, and a fermionic degree determined by the Majorana spectrum in a given flux sector. In what follows we will distinguish between these two aspects as the `flux' and `fermionic' properties of the system. For example, the flux gap is defined as the difference in energy between the ground state in the canonical sector and the ground state energy in any other flux sector. The fermionic gap, however, is determined by the lowest fermionic energy $\varepsilon_j$ in the canonical flux sector.
+Thus, we see that our interacting spin system has been divided into two separate degrees of freedom: a `classical' $\mathbb Z_2$ flux degree of freedom corresponding to the bond operators and plaquette fluxes, and a fermionic degree determined by the Majorana spectrum in a given flux sector. In what follows we will distinguish between these two aspects as the `flux' and `fermionic' properties of the system. For example, the flux gap is defined as the difference in energy between the ground state in the canonical sector and the ground state energy in any other flux sector. The fermionic gap, however, is determined by the lowest fermionic energy $\varepsilon_j$ in the canonical flux sector.
 
 \subsection{The Ground-State Phase Diagram}
 
@@ -224,9 +224,9 @@ We finish this review with a brief discussion of the ground-state phase diagram,
     \begin{center}
         \includegraphics[]{kitaev_model/figures/honey_phase_triangle.pdf}
         \caption{The Honeycomb model phase diagram, shown as a function of the three $J^\alpha$ parameters. Three limiting cases are depicted. 
-        \textbf{(a)} Close to the corners of the triangle, one set of bonds is much stronger than the other two. Thus, the system effectively dimerises on the strong bonds, with the remaining two couplings acting on the dimerised sites as a weak perturbation. 
-        \textbf{(b)} In the center of one of the sides of the triangle, two sets of bonds are much stronger than the third. In this case, the system decomposes into a set of disconnected chain models, which individually have gapless dispersion. The remaining coupling serves to weakly couple adjacent chains.
-        \textbf{(c)} At the center of the triangle all bonds are equally strong, and the system is in some sense maximally frustrated. Around this point we have a gapless phase. If a magnetic field is used to open a gap, the system forms a quantum spin liquid phase, which supports anyon excitation with non-Abelian braiding statistics.
+        \textbf{(a)}~Close to the corners of the triangle, one set of bonds is much stronger than the other two. Thus, the system effectively dimerises on the strong bonds, with the remaining two couplings acting on the dimerised sites as a weak perturbation. 
+        \textbf{(b)}~In the centre of one of the sides of the triangle, two sets of bonds are much stronger than the third. In this case, the system decomposes into a set of disconnected chain models, which individually have gapless dispersion. The remaining coupling serves to weakly couple adjacent chains.
+        \textbf{(c)}~At the centre of the triangle all bonds are equally strong, and the system is in some sense maximally frustrated. Around this point we have a gapless phase. If a magnetic field is used to open a gap, the system forms a quantum spin liquid phase, which supports anyon excitation with non-Abelian braiding statistics.
         }\label{fig:honey_phase_triangle}
     \end{center}
 \end{figure}
@@ -251,7 +251,7 @@ Since the $\sigma^z\sigma^z$ couplings dominate, we expect the two spins on each
 
 \subsubsection{The Gapless $B$ Phase}
 
-Around the center of the phase diagram all $J^\alpha$ are comparably strong, so the system can be considered maximally frustrated, and thus the best candidate for a strongly entangled ground state. In this phase the fermionic Hamiltonian is gapless, and so vortices have long-ranged interactions, preventing them from having well-defined exchange statistics. To force this system into having well-defined braiding statistics we must introduce a small perturbation capable of gapping out the Dirac cones in the dispersion relation of Eqn.~\ref{eqn:kitaev_bloch_hamiltonian}. 
+Around the centre of the phase diagram all $J^\alpha$ are comparably strong, so the system can be considered maximally frustrated, and thus the best candidate for a strongly entangled ground state. In this phase the fermionic Hamiltonian is gapless, and so vortices have long-ranged interactions, preventing them from having well-defined exchange statistics. To force this system into having well-defined braiding statistics we must introduce a small perturbation capable of gapping out the Dirac cones in the dispersion relation of Eqn.~\ref{eqn:kitaev_bloch_hamiltonian}. 
 
 Any perturbation that respects time reversal symmetry is unsuitable for this task. This is because, as we discussed in \textsection\ref{sec:hex_trs}, a time-reversal symmetric perturbation can only introduce couplings between sites on different sublattices. For a Bloch Hamiltonian of the form $iA(\textbf q) = f_x (\textbf q) \sigma^x + f_y (\textbf q) \sigma^y$, such a perturbation will only serve to modify the form of $f_x$ and $f_y$, shifting the position of the Dirac cones in phase space. However, the Pauli vector will remain confined to the $x$-$y$ plane, so a small perturbation will not be sufficient to prevent it from crossing the origin as it sweeps out the full Brillouin zone. Rather, we must introduce a perturbation that breaks TRS, and couples pairs of $A$ or $B$ sites. This introduces a $\sigma^z$-type term to the Bloch Hamiltonian. One example of such a perturbation corresponds to applying a weak magnetic field to our system. A straightforward magnetic field term of the form $V = h_\alpha \sigma^\alpha$ destroys the integrability of the system, however using perturbation theory one can construct an effective magnetic field term that respects it. The lowest term in perturbation theory that breaks TRS is found at third order, given by a term of the form
 \begin{align}
@@ -274,8 +274,8 @@ As can be seen in Fig.~\ref{fig:honeycomb_gaps}, this perturbation is enough to 
         \includegraphics[]{kitaev_model/figures/honeycomb_gaps.pdf}
         \caption{ 
             The effect of a magnetic field on the band structure of the Majorana Hamiltonian in the B phase, with $\textbf J = (1,1,1)$.
-            \textbf{(a)} Band structure of the gapless B phase, where the two dirac cones can be seen.
-            \textbf{(b)} Band structure of the model with a magnetic field added with $\kappa = 0.2$, leading to the formation of a band gap. 
+            \textbf{(a)}~Band structure of the gapless B phase, where the two dirac cones can be seen.
+            \textbf{(b)}~Band structure of the model with a magnetic field added with $\kappa = 0.2$, leading to the formation of a band gap. 
         }\label{fig:honeycomb_gaps}
     \end{center}
 \end{figure}
@@ -285,6 +285,6 @@ As can be seen in Fig.~\ref{fig:honeycomb_gaps}, this perturbation is enough to 
 
 We finish the review of the Honeycomb model by discussing the topological properties of the model in the A and B phases. This has two parts. First we will consider the Chern number of the Majorana Hamiltonian in each case, before discussing the effect of the Chern number on the fractionalised excitations of the model in each phase. 
 
-In this model, the Chern number is calculated as a property of the fermionic Hamiltonian, defined by the matrix $iA$. Of course, we could explicitly calculate the Chern number using the machinery presented in \textsection\ref{sec:Abelian Berry Phase and the Chern Number}. However, we can instead infer the Chern number directly from the form of the $\textbf d(\textbf q)$ vector that defines the Bloch Hamiltonian. This is because -- as discussed in \textsection\ref{sec:an_example} -- in a two-level system we can find the Chern number by just counting the number of times the surface swept out by $\textbf d$ encloses the origin. In the A phase, this surface is confined to the $x$-$y$ plane. Furthermore, since the system is gapped, $\textbf d$ does not ever cross the origin. This means that the surface cannot enclose the origin and the thus the A phase has $\mathcal Q = 0$. In the B phase, $\textbf d(\textbf q)$ is also confined to the $x$-$y$ plane, and crosses the origin at two points in phase space, which we label with $ \textbf q_*$ and $-\textbf q_*$, since they are related by reflection over the origin. Once the magnetic perturbation is added, we find that $\textbf d$ is shifted away from the origin in the $z$-direction at these two points. Furthermore the $z$-position, given in Eqn.~\ref{eqn:d_shifted} is an odd function of $\textbf q$. This ensures that one of the Dirac cones is gapped with $\textbf d$ avoiding the origin with positive $d_z$, whereas the other Dirac cone is gapped with $\textbf d$ avoiding the origin with negative $d_z$. Thus, the surface swept out by $\textbf d$ encloses the origin once, and the Chern number in this phase is given by $\mathcal Q = \pm 1$, where the sign is determined by the sign of $\kappa$.
+In this model, the Chern number is calculated as a property of the fermionic Hamiltonian, defined by the matrix $iA$. Of course, we could explicitly calculate the Chern number using the machinery presented in \textsection\ref{sec:Abelian Berry Phase and the Chern Number}. However, we can instead infer the Chern number directly from the form of the $\textbf d(\textbf q)$ vector that defines the Bloch Hamiltonian. This is because -- as discussed in \textsection\ref{sec:an_example} -- in a two-level system we can find the Chern number by just counting the number of times the surface swept out by $\textbf d$ encloses the origin. In the A phase, this surface is confined to the $x$-$y$ plane. Furthermore, since the system is gapped, $\textbf d$ does not ever cross the origin. This means that the surface cannot enclose the origin and thus the A phase has $\mathcal Q = 0$. In the B phase, $\textbf d(\textbf q)$ is also confined to the $x$-$y$ plane, and crosses the origin at two points in phase space, which we label with $ \textbf q_*$ and $-\textbf q_*$, since they are related by reflection over the origin. Once the magnetic perturbation is added, we find that $\textbf d$ is shifted away from the origin in the $z$-direction at these two points. Furthermore, the $z$-position, given in Eqn.~\ref{eqn:d_shifted} is an odd function of $\textbf q$. This ensures that one of the Dirac cones is gapped with $\textbf d$ avoiding the origin with positive $d_z$, whereas the other Dirac cone is gapped with $\textbf d$ avoiding the origin with negative $d_z$. Thus, the surface swept out by $\textbf d$ encloses the origin once, and the Chern number in this phase is given by $\mathcal Q = \pm 1$, where the sign is determined by the sign of $\kappa$.
 
-\todo{Add a short paragraph talking about how odd chern number = nonabelian anyons etc etc}
+\todo{Add a short paragraph talking about how odd Chern number = nonabelian anyons etc}

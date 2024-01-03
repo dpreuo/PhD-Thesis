@@ -4,7 +4,7 @@
     \centering
     \includegraphics[]{kitaev_heisenberg_star/figures/phase_diagram.pdf}
     \caption{ 
-        The full Kitaev-Heisenberg phase diagram, shown for both the honeycomb model as well as the star lattice model. Honeycomb phase boundaries are reproduced from~\cite{gohlke_dynamics_2017}.
+        The full Kitaev-Heisenberg phase diagram, shown for both the honeycomb model and the star lattice model. Honeycomb phase boundaries are reproduced from~\cite{gohlke_dynamics_2017}.
     }
     \label{fig:kh_phase_diagram}
 \end{figure}
@@ -27,10 +27,10 @@ The results are shown in Fig.~\ref{fig:dmrg_results}. The phases that comprise t
     \includegraphics[]{kitaev_heisenberg_star/figures/dmrg_evidence.pdf}
     \caption { 
     The iDMRG results for the star lattice KH model as a function of the parameter $\varphi$, defined in Eqn.~\ref{eqn:phi_def}. Phase boundaries are indicated with background colour.
-    \textbf{(a)} Ground state energy per site as a function of $\varphi$.  The four non-KSL phases are shown with a diagram of the corresponding phase. KSL phases appear at $\varphi = 0.5\pi, 1.5\pi$.
-    \textbf{(b)} Expectation value of the $z$-component of magnetisation for each site on the lattice $m_z = \braket{\sigma_j^z}$.
-    \textbf{(c)} Spin-spin correlations for each bond in the \textit{on-colouring} direction, $\braket{\sigma_j^\alpha \sigma_k^\alpha}$.
-    \textbf{(d)} Spin-spin correlations for each bond in the two remaining \textit{off-colouring} directions, $\braket{\sigma_j^\alpha \sigma_k^\alpha}$.  In (c) and (d), correlations for in-triangle bonds are coloured in blue, whereas inter-triangle bonds are shown in orange.  
+    \textbf{(a)}~Ground state energy per site as a function of $\varphi$.  The four non-KSL phases are shown with a diagram of the corresponding phase. KSL phases appear at $\varphi = 0.5\pi, 1.5\pi$.
+    \textbf{(b)}~Expectation value of the $z$-component of magnetisation for each site on the lattice $m_z = \braket{\sigma_j^z}$.
+    \textbf{(c)}~Spin-spin correlations for each bond in the \textit{on-colouring} direction, $\braket{\sigma_j^\alpha \sigma_k^\alpha}$.
+    \textbf{(d)}~Spin-spin correlations for each bond in the two remaining \textit{off-colouring} directions, $\braket{\sigma_j^\alpha \sigma_k^\alpha}$.  In (c) and (d), correlations for in-triangle bonds are coloured in blue, whereas inter-triangle bonds are shown in orange.  
     }
     \label{fig:dmrg_results}
 \end{figure}
@@ -46,7 +46,7 @@ Around $\varphi \sim \pi$ we have a singlet VBS. Here, both the on and off-colou
 \end{align}
 At the point $\varphi \sim \pi$ the system is exactly an antiferromagnetic Heisenberg model, where previous studies support our conclusions~\cite{richter_absence_2004, yang_competing_2010, jahromi_infinite_2018}. This VBS phase has no analogue on the honeycomb lattice, which forms a N\'eel ordered ground state. This is due to geometric frustration, where the presence of odd cycles on the star lattice disallows the formation of the N\'eel AFM phase. 
 
-Around $\varphi \sim 1.7\pi$, the system forms an exotic spin triplet VBS. Here the spins on each bond anti-align in the on-colouring direction and align in the two off-colouring directions. This corresponds to the formation one of three triplet states depending on the bond type. Bonds of type $x$, $y$ or $z$ form a $\ket{t_x}$, $\ket{t_y}$ or $\ket{t_z}$ state respectively, defined as
+Around $\varphi \sim 1.7\pi$, the system forms an exotic spin triplet VBS. Here, the spins on each bond anti-align in the on-colouring direction and align in the two off-colouring directions. This corresponds to the formation one of three triplet states depending on the bond type. Bonds of type $x$, $y$ or $z$ form a $\ket{t_x}$, $\ket{t_y}$ or $\ket{t_z}$ state respectively, defined as
 \begin{align}
     \ket{t_x} = \frac{i}{\sqrt 2} \left ( \ket{\uparrow \uparrow}-\ket{\downarrow \downarrow} \right ), \label{eqn:tx_def} \\
     \ket{t_y} = \frac{1}{\sqrt 2} \left ( \ket{\uparrow \uparrow}+\ket{\downarrow \downarrow} \right ),\label{eqn:ty_def} \\
@@ -54,17 +54,17 @@ Around $\varphi \sim 1.7\pi$, the system forms an exotic spin triplet VBS. Here 
 \end{align}
 We will show in \textsection\ref{sec:spin_flip_transformation} that the singlet and triplet VBS phases are also isomorphic under a generalized four unit cell spin rotation.
 
-Around $\varphi \sim 0.5\pi$ and $\varphi \sim 1.5\pi$ the system forms two extended chiral spin liquid phases. We notes that the AFM Kitaev phase is stable over a much smaller region of phase space than the FM QSL. This can be explained by noticing that the two competing phases (both the VBS phases) have lower energy than their ferromagnetic counterparts, whereas the energy scale of both Kitaev phases are identical. Thus, as we tune across the phase diagram, the VBS phases very quickly become energetically favourable over the QSL. As in the honeycomb case, all phase transitions corresponded to cusps in the ground state energy, indicating that the transitions are first order. However, it remains an open and numerically challenging question whether they remain first order in the thermodynamic limit. 
+Around $\varphi \sim 0.5\pi$ and $\varphi \sim 1.5\pi$ the system forms two extended chiral spin liquid phases. We note that the AFM Kitaev phase is stable over a much smaller region of phase space than the FM QSL. This can be explained by noticing that the two competing phases (both the VBS phases) have lower energy than their ferromagnetic counterparts, whereas the energy scale of both Kitaev phases are identical. Thus, as we tune across the phase diagram, the VBS phases very quickly become energetically favourable over the QSL. As in the honeycomb case, all phase transitions corresponded to cusps in the ground state energy, indicating that the transitions are first order. However, it remains an open and numerically challenging question whether they remain first order in the thermodynamic limit. 
 
-Finally, we confirm that the pure Kitaev points ($\varphi = 0.5\pi$ or $1.5\pi$) exactly recover the chiral QSL studied Yao and Kivelson~\cite{yao_exact_2007}. Here, the model is exactly solvable and can be decoupled into non-interacting Majorana fermions in the presence of a static $\mathbb Z_2$ gauge field~\cite{kitaev_anyons_2006}. However, as soon as we tune away from these points (and some Heisenberg interactions are present) the $\mathbb Z_2$ gauge field is no longer conserved and the system ceases to be exactly solvable. 
+Finally, we confirm that the pure Kitaev points ($\varphi = 0.5\pi$ or $1.5\pi$) exactly recover the chiral QSL studied Yao and Kivelson~\cite{yao_exact_2007}. Here, the model is exactly solvable and can be decoupled into non-interacting Majorana fermions in the presence of a static $\mathbb Z_2$ gauge field~\cite{kitaev_anyons_2006}. However, as soon as we tune away from these points (and some Heisenberg interactions are present) the $\mathbb Z_2$ gauge field is no longer conserved, and the system ceases to be exactly solvable. 
 
 \subsection{Isometries of the Phase Diagram}\label{sec:spin_flip_transformation}
 \begin{figure}[t]
     \centering
     \includegraphics[]{kitaev_heisenberg_star/figures/transformation.pdf}
     \caption{
-    \textbf{(a)} Plot of the four unit cell transformation that encodes the isometry of the KH phase diagram. Each $0$-marked site is untouched, however the sites labelled with $x$, $y$ or $z$ each experience a $\pi$-rotation around the labelled axis in spin space. Bond-types are indicated by colour. Enlarged unit cell is depicted with the dashed rhombus. 
-    \textbf{(b)} The KH phase diagram as parametrised by $\varphi$ defined in Eqn.~\ref{eqn:phi_def}. Dashed lines indicate points that are isomorphic under the spin rotation. 
+    \textbf{(a)}~Plot of the four unit cell transformation that encodes the isometry of the KH phase diagram. Each $0$-marked site is untouched, however the sites labelled with $x$, $y$ or $z$ each experience a $\pi$-rotation around the labelled axis in spin space. Bond-types are indicated by colour. Enlarged unit cell is depicted with the dashed rhombus. 
+    \textbf{(b)}~The KH phase diagram as parametrised by $\varphi$ defined in Eqn.~\ref{eqn:phi_def}. Dashed lines indicate points that are isomorphic under the spin rotation. 
     }
     \label{fig:on_site_transformation}
 \end{figure}
@@ -100,7 +100,7 @@ In terms of the single parameter $\varphi$, this is equivalent to transforming t
 with the correspondence indicated with dashed lines in Fig.~\ref{fig:on_site_transformation}b.
 
 Thus, we see that there is a correspondence between the ferromagnetic Hamiltonian and the stripy ordered Hamiltonian, as well as a correspondence between the singlet VBS and the stripy VBS Hamiltonians. We can similarly verify that the transformation gives the correct relation between the phases: 
-First, The FM case is easy -- starting with a FM alignment in the $z$-direction, we can see that any site labelled with $x$ or $y$ has its spin flipped, which leads precisely to the stripy magnetically ordered phase. Second, the we look at the more subtle VBS correspondence. A spin singlet on an $x$-labelled bond will be adjacent to either a $0-x$ pair of sites, in which case the resulting state will be transformed as
+First, The FM case is easy -- starting with FM alignment in the $z$-direction, we can see that any site labelled with $x$ or $y$ has its spin flipped, which leads precisely to the stripy magnetically ordered phase. Second, we look at the more subtle VBS correspondence. A spin singlet on an $x$-labelled bond will be adjacent to either a $0-x$ pair of sites, in which case the resulting state will be transformed as
 \begin{align}
     \ket s  \sim 
     \ket{\uparrow \downarrow} - \ket{\downarrow \uparrow} 

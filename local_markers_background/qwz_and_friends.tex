@@ -5,11 +5,11 @@ Let us introduce the Qi-Wu-Zhang (QWZ) model as a paradigmatic example of a two-
 \begin{figure}[t]
     \begin{center}
      \includegraphics[width=\textwidth]{local_markers_background/figures/QWZ_donut}
-    \caption{The embedding of the Brillouin zone in $\textbf d$-space for the QWZ model. This is shown in four progressive cutaways to ensure the internal structure can be seen. In all four images $k_x$ spans the interval $\left [0, 2\pi \right )$, however in \textbf{(a)} $k_y$ spans $\left [ 0, \frac{\pi}{2} \right )$, in \textbf{(b)} $k_y$ spans $\left [0, \pi \right )$, in \textbf{(c)} $k_y$ spans $\left [0, \frac{3 \pi}{2} \right )$, and in \textbf{(d)} $k_y$ spans $\left [0, 2\pi \right )$. }
+    \caption{The embedding of the Brillouin zone in $\textbf d$-space for the QWZ model. This is shown in four progressive cutaways to ensure the internal structure can be seen. In all four images $k_x$ spans the interval $\left [0, 2\pi \right )$, however in \textbf{(a)}~$k_y$ spans $\left [ 0, \frac{\pi}{2} \right )$, in \textbf{(b)}~$k_y$ spans $\left [0, \pi \right )$, in \textbf{(c)}~$k_y$ spans $\left [0, \frac{3 \pi}{2} \right )$, and in \textbf{(d)}~$k_y$ spans $\left [0, 2\pi \right )$. }
     \label{fig:QWZ_donut}
     \end{center}
 \end{figure}
-We work on a square lattice of unit cells indexed by a two dimensional lattice vector $\textbf m$, where each cell contains two sites. The QWZ model is defined by three terms, a hopping between unit cells in the $x$-direction, a hopping in the $y$-direction, and a staggered on-site potential whose strength is determined by a parameter $u$.
+We work on a square lattice of unit cells indexed by a two-dimensional lattice vector $\textbf m$, where each cell contains two sites. The QWZ model is defined by three terms, a hopping between unit cells in the $x$-direction, a hopping in the $y$-direction, and a staggered on-site potential whose strength is determined by a parameter $u$.
 \begin{align} \label{eqn:qwz_hamiltonian}
     \hat H &= \sum_{\textbf m} \ket{\textbf m+ 1_x}\bra{\textbf m} \otimes \frac{\sigma_z + i\sigma_x}{2} + h.c. \nonumber \\
     &+ \sum_{\textbf m} \ket{\textbf m+ 1_y}\bra{\textbf m} \otimes \frac{\sigma_z + i\sigma_y}{2} + h.c. \nonumber \\
@@ -35,7 +35,7 @@ u + \cos k_x+ \cos k_y
 \end{align}
 Here, $k_x$ and $k_y$ determine our position in the Brillouin zone. As explained in \textsection\ref{sec:an_example}, this represents the embedding of a torus in $\textbf d$-space, shown in Fig.~\ref{fig:QWZ_donut}.
 
-The $u$-parameter has the effect of translating the torus by a fixed amount in the $z$-direction. From this we can see that the QWZ model only has non-zero Chern number for values of $u$ between -2 and 2. Translating the torus by any more will move the origin completely outside. Thus the Chern number is
+The $u$-parameter has the effect of translating the torus by a fixed amount in the $z$-direction. From this we can see that the QWZ model only has non-zero Chern number for values of $u$ between -2 and 2. Translating the torus by any more will move the origin completely outside. Thus, the Chern number is
 \begin{align}
 Q = \left\{\begin{matrix}
 -1 &:&  -2 < u < 0, \\ 
@@ -149,12 +149,12 @@ As before, the parameter $u$ controls whether the system is in a topological or 
     \begin{center}
      \includegraphics[width=\textwidth]{local_markers_background/figures/amorphous_qwz.png}
     \caption{Plots showing the spectra of the amorphous QWZ model for two different example lattices. States are coloured according to their inverse participation ratio. 
-    \textbf{(a)} A trivalent lattice generated from a Voronoi decomposition of a set of random points, followed by five iterations of LLoyd's algorithm to regularise bond lengths. 
-    \textbf{(b)} The spectrum of the QWZ model on the voronised lattice as a function of $u$. Several gaps are present at different values of $u$ and $E$. 
-    \textbf{(c)} The spectrum of the same model as (b), but in open boundary conditions. Here we can see that all gaps for $u \in [-1.5, 1]$ are now filled with edge modes, indicating that the system is in a topological phase. 
-    \textbf{(d)} An example of a lattice forming a Delaunay triangulation, constructed as the dual of the lattice in (a). 
-    \textbf{(e)} The spectrum of the QWZ model on the Delaunay lattice as a function of $u$ showing one single large gapped region. 
-    \textbf{(f)} The spectrum of the same model as (e), but in open boundary conditions. Here we can see that the gaps is now filled with edge modes, again indicating that here the system is in a topological phase. 
+    \textbf{(a)}~A trivalent lattice generated from a Voronoi decomposition of a set of random points, followed by five iterations of LLoyd's algorithm to regularise bond lengths. 
+    \textbf{(b)}~The spectrum of the QWZ model on the voronised lattice as a function of $u$. Several gaps are present at different values of $u$ and $E$. 
+    \textbf{(c)}~The spectrum of the same model as (b), but in open boundary conditions. Here we can see that all gaps for $u \in [-1.5, 1]$ are now filled with edge modes, indicating that the system is in a topological phase. 
+    \textbf{(d)}~An example of a lattice forming a Delaunay triangulation, constructed as the dual of the lattice in (a). 
+    \textbf{(e)}~The spectrum of the QWZ model on the Delaunay lattice as a function of $u$ showing one single large gapped region. 
+    \textbf{(f)}~The spectrum of the same model as (e), but in open boundary conditions. Here we can see that the gaps is now filled with edge modes, again indicating that here the system is in a topological phase. 
     }
     \label{fig:amorphous_qwz_examples}
     \end{center}
