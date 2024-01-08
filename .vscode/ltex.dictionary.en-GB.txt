@@ -35,3 +35,12 @@ Eqns
 unfractionalised
 tri-coordinated
 Wigner-Seitz
+superpositions
+deconfined
+iridates
+triplon
+Colourmap
+colourmap
+Pauli
+antiferromagnets
+Majoranas

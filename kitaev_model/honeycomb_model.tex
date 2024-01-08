@@ -5,7 +5,7 @@ Let us begin by providing a review of the model as it was originally proposed by
 \begin{figure} 
     \begin{center}
         \includegraphics[]{kitaev_model/figures/honeycomb_kit.pdf}
-        \caption{
+        \caption[Honeycomb lattice, bond labelling and plaquette operators used in the Kitaev honeycomb model.]{
             \textbf{(a)}~A section of honeycomb lattice with the bond labels shown according to colour. Sites are labelled according to sublattice. Our choice for the unit cell is marked by the dashed grey rhombus.
             \textbf{(b)}~A single $W_p$ operator, where the full-colour lines indicate the bond operators that take part in $W_p$. After multiplying out the Pauli operators, the remaining terms are shown, corresponding to spin operators that connect outwards from the plaquette. States are numbered to correspond to the ordering in Eqn.~\ref{eqn:wp_operator}.
         }\label{fig:honeycomb_kitaev}
@@ -79,7 +79,7 @@ with an equivalent identity for any other pairing of the Majoranas. Thus, we see
 \begin{figure} 
     \begin{center}
         \includegraphics[]{kitaev_model/figures/spin_to_majorana.pdf}
-        \caption{
+        \caption[A depiction of the three steps in transforming the spin Hamiltonian into a quadratic Majorana Hamiltonian.]{
             A depiction of the three steps in transforming the spin Hamiltonian into a quadratic Majorana Hamiltonian.
             \textbf{(a)}~A single $z$-bond with two spins located at the endpoints, labelled with $j$ and $k$.
             \textbf{(b)}~After the transformation to the Majorana basis each spin becomes a set of four Majorana fermions. On each site, the $b^x$, $b^y$ and $b^z$ Majorana takes part only in the $x$, $y$ and $z$ bond respectively. The $c$-Majorana takes part in all three couplings. 
@@ -111,7 +111,7 @@ Once a set of $\{u_{jk}\}$ have been chosen, the Hamiltonian $H_u$ can be solved
 \begin{figure} 
     \begin{center}
         \includegraphics[]{kitaev_model/figures/gauge_transformation.pdf}
-        \caption{
+        \caption[A depiction of a gauge transformation.]{
             A depiction of a gauge transformation. We start with the configuration of $\{u_{jk}\}$ shown on the left. Now we apply a gauge transformation to the system by applying $D_j$ operators to all sites in some subset $\mathcal S$, here coloured red. All bonds that connect to one red site have the sign of $u$ flipped. Bonds between two red sites are flipped twice, and so remain invariant. The flipped bonds are highlighted. This is pictorially represented by the pink loops that encircle all the red sites. Any bond that crosses a pink loop has $u_{jk}$ flipped. 
         }\label{fig:gauge_transformation}
     \end{center}
@@ -158,7 +158,7 @@ Finally, we note that in periodic boundaries every flux sector is fourfold degen
 \begin{figure} 
     \begin{center}
         \includegraphics[]{kitaev_model/figures/flux_flips.pdf}
-        \caption{
+        \caption[Creation of fluxes and depiction of global fluxes.]{
             \textbf{(a)}~An example of a bond operator flip that corresponds to the creation of six fluxes. We start with a constant background (shown by the grey edges) where every plaquette has flux $+1$. On this background we flip three sets of bonds (in black). Each of these sets forms a line, where the flux of the coloured plaquettes at each end has been flipped to $-1$.
             \textbf{(b)}~An example of flipping bonds along two non-contractible loops in periodic boundary conditions. Each of these flips transports the system to a gauge inequivalent set of bond operators, resulting in a four-fold degeneracy for each flux sector. 
         }\label{fig:flux_flips}
@@ -223,7 +223,7 @@ We finish this review with a brief discussion of the ground-state phase diagram,
 \begin{figure} [t]
     \begin{center}
         \includegraphics[]{kitaev_model/figures/honey_phase_triangle.pdf}
-        \caption{The Honeycomb model phase diagram, shown as a function of the three $J^\alpha$ parameters. Three limiting cases are depicted. 
+        \caption[The Honeycomb model phase diagram, shown as a function of the three $J^\alpha$ parameters.]{The Honeycomb model phase diagram, shown as a function of the three $J^\alpha$ parameters. Three limiting cases are depicted. 
         \textbf{(a)}~Close to the corners of the triangle, one set of bonds is much stronger than the other two. Thus, the system effectively dimerises on the strong bonds, with the remaining two couplings acting on the dimerised sites as a weak perturbation. 
         \textbf{(b)}~In the centre of one of the sides of the triangle, two sets of bonds are much stronger than the third. In this case, the system decomposes into a set of disconnected chain models, which individually have gapless dispersion. The remaining coupling serves to weakly couple adjacent chains.
         \textbf{(c)}~At the centre of the triangle all bonds are equally strong, and the system is in some sense maximally frustrated. Around this point we have a gapless phase. If a magnetic field is used to open a gap, the system forms a quantum spin liquid phase, which supports anyon excitation with non-Abelian braiding statistics.
@@ -243,7 +243,7 @@ defined by the Pauli vector,
 \end{align}
 The phase diagram of this Hamiltonian has two distinct sectors determined by whether the Pauli vector defined above sweeps over the origin or not, shown in Fig.~\ref{fig:honey_phase_triangle}. Around each corner of the triangle, in the regime where one of the $J$ parameters is larger than the sum of the other two, $iA(\textbf q)$ defines a gapped system, which we label as the $A_\alpha$ phase. When the $J$-parameters satisfy $J^\alpha \leq J^\beta + J^\gamma$ for all permutations of indices, the dispersion has two Dirac cones, and the system is in a gapless phase, which we label the $B$ phase. 
 
-\subsubsection{The Gapped $A_\alpha$ Phases}
+\subsubsection{The Gapped $A$ Phases}
 
 The three gapped phases are best understood by considering the model very close to the corners of the triangle. Here, one of the couplings is orders of magnitude stronger than the other two. For example, in Fig.~\ref{fig:honey_phase_triangle}a, we depict the limit $J^z \gg J^y,J^x$. Let us consider without loss of generality this limit. Here, the Hamiltonian may be treated using perturbation theory, where the $x$ and $y$-bonds are treated as a perturbation of a ground state calculated only from the $z$-part of the Hamiltonian. 
 
@@ -272,7 +272,7 @@ As can be seen in Fig.~\ref{fig:honeycomb_gaps}, this perturbation is enough to 
 \begin{figure} 
     \begin{center}
         \includegraphics[]{kitaev_model/figures/honeycomb_gaps.pdf}
-        \caption{ 
+        \caption[The effect of a magnetic field on the band structure of the Majorana Hamiltonian in the B phase.]{ 
             The effect of a magnetic field on the band structure of the Majorana Hamiltonian in the B phase, with $\textbf J = (1,1,1)$.
             \textbf{(a)}~Band structure of the gapless B phase, where the two dirac cones can be seen.
             \textbf{(b)}~Band structure of the model with a magnetic field added with $\kappa = 0.2$, leading to the formation of a band gap. 

@@ -6,3 +6,6 @@
 {"rule":"LARGE_NUMBER_OF","sentence":"^\\QWe collect this evidence by generating a large number of lattices and exhaustively checking every possible flux sector to find the configuration with the lowest energy.\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QQuod not erat demonstrandum.\\E$"}
 {"rule":"ALL_MOST_SOME_OF_NOUN","sentence":"^\\QIn these cases, however, the energy difference between our ansatz and the ground state was at most of order \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"THE_SUPERLATIVE","sentence":"^\\QThis can be done for example by including a weak magnetic field, selecting a lowest energy single configuration of spins for each tetrahedron \\E(?:Dummy|Ina|Jimmy-)[0-9]+$"}
+{"rule":"ONE_PLURAL","sentence":"^\\QThus, a general ground state may be constructed by choosing one parameters for each bond, we shall use \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q on \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q-bonds, \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q on \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q-bonds and \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q on \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q-bonds,\\E$"}
+{"rule":"EN_A_VS_AN","sentence":"^\\QThus, let consider a single state \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q and define a local gauge transformation, applying an \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q-dependent phase \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q to all the states over this band.\\E$"}

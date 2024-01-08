@@ -7,7 +7,7 @@ The majority of accounts of local markers tend to focus on the development of th
      \begin{center}
         \includegraphics[]{crosshair_marker/figures/h_jkl.pdf}
     \end{center}
-     \captionof{figure}{
+     \captionof{figure}[Partition of the plane into three regions used to construct Kitaev's local Chern number.]{
      Diagram showing the partition of the plane into three regions labelled with $A$, $B$ and $C$. An example of $h_{jkl}$ is depicted with red dots, where arrows indicate the positive direction. 
      }\label{fig:h_jkl}
 \end{figure}
@@ -108,7 +108,7 @@ Let us now consider the operator
     \begin{center}
        \includegraphics[]{crosshair_marker/figures/four_boxes.pdf}
    \end{center}
-    \captionof{figure}{
+    \captionof{figure}[Decomposition of the plane into four quadrants.]{
     The decomposition of the two-step functions proposed in Eqn.~\ref{eqn:qkit_abcd} into a set of four projectors on the quarters of the plane. The $x$-step function is composed of regions $b$ and $c$, and the $y$-step function is composed of regions $a$ and $b$.
     }\label{fig:four_squares}
 \end{figure}
@@ -196,7 +196,7 @@ So far, we have defined Kitaev's Chern number for a system with infinite boundar
      \begin{center}
         \includegraphics[]{crosshair_marker/figures/finite_kitaev_issues.pdf}
     \end{center}
-     \captionof{figure}{
+     \captionof{figure}[Two examples of the vanishing of Kitaev's local marker in a finite system.]{
       Two examples depicting how $\qkit$ vanishes in finite systems. \textbf{(Left)} A topological system in open boundary conditions with necessarily have gapless edge modes present (depicted here with a blue border), which contribute a term to $\qkit$ that exactly cancels out the topological value around the triple contact point. \textbf{(Right)} An example partition of the torus (shown with opposite edges identified) into three regions. In this case, four triple contact points are present. Around each two have the regions arranged clockwise around them and two counter-clockwise, so overall $\qkit$ vanishes.
      }\label{fig:finite_kitaev_issues}
     \end{figure}
@@ -206,7 +206,7 @@ So far, we have defined Kitaev's Chern number for a system with infinite boundar
          \begin{center}
             \includegraphics[]{crosshair_marker/figures/restricted_regions.pdf}
         \end{center}
-         \captionof{figure}{
+         \captionof{figure}[The restricted Kitaev marker, suitable for use in finite systems.]{
         Three restricted regions for which $\qkit$ can be calculated. Now there is only one point where the three regions meet. Provided that $P$ remains short ranged in the circular region and the distance from the triple contact point to the boundary of the circle is larger than the correlation length of $P$, this will calculate a quantised Chern number.
          }\label{fig:restricted_kitaev}
     \end{figure}
@@ -258,7 +258,7 @@ We show three sets of examples. In Fig.~\ref{fig:qkit_example_boundaries} we com
      \begin{center}
         \includegraphics[width = \textwidth]{crosshair_marker/figures/ch_first_eg.pdf}
     \end{center}
-     \captionof{figure}{
+     \captionof{figure}[Example of the Kitaev marker for an amorphous QWZ system in periodic and open boundaries.]{
     $\qkit$ for the same amorphous QWZ model in periodic and open boundary conditions. In both cases $u$ is tuned to $-0.5$, close to the centre of the topological region shown in Fig.~\ref{fig:QWZ_band_struct}. \textbf{(a)}~In periodic boundaries, there are four points where both step functions meet. One in the centre and three on the boundary. At each of these points, the marker has a contribution determined by the Chern number, however at two of these points the step functions are such that the ordering of the regions is counter-clockwise, so the contribution is negative. Thus, the total trace vanishes. \textbf{(b)}~In open boundaries the bulk Chern insulator is surrounded by a ring of gapless edge modes. Thus, on the boundary the projector is long-ranged and contributes a non-vanishing term to $\qkit$ that exactly cancels out the bulk term. \textbf{(c)}~A plot showing the trace of $\qkit$ over a circular region $O$ around the central peak, showing the sum against circle radius. The maximum values reached in the PBS and OBC cases both quantised to one part in $10^6$, this extremely precise quantisation can be improved by increasing system size, further separating the bulk and edge effects. Once the circle becomes large enough to include boundary effects, both markers vanish.
      }\label{fig:qkit_example_boundaries}
 \end{figure}
@@ -268,7 +268,7 @@ We show three sets of examples. In Fig.~\ref{fig:qkit_example_boundaries} we com
      \begin{center}
         \includegraphics[width = 0.94\textwidth]{crosshair_marker/figures/ch_phase_transition.pdf}
     \end{center}
-     \captionof{figure}{
+     \captionof{figure}[Effect of a topological phase transition on Kitaev's local marker.]{
     $\qkit$ for an amorphous QWZ system in OBC for a range of $u$ values across a transition from a topological to a trivial phase. \textbf{(a-f)} Local distribution of $qkit$ for a set of $u$ values that range from $u=-1.1$ to $u =-1.6$, where the phase boundary is at $u =-1.5$. Nearing the phase boundary, the edge modes permeate deeper into the bulk -- and so the edge contributions get closer to the central peak in $\qkit$. At the exact phase transition the entire system is conducting, and the bulk and edge parts of $\qkit$ are not separable. Past the boundary, the marker vanishes. \textbf{(g)}~Trace of $\qkit$ over a circular region $O$ around the central peak. Before the phase transition, the line tends towards $+1$ until it starts to include the edge effects, after the phase transition it tends to 0. 
      }\label{fig:qkit_phase_transition}
 \end{figure}
@@ -278,7 +278,7 @@ We show three sets of examples. In Fig.~\ref{fig:qkit_example_boundaries} we com
      \begin{center}
         \includegraphics[width = 0.94\textwidth]{crosshair_marker/figures/ch_increasing_disorder.pdf}
     \end{center}
-        \captionof{figure}{
+        \captionof{figure}[Effect of increasing disorder on Kitaev's marker.]{
             $\qkit$ for an amorphous QWZ system in OBC with increasing on-site disorder, added by locally varying the value of $u$ -- sampling from a Gaussian distribution centred on $u = -0.5$. \textbf{(a-f)} Local distribution of $qkit$ for a set of $u$ values sampled with a standard deviation ranging from $\sigma = 0$ to $\sigma = 1.75$ in steps of $0.35$. Once $\sigma$ is sufficiently large, the disorder is strong enough to create topologically trivial regions in the material that destroy the quantisation of $\qkit$, and the material is topologically trivial. \textbf{(g)}~Trace of $\qkit$ over a circular region $O$ around the central peak. At sufficiently weak disorder, the marker remains close to quantised. However past a threshold around $\sigma \sim 1$, the marker no longer approaches a quantised value.
             }\label{fig:qkit_disorder}
 \end{figure}

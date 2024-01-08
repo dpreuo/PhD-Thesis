@@ -1,11 +1,11 @@
-Let us introduce the Qi-Wu-Zhang (QWZ) model as a paradigmatic example of a two-dimensional topological insulator with nearest-neighbour interactions~\cite{qi_topological_2006, asboth_short_2016}.
+Let us introduce the Qi-Wu-Zhang (QWZ) model as a paradigmatic example of a two-dimensional topological insulator with nearest-neighbour interactions~\cite{qi_topological_2006}.
 
 \todo{add some history on the model here}
 
 \begin{figure}[t]
     \begin{center}
-     \includegraphics[width=\textwidth]{local_markers_background/figures/QWZ_donut}
-    \caption{The embedding of the Brillouin zone in $\textbf d$-space for the QWZ model. This is shown in four progressive cutaways to ensure the internal structure can be seen. In all four images $k_x$ spans the interval $\left [0, 2\pi \right )$, however in \textbf{(a)}~$k_y$ spans $\left [ 0, \frac{\pi}{2} \right )$, in \textbf{(b)}~$k_y$ spans $\left [0, \pi \right )$, in \textbf{(c)}~$k_y$ spans $\left [0, \frac{3 \pi}{2} \right )$, and in \textbf{(d)}~$k_y$ spans $\left [0, 2\pi \right )$. }
+     \includegraphics[]{local_markers_background/figures/QWZ_donut}
+    \caption[A single band of the QWZ model plotted on the Bloch sphere.]{The embedding of the Brillouin zone in $\textbf d$-space for the QWZ model. This is shown in four progressive cutaways to ensure the internal structure can be seen. In all four images $k_x$ spans the interval $\left [0, 2\pi \right )$, however in \textbf{(a)}~$k_y$ spans $\left [ 0, \frac{\pi}{2} \right )$, in \textbf{(b)}~$k_y$ spans $\left [0, \pi \right )$, in \textbf{(c)}~$k_y$ spans $\left [0, \frac{3 \pi}{2} \right )$, and in \textbf{(d)}~$k_y$ spans $\left [0, 2\pi \right )$. }
     \label{fig:QWZ_donut}
     \end{center}
 \end{figure}
@@ -46,8 +46,8 @@ Q = \left\{\begin{matrix}
 not including the points at $u =$ -2, 0 and 2, at which the Chern number is undefined because the band gap closes and the material becomes conducting. Some example band structures for varying values of $u$ are shown in Fig.~\ref{fig:QWZ_band_struct}.
 \begin{figure}[t]
 \begin{center}
- \includegraphics[width=\textwidth]{local_markers_background/figures/QWZ_band_struct} 
-\caption{Four examples of the band structure of the QWZ model are shown, for varying $u$ values between 0 and 2.5. At $u$ = 0 and 2, the bands touch and Chern number is undefined. At $u = 1$, $\mathcal C = +1$, and at $u = 2.5$, $\mathcal C = 0$.}
+ \includegraphics[]{local_markers_background/figures/QWZ_band_struct} 
+\caption[Band structure of the QWZ model.]{Four examples of the band structure of the QWZ model are shown, for varying $u$ values between 0 and 2.5. At $u$ = 0 and 2, the bands touch and Chern number is undefined. At $u = 1$, $\mathcal C = +1$, and at $u = 2.5$, $\mathcal C = 0$.}
 \label{fig:QWZ_band_struct}
 \end{center}
 \end{figure}
@@ -68,7 +68,7 @@ We have effectively reduced our system from a lattice of sites in $x$ and $y$, t
 \begin{figure}[t]
 \begin{center}
  \includegraphics[width=.85\textwidth]{local_markers_background/figures/strip_energy}
-\caption{An example band structure for a QWZ model with $u$ = 1.3 and $L_x$ = 30. States are coloured according to their inverse participation ratio, indicating their relative degree of localisation. \textbf{(Left)} The example for periodic boundary conditions, showing two well-separated bands. \textbf{(Right)} The case for open boundary conditions. Two edge states are shown leaving the bulk and crossing the gap, with the descending state being a left edge state, and the ascending state being a right edge state.  }
+\caption[QWZ bands in open boundaries.]{An example band structure for a QWZ model with $u$ = 1.3 and $L_x$ = 30. States are coloured according to their inverse participation ratio, indicating their relative degree of localisation. \textbf{(Left)} The example for periodic boundary conditions, showing two well-separated bands. \textbf{(Right)} The case for open boundary conditions. Two edge states are shown leaving the bulk and crossing the gap, with the descending state being a left edge state, and the ascending state being a right edge state.  }
 \label{fig:strip_energy}
 \end{center}
 \end{figure}
@@ -110,7 +110,7 @@ These limits can be seen in Fig.~\ref{fig:strip_energy}, where the edge states p
      \begin{center}
         \includegraphics[]{local_markers_background/figures/bloch}
     \end{center}
-     \captionof{figure}{
+     \captionof{figure}[Hopping operators for the amorphous QWZ model, shown on the Bloch sphere.]{
      The Bloch sphere, showing the positions of the eigenstates of the three Pauli matrices. The action of the hopping matrices is shown in red, where the $h_x$ and $h_y$ operators act as creation operators on the $y$ and $x$ bases respectively. The action of our arbitrary angle hopping operator is shown in blue, acting as a creation operator between a pair of orthogonal states that lie on the $x$-$y$ plane.
      }\label{fig:bloch}
 \end{figure}
@@ -148,7 +148,7 @@ As before, the parameter $u$ controls whether the system is in a topological or 
 \begin{figure}[t]
     \begin{center}
      \includegraphics[width=\textwidth]{local_markers_background/figures/amorphous_qwz.png}
-    \caption{Plots showing the spectra of the amorphous QWZ model for two different example lattices. States are coloured according to their inverse participation ratio. 
+    \caption[Energies of the amorphous QWZ model in open and periodic boundary conditions, revealing the presence of edge modes. ]{Plots showing the spectra of the amorphous QWZ model for two different example lattices. States are coloured according to their inverse participation ratio. 
     \textbf{(a)}~A trivalent lattice generated from a Voronoi decomposition of a set of random points, followed by five iterations of LLoyd's algorithm to regularise bond lengths. 
     \textbf{(b)}~The spectrum of the QWZ model on the voronised lattice as a function of $u$. Several gaps are present at different values of $u$ and $E$. 
     \textbf{(c)}~The spectrum of the same model as (b), but in open boundary conditions. Here we can see that all gaps for $u \in [-1.5, 1]$ are now filled with edge modes, indicating that the system is in a topological phase. 

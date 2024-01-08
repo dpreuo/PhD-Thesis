@@ -12,7 +12,7 @@ In this section we will present the full procedure for constructing and solving 
 \begin{figure}
     \centering
     \includegraphics{kitaev_model/figures/colouring_example.pdf}
-    \caption{
+    \caption[An example of the procedure for flipping a set of fluxes, the Peterson snark and examples of the loop structure formed by considering only two sets of bonds.]{
     \textbf{(a)}~An example of a Voronoi lattice with a valid three edge colouring. 
     \textbf{(b)}~The Peterson snark, the first example of a non-edge-colourable cubic graph. 
     \textbf{(c)}~In periodic boundaries, the Peterson snark can be rearranged into a planar graph. 
@@ -44,7 +44,7 @@ The spin Hamiltonian is real, so it has time reversal symmetry. However, unlike 
 \begin{figure}
     \centering
     \includegraphics{kitaev_model/figures/amorphous_fluxes.pdf}
-    \caption{An example of the procedure for flipping a set of fluxes.
+    \caption[An example of the procedure for flipping a set of fluxes.]{An example of the procedure for flipping a set of fluxes.
     \textbf{(a)}~The initial system, with the flux through each plaquette labelled, and $u_{jk}$ values indicated with bond arrows.
     \textbf{(b)}~A set of plaquettes (highlighted in pink) are chosen to be flipped. The plaquette spanning tree is constructed (shown in blue and green). Blue parts of the tree have an even number of plaquettes to flip on both sides, so their corresponding edge is not flipped. Green parts of the tree have an odd number of plaquettes to flip on both sides, so their corresponding edge is flipped.
     \textbf{(c)}~The lattice after the flip has been performed, with the flipped edges highlighted in red.
@@ -158,7 +158,7 @@ Note that this flux differs from our previous definition in that it is calculate
 \begin{figure}
     \centering
     \includegraphics{kitaev_model/figures/compound_path.pdf}
-    \caption{
+    \caption[Decomposing the flux through a complex region into its constituent plaquettes.]{
     The flux through a large and complex walk, $\phi_w$ can be decomposed as the product of the flux through its constituent plaquettes, neglecting the parts of the walk that enclose no area.
     } 
     \label{fig:compound_path}
@@ -199,7 +199,7 @@ In periodic boundaries, not every walk can be expressed as a product over plaque
 \begin{figure}
     \centering
     \includegraphics{kitaev_model/figures/twist_phases.pdf}
-    \caption{
+    \caption[The effect of twisted boundaries on system crossing fluxes.]{
     A lattice in twisted boundaries, with a phase $q_\alpha$ obtained on crossing the boundary in the $\alpha$-direction. Several loops are shown. The red loops pick up no phase since they either do not cross the boundaries or cross it once in each direction. The light blue path crosses the $x$-boundary once, so picks up a phase $e^{iq_x}$. The dark blue path crosses the $x$-boundary twice, so picks up a phase $e^{2iq_x}$.
     } 
     \label{fig:twist_phases}
@@ -229,7 +229,7 @@ We now detail the numerical evidence collected to support our claim for the flux
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.9\textwidth]{kitaev_model/figures/ground_state_amorphous.pdf}
-    \caption{\textbf{(a)}~The energy of every flux sector explored for a system of 16 plaquettes, the order is arbitrary. The two ground state flux sectors can be identified as the points with the lowest energy. \textbf{(b)}~The fermion gap for each of the flux sectors explored. Note that the largest fermion gap coincides with the ground state flux sector. This occurred in $\sim 85\%$ of cases tested. (c) Average energy of the systems tested over a range of system sizes from $n_p$ = 9 to $n_p = 1600$. The region between the upper and lower quartiles is shown in red, and the full range of energies obtained is shown in orange. (d) Average fermion gap as a function of system size. Again, the region between the upper and lower quartiles is shown in red, and the full range is shown in orange. As can be seen, no gapless systems were found for $n_p > 20$. }
+    \caption[Energy and gap of every flux sector for a system with 16 plaquettes. Plot of energy and fermion gap scaling with system size.]{\textbf{(a)}~The energy of every flux sector explored for a system of 16 plaquettes, the order is arbitrary. The two ground state flux sectors can be identified as the points with the lowest energy. \textbf{(b)}~The fermion gap for each of the flux sectors explored. Note that the largest fermion gap coincides with the ground state flux sector. This occurred in $\sim 85\%$ of cases tested. (c) Average energy of the systems tested over a range of system sizes from $n_p$ = 9 to $n_p = 1600$. The region between the upper and lower quartiles is shown in red, and the full range of energies obtained is shown in orange. (d) Average fermion gap as a function of system size. Again, the region between the upper and lower quartiles is shown in red, and the full range is shown in orange. As can be seen, no gapless systems were found for $n_p > 20$. }
     \label{fig:energy_gaps_example}
 \end{figure}
 
@@ -242,7 +242,7 @@ We turn our attention to checking that the ground state flux sector is gapped. H
 \begin{figure}[t]
     \centering
     \includegraphics[]{kitaev_model/figures/am_phase.pdf}
-    \caption{Ground-state phase diagram calculated for an example amorphous lattice with 800 sites. The phase diagram is coloured with the logarithm of the gap size, showing clearly the lines where the gap closes, separating a gapped $B$ phase from the three $A_{\alpha}$ toric code phases. Three example lattices (for a much smaller lattice) are shown in order to illustrate the state of the system at three points in the phase space.
+    \caption[Ground-state phase diagram calculated for an example amorphous lattice with 800 sites.]{Ground-state phase diagram calculated for an example amorphous lattice with 800 sites. The phase diagram is coloured with the logarithm of the gap size, showing clearly the lines where the gap closes, separating a gapped $B$ phase from the three $A_{\alpha}$ toric code phases. Three example lattices (for a much smaller lattice) are shown in order to illustrate the state of the system at three points in the phase space.
     \textbf{(a)}~Around the corners the system is dimerised, with the remaining couplings acting as a weak perturbation on the dimerised system.
     \textbf{(b)}~In the centre of a side of the triangle, the system is decoupled into a set of chain models.
     \textbf{(c)}~At the centre of the phase diagram there is a gapped chiral quantum spin liquid phase. 
@@ -260,7 +260,7 @@ A fundamental tool for understanding the distinction between the two phases is t
 \begin{figure}[t]
     \centering
     \includegraphics[]{kitaev_model/figures/chern_and_edge_modes.pdf}
-    \caption{ An example system in the B phase, on a lattice with $\sim 8000$ vertices. 
+    \caption[Kitaev Chern marker, edge mode and density of states for an amorphous Kitaev system with $\sim 8000$ vertices.]{An example system in the B phase, on a lattice with $\sim 8000$ vertices. 
     \textbf{(a)}~The local Kitaev marker $\qkit$ for a crosshair placed in the centre of the material. The sum of the central positive contribution is quantised to $\mathcal Q = +1$ by one part in $10^{-5}$.
     \textbf{(b)}~A plot of the logarithm of number density for a gap crossing edge mode with energy $\varepsilon = 0.003$. The log of the density decays linearly from the edge to the bulk, indicated that the that is exponentially localised to the boundary. 
     \textbf{(c)}~The density of states of the Majorana Hamiltonian, coloured according to the average IPR of states at a given energy.
@@ -275,7 +275,7 @@ A fundamental tool for understanding the distinction between the two phases is t
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{kitaev_model/figures/bond_disorder.pdf}
-    \caption{
+    \caption[The effect of bond disorder on the amorphous Kitaev model.]{
     \textbf{(a)}~Close up of a section of amorphous lattice generated using a single Voronoi partition on a set of uniformly sampled seed points. \textbf{(b)}~A section of amorphous lattice generated using the regularised method detailed in Appendix~\ref{sec:bond-dis}, by creating a Voronoi partition using seed points sampled from a blue noise distribution. This is then followed by four iterations of Lloyd's algorithm to further regularise the bond lengths. \textbf{(c)}~A histogram of bond lengths for the example graphs in sub figures a and b. Note that the distribution is much more tightly peaked around the mean bond length in the regularised lattice, with no extremely short bonds present. \textbf{(d)}~The Majorana spectrum for a single example of an amorphous lattice for five different values of $\alpha \in  [0 , 8]$. \textbf{(e)}~Finite-size scaling analysis of the fermion gap in the flux-free sector. Solid lines indicate the gap averaged over 50 random lattice samples for each system size, and the shaded regions indicate the full range of the sampled gaps.
     }
     \label{fig:disorder}
