@@ -8,6 +8,8 @@
 \usepackage{yfonts}
 \usepackage{lipsum}
 \usepackage{microtype}
+\usepackage{bibentry} 
+
 % \usepackage{parskip}
 \usepackage{appendix}
 \usepackage{mathtools}
@@ -18,10 +20,11 @@
 \usepackage{wrapfig}
 
 % \usepackage{fbb} % change font to bembo for a bit of variety :)
-\usepackage{ebgaramond}
+% \usepackage{ebgaramond}
 
 
-\renewcommand{\thefootnote}{\roman{footnote}}
+\newcommand{\printpublication}[1]{\AtNextCite{\defcounter{maxnames}{99}}\fullcite{#1}}
+
 
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}

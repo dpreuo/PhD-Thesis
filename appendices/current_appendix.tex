@@ -1,6 +1,6 @@
 \section{Adiabatic Current Operators} \label{sec:near_adiabatic}
 
-In this section we will expand our justification for the form of the adiabatic current presented in \textsection \ref{sec:kato_current}. The argument splits into two parts. First we introduce an operator that describes the direct flow of particles between a pair of individual sites $\textbf r_i$ and $\textbf r_{j}$ in the system, $f_{\textbf r_i , \textbf r_j}$. Then we will show how, in the adiabatic limit, the flow between a pair of sites is determined by the adiabatic Hamiltonian $K$, introduced in \textsection\ref{sec:kato}. Bulk current can always be written as the sum over the flow between individual sites, thus all the properties of $f_{\textbf r_i , \textbf r_j}$ naturally extend to the currents defined in~\textsection\ref{sec:current}. 
+In this section we will expand our justification for the form of the adiabatic current presented in \textsection\ref{sec:kato_current}. The argument splits into two parts. First we introduce an operator that describes the direct flow of particles between a pair of individual sites $\textbf r_i$ and $\textbf r_{j}$ in the system, $f_{\textbf r_i , \textbf r_j}$. Then we will show how, in the adiabatic limit, the flow between a pair of sites is determined by the adiabatic Hamiltonian $K$, introduced in \textsection\ref{sec:kato}. Bulk current can always be written as the sum over the flow between individual sites, thus all the properties of $f_{\textbf r_i , \textbf r_j}$ naturally extend to the currents defined in~\textsection\ref{sec:current}. 
 
 \subsection{Two-Point Flow Operator}
 
@@ -55,7 +55,7 @@ with $f^A$ defined according to
 \begin{align}\label{eqn:adiabatic_current}
         \bar f_{\textbf r_i,\textbf r_j}^A = i \delta_{\textbf r_j} \bar K\delta_{\textbf r_i }-i\delta_{\textbf r_i}\bar K\delta_{ \textbf r_j },
 \end{align}
-and $\bar K = i[\partial_s P_I , P_I] $ in analogy to the definition in \textsection \ref{sec:kato}. Note that the flow in Eqn.~\ref{eqn:two_point_current} is always valid regardless of what state it is acted on. Since $K$ is defined for a choice of $P_I$, the adiabatic flow is only correct when evaluated with an occupied band consisting of the states in $P_I$.
+and $\bar K = i[\partial_s P_I , P_I] $ in analogy to the definition in \textsection\ref{sec:kato}. Note that the flow in Eqn.~\ref{eqn:two_point_current} is always valid regardless of what state it is acted on. Since $K$ is defined for a choice of $P_I$, the adiabatic flow is only correct when evaluated with an occupied band consisting of the states in $P_I$.
 
 Our argument has two parts. We shall first decompose the Hamiltonian into a term that commutes with $P$ and a term that does not. Only the non-commuting term contributes to measurable change in the system. Finally, we show that this term has a straightforward expression in the near-adiabatic limit, and defines the adiabatic flow. 
 
@@ -162,7 +162,7 @@ Finally, we may rescale from $s$ back to $t$, making the substitutions $\bar f =
 \begin{align}
     f_{\textbf r_i, \textbf r_j} = i \delta_{\textbf r_j} K\delta_{\textbf r_i }-i\delta_{\textbf r_i} K\delta_{ \textbf r_j } + \mathcal O \left( \frac{1}{T^2} \right ).
 \end{align}
-Since the current operators used in \textsection \ref{sec:current} and \textsection\ref{sec:marker_derivation} can be expressed as a sum over individual flows, this property naturally extends to the current, and we see that
+Since the current operators used in \textsection\ref{sec:current} and \textsection\ref{sec:marker_derivation} can be expressed as a sum over individual flows, this property naturally extends to the current, and we see that
 \begin{align}
     J_{R_x} &\rightarrow J^A_{R_x} + \mathcal O \left( \frac{1}{T^2} \right ) \\
     J_{R_x}(\textbf r) &\rightarrow J^A_{R_x}(\textbf r) + \mathcal O \left( \frac{1}{T^2} \right ),

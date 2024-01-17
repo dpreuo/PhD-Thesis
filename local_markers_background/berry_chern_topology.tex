@@ -48,11 +48,15 @@ This quantity is clearly gauge-invariant, since any phase applied to a state $\k
 
 \subsubsection{Berry Flux}
 
-Now suppose that we have a large number of states arranged in a 2D grid. These states  $\ket{\psi_{\textbf k}}$ are labelled with a pair of indices $k_x$ and $k_y$. In general, this parameter $\textbf k$ will refer to the crystal momentum, however the construction is equally valid for any other parameter that defines a 2D grid of quantum states.
+Now suppose that we have a large number of states arranged in a 2D grid. These states  $\ket{\psi_{\textbf k}}$ are labelled with a pair of indices $k_x$ and $k_y$. In general, this parameter $\textbf k$ will refer to the crystal momentum, however the construction is equally valid for any other parameter that defines a 2D grid of quantum states, shown in Fig.~\ref{fig:berry_grid}.
 
-\begin{center}
-\input{local_markers_background/figures/berry_grid}
-\end{center}
+\begin{figure}
+    \begin{center}
+        \input{local_markers_background/figures/berry_grid}
+    \caption[A grid of states parametrised by a discrete parameter. ]{A grid of states parametrised by the discrete variables $\textbf k$, given by $\ket{\psi_{k_x,k_y}}$. For each plaquette, the Berry phase is calculated by taking the inner products of the states going counterclockwise around the loop.}
+    \label{fig:berry_grid}
+    \end{center}
+\end{figure}%
 
 We introduce a new quantity called the Berry flux, defined as the Berry phase around a plaquette on the grid,
 \begin{align}\label{eqn:berry_flux}
@@ -132,7 +136,7 @@ Now let us suppose that we slowly transform our Hamiltonian around some closed p
     \caption[Colourmap of a local gauge transformation. ]{An example of a non-smooth gauge transformation designed to change the value of the Berry phase around the path $\mathcal C$ -- marked with a dashed line -- by an addition of $2\pi$. Only a small region of $\textbf R$-space is shown, with the local phase applied shown by the colourmap.}
     \label{fig:branch_cut}
     \end{center}
-\end{figure}
+\end{figure}%
 The exponential of the phase $e^{-i\gamma(\mathcal C)}$ around the loop \textit{is} gauge invariant, one can see this intuitively by realising that it is identical to the Berry phase from the discrete case, but in the limit where the discrete steps become arbitrarily close together. However, the Berry phase $\gamma(\mathcal C)$ itself is not strictly gauge invariant, since one can introduce a gauge transformation that creates a branch cut around the path $\mathcal C$. After traversing the whole path, the state at the end of the loop would have picked up a total phase $2\pi$, meaning that under a gauge transformation we can change the Berry phase according to 
 \begin{align}
     \gamma (\mathcal C) \rightarrow \gamma (\mathcal C) + 
@@ -188,7 +192,7 @@ where we use the shorthand $\partial_\alpha = \frac{\partial}{\partial R_\alpha}
         } + h.c.
     \end{align}
 
-    \item Note that the definition provided for the Berry curvature  (Eqn.~\ref{berry_curvature_state_deriv}) is only well-defined across $\mathcal R$ when the state remains fully gapped. That is, no other states ever have the same energy as $\ket{\psi(\textbf R)}$. When another state energy crosses that of $\ket \psi$, the individual states become ill-defined and so it becomes challenging to write down a natural derivative for the states. With this in mind, let us consider re-expressing the Berry curvature in terms of the single state projector $\hat \psi = \ketbra\psi \psi$,
+    \item Note that the definition provided for the Berry curvature  (Eqn.~\ref{berry_curvature_state_deriv}) is only well-defined across $\mathcal R$ when the state remains fully gapped. That is, no other states ever have the same energy as $\ket{\psi(\textbf R)}$. When another state's energy crosses that of $\ket \psi$, the individual states become ill-defined and so it becomes challenging to write down a natural derivative for the states. With this in mind, let us consider re-expressing the Berry curvature in terms of the single state projector $\hat \psi = \ketbra\psi \psi$,
     \begin{align} \label{eqn:operator_berry_curvature}
         i \braket{  \partial_x \psi | \partial_y \psi} + h.c.
         =
@@ -201,7 +205,7 @@ where we use the shorthand $\partial_\alpha = \frac{\partial}{\partial R_\alpha}
 \end{enumerate}
 \end{shaded}
 
-This calculation has one important caveat. It is only possible to apply Stokes' theorem when $\textbf A$ is smooth over the region $\mathcal{R}$. This means that we need to have already picked a smooth gauge in the region we are integrating over to have a guarantee that Eqns.~\ref{eqn:2d_berry_curvature} and \ref{eqn:2d_berry_curvature} hold. If we transform to a non-smooth gauge then it is possible that the Berry phase will change by a multiple of $2\pi$, however the Berry curvature is truly gauge invariant. This can be seen from Eqn.~\ref{eqn:berry_curvature_hamiltonian}, where the Berry curvature is defined without the differentiation of states, so is invariant under even a non-smooth gauge transformation. Thus in general we only have the guarantee that
+This calculation has one important caveat. It is only possible to apply Stokes' theorem when $\textbf A$ is smooth over the region $\mathcal{R}$. This means that we need to have already picked a smooth gauge in the region we are integrating over to have a guarantee that Eqns.~\ref{eqn:2d_berry_curvature} and \ref{eqn:3d_berry_curvature} hold. If we transform to a non-smooth gauge then it is possible that the Berry phase will change by a multiple of $2\pi$, however the Berry curvature is truly gauge invariant. This can be seen from Eqn.~\ref{eqn:berry_curvature_hamiltonian}, where the Berry curvature is defined without the differentiation of states, so is invariant under even a non-smooth gauge transformation. Thus in general we only have the guarantee that
 \begin{align}\label{eqn:berry_loop_to_curvature}
     e^{-i\gamma(\mathcal C)} = e^{\int_{\mathcal S} d^2 R\,  \Omega (\textbf R)}.
 \end{align}
@@ -211,7 +215,7 @@ As in \textsection\ref{sec:discrete_chern}, we make the assertion that the manif
 \begin{align} \label{eqn:cont_chern_number}
     \mathcal Q &= \frac{1}{2\pi} \int d^2 R \, \Omega.
 \end{align}
-As in the discrete case, the Chern number is restricted to only take integer values. The argument follows the same lines as previously, where we can use our modified form of Stokes theorem (Eqn.~\ref{eqn:berry_loop_to_curvature}). Since the manifold is close, it has no boundary, so the flux integral equivalent to the Berry phase around a loop enclosing no area, implying that
+As in the discrete case, the Chern number is restricted to only take integer values. The argument follows the same lines as previously, where we can use our modified form of Stokes' theorem (Eqn.~\ref{eqn:berry_loop_to_curvature}). Since the manifold is close, it has no boundary, so the flux integral equivalent to the Berry phase around a loop enclosing no area, implying that
 \begin{align}
     e^{\int d^R k\,  \Omega (\textbf R)} &= 1,
     \implies \mathcal Q \in \mathbb Z
@@ -225,7 +229,7 @@ The Hilbert space of a two-level system is given by rays in $\mathbb C ^2$. Any 
 \begin{align}
     H = \textbf{d}\cdot\hat{\sigma}  = d_i \sigma^i,
 \end{align}
-where the $\sigma^i$ are the Pauli matrices. This gives us a complete basis for $2\times2$ traceless Hermitian matrices. Of course, we could include a multiple of the identity to span the full space of Hermitian matrices, however this would have no effect on the topology, shall be omitted.
+where the $\sigma^i$ are the Pauli matrices. This gives us a complete basis for $2\times2$ traceless Hermitian matrices. Of course, we could include a multiple of the identity to span the full space of Hermitian matrices, however this would have no effect on the topology, and shall be omitted.
 
 The set of traceless Hamiltonians is thus a manifold in itself, $ \{H\} \cong \mathbb{R}^3 $, since $\textbf{d} \in \mathbb{R}^3 $. The first thing we will do is to express the vector $\textbf{d}$ in spherical polar coordinates,
 \begin{align}
@@ -292,21 +296,23 @@ To calculate the Berry phase around a loop in k-space, all we have to do is look
 What about the Chern number? This is found by the integrating the Berry curvature across the whole surface of the torus in d-space. If the embedding of the torus does not contain the origin, then the value of this integral is necessarily zero. Now suppose the torus is embedded such that it contains the origin, then we will have a surface that catches all the Berry flux on its inside and the solid angle subtended is $4\pi$. Thus, the Chern number is $+1$. Similarly, for an embedding that wraps the torus twice around the origin, the subtended flux will correspond to twice the charge of the monopole, leading to a Chern number of $+2$. Thus, we see that the Chern number in this context must be quantised, and can often be read directly from the form of $\textbf d(\textbf k)$ by asking how many times this embedding of the torus wraps the origin.
 
 \subsection{Final Notes}
-\todo{This section needs reworking! It's a leftover from the ESR..., also more references worked in pls \cite{hatsugai_chern_1993}}
 
 We close this section with an explanation of the consequences of Chern number in topological insulators.
 
 \subsubsection{Smoothly Deforming the Hamiltonian}
 
-Now, consider a pair of quantum systems in the same Hilbert space, described by Hamiltonians $\hat H_1$ and $\hat H_2$ which are both gapped at the Fermi level. We might want to ask: \textit{Is it possible to smoothly deform $\hat H _1$ into $\hat H_2$ without crossing a point where the gap at the Fermi level closes?}
+Consider a pair of quantum systems in the same Hilbert space, described by Hamiltonians $\hat H_1$ and $\hat H_2$ which are both gapped at the Fermi level. We might ask: \textit{Is it possible to smoothly deform $\hat H _1$ into $\hat H_2$ without crossing a point where the gap at the Fermi level closes?}
 
-The answer is that it is only possible if the bands of $\hat H_1$ and $\hat H_2$ have the same Chern numbers. This is because the Chern number is always restricted to have integer value, so cannot continuously change as we smoothly deform the Hamiltonian. In order to change the Chern number we must somewhere cross a point where it is impossible to define a Chern number at all, allowing it to jump discontinuously when we leave that point. This is precisely what happens when two bands touch, the description of a single band becomes ill-defined, so the band's Chern number is ill-defined.
+The answer is that it is only possible if the sum of the Chern numbers of the occupied bands of $\hat H_1$ and $\hat H_2$ are the same. This is because the total Chern number of the occupied bands is restricted to only take integer values -- it cannot smoothly change as we deform the Hamiltonian. For the total Chern number to change, we must somewhere cross a point where it is impossible to define a Chern number at all, allowing it to jump discontinuously when we leave that point. This is precisely what happens when the gap at the Fermi level closes. At this point, the occupied bands can no longer be defined as a smooth object in momentum space, since there must be a discontinuity at the band touching point. 
 
-We can illustrate this with the example in \textsection\ref{sec:an_example}. Smoothly deforming the Hamiltonian amounts to changing the shape of the torus embedded in $\textbf d$-space. If any point on the surface of the torus touches the origin, a pair of zero-energy states appears. Thus, the bands touch and the system is conductive. If the band has a Chern number of one, this means that the torus contains the origin. If we wanted to smoothly deform this to have zero Chern number, we would need to move the torus such that the origin was now outside. At some point in this deformation the torus surface will have to touch the origin, creating a conducting Hamiltonian at that point.
+We can illustrate this with the example in \textsection\ref{sec:an_example}. Smoothly deforming the Hamiltonian amounts to changing the shape of the torus embedded in $\textbf d$-space. If any point on the surface of the torus touches the origin, a pair of zero-energy states must appear -- the gap has closed, and the system is conductive. If the band has a Chern number of $+1$, this means that the torus contains the origin. In order to smoothly deform this into a system with zero Chern number, we would need to move the torus such that the origin was now outside. At some point in this deformation the torus surface will have to pass through the origin, creating a conducting Hamiltonian at that point.
 
-Thus, we can classify all Hamiltonians according to the Chern number of their bands. It is always impossible to smoothly deform a Hamiltonian into one with a different Chern number while remaining insulating. Similarly, it is always possible to smoothly deform two Hamiltonians into one another without closing a gap, provided that their bands have identical Chern numbers\footnote{A simple justification for this comes from band flattening. Any Hamiltonian can be smoothly band flattened, where all the states in each band are set to the same energy. Furthermore, for a given set of Chern numbers, all band flattened Hamiltonians are equivalent. Thus, any two Hamiltonians with identical Chern numbers can be transformed into one another by using the common band flattened Hamiltonian as an intermediate step.}~\cite{avron_homotopy_1983}.
+Thus, we can classify all Hamiltonians according to the Chern number of their bands. It is always impossible to smoothly deform a Hamiltonian into one with a different Chern number while remaining insulating. Similarly, it is always possible to smoothly deform two Hamiltonians into one another without closing a gap, provided that their bands have identical Chern numbers\footnote{A simple justification for this comes from band flattening. Any Hamiltonian can be smoothly band flattened, where all the states in each band are set to the same energy. Furthermore, for a given set of Chern numbers, all band flattened Hamiltonians (with the same dimensionality) are equivalent. Thus, any two Hamiltonians with identical Chern numbers can be transformed into one another by using the common band flattened Hamiltonian as an intermediate step.}~\cite{avron_homotopy_1983}.
 
-This allows us to make a rough justification for why conducting edge states must appear wherever we have a material with nonzero Chern number. Suppose we have a large material where the Hamiltonian is allowed to vary slowly over space, defined by $\hat H (\textbf r)$. In one region this Hamiltonian locally has non-zero Chern number, $\hat H _{\textup{topological}}$, but in a different distant region it locally has zero Chern number, $\hat H _{\textup{trivial}}$. We expect that between these regions the Hamiltonian must be gradually transforming between $\hat H _{\textup{topological}}$ and $\hat H _{\textup{trivial}}$. As we have seen, it is impossible for our Hamiltonian to make this transformation without passing through a conducting region somewhere along the way -- edge states must appear! Loosely speaking, we can view the vacuum as a Chern number zero material, which gives us an intuitive picture for why we might expect materials with non-zero Chern number to always have edge states appearing on their surface, where the Hamiltonian has to transition to the vacuum. 
+\subsubsection{The Bulk-Boundary Correspondence}
+
+The argument presented above allows us to make a rough justification for why conducting edge states must appear wherever we have a material with nonzero Chern number. Suppose we have a large material where the Hamiltonian is allowed to vary slowly over space, defined by $\hat H (\textbf r)$. In one region this Hamiltonian locally has non-zero Chern number, $\hat H _{\textup{topological}}$, but in a different distant region it locally has zero Chern number, $\hat H _{\textup{trivial}}$. We expect that between these regions the Hamiltonian must be gradually transforming between $\hat H _{\textup{topological}}$ and $\hat H _{\textup{trivial}}$. As we have seen, it is impossible for our Hamiltonian to make this transformation without passing through a conducting region somewhere along the way -- edge states must appear! Exploiting this intuition, one might view the vacuum as having zero Chern number. Thus, we would expect that if a material with non-zero Chern number transforms over space into the vacuum -- that is, it has a boundary -- then conductive states must appear at the boundary. This property of Chern insulators is called the bulk-boundary correspondence \cite{qi_general_2006,hasan_colloquium_2010,qi_topological_2011}.
+
 
 \subsubsection{Chern Number and Globally Smooth Gauges}\label{sec:chern_smooth_gauge}
 Carefully considering the gauge used in Eqn.~\ref{states}, one might notice that there is a discontinuity at $\phi = \pi$ where $e^{i\phi}$ suddenly jumps as you cross over to $\phi = -\pi$. This is no oversight, it is completely impossible to define a globally smooth set of states $\ket{\psi(\textbf{d})}$ for any band that has nonzero Chern number. This is because if $\ket{\psi(\textbf{d})}$ were continuous everywhere, then the Berry connection would also have to be continuous everywhere. Thus, we could invoke Stokes' theorem in Eqn.~\ref{eqn:cont_chern_number}, showing that the Chern number must vanish since the integral is over the whole (closed) manifold. A nonzero Chern number thus relies on there being points where Stokes' theorem cannot be used. In this sense, the Chern number can be regarded as a measure of the amount of discontinuity that \textit{must} be present regardless of the gauge you choose for the space.

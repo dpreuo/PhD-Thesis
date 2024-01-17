@@ -1,18 +1,6 @@
-\todo{A few more references need to be added in this chapter - this section was mostly poached from my ESR so definitely needs some reworking.}
+To understand the role that topology plays in non-interacting insulators, we must first introduce several related concepts, the Berry phase, Berry curvature and Chern number. This chapter will only focus on the original formulation of these concepts, in a language first proposed by Berry, Simon and many others \cite{berry_quantal_1984,avron_homotopy_1983,simon_holonomy_1983}, however a number of excellent reviews also cover the topic, which has become a standard tool in condensed matter physics \cite{xiao_berry_2010,vanderbilt_berry_2018,asboth_short_2016,resta_geometry_2020}. These concepts are initially presented as a property intrinsically tied to band structure, which can only be expressed for a translationally symmetric, non-interacting material. However, our intention is to extend these notions to also include disordered systems. Thus, in \textsection\ref{sec:qi_wu_zhang} we shall provide a useful toy model for a two-level Chern insulator, the Qi-Wu-Zhang model \cite{qi_topological_2006}, along with a straightforward extension of this model to arbitrary lattices. 
 
-\todo{This section is also too long -- perhaps I should cut a few pages and perhaps move the two level system discussion to an appendix ... }
-
-Paragraph introducing the topics covered in this section. Points to hit:
-\begin{itemize}
-    \item Periodic translational hamiltonians can be classified according to the Chern number of their bands, where nonzero chern number implies the existence of gapless edge modes in open boundaries.
-    \item This classification has been immensely successful for understanding a lot of materials eg: QHE, Spin Hall effect etc
-    \item The classification relies on a notion of momentum space - in order to construct a manifold of states on which to define parallel transport.
-    \item Thus it doesn't work for systems without k space - e.g. open boundaries/disorder
-    \item Local markers are an attempt at constructing a real space version of this
-    \item We will explain all the prerequisites for constructing a local marker, as well as discussing their limitations.
-\end{itemize}
-
-Throughout this chapter and the next we will focus on non-interacting electrons on a lattice, thus let us begin by defining our Hilbert space in a first-quantised framework. We will work with the most general definition of a non-interacting tight-binding Hamiltonian in two dimensions. The Hilbert space $\mathcal H$ is constructed a set of $N$ sites with $\eta$ internal degrees of freedom, labelling site $j$ at a position $\textbf r_j$. For example, these sites could correspond to atoms, and the states at each site could represent individual orbitals around an atom. We will not assume that our sites are arranged in a regular lattice -- we wish to also model amorphous structures -- thus, a state in this system can be written as
+Throughout this chapter and the next we will focus on non-interacting electrons on a lattice, thus let us begin by defining our Hilbert space in a first-quantised framework. We will work with the most general definition of a non-interacting tight-binding Hamiltonian in two dimensions. The Hilbert space $\mathcal H$ is constructed from a set of $N$ sites with $\eta$ internal degrees of freedom, labelling site $j$ at a position $\textbf r_j$. For example, these sites could correspond to atoms, and the states at each site could represent individual orbitals around an atom. We will not assume that our sites are arranged in a regular lattice -- we wish to also model amorphous structures -- thus, a state in this system can be written as
 \begin{align}
     \ket {\psi} = \sum_j c_{j, \alpha} \ket{\textbf r_j} \otimes \ket{\alpha},
 \end{align}
@@ -22,6 +10,6 @@ where $c_{j, \alpha}$ are a set of complex coefficients and $\alpha \in \{1 ... 
 \end{align}
 If the system has translational symmetry $\{\textbf r_j\}$  will lie on a regular lattice with periodic boundaries and the Hamiltonian is invariant under translations -- here we can diagonalise the Hamiltonian in a basis of $k$-states,
 \begin{align}\label{eqn:k_state_def}
-    \ket {\textbf k} = \frac 1 {\sqrt N} \sum_{\textbf r_j} e^{-i \textbf k \textbf r_j} \ket {\textbf r_j}. 
+    \ket {\textbf k} = \frac 1 {\sqrt N} \sum_{\textbf r_j} e^{-i \textbf k \cdot \textbf r_j} \ket {\textbf r_j}. 
 \end{align}
-For a finite system the $k$-states are quantised to $k_a = 2\pi n / L_\alpha$, where $L_a$ is the length of the system in direction $\alpha \in \{x,y\}$, whereas in the case of an infinite system $k$ can take any value in the interval $[0,2\pi]$.
+For a finite system the $k$-states are quantised to $k_a = 2\pi n / L_a$, where $L_a$ is the length of the system in direction $ \in \{x,y\}$, whereas in the case of an infinite system $k$ can take any value in the interval $[0,2\pi]$.

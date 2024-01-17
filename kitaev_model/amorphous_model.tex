@@ -1,11 +1,9 @@
 \section{The Amorphous Kitaev Model} 
 \label{sec:amorphous_kitaev_model}
+ 
+Let us now consider the extension of the Kitaev honeycomb model to arbitrary lattice geometry. Remarkably, many of the techniques discussed in \textsection\ref{sec:honeycomb_model} carry over straightforwardly to the amorphous case -- including the conserved plaquette operators and their associated local symmetries (the $W_p/\phi_p$ quantities)~\cite{baskaran_exact_2007,baskaran_spin-s_2008}, as well as the general process for mapping onto an effective free Majorana system. Two complications arise that we shall discuss in detail. First, the labelling of bonds necessary to create a soluble Hamiltonian is an NP-complete problem. Second, finding the ground state flux sector out of the exponentially large number of $\mathbb Z_2$ flux sectors is generically hard since Lieb's theorem no longer applies~\cite{lieb_flux_1994}.
 
-Let us now consider the extension of the Kitaev honeycomb model to arbitrary lattice geometry. Remarkably, many of the techniques discussed in \textsection\ref{sec:honeycomb_model} carry over straightforwardly to the amorphous case -- it is well known that the Kitaev model on a wide variety of three-coordinated ($z=3$) lattices has conserved plaquette operators and local symmetries (the $W_p/\phi_p$ quantities)~\cite{baskaran_exact_2007,baskaran_spin-s_2008} which allow for a mapping onto an effective free Majorana fermion problem in a background of static $\mathbb Z_2$ fluxes~\cite{nussinov_bond_2009,obrien_classification_2016,yao_exact_2007,hermanns_weyl_2015}. 
-
-However, in general this neither  means that any $z=3$ lattice Kitaev model can be straightforwardly constructed, nor that the QSL properties are obvious. Several obstacles remain. First, the labelling of bonds necessary to create a soluble Hamiltonian can be an NP-complete problem. Second, once the Majorana system has been constructed, finding the ground state out of the exponentially large number of $\mathbb Z_2$ flux sectors is generically hard. Lieb's theorem~\cite{lieb_flux_1994} -- which defines the ground state flux configuration for the honeycomb --  depends on a combination of reflection and translation symmetries, and so is not applicable for most lattices. Previous studies have relied on such symmetries to reduce the number of sectors that must be checked~\cite{yao_exact_2007,eschmann_thermodynamics_2019,peri_non-abelian_2020}, which cannot be done in an amorphous system. Third, once the ground state flux sector is found, it needs to be determined whether lattice disorder induces a gapless phase~\cite{self_thermally_2019,laumann_disorder-induced_2012,lahtinen_topological_2012,self_thermally_2019} or if the fermionic spectrum is gapped, possibly with non-trivial topology~\cite{yao_exact_2007}.
-
-In this section we will present the full procedure for constructing and solving the Kitaev model on an amorphous lattice, and demonstrate that the model forms a robust quantum spin liquid phase over a wide variety of lattice geometries. We show how the Hamiltonian may be defined on any lattice with coordination number $z\leq3$, including how assign a $\sigma^\alpha$ labelling to the bond operators to ensure that it remains integrable. We consider the structure of the $\mathbb Z_2$ gauge field, finding that the presence of plaquettes with an odd-number of sites lead to a chiral QSL with spontaneously broken time-reversal symmetry (TRS)~\cite{yao_exact_2007,chua_exact_2011,chua_exactly_2011,fiete_topological_2012,natori_chiral_2016,wu_-matrix_2009, wang_majorana_2021}. Next, we establish via extensive numerics that the ground state $\mathbb Z_2$ flux sector follows a remarkably simple counting rule consistent with Lieb's theorem~\cite{lieb_flux_1994} and map out the phase diagram of the model. Finally, we shall see that the chiral phase is generally gapped and characterized by a quantized Chern number as well as protected chiral Majorana edge modes.
+In this section we will present the full procedure for constructing and solving the Kitaev model on an amorphous lattice, and demonstrate that the model forms a robust quantum spin liquid phase over a wide variety of lattice geometries. We show how the Hamiltonian may be defined on any lattice with coordination number $z\leq3$,\footnote{Although exceptions exist, some lattices exist that cannot be coloured, see Fig.~\ref{fig:colouring_example}b and Fig.~\ref{fig:colouring_example}c.} including how assign a $\sigma^\alpha$ labelling to the bond operators to ensure that it remains integrable. We consider the structure of the $\mathbb Z_2$ gauge field, finding that the presence of plaquettes with an odd-number of sites lead to a chiral QSL with spontaneously broken time-reversal symmetry (TRS)~\cite{yao_exact_2007,chua_exact_2011,chua_exactly_2011,fiete_topological_2012,natori_chiral_2016,wu_-matrix_2009, wang_majorana_2021}. Next, we provide a careful analysis of how the fermionic ground state energy depends on the $\mathbb Z_2$ flux sector, showing how the energy may be understood in terms of an expansion over closed loops in the system, where the lowest order terms hint at a solution of the general Lieb's theorem. We provide numerical evidence that the ground state flux sector follows a remarkably simple counting rule consistent with Lieb's theorem~\cite{lieb_flux_1994}, as well as out hint. Finally, we map out the phase diagram of the model and see that the chiral phase is generally gapped and characterized by a quantized Chern number as well as protected chiral Majorana edge modes.
 
 \subsection{Setting up the Model -- Bond Colouring}
 
@@ -19,7 +17,7 @@ In this section we will present the full procedure for constructing and solving 
     \textbf{(d)}~Three examples of the coloured lattice from subfigure (a), each with one of the three sets of edges removed, revealing the loop structure of each pair of edge labels.
     } 
     \label{fig:colouring_example}
-\end{figure}
+\end{figure}%
 
 Let us begin, as we did in \textsection\ref{sec:honeycomb_model}, by defining the Hamiltonian. We work with a system of spin $\frac 12$ on the vertices of an arbitrary lattice where each bond has been labelled with an index $\alpha \in \{x,y,z\}$ -- henceforth we will refer this these labels as a bond colouring. The Hamiltonian is written identically as in the honeycomb case,
 \begin{align}
@@ -50,7 +48,7 @@ The spin Hamiltonian is real, so it has time reversal symmetry. However, unlike 
     \textbf{(c)}~The lattice after the flip has been performed, with the flipped edges highlighted in red.
     } 
     \label{fig:amorphous_fluxes}
-\end{figure}
+\end{figure}%
 
 On our model, we have seen that only the gauge fluxes though each plaquette have physical significance, however the degrees of freedom we actually have access to are the bond operators. Thus, let us detail an efficient process for choosing the bond operators such that a particular flux sector can be reproduced. The space of bond operator configurations is massively degenerate -- that is, many different configurations are gauge equivalent. However, we can deal with this by restricting to only changing $u_{jk}$ on a subset of bonds. In particular, we construct a spanning tree on the dual lattice, which passes through every plaquette in the system, but contains no loops, as shown in Fig.~\ref{fig:amorphous_fluxes}b. The tree contains $n_p - 1$ edges, shown in red, whose configuration space has a $1:1$ mapping onto the $2^{n_p - 1}$ distinct flux sectors. Starting with some arbitrary flux sector, every other flux sector can be created in precisely one way if we only flip edges on the tree (provided all other bond variables not on the tree remain fixed). 
 
@@ -68,7 +66,7 @@ The argument has one complication: for a graph with $n_p$ plaquettes, there are 
 
 The argument has three parts. First we present a formulation of the ground state energy in terms of quantities defined on cycles on the lattice. Next, we shall use this formulation to discuss the effect of finite system size, and propose a method for dealing with these finite size effects. Finally, we shall present the numerical results -- that all lattices we checked had a ground state consistent with our conjecture, and argue that the result may be straightforwardly extrapolated to larger system sizes. 
 
-\subsubsection{Cycles and the Ground State Energy}
+\subsubsection{Cycles and the Ground State Energy} \label{sec:cycles_and_ground_state}
 
 As discussed previously, the ground state energy can be found by taking the sum of the negative eigenvalues of the antisymmetric Hermitian matrix $iA$, defined in Eqn.~\ref{eqn:iA_definition}. This Hamiltonian has particle-hole symmetry, since it is pure imaginary, so has $\mathcal{K} H \mathcal{K} = -H$, forcing all the eigenvalues to pair up with opposite signs,
 \begin{align}
@@ -162,7 +160,7 @@ Note that this flux differs from our previous definition in that it is calculate
     The flux through a large and complex walk, $\phi_w$ can be decomposed as the product of the flux through its constituent plaquettes, neglecting the parts of the walk that enclose no area.
     } 
     \label{fig:compound_path}
-\end{figure}
+\end{figure}%
 As a consequence of these two properties, we see that the flux through any complex closed walk around the lattice can be decomposed into the product of its constituent plaquettes, as shown in Fig.~\ref{fig:compound_path}. Thus, every term in Eqn.~\ref{eqn:energy_as_power_series} is a trace of a power $iA$, which then can be decomposed into products of fluxes through individual plaquettes,
 \begin{align}
     |\egs| \sim \sum_{p_j} c_{j} \phi_{p_j} + \sum_{p_j, p_k} c_{jk} \phi_{p_j}\phi_{p_k} + ...
@@ -203,7 +201,7 @@ In periodic boundaries, not every walk can be expressed as a product over plaque
     A lattice in twisted boundaries, with a phase $q_\alpha$ obtained on crossing the boundary in the $\alpha$-direction. Several loops are shown. The red loops pick up no phase since they either do not cross the boundaries or cross it once in each direction. The light blue path crosses the $x$-boundary once, so picks up a phase $e^{iq_x}$. The dark blue path crosses the $x$-boundary twice, so picks up a phase $e^{2iq_x}$.
     } 
     \label{fig:twist_phases}
-\end{figure}
+\end{figure}%
 
 
 In our numerical investigation, the objective was to test as many example lattices as possible. We aim for the largest lattice size that could be efficiently solved, requiring a balance between lattice size and cases tested. Each added plaquette doubles the number of flux sectors that must be checked. 25,000 lattices containing 16 plaquettes were used. However, in his study of the honeycomb model, Kitaev demonstrated that finite size effects persist up to much larger lattice sizes than we were able to access. 
@@ -231,7 +229,7 @@ We now detail the numerical evidence collected to support our claim for the flux
     \includegraphics[width=0.9\textwidth]{kitaev_model/figures/ground_state_amorphous.pdf}
     \caption[Energy and gap of every flux sector for a system with 16 plaquettes. Plot of energy and fermion gap scaling with system size.]{\textbf{(a)}~The energy of every flux sector explored for a system of 16 plaquettes, the order is arbitrary. The two ground state flux sectors can be identified as the points with the lowest energy. \textbf{(b)}~The fermion gap for each of the flux sectors explored. Note that the largest fermion gap coincides with the ground state flux sector. This occurred in $\sim 85\%$ of cases tested. (c) Average energy of the systems tested over a range of system sizes from $n_p$ = 9 to $n_p = 1600$. The region between the upper and lower quartiles is shown in red, and the full range of energies obtained is shown in orange. (d) Average fermion gap as a function of system size. Again, the region between the upper and lower quartiles is shown in red, and the full range is shown in orange. As can be seen, no gapless systems were found for $n_p > 20$. }
     \label{fig:energy_gaps_example}
-\end{figure}
+\end{figure}%
 
 For each lattice, $2^{15} =$ 32,768 flux sectors are generated. In each case we find the energy (averaged over all twist values) and the size of the fermion gap, which is defined as the lowest energy excitation for any value of $\textbf q$. We then check if the lowest energy flux sector aligns with our ansatz ($\phi^{\textup{g.s.}}_p = -(\pm i)^{n_{\textup{sides}}}$) and whether this flux sector is gapped. At the isotropic point ($J^\alpha = 1$), all 25,000 examples conformed to our guess for the ground state flux sector. A tiny minority ($\sim 10$) of the systems were found to be gapless. As we shall see shortly, the proportion of gapless systems vanishes as we increase the size of the amorphous lattice. An example of the energies and gaps for one of the systems tested is shown in Fig.~\ref{fig:energy_gaps_example}a. For the anisotropic phase (we used $ J^{x,y} = 0.25, J^z = 1$) the overwhelming majority of cases adhered to our ansatz, however a small minority ($\sim 0.5 \%$) did not. In these cases, however, the energy difference between our ansatz and the ground state was at most of order $10^{-6}$. Further investigation would need to be undertaken to determine whether these anomalous systems are a finite size effect due to the small amorphous system sizes used or a genuine feature of the toric code phase on such lattices. Especially since the flux gap (i.e.~the second-lowest ground state energy of any flux sector) of the honeycomb toric code phase scales with ${{J^x}^2{J^y}^2}/{{J^z}^3}$, so is expected to be very small in this regime.
 
@@ -248,7 +246,7 @@ We turn our attention to checking that the ground state flux sector is gapped. H
     \textbf{(c)}~At the centre of the phase diagram there is a gapped chiral quantum spin liquid phase. 
     }
     \label{fig:amorphous_phase_diagram}
-\end{figure}
+\end{figure}%
 
 The ground-state phase diagram can now be determined by varying the strength of each bond type, $J^\alpha$, while remaining in the ground state flux sector. In Fig.~\ref{fig:amorphous_phase_diagram}, we show the phase diagram for an example system on a lattice with 800 sites. The diagram contains two distinct phases: close to the corners of the triangle the gapped $A_\alpha$ phases appear. The phase has a fermionic gap and supports Abelian excitations. Around the isotropic point $J^x = J^y = J^z$, the $B$ phase is also gapped, in contrast to the honeycomb case. 
 This is because the presence of odd plaquettes leads to a spontaneous breaking of time reversal symmetry. Note that the phase diagram for this specific 800-site lattice is general - for a sufficiently large amorphous system, the phase diagram depends weakly on the detailed geometry of an individual lattice -- many different lattices give an almost identical phase diagram. 
@@ -266,7 +264,7 @@ A fundamental tool for understanding the distinction between the two phases is t
     \textbf{(c)}~The density of states of the Majorana Hamiltonian, coloured according to the average IPR of states at a given energy.
     }
     \label{fig:chern_and_edge_modes}
-\end{figure}
+\end{figure}%
 
 
 \subsection{Accounting for Bond Disorder} 
@@ -279,7 +277,7 @@ A fundamental tool for understanding the distinction between the two phases is t
     \textbf{(a)}~Close up of a section of amorphous lattice generated using a single Voronoi partition on a set of uniformly sampled seed points. \textbf{(b)}~A section of amorphous lattice generated using the regularised method detailed in Appendix~\ref{sec:bond-dis}, by creating a Voronoi partition using seed points sampled from a blue noise distribution. This is then followed by four iterations of Lloyd's algorithm to further regularise the bond lengths. \textbf{(c)}~A histogram of bond lengths for the example graphs in sub figures a and b. Note that the distribution is much more tightly peaked around the mean bond length in the regularised lattice, with no extremely short bonds present. \textbf{(d)}~The Majorana spectrum for a single example of an amorphous lattice for five different values of $\alpha \in  [0 , 8]$. \textbf{(e)}~Finite-size scaling analysis of the fermion gap in the flux-free sector. Solid lines indicate the gap averaged over 50 random lattice samples for each system size, and the shaded regions indicate the full range of the sampled gaps.
     }
     \label{fig:disorder}
-\end{figure}
+\end{figure}%
 
 The effect of bond disorder in the Kitaev honeycomb lattice model is well studied~\cite{knolle_dynamics_2016, knolle_bond-disordered_2019, self_thermally_2019}. When bond disorder is introduced the fermionic gap closes as a function of disorder strength, leading generically to a thermal metal phase~\cite{self_thermally_2019, knolle_dynamics_2016}. The changes to the fermionic spectrum of the flux-free sector are much more dramatic than those observed in our amorphous model. \emph{A priori} one might expect that a similar gap closing should be introduced by the lattice disorder present in the amorphous model. As we have shown, this is not the case. We believe the essential difference between these kinds of disorder is the disruption of the local motif: in the amorphous model, the global translational symmetry of the system is disrupted, but the coupling strengths remain locally homogeneous on each site.
 

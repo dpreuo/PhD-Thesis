@@ -7,57 +7,70 @@
 \begin{document}
 \pagenumbering{roman}
 
-\title{\LARGE {\bf A cool title for a cool thesis}\\
- \vspace*{6mm}
+
+\title{
+    \LARGE Topology on Almost Any Lattice\\
+    \vspace*{6mm} 
+    {\normalfont \large Topological Order and Invariants with Structural Disorder}\\
 } 
+% \pagestyle{plain}
 
 \author{Peru d'Ornellas} 
-\submitdate{January 2023}
+\submitdate{January 2024}
+
 \narrowlinespacing
-% \normallinespacing
+% % \normallinespacing
 
 \maketitle
 
+\preface
 \input{abstract/abstract}
+\input{acknowledgements/acknowledgements.tex}
 
-\tableofcontents
-\listoffigures
-\pagestyle{uheadings}
+% \tableofcontents
+% \listoffigures
+% \pagestyle{uheadings}
 
-
+\body
 \begin{refsection}
     \chapter{Introduction} \label{chap:introduction}
     \input{introduction/section_text.tex} 
-    \printbibliography[heading=subbibintoc]
-\end{refsection}
+    % \printbibliography[heading=subbibintoc]
+% \end{refsection}
 
-\begin{refsection}
+% \begin{refsection}
     \chapter{Chern Number and Topological Insulators}\label{chap:chern_intro}
     \input{local_markers_background/section_text.tex}
-    \printbibliography[heading=subbibintoc]
-\end{refsection}
+    % \printbibliography[heading=subbibintoc]
+% \end{refsection}
 
-\begin{refsection}
+% \begin{refsection}
     \chapter{Local Chern Markers} \label{chap:local_markers}
     \input{crosshair_marker/section_text.tex}
-    \printbibliography[heading=subbibintoc]
-\end{refsection}
+    % printbibliography[heading=subbibintoc]
+% \end{refsection}
 
-\begin{refsection}
+% \begin{refsection}
     \chapter{The Amorphous Kitaev Model}\label{chap:amorphous_kitaev}
     \input{kitaev_model/section_text.tex}
-    \printbibliography[heading=subbibintoc]
-\end{refsection}
+    % \printbibliography[heading=subbibintoc]
+% \end{refsection}
 
-\begin{refsection}
+% \begin{refsection}
     \chapter{The Kitaev-Heisenberg Model on the Star Lattice}
     \input{kitaev_heisenberg_star/section_text.tex}
-    \printbibliography[heading=subbibintoc]
-\end{refsection}
+    % \printbibliography[heading=subbibintoc]
+% \end{refsection}
 
-\begin{refsection}
-\chapter{Conclusion and Outlook} \label{chap:outlook}
-\printbibliography[heading=subbibintoc]
+% \begin{refsection}
+    \chapter{Conclusion and Outlook} \label{chap:outlook}
+    \input{outlook/section_text.tex}
+    % \printbibliography[heading=subbibintoc]
+    
+    % \chapter{Bibliography}
+    \addcontentsline{toc}{chapter}{Bibliography}
+    \printbibliography[]
+    
 \end{refsection}
 
 \appendix

@@ -10,7 +10,7 @@ So far, we have presented three real-space formulations of the Chern number -- t
 \end{itemize}
 Although several attempts have been made~\cite{bianco_orbital_2013, mitchell_amorphous_2018, rauch_geometric_2018}, there is currently no straightforward consensus for how one might construct a physical observable that corresponds to a local marker of the Chern number. In this section, we present a derivation for a local marker that starts from physical grounds, defined as a localised version of the Kubo Hall conductivity~\cite{kubo_statistical-mechanical_1957}. Local current is measured around the position $\textbf R$ of a crosshair placed in the bulk of the material, motivating the name `crosshair marker'. The derived quantity is precisely the finite-system Kitaev Chern number given in Eqn.~\ref{eqn:qkit_step_functions}. 
  
-This section is structured as follows: We start by deriving the necessary pre-requisites to understand the marker. These are threefold, in \textsection \ref{sec:fields} we describe the formalism for modelling the effect of electric fields on our system, in \textsection \ref{sec:current} we define a set of pseudo-local current operators on a lattice, and in \textsection \ref{sec:kato} we describe Kato's formalism for adiabatic quantum evolution~\cite{kato_adiabatic_1950,simon_tosio_2018}. In \textsection \ref{sec:marker_derivation} we use these concepts to re-derive Eqn.~\ref{eqn:qkit_finite_step} as a physical quantity.
+This section is structured as follows: We start by deriving the necessary prerequisites to understand the marker. These are threefold, in \textsection\ref{sec:fields} we describe the formalism for modelling the effect of electric fields on our system, in \textsection\ref{sec:current} we define a set of pseudo-local current operators on a lattice, and in \textsection\ref{sec:kato} we describe Kato's formalism for adiabatic quantum evolution~\cite{kato_adiabatic_1950,simon_tosio_2018}. In \textsection\ref{sec:marker_derivation} we use these concepts to re-derive Eqn.~\ref{eqn:qkit_finite_step} as a physical quantity.
 
 As usual, let us work with a general non-interacting Hamiltonian on a two-dimensional tight-binding lattice. The system consists of set of $N$ sites, with positions $\textbf r_i$ arranged on either a regular or amorphous lattice. Each site has an internal degree of freedom hosting $\eta$ states. Thus, the Hamiltonian can be written in the form
 \begin{align} \label{eqn:hamiltonian}
@@ -25,7 +25,7 @@ where $H_{i,j} = H_{j,i}^\dag$ acts on the internal degrees of freedom. We will 
     \includegraphics[width = 0.9\textwidth]{crosshair_marker/figures/gauge_trans.png}
     \caption[Electric field and potential used to calculate a local Hall conductivity.]{\label{fig:fields} \textbf{(a)}~The electric potential used to generate our electric field. \textbf{(b)}~The electric field, with only the nonzero $y$-component is shown.
     }
-\end{figure}
+\end{figure}%
 
 Since we plan to calculate the response of the system under an applied electric field, let us start by precisely defining the potential we wish to apply to our system, and describing the effect on the Hamiltonian.
 
@@ -62,7 +62,7 @@ Note that for a static $A(t)$ in open boundaries, the $A$-dependence can be comp
         \caption[Local current operator used to calculate a local Hall conductivity.]{\textbf{(a)}~A section of amorphous lattice is shown. All hopping terms in the Hamiltonian that cross the line $y = R_y$ acquire a Peierls phase given by Eqn.~\ref{eqn:phase}, these are depicted in red. Unaffected hopping terms are shown in grey. Note that the phase is ill-defined when a site $\textbf r_i$ lies on the line, however this can be remedied by infinitesimally shifting $R_y$. \textbf{(b)}~A depiction of the `local' current operator $J_{R_x}(\textbf{r})$ that calculates the total hopping to or from the site at $\textbf r$ that crosses the boundary at $R_x$. Background lattice is shown in grey.
         }\label{fig:phase_lines_and_current}
     \end{center}
-\end{figure}
+\end{figure}%
 
 
 \subsection{Current Operators}\label{sec:current}
@@ -110,7 +110,7 @@ where $Q = \1-P$ is the complement of the projector.
 
 \subsubsection{Adiabatic Current}\label{sec:kato_current}
 
-The adiabatic current operator is derived following an analogous argument to that in \textsection \ref{sec:current}. We find the change in particle number for the region $x>R_x$, given by $\vartheta_{R_x}$. In this case, however, we use the adiabatic Von-Neumann equation~\ref{eqn:P_adiabatic_derivative} to express the expectation value, $\partial_t \langle \vartheta_{R_x} \rangle = i \langle [K, \vartheta_{R_x}] \rangle$. Thus, we can identify an adiabatic current operator 
+The adiabatic current operator is derived following an analogous argument to that in \textsection\ref{sec:current}. We find the change in particle number for the region $x>R_x$, given by $\vartheta_{R_x}$. In this case, however, we use the adiabatic Von-Neumann equation~\ref{eqn:P_adiabatic_derivative} to express the expectation value, $\partial_t \langle \vartheta_{R_x} \rangle = i \langle [K, \vartheta_{R_x}] \rangle$. Thus, we can identify an adiabatic current operator 
 \begin{align}
     J_{R_x}^A = i [K,\vartheta_{R_x}].
 \end{align}
@@ -134,7 +134,7 @@ Despite that fact that neither electric field nor current can individually be ma
         \resizebox{0.45\columnwidth}{!}{\input{crosshair_marker/tikzfigures/hall_diagram}}
         \caption[A schematic for local Hall measurement.]{A schematic for local Hall measurement. The bottom half of the system has its potential raised with respect to the top half, generating an electric field acting over the horizontal line. Current is measured between the left and right halves, across the vertical line. The flow of charge is represented in blue, showing the curved path due to the presence of a magnetic field. The red shading shows the region around the crosshair where a nonzero contribution to the marker is measured.}\label{fig:crosshair_quarters}
     \end{center}
-\end{figure}
+\end{figure}%
 
 The route to a local Hall current is to partition the system along two perpendicular dividing lines, as shown in Fig.~\ref{fig:crosshair_quarters}. An electric field is induced between the top and bottom parts of the system by uniformly raising the voltage of the lower part. This will induce a vertical current acting across the dividing line. When the material has nonzero Chern number, a Hall current will also be induced from left to right. If the system is insulating (i.e.~gapped) we expect that all current should be localised to the region around the horizontal line. Measurement of the current is then taken over the vertical line, catching only induced current in the horizontal direction - effectively only the Hall current. We expect all nonzero contributions to come from the region around the point where the lines cross - motivating the name `crosshair marker'.
 
@@ -215,7 +215,7 @@ The step functions commute with one another, and with $\delta_{\textbf r}$. This
 \begin{align}
     \tr _{\textbf r} \left ( P J_{R_x}Q  \right ) &+ h.c. = 0. 
 \end{align}
-Now, let us return to eqn \ref{eqn:j_val}. We have shown that the second term vanishes, so we are left with
+Now, let us return to Eqn.~\ref{eqn:j_val}. We have shown that the second term vanishes, so we are left with
 \begin{align} 
     \left \langle J_{R_x}(\textbf r) \right \rangle & = \tr_{\textbf r} 
     \left ( 

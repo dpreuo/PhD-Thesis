@@ -1,6 +1,6 @@
-Let us introduce the Qi-Wu-Zhang (QWZ) model as a paradigmatic example of a two-dimensional topological insulator with nearest-neighbour interactions~\cite{qi_topological_2006}.
 
-\todo{add some history on the model here}
+Let us introduce the Qi-Wu-Zhang (QWZ) model as a paradigmatic example of a two-dimensional topological insulator with nearest-neighbour interactions~\cite{qi_topological_2006}.
+We work on a square lattice of unit cells indexed by a two-dimensional lattice vector $\textbf m$, where each cell contains two sites. The QWZ model is defined by three terms, a hopping between unit cells in the $x$-direction, a hopping in the $y$-direction, and a staggered on-site potential whose strength is determined by a parameter $u$.
 
 \begin{figure}[t]
     \begin{center}
@@ -8,8 +8,7 @@ Let us introduce the Qi-Wu-Zhang (QWZ) model as a paradigmatic example of a two-
     \caption[A single band of the QWZ model plotted on the Bloch sphere.]{The embedding of the Brillouin zone in $\textbf d$-space for the QWZ model. This is shown in four progressive cutaways to ensure the internal structure can be seen. In all four images $k_x$ spans the interval $\left [0, 2\pi \right )$, however in \textbf{(a)}~$k_y$ spans $\left [ 0, \frac{\pi}{2} \right )$, in \textbf{(b)}~$k_y$ spans $\left [0, \pi \right )$, in \textbf{(c)}~$k_y$ spans $\left [0, \frac{3 \pi}{2} \right )$, and in \textbf{(d)}~$k_y$ spans $\left [0, 2\pi \right )$. }
     \label{fig:QWZ_donut}
     \end{center}
-\end{figure}
-We work on a square lattice of unit cells indexed by a two-dimensional lattice vector $\textbf m$, where each cell contains two sites. The QWZ model is defined by three terms, a hopping between unit cells in the $x$-direction, a hopping in the $y$-direction, and a staggered on-site potential whose strength is determined by a parameter $u$.
+\end{figure}%
 \begin{align} \label{eqn:qwz_hamiltonian}
     \hat H &= \sum_{\textbf m} \ket{\textbf m+ 1_x}\bra{\textbf m} \otimes \frac{\sigma_z + i\sigma_x}{2} + h.c. \nonumber \\
     &+ \sum_{\textbf m} \ket{\textbf m+ 1_y}\bra{\textbf m} \otimes \frac{\sigma_z + i\sigma_y}{2} + h.c. \nonumber \\
@@ -35,7 +34,7 @@ u + \cos k_x+ \cos k_y
 \end{align}
 Here, $k_x$ and $k_y$ determine our position in the Brillouin zone. As explained in \textsection\ref{sec:an_example}, this represents the embedding of a torus in $\textbf d$-space, shown in Fig.~\ref{fig:QWZ_donut}.
 
-The $u$-parameter has the effect of translating the torus by a fixed amount in the $z$-direction. From this we can see that the QWZ model only has non-zero Chern number for values of $u$ between -2 and 2. Translating the torus by any more will move the origin completely outside. Thus, the Chern number is
+The $u$-parameter has the effect of translating the torus by a fixed amount in the $z$-direction. From this we can see that the QWZ model only has non-zero Chern number for values of $u$ between $-2$ and $2$. Translating the torus by any more will move the origin completely outside. Thus, the Chern number is
 \begin{align}
 Q = \left\{\begin{matrix}
 -1 &:&  -2 < u < 0, \\ 
@@ -43,14 +42,14 @@ Q = \left\{\begin{matrix}
 0  &:&  \textit{otherwise},
 \end{matrix}\right. 
 \end{align}
-not including the points at $u =$ -2, 0 and 2, at which the Chern number is undefined because the band gap closes and the material becomes conducting. Some example band structures for varying values of $u$ are shown in Fig.~\ref{fig:QWZ_band_struct}.
+not including the points at $u = -2$, $0$ and $2$, at which the Chern number is undefined because the band gap closes and the material becomes conducting. Some example band structures for varying values of $u$ are shown in Fig.~\ref{fig:QWZ_band_struct}.
 \begin{figure}[t]
 \begin{center}
  \includegraphics[]{local_markers_background/figures/QWZ_band_struct} 
 \caption[Band structure of the QWZ model.]{Four examples of the band structure of the QWZ model are shown, for varying $u$ values between 0 and 2.5. At $u$ = 0 and 2, the bands touch and Chern number is undefined. At $u = 1$, $\mathcal C = +1$, and at $u = 2.5$, $\mathcal C = 0$.}
 \label{fig:QWZ_band_struct}
 \end{center}
-\end{figure}
+\end{figure}%
 
 \subsection{Strip Geometry and Edge Modes} \label{sec:QWZ_strip_geometry}
 According to the bulk-boundary correspondence, whenever the Chern number $\mathcal C$ is nonzero, the QWZ model must have gapless edge modes appearing. To provide an example, here we construct the model on strip geometry and provide an analytical expression for the edge modes.
@@ -71,7 +70,7 @@ We have effectively reduced our system from a lattice of sites in $x$ and $y$, t
 \caption[QWZ bands in open boundaries.]{An example band structure for a QWZ model with $u$ = 1.3 and $L_x$ = 30. States are coloured according to their inverse participation ratio, indicating their relative degree of localisation. \textbf{(Left)} The example for periodic boundary conditions, showing two well-separated bands. \textbf{(Right)} The case for open boundary conditions. Two edge states are shown leaving the bulk and crossing the gap, with the descending state being a left edge state, and the ascending state being a right edge state.  }
 \label{fig:strip_energy}
 \end{center}
-\end{figure}
+\end{figure}%
 Note that edge states are only present for certain values of $k_y$, which can be seen in figure \ref{fig:strip_energy}, where the edge states peel away from the bulk in a region around $k_y = \pi$. 
 
 The strip Hamiltonian can be solved by proposing modes that decay exponentially away from the boundary. Thus, a left-edge state has the form
@@ -102,7 +101,7 @@ These edge states are only valid solutions for $k_y$ in the region
 \begin{align}
 	-1 < u+\cos k_y < 1.
 \end{align}
-These limits can be seen in Fig.~\ref{fig:strip_energy}, where the edge states peel away from the bands to cross the energy gap. These expressions are only strictly valid in the limit of a large system. since we have made the assumption the edge states can be calculated by taking into consideration only one edge and ignoring the effect of the other. The edge states decay exponentially through the system, so we are relying on the assumption that the edge state has effectively decayed to nothing before reaching the other side. When this condition is relaxed the edge states are able to couple to one another. This has a two effects, the first being that at the crossing of edge states, our energy eigenvalues become positive and negative superposition states of both edge states. The other is that the left state coupling to the right state shifts their energy levels producing an avoided crossing such that no states cross $E = 0$.
+These limits can be seen in Fig.~\ref{fig:strip_energy}, where the edge states peel away from the bands to cross the energy gap. These expressions are only strictly valid in the limit of a large system. Since we have made the assumption the edge states can be calculated by taking into consideration only one edge and ignoring the effect of the other. The edge states decay exponentially through the system, so we are relying on the assumption that the edge state has effectively decayed to nothing before reaching the other side. When this condition is relaxed the edge states are able to couple to one another. This has two effects, the first being that at the crossing of edge states, our energy eigenstates become positive and negative superposition states of both edge states. The other is that the left state coupling to the right state shifts their energy levels producing an avoided crossing such that no states cross $E = 0$.
 
 \subsection{The Amorphous QWZ Model}
 \begin{figure}
@@ -113,8 +112,8 @@ These limits can be seen in Fig.~\ref{fig:strip_energy}, where the edge states p
      \captionof{figure}[Hopping operators for the amorphous QWZ model, shown on the Bloch sphere.]{
      The Bloch sphere, showing the positions of the eigenstates of the three Pauli matrices. The action of the hopping matrices is shown in red, where the $h_x$ and $h_y$ operators act as creation operators on the $y$ and $x$ bases respectively. The action of our arbitrary angle hopping operator is shown in blue, acting as a creation operator between a pair of orthogonal states that lie on the $x$-$y$ plane.
      }\label{fig:bloch}
-\end{figure}
-We now look at extending the QWZ model beyond a grid to arbitrary amorphous lattices. This is done by defining a smooth continuation of the QWZ model to allow for edges that can point in an arbitrary direction. Given an arbitrary lattice, we first require that every vertex hosts two states, and the on-site energy term containing $u \sigma_z$ is identical as in eqn \ref{eqn:qwz_hamiltonian}. To construct an amorphous equivalent of the hopping terms, let us first look at the hopping in the QWZ model more carefully. We have two hopping matrices, one that hops a state in the $x$-direction, $h_x$, and one that hops in the $y$-direction, $h_y$.
+\end{figure}%
+We now look at extending the QWZ model beyond a grid to arbitrary amorphous lattices. This is done by defining a smooth continuation of the QWZ model to allow for edges that can point in an arbitrary direction. Given an arbitrary lattice, we first require that every vertex hosts two states, and the on-site energy term containing $u \sigma_z$ is identical as in Eqn.~\ref{eqn:qwz_hamiltonian}. To construct an amorphous equivalent of the hopping terms, let us first look at the hopping in the QWZ model more carefully. We have two hopping matrices, one that hops a state in the $x$-direction, $h_x$, and one that hops in the $y$-direction, $h_y$.
 \begin{align}
     h_x &= \frac{\sigma_z + i \sigma_x}{2} = \frac 12 \begin{pmatrix}
         1& i \\
@@ -149,7 +148,7 @@ As before, the parameter $u$ controls whether the system is in a topological or 
     \begin{center}
      \includegraphics[width=\textwidth]{local_markers_background/figures/amorphous_qwz.png}
     \caption[Energies of the amorphous QWZ model in open and periodic boundary conditions, revealing the presence of edge modes. ]{Plots showing the spectra of the amorphous QWZ model for two different example lattices. States are coloured according to their inverse participation ratio. 
-    \textbf{(a)}~A trivalent lattice generated from a Voronoi decomposition of a set of random points, followed by five iterations of LLoyd's algorithm to regularise bond lengths. 
+    \textbf{(a)}~A trivalent lattice generated from a Voronoi decomposition of a set of random points, followed by five iterations of LLoyd's algorithm (detailed in Appendix \ref{apx:voronoi}) to regularise bond lengths. 
     \textbf{(b)}~The spectrum of the QWZ model on the voronised lattice as a function of $u$. Several gaps are present at different values of $u$ and $E$. 
     \textbf{(c)}~The spectrum of the same model as (b), but in open boundary conditions. Here we can see that all gaps for $u \in [-1.5, 1]$ are now filled with edge modes, indicating that the system is in a topological phase. 
     \textbf{(d)}~An example of a lattice forming a Delaunay triangulation, constructed as the dual of the lattice in (a). 
@@ -158,7 +157,7 @@ As before, the parameter $u$ controls whether the system is in a topological or 
     }
     \label{fig:amorphous_qwz_examples}
     \end{center}
-\end{figure}
+\end{figure}%
 
 % \subsection{Topology of the Amorphous QWZ Model}
 % \todo{OPTIONAL -- you could add a section here on the low-k theory of the amorphous QWZ model if you wanted - would allow you to make some predictions for the Chern number as you can find the berry phase change around the low k band touching. Maybe its a bitof  overkill.}
