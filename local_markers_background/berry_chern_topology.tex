@@ -1,5 +1,5 @@
 
-In this section we present a careful discussion of Berry's phase, Berry curvature and the Chern number \cite{berry_quantal_1984,avron_homotopy_1983}, showing how these quantities may be calculated form the band structure of a general non-interacting insulator. There are two cases to discuss: for a finite system the Brillouin zone constitutes a discrete lattice of states. Thus, in \textsection\ref{sec:discrete_berry}, we show that Berry phase can be understood as the relative phase between adjacent states, and that Berry flux is defined on the plaquettes of the lattice. In \textsection\ref{sec:continuous_berry} we consider the case of an infinite system. There the Brillouin zone is a continuous manifold and the band structure defines a mapping from this manifold to the Hilbert space of periodic states. In this case we must formulate Berry's phase as a geometric property of this smooth mapping. In both cases, we derive the form of the Chern number and justify its quantisation. Finally, in \textsection\ref{sec:an_example} we provide an example -- that of a two level system -- where the Berry flux can be formulated straightforwardly in terms of the flux emitted by a monopole, allowing us to present a simple visual argument for the quantisation of the Chern number. Our discussion will largely follow \cite{asboth_berry_2016}.
+In this section we present a careful discussion of Berry's phase, Berry curvature and the Chern number \cite{berry_quantal_1984,avron_homotopy_1983}, showing how these quantities may be calculated form the band structure of a general non-interacting insulator. There are two cases to discuss: for a finite system the Brillouin zone constitutes a discrete lattice of states. Thus, in \textsection\ref{sec:discrete_berry}, we show that Berry phase can be understood as the relative phase between adjacent states, and that Berry flux is defined on the plaquettes of the lattice. In \textsection\ref{sec:continuous_berry} we consider the case of an infinite system. There the Brillouin zone is a continuous manifold and the band structure defines a mapping from this manifold to the Hilbert space of periodic states. In this case, Berry's phase is a geometric property of this smooth mapping. In both cases, we derive the form of the Chern number and justify its quantisation. Finally, in \textsection\ref{sec:an_example} we provide an example -- that of a two level system -- where the Berry flux can be understood straightforwardly in terms of the flux emitted by a monopole, allowing us to present a simple visual argument for the quantisation of the Chern number. Our discussion will largely follow \cite{asboth_berry_2016,resta_geometry_2020}.
 
 \subsection{A Discrete Brillouin Zone} \label{sec:discrete_berry}
 
@@ -7,13 +7,13 @@ In quantum mechanics a state is defined as an equivalence class of vectors, wher
 \begin{align}
     \ket{\psi} \sim e^{-i\alpha}\ket{\psi}.
 \end{align}
-Thus, we have a degeneracy built into our description of physics. This means that one can define a gauge transformation -- multiplying a state with a complex phase, a $U(1)$ gauge -- that is guaranteed not to affect the state in any measurable way. Any derived quantity must be invariant under gauge transformations to qualify as a physical observable. Thus, one expects that no physical property can be defined in terms of this phase.
+Thus, we have a redundancy built into our description of physics. This means that one can define a gauge transformation -- multiplying a state with a complex phase, a $U(1)$ gauge -- that is guaranteed not to affect the state in any measurable way. Any derived quantity must be invariant under gauge transformations to qualify as a physical observable.
 
 Now, let us consider an arbitrary set of states in the same Hilbert space, $\{ \ket{\psi_j}\}$. Analogous to the `global' gauge transformation presented above, we may define a `local' gauge transformation here, where we apply a different phase to each individual state,
 \begin{align}
     \ket{\psi_j} \rightarrow e^{-i\alpha_j}\ket{\psi_j}.
 \end{align}
-Again, the physical meaning of each state is unaffected, so all observable quantities must be invariant under this transformation. Thus, one might expect that any \textit{phase-like} quantity calculated from these states should have no physical relevance. For example, the relative phase between state $j$ and $k$, $\gamma_{j,k}$ can be defined as
+Again, the physical meaning of each state is unaffected, so all observable quantities must be invariant under this transformation. Thus, one might wonder whether any \textit{phase-like} quantity calculated from these states can have a physical meaning. For example, the relative phase between state $j$ and $k$, $\gamma_{j,k}$ can be defined as
 \begin{align}
     e^{-i\gamma_{j,k}} = \frac{\braket{\psi_j|\psi_k}}{|\braket{\psi_j|\psi_k}|}.
 \end{align}
@@ -94,7 +94,7 @@ $\mathcal Q$ is necessarily restricted to integer values, since a non-integer va
 
 \subsection{Topology of a General Hamiltonian}\label{sec:continuous_berry}
 
-Now let us consider the case of a smooth Brillouin zone. We start by defining some arbitrary Hamiltonian $H(\textbf R)$, which depends on some smooth parameter $\textbf R \in \mathcal R$. For every value of $\textbf R$, the Hamiltonian has eigenstates $\ket{\psi_n (\textbf R)}$ with corresponding energies $\varepsilon_n$. As before, these eigenstates are only well-defined up to a global phase. Thus, let consider a single state $\ket{\psi(\textbf R)}$ and define a local gauge transformation, applying an $\textbf R$-dependent phase $\alpha(\textbf R)$ to all the states over this band.
+Now let us consider the case of a smooth parameter space. We start by defining some arbitrary Hamiltonian $H(\textbf R)$, which depends on some smooth parameter $\textbf R \in \mathcal R$. For every value of $\textbf R$, the Hamiltonian has eigenstates $\ket{\psi_n (\textbf R)}$ with corresponding energies $\varepsilon_n$. As before, these eigenstates are only well-defined up to a global phase. Thus, let consider a single state $\ket{\psi(\textbf R)}$ and define a local gauge transformation, applying an $\textbf R$-dependent phase $\alpha(\textbf R)$ to all the states over this band.
 \begin{align}
 	\ket{\psi(\textbf R)} \rightarrow e^{-i\alpha(\textbf R)}\ket{\psi(\textbf R)}.
 \end{align}
@@ -230,7 +230,7 @@ The Hilbert space of a two-level system is given by rays in $\mathbb C ^2$. Any 
 \end{align}
 where the $\sigma^i$ are the Pauli matrices. This gives us a complete basis for $2\times2$ traceless Hermitian matrices. Of course, we could include a multiple of the identity to span the full space of Hermitian matrices, however this would have no effect on the topology, and shall be omitted.
 
-The set of traceless Hamiltonians is thus a manifold in itself, $ \{H\} \cong \mathbb{R}^3 $, since $\textbf{d} \in \mathbb{R}^3 $. The first thing we will do is to express the vector $\textbf{d}$ in spherical polar coordinates,
+The set of traceless Hamiltonians is thus a manifold in itself, $ \{H\} \cong \mathbb{R}^3 $, since $\textbf{d} \in \mathbb{R}^3 $. Here we shall restrict to gapped Hamiltonians, so $\textbf d = 0$ is forbidden, leaving $ \{H\} \cong \mathbb{R}^3\backslash 0$. The first thing we will do is to express the vector $\textbf{d}$ in spherical polar coordinates,
 \begin{align}
     H = |\textbf{d}|\begin{pmatrix}
 \cos(\theta) &e^{-i\phi}\sin{\theta} \\ 
@@ -280,9 +280,9 @@ If the unit cell contains two sites, then $ H (\textbf k)$ is a $2 \times 2$ mat
 \begin{align}
 H(\textbf{k}) &= \textbf{d}(\textbf{k})\cdot {\sigma}.
 \end{align}
-Here, $\textbf{k}$ lives on the surface of a torus, since $k_x$ and $k_y$ are periodic. Furthermore, $\textbf{d}$ (and by extension $ H$) live in the space $\mathbb{R}^3$. Thus, $\textbf{d} ( \textbf k )$ is a map of the form
+Here, $\textbf{k}$ lives on the surface of a torus, since $k_x$ and $k_y$ are periodic. Furthermore, $\textbf{d}$ (and by extension $ H$) live in the space $\mathbb{R}^3\backslash 0$. Thus, $\textbf{d} ( \textbf k )$ is a map of the form
 \begin{align}
-    \textbf{d} : S^1 \times S^1 &\rightarrow \mathbb{R}^3 .
+    \textbf{d} : S^1 \times S^1 &\rightarrow \mathbb{R}^3\backslash 0 .
 \end{align}
 The map is an embedding of a two-dimensional surface (the torus) into three-dimensional flat space ($\mathbb{R}^3$). The only constraint placed on this map is that it must remain smooth, however the embedded torus can take any shape.
 
@@ -310,7 +310,7 @@ Thus, we can classify all Hamiltonians according to the Chern number of their ba
 
 \subsubsection{The Bulk-Boundary Correspondence}
 
-The argument presented above allows us to make a rough justification for why conducting edge states must appear wherever we have a material with nonzero Chern number. Suppose we have a large material where the Hamiltonian is allowed to vary slowly over space, defined by $\hat H (\textbf r)$. In one region this Hamiltonian locally has non-zero Chern number, $\hat H _{\textup{topological}}$, but in a different distant region it locally has zero Chern number, $\hat H _{\textup{trivial}}$. We expect that between these regions the Hamiltonian must be gradually transforming between $\hat H _{\textup{topological}}$ and $\hat H _{\textup{trivial}}$. As we have seen, it is impossible for our Hamiltonian to make this transformation without passing through a conducting region somewhere along the way -- edge states must appear! Exploiting this intuition, one might view the vacuum as having zero Chern number. Thus, we would expect that if a material with non-zero Chern number transforms over space into the vacuum -- that is, it has a boundary -- then conductive states must appear at the boundary. This property of Chern insulators is called the bulk-boundary correspondence \cite{qi_general_2006,hasan_colloquium_2010,qi_topological_2011}.
+The argument presented above allows us to make a rough justification for why conducting edge states must appear wherever we have a material with nonzero Chern number. Suppose we have a large system where the Hamiltonian is allowed to vary slowly over space, defined by $\hat H (\textbf r)$. In one region this Hamiltonian locally has non-zero Chern number, $\hat H _{\textup{topological}}$, but in a different distant region it locally has zero Chern number, $\hat H _{\textup{trivial}}$. We expect that between these regions the Hamiltonian must be gradually transforming between $\hat H _{\textup{topological}}$ and $\hat H _{\textup{trivial}}$. As we have seen, it is impossible for our Hamiltonian to make this transformation without passing through a conducting region somewhere along the way -- edge states must appear! Exploiting this intuition, one might view the vacuum as having zero Chern number. Thus, we would expect that if a material with non-zero Chern number transforms over space into the vacuum -- that is, it has a boundary -- then conductive states must appear at the boundary. This property of Chern insulators is called the bulk-boundary correspondence \cite{qi_general_2006,hasan_colloquium_2010,qi_topological_2011}.
 
 
 \subsubsection{Chern Number and Globally Smooth Gauges}\label{sec:chern_smooth_gauge}

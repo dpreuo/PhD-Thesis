@@ -1,7 +1,7 @@
 
 \section{Kitaev's Honeycomb Model} \label{sec:honeycomb_model}
 
-Let us begin by providing a review of the model as it was originally proposed by Kitaev in~\cite{kitaev_anyons_2006}. We shall present the spin Hamiltonian, as well as the Majorana transformation used to diagonalise it. Following this, we shall discuss the ground-state phase diagram and finally the presence of anyonic excitations. In \textsection\ref{sec:amorphous_kitaev_model}, we will describe the extension of this model to arbitrary and amorphous lattice geometry. Thus, here we will focus primarily on the aspects of the Honeycomb model that are relevant for the amorphous case.
+Let us begin by providing a review of the model as it was originally proposed by Kitaev in~\cite{kitaev_anyons_2006}. We shall present the spin Hamiltonian, as well as the Majorana transformation used to diagonalise it. Following this, we shall discuss the ground-state phase diagram and properties of excitations. In \textsection\ref{sec:amorphous_kitaev_model}, we will describe the extension of this model to arbitrary and amorphous lattice geometry. Thus, here we will focus primarily on the aspects of the Honeycomb model that are relevant for the amorphous case.
 \begin{figure} 
     \begin{center}
         \includegraphics[]{kitaev_model/figures/honeycomb_kit.pdf}
@@ -12,7 +12,7 @@ Let us begin by providing a review of the model as it was originally proposed by
     \end{center}
 \end{figure}%
 
-The Kitaev honeycomb model is defined for a set of spin half degrees of freedom on the vertices of a honeycomb lattice, as shown in Fig.~\ref{fig:honeycomb_kitaev}a. Note that this lattice is bipartite, so the sites can be organised into two sublattices A and B, where bonds are always between two sites in different sublattices. The bonds in this lattice are labelled with an index $\alpha \in \{x, y, z\}$, such that each site connects to one bond of each type. On each bond, neighbouring spins interact with a bond-directional Ising-type coupling. The Hamiltonian is given by
+The Kitaev honeycomb model is defined for a set of spin-half degrees of freedom on the vertices of a honeycomb lattice, as shown in Fig.~\ref{fig:honeycomb_kitaev}a. Note that this lattice is bipartite, so the sites can be organised into two sublattices A and B, where bonds are always between two sites in different sublattices. The bonds in this lattice are labelled with an index $\alpha \in \{x, y, z\}$, such that each site connects to one bond of each type. On each bond, neighbouring spins interact with a bond-directional Ising-type coupling. The Hamiltonian is given by
 \begin{align} \label{eqn:kitaev_original_hamiltonian}
     H = -J^x \sum_{x\textup{-bonds}} \sigma_j^x \sigma_k^x
     -J^y \sum_{y\textup{-bonds}} \sigma_j^y \sigma_k^y
@@ -116,11 +116,11 @@ Once a set of $\{u_{jk}\}$ have been chosen, the Hamiltonian $H_u$ can be solved
         }\label{fig:gauge_transformation}
     \end{center}
 \end{figure}%
-Let us consider the effect of the parity operators $D_j$ on our system. Before a set of $u_{jk}$ values are chosen, the Hamiltonian in Eqn.~\ref{eqn:kitaev_ham_majorana} satisfies $[D_j , H] = 0$ for $\forall j$. However, once $u_{jk}$ are no longer operators, $D_j$ has the effect of flipping the sign of all $u$ terms that connect to site $j$, since
+Let us consider the effect of the parity operators $D_j$ on our system. Before a set of $u_{jk}$ values are chosen, the Hamiltonian in Eqn.~\ref{eqn:kitaev_ham_majorana} satisfies $[D_j , H] = 0$ for $\forall j$. However, once $u_{jk}$ are no longer operators, $D_j$ has the effect of flipping the sign of $u$ on the three bonds that connect to site $j$, since
 \begin{align}
     D_j u_{jk} c_j c_k D_j = -u_{jk} c_j c_k .
 \end{align}
-Thus, the effect applying a set of $D_j$ on some subset of sites ($j \in \mathcal S$) is to transform to a new set of bond operators $\{u\} \rightarrow \{u'\}$, where every bond that touches one flipped site has $u'_{jk} = - u_{jk}$. Pictorially, this can be represented as flipping all bond operators on the boundary between sites in the subset $\mathcal S$ and those not included. This is shown in Fig.~\ref{fig:gauge_transformation}. The transformation effected by $D_j$ has no effect on the spectrum of $H_u$, thus we may interpret $D_j$ as a gauge transformation, transporting us to a different set of $\{u_{jk}\}$ that represents the same physical system.
+Thus, the effect applying a set of $D_j$ on some subset of sites ($j \in \mathcal S$) is to transform to a new set of bond operators $\{u\} \rightarrow \{u'\}$, where every bond that touches one flipped site has $u'_{jk} = - u_{jk}$. We can represent this pictorially by drawing a loop the sites on which $D_j$ are applied and flipping the value of $u$ on every bond that intersects the loop. This is shown by the pink loops in Fig.~\ref{fig:gauge_transformation}. The transformation effected by $D_j$ has no effect on the spectrum of $H_u$, thus we may interpret $D_j$ as a gauge transformation, transporting us to a different set of $\{u_{jk}\}$ that represents the same physical system.
 
 \begin{shaded} 
     {\it Proof that $D_j$ leaves the spectrum invariant --- }
@@ -148,12 +148,15 @@ The above argument does not imply that {\it all} sets of $u_{jk}$ are equivalent
 \begin{equation} \label{eqn:z2_flux_def}
     \phi_p = \prod_{(j,k) \in p} -iu_{jk},
 \end{equation}
-where the product is taken over the $u_{jk}$ values going clockwise around each plaquette. The gauge invariance of this can be seen clearly from Fig.~\ref{fig:gauge_transformation}. A gauge transformation always corresponds to flipping over closed loops (depicted with a pink line). Each individual plaquette will always have an even number of bonds flipped by such a transformation, since every loop must both enter and exit the plaquette, leaving the value of $\phi_p$ invariant. In fact, the plaquette flux defined here is identical to the conserved quantity defined in Eqn.~\ref{eqn:wp_definition} which can be seen by applying the substitution in Eqn.~\ref{sigma_to_majorana} to the definition of $W_p$. Thus, gauge inequivalent sectors of the Hilbert space may be labelled by the values of $\phi_p = \pm 1$ through each plaquette. In order to change the flux through a given plaquette, we perform a line of flips that terminates at the plaquette, as shown in Fig.~\ref{fig:flux_flips}a. Thus, in periodic boundary conditions, it is only possible to flip $\phi_p$ in pairs, however in an open or infinite system we may flip a single flux with a line that starts at that plaquette and extends to the boundary of the system, or to infinity. 
+where the product is taken over the $u_{jk}$ values going clockwise around each plaquette. The gauge invariance of this can be seen clearly from Fig.~\ref{fig:gauge_transformation}. An individual $D_j$ operator flips three adjacent bonds, so will always flip the values of two bonds on a given plaquette, leading to an overall factor of $(-1)^2$ -- the flux therefore remains invariant. For a more general gauge transformation including multiple sites, we flip the bonds that intersect a closed loop, (shown in pink in Fig.~\ref{fig:flux_flips}). These closed loops must both enter and exit a given plaquette, so again will contribute a factor of $(-1)^2$ to any flux.
+
+In fact, the plaquette flux defined here is identical to the conserved quantity defined in Eqn.~\ref{eqn:wp_definition} which can be seen by applying the substitution in Eqn.~\ref{sigma_to_majorana} to the definition of $W_p$. Thus, gauge inequivalent sectors of the Hilbert space may be labelled by the values of $\phi_p = \pm 1$ through each plaquette. In order to change the flux through a given plaquette, we perform a line of flips that terminates at the plaquette, as shown in Fig.~\ref{fig:flux_flips}a. Such a change to the bond operators can never be achieved with a gauge transformation. Thus, in periodic boundary conditions, it is only possible to flip $\phi_p$ in pairs, however in an open or infinite system we may flip a single flux with a line that starts at that plaquette and extends to the boundary of the system, or to infinity. In this case, the other Majorana zero mode is created at the boundary, or at infinity for an unbounded system.
 
 Finally, we note that in periodic boundaries every flux sector is fourfold degenerate. This is because one may flip a line of $u_{jk}$ that wraps the system in either the $x$ or $y$-direction, producing a new flux sector that has identical values of $\phi_p$, but is not gauge equivalent to the starting state. To measure this, we may construct a pair of global fluxes $\Phi_x$ and $\Phi_y$, by taking a product of bond operators around a loop $L_x$ or $L_y$ that wraps the system in the $x$ or $y$ direction
 \begin{equation} \label{eqn:non_contractible_flux}
-    \Phi_\alpha = \prod_{(j,k) \in L_\alpha} -iu_{jk}.
+    \Phi_\alpha = \prod_{(j,k) \in L_\alpha} -iu_{jk},
 \end{equation}
+as shown in Fig.~\ref{fig:flux_flips}b.
 
 \begin{figure} 
     \begin{center}
@@ -188,15 +191,15 @@ This means that the Majorana Hamiltonian is not obviously TRS invariant, since t
 \begin{align}
     \hat T iu_{jk}c_jc_k \hat T^{-1} = -iu_{jk}c_jc_k,
 \end{align}
-so has the effect of flipping all bond operators in the system, $u_{jk} \rightarrow -u_{jk}$. On a bipartite system such as the Honeycomb this has no effect, since we can flip all bonds in the system by applying a gauge flip operator $D_j$ to every spin on the $A$ sublattice. The time reversed Hamiltonian is gauge equivalent to the original Hamiltonian. In general, provided the Majorana Hamiltonian has no coupling terms between two sites on the same sublattice, we are guaranteed that a gauge transformation exists that can map the time reversed state back, so time reversal has no effect on the system. 
+so has the effect of flipping all bond operators in the system, $u_{jk} \rightarrow -u_{jk}$. On a bipartite system such as the Honeycomb this has no measurable effect, since we can flip all bonds back by applying a gauge transformation $D_j$ to every spin on the $A$ sublattice. The time reversed Hamiltonian is gauge equivalent to the original Hamiltonian. In general, provided the Majorana Hamiltonian has no coupling between two sites on the same sublattice, it is guaranteed to respect TRS. The only way to break TRS is thus to introduce a next-nearest neighbour coupling that acts between pairs of sites on the same sublattice. This is just a restatement of the fact that chiral symmetry (or sublattice symmetry) satisfies $\mathcal C = \mathcal P \mathcal T $. Since the system already has particle-hole symmetry ($iA$ is pure imaginary), chiral symmetry necessarily implies time-reversal symmetry. 
 
 \subsection{Solving the Hamiltonian}
 
-Once a flux sector has been chosen, we are left with a Majorana Hamiltonian, $H_u$, as defined in Eqn.~\ref{eqn:majorana_hamiltonian_with_u}. The full methodology for diagonalising such a Hamiltonian is detailed in Appendix \ref{sec:majorana_diagonalisation} -- we present only the broad strokes here. We diagonalise the Hamiltonian by rotating to a new Majorana basis consisting of pairs of operators $\tilde c_j', \tilde c_j''$, 
+Once a flux sector has been chosen, we are left with a Majorana Hamiltonian, $H_u$, as defined in Eqn.~\ref{eqn:majorana_hamiltonian_with_u}. The full methodology for diagonalising such a Hamiltonian is detailed in Appendix \ref{sec:majorana_diagonalisation} -- we present only the broad strokes here. We diagonalise the Hamiltonian by rotating to a new Majorana basis consisting of pairs of operators $\tilde c$. 
 \begin{align}
     \tilde c_j = O_{jk}c_k,
 \end{align}
-where $O$ is a real orthogonal matrix. In this basis the Hamiltonian takes the form 
+where $O$ is a real orthogonal matrix. Since the $iA_{jk}$ matrix is pure imaginary, energies come in pairs, meaning that we can pair up the diagonalising Majoranas as $\tilde c_j', \tilde c_j''$,  In this basis the Hamiltonian takes the form 
 \begin{align}
     H = \sum_{ j } \varepsilon_j\, i \tilde c_j' \tilde c_j''.
 \end{align}
@@ -249,7 +252,7 @@ The three gapped phases are best understood by considering the model very close 
 
 Since the $\sigma^z\sigma^z$ couplings dominate, we expect the two spins on each bond to arrange into a $\ket{\uparrow \uparrow}$ or $\ket{\downarrow \downarrow}$ configuration, thus effectively combining, forming a single spin on each $z$-bond. Each of these effective spins is then coupled to four neighbours with $ \sigma^x\sigma^x$ and $\sigma^y\sigma^y$ interactions -- forming a square lattice. Here we will omit a full discussion of the perturbation theory, however it was shown that this model can be exactly mapped onto the toric code Hamiltonian at lowest order in perturbation theory~\cite{kitaev_anyons_2006,kitaev_fault-tolerant_2003,schmidt_emergent_2008,dusuel_creation_2008,vidal_perturbative_2008}. Thus, this phase inherits the properties of the toric code, including the presence of Abelian anyonic excitation.  
 
-\subsubsection{The Gapless \textit{B} Phase}
+\subsubsection{From the Gapless to the gapped \textit{B} Phase}
 \begin{figure} 
     \begin{center}
         \includegraphics[]{kitaev_model/figures/honeycomb_gaps.pdf}
@@ -261,9 +264,9 @@ Since the $\sigma^z\sigma^z$ couplings dominate, we expect the two spins on each
     \end{center}
 \end{figure}%
 
-Around the centre of the phase diagram all $J^\alpha$ are comparably strong, so the system can be considered maximally frustrated, and thus the best candidate for a strongly entangled ground state. In this phase the fermionic Hamiltonian is gapless, and so excitations have long-ranged interactions, preventing them from having well-defined exchange statistics. Thus, let us introduce a small perturbation capable of gapping out the Dirac cones in the dispersion relation of Eqn.~\ref{eqn:kitaev_bloch_hamiltonian}. 
+Around the centre of the phase diagram all $J^\alpha$ are comparably strong, so the system can be considered maximally frustrated, and thus the best candidate for a strongly entangled ground state. In this phase the fermionic Hamiltonian is gapless, and so excitations have long-ranged spatial extent, so cannot be sufficiently separated to have well-defined exchange statistics. Thus, let us introduce a small perturbation capable of gapping out the Dirac cones in the dispersion relation of Eqn.~\ref{eqn:kitaev_bloch_hamiltonian}. 
 
-Any perturbation that respects time reversal symmetry is unsuitable for this task. This is because, as we discussed in \textsection\ref{sec:hex_trs}, a time-reversal symmetric perturbation can only introduce couplings between sites on different sublattices. For a Bloch Hamiltonian of the form $iA(\textbf q) = f_x (\textbf q) \sigma^x + f_y (\textbf q) \sigma^y$, such a perturbation will only serve to modify the form of $f_x$ and $f_y$, shifting the position of the Dirac cones in phase space. However, the Pauli vector will remain confined to the $x$-$y$ plane, so a small perturbation will not be sufficient to prevent it from crossing the origin as it sweeps out the full Brillouin zone. Rather, we must introduce a perturbation that breaks TRS, and couples pairs of $A$ or $B$ sites. This introduces a $\sigma^z$-type term to the Bloch Hamiltonian. One example of such a perturbation corresponds to applying a weak magnetic field to our system. A straightforward magnetic field term of the form $V = h_\alpha \sigma^\alpha$ destroys the integrability of the system, however using perturbation theory one can construct an effective magnetic field term that respects it. The lowest term in perturbation theory that breaks TRS is found at third order, given by a term of the form
+Any perturbation that respects time reversal symmetry is unsuitable for this task. This is because, as we discussed in \textsection\ref{sec:hex_trs}, a time-reversal symmetric perturbation can only introduce couplings between an $A$ site and a $B$ site. For a Bloch Hamiltonian of the form $iA(\textbf q) = f_x (\textbf q) \sigma^x + f_y (\textbf q) \sigma^y$, such a perturbation will only serve to modify the form of $f_x$ and $f_y$, shifting the position of the Dirac cones in phase space. However, the Pauli vector will remain confined to the $x$-$y$ plane, so a small perturbation will not be sufficient to prevent it from crossing the origin as it sweeps out the full Brillouin zone. Rather, we must introduce a perturbation that breaks TRS, and couples pairs of $A$ or $B$ sites. This introduces a $\sigma^z$-type term to the Bloch Hamiltonian. One example of such a perturbation corresponds to applying a weak magnetic field to our system. A straightforward magnetic field term of the form $V = h_\alpha \sigma^\alpha$ destroys the integrability of the system, however using perturbation theory one can construct an effective magnetic field term that respects it. The lowest term in perturbation theory that breaks TRS is found at third order \cite{kitaev_anyons_2006}, given by a term of the form
 \begin{align}
     V_{\textup{eff}} = - \kappa\, 
     \sigma_j^x
@@ -303,8 +306,8 @@ Thus, the system has become a straightforward fermionic hopping hamiltonian. Not
         \caption[Bound states in the non-Abelian phase.]{ 
             \textbf{(a)}~A single flux (shown in purple) is created in an infinite honeycomb model by flipping a line of bond operators starting at the flux and extending horizontally to infinity.
             \textbf{(b)}~The system in subplot (a) can be rewritten as a pair of Chern insulators which are then coupled together using the remaining horizontal line of bonds. Each of the two systems contributes an edge mode travelling with velocity $\pm v$ at the boundary, shown in red. 
-            \textbf{(c)}~A pair of fluxes is flipped with respect to the ground state in a Kitaev model at the isotropic point with $kappa = 0.0025$. The local number density of the Majorana bound state is shown by the colourmap.
-            \textbf{(d)}~Plot showing the energies of the states in the Kitaev model with the same parameters as in (c). Each set of points corresponds to the system with a pair of flipped fluxes at some given separation, showing how the energy of the Majorana modes decays exponentially with the distance between fluxes.
+            \textbf{(c)}~A pair of fluxes is flipped with respect to the ground state in a Kitaev model at the isotropic point with $\kappa = 0.0025$. The local number density of the Majorana bound state is shown by the colourmap.
+            \textbf{(d)}~Plot showing the energies of the states in the Kitaev model with the same parameters as in (c). Each set of points corresponds to the system with a pair of flipped fluxes at some given separation shown in units of the spacing between a pair of plaquette centres, showing how the energy of the Majorana modes decays exponentially with the distance between fluxes.
         }\label{fig:bound_states}
     \end{center}
 \end{figure}%
@@ -315,7 +318,7 @@ Before the coupling is introduced, each Chern insulator must have a single edge 
 \begin{align}
     H = -iv\sigma^z\partial_x.
 \end{align}
-Now let us introduce the coupling between the two half-systems. Since we must respect the overall particle-hole symmetry of the system, the only allowed coupling must be proportional to $\sigma^y$ -- the Hamiltonian must remain pure imaginary and antisymmetric. Thus, the overall Hamiltonian is
+Now let us introduce the coupling between the two half-systems. Since we must respect the overall particle-hole symmetry of the system, the only allowed coupling must be proportional to $\sigma^y$ -- the Hamiltonian must remain pure imaginary and antisymmetric. Thus, the overall Hamiltonian is equivalent to the Jackiw-Rebbi model \cite{jackiw_solitons_1976},
 \begin{align}
     H = -iv\sigma^z\partial_x + \mu(x) \sigma^y,
 \end{align}

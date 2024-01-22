@@ -5,7 +5,7 @@ We work on a square lattice of unit cells indexed by a two-dimensional lattice v
 \begin{figure}[t]
     \begin{center}
      \includegraphics[]{local_markers_background/figures/QWZ_donut}
-    \caption[A single band of the QWZ model plotted on the Bloch sphere.]{The embedding of the Brillouin zone in $\textbf d$-space for the QWZ model. This is shown in four progressive cutaways to ensure the internal structure can be seen. In all four images $k_x$ spans the interval $\left [0, 2\pi \right )$, however in \textbf{(a)}~$k_y$ spans $\left [ 0, \frac{\pi}{2} \right )$, in \textbf{(b)}~$k_y$ spans $\left [0, \pi \right )$, in \textbf{(c)}~$k_y$ spans $\left [0, \frac{3 \pi}{2} \right )$, and in \textbf{(d)}~$k_y$ spans $\left [0, 2\pi \right )$. }
+    \caption[A single band of the QWZ model plotted on the Bloch sphere. ]{The embedding of the Brillouin zone in $\textbf d$-space for the QWZ model. This is shown in four progressive cutaways to ensure the internal structure can be seen. In all four images $k_x$ spans the interval $\left [0, 2\pi \right )$, however in \textbf{(a)}~$k_y$ spans $\left [ 0, \frac{\pi}{2} \right )$, in \textbf{(b)}~$k_y$ spans $\left [0, \pi \right )$, in \textbf{(c)}~$k_y$ spans $\left [0, \frac{3 \pi}{2} \right )$, and in \textbf{(d)}~$k_y$ spans $\left [0, 2\pi \right )$. }
     \label{fig:QWZ_donut}
     \end{center}
 \end{figure}%
@@ -42,7 +42,7 @@ Q = \left\{\begin{matrix}
 0  &:&  \textit{otherwise},
 \end{matrix}\right. 
 \end{align}
-not including the points at $u = -2$, $0$ and $2$, at which the Chern number is undefined because the band gap closes and the material becomes conducting. Some example band structures for varying values of $u$ are shown in Fig.~\ref{fig:QWZ_band_struct}.
+not including the points at $u = -2$, $0$ and $2$, at which the Chern number is undefined because the band gap closes, and the material becomes conducting. Some example band structures for varying values of $u$ are shown in Fig.~\ref{fig:QWZ_band_struct}.
 \begin{figure}[t]
 \begin{center}
  \includegraphics[]{local_markers_background/figures/QWZ_band_struct} 
@@ -54,7 +54,7 @@ not including the points at $u = -2$, $0$ and $2$, at which the Chern number is 
 \subsection{Strip Geometry and Edge Modes} \label{sec:QWZ_strip_geometry}
 According to the bulk-boundary correspondence, whenever the Chern number $\mathcal C$ is nonzero, the QWZ model must have gapless edge modes appearing. To provide an example, here we construct the model on strip geometry and provide an analytical expression for the edge modes.
 
-We shall require that the system is periodic and uniform in the $y$-direction, but is allowed to be non-uniform and have open boundaries in the $x$-direction. We allow $u$ to vary in the $x$-direction, so add a subscript to indicate position-dependence, $u \rightarrow u_{m_x}$. We can apply Bloch's theorem in the $y$-direction only, and our eigenstates take the following form,
+We shall require that the system is periodic and uniform in the $y$-direction, but is allowed to be non-uniform and have open boundaries in the $x$-direction. To allow $u$ to vary in the $x$-direction, we add a subscript to indicate position-dependence, $u \rightarrow u_{m_x}$. We can apply Bloch's theorem in the $y$-direction only, and the eigenstates take the following form,
 \begin{align}
     \ket{\psi} = \ket{k_y}\otimes \ket{v_{k_y}^{}},
 \end{align}
@@ -88,7 +88,7 @@ This state has energy
 \begin{align}
     E_l &= -\sin k_y.
 \end{align}
-Similarly, the right edge state is determined by by
+Similarly, the right edge state is determined by
 \begin{align}
     \ket {\psi^{\textup{right}}_{k_y}} &= \sqrt{1-\xi_r^2} \sum_{m=1}^{L_x} \xi_r^{L_x-m} \ket m \otimes  \begin{pmatrix}
     1\\

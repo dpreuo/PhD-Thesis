@@ -11,3 +11,5 @@
 {"rule":"EN_A_VS_AN","sentence":"^\\QThus, let consider a single state \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q and define a local gauge transformation, applying an \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q-dependent phase \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q to all the states over this band.\\E$"}
 {"rule":"A_LOT_OF_NN","sentence":"^\\QHowever, the investigation also revealed a pair of valence bond solid (VBS) phases – a singlet phase and a triplet phase – which had no honeycomb analogue.\\E$"}
 {"rule":"SMALL_NUMBER_OF","sentence":"^\\QWith just a few assumptions one could simplify the Hamiltonian to the point that it nly depended on a small number of parameters.\\E$"}
+{"rule":"SENTENCE_WHITESPACE","sentence":"^\\QVoronoi, which uses the quickhull algorithm \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qnot including the points at \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q and \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, at which the Chern number is undefined because the band gap closes, and the material becomes conducting.\\E$"}
