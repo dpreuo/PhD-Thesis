@@ -1,0 +1,14 @@
+The last forty years has seen a global effort to understand and create materials that can host topological excitations, which have an enormous range of possible applications in future electronic devices, transistors and even quantum computing. In this search, prevailing theoretical models often hinge on fine-tuning materials to exhibit specific interactions within precise crystal structures, and many of the mathematical tools used by researchers are well-defined only for such crystalline materials. 
+
+Peru's research has focussed on understanding how such ideas can be translated onto systems with no spatial symmetries at all. Throughout his doctoral research he has carefully explored how topology can be understood in this context, which has resulted in publications in prestigious journals such as Nature Communications and Physical Review, where he garnered an editor's recommendation. 
+
+Firstly, in a non-crystalline material even the process of measuring whether a model is 'topological' is challenging. Peru proposed a physical observable that corresponded to a local measure of topology which could be performed in any material. This approach provides a practical avenue for identifying topological characteristics in non-crystalline materials, overcoming the challenges posed by the absence of spatial symmetries.
+
+Building upon this success, Peru extended his research to explore topology in magnetic materials. Here, alongside his collaborators, he achieved a milestone by creating the first example of an amorphous quantum spin liquid (QSL), providing a concrete procedure for constructing a Kitaev QSL on any trivalent lattice. Given that the search for a material capable of hosting such a phase is ongoing, this result substantially broadens the realm of candidate Kitaev QSls and opens new possibilities for the realisation of exotic quantum states in amorphous materials. 
+
+Finally, by considering the effect of perturbing Heisenberg interactions present in most candidate Kitaev materials, Peru demonstrated a keen understanding of how intentionally introducing lattice distortions and breaking specific symmetries could lead to the emergence of unprecedented quantum phases. Through sophisticated theoretical analyses and numerical simulations, he uncovered a host of new topological phases that had not previously been seen in such models. 
+
+Peru's contributions to the understanding and exploration of topological excitations in non-crystalline and magnetic materials make him a strong candidate for the Solid State Physics Prize. His inventive approach to identifying topological characteristics in non-crystalline materials, along with the creation of the first example of an amorphous quantum spin liquid (QSL) and the elucidation of novel topological phases in the Kitaev Heisenberg model, reflects a deep understanding of solid-state physics. 
+
+
+
