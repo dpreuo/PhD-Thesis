@@ -28,7 +28,7 @@ We divide our system into three regions in real space, $A$, $B$ and $C$, and def
 \begin{align}
     \qkit(P) = \sum_{j \in A}\sum_{k \in B}\sum_{l \in C} h_{jkl},
 \end{align}
-which we can re-express in terms of a set of projectors onto the three regions,
+which we can re-express in terms of a set of projectors onto the three regions $A = \sum_{j \in A}\ketbra{\textbf r_j}{\textbf r_j}$, with a similar definition for $B$ and $C$,
 \begin{align} \label{eqn:qkit_def}
     \qkit(P) = 12\pi i \tr( PAPBPC - PCPBPA) .
 \end{align}
@@ -112,9 +112,10 @@ By decomposing the step function into projectors onto the four quarters of the p
         [P b P, P b P ] \\
         &+[P a P, P c P ] 
         +[P b P, P c P ]
-        \big )    
+        \big ),
 \end{split}
 \end{align}
+where the labelling of the regions $a$-$d$ is shown in Fig.~\ref{fig:four_squares}.
 \begin{figure}
     \begin{center}
        \includegraphics[]{crosshair_marker/figures/four_boxes.pdf}
